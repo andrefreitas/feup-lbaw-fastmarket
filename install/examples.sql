@@ -1,8 +1,3 @@
-/* Privileges */
-INSERT INTO privileges (name) VALUES('admin');
-INSERT INTO privileges (name) VALUES('merchant');
-INSERT INTO privileges (name) VALUES('costumer');
-
 /* Users */
 /* ADMIN - Password: Jihxouigp34 */
 INSERT INTO users(name,email,password,privilege_id) 

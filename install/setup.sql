@@ -140,3 +140,8 @@ CREATE TABLE orders_products(
 	base_cost NUMERIC NOT NULL,
 	PRIMARY KEY (order_id,product_id)
 );
+
+/* Privileges */
+INSERT INTO privileges (name) VALUES('admin');
+INSERT INTO privileges (name) VALUES('merchant');
+INSERT INTO privileges (name) VALUES('costumer');
