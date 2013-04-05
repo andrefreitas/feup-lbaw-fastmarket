@@ -165,3 +165,55 @@ CREATE UNIQUE INDEX users_name ON users(name);
 CREATE UNIQUE INDEX users_email ON users(email);
 CREATE UNIQUE INDEX stores_name on stores(name);
 CREATE UNIQUE INDEX orders_date on orders(order_date);
+
+/* Triggers */
+DROP TRIGGER IF EXISTS delete_store ON stores;
+
+CREATE OR REPLACE FUNCTION delete_store() RETURNS void as 'SELECT NULL::void'
+    BEGIN
+
+        DELETE FROM users
+        USING stores_users,privileges
+        WHERE NEW.id = stores_users.store_id AND
+              stores_users.user_id=users.id AND
+              users.privilege_id=privileges.id AND 
+              privileges.name = 'costumer';
+ 
+ 
+        DELETE FROM files
+        USING stores
+        WHERE NEW.id = stores.id AND
+              (files.id = stores.logo_id OR
+               files.id = stores.css_id);
+ 
+        DELETE FROM files
+        USING categories
+        WHERE NEW.id = categories.store_id AND
+              files.id = categories.image_id;
+ 
+        DELETE FROM files
+        USING categories,products_images,products
+        WHERE NEW.id = categories.store_id AND
+              categories.id=products.category_id AND
+              products_images.product_id=products.id AND
+              files.id=products_images.file_id;
+ 
+        DELETE FROM files
+        USING stores_files
+        WHERE NEW.id = stores_files.store_id AND
+              stores_files.file_id = files.id;
+ 
+        DELETE FROM stores
+        WHERE NEW.id = stores.id;
+ 
+        DELETE FROM products
+        USING categories
+        WHERE category_id=categories.id AND store_id = NEW.id;
+ 
+
+        RETURN;
+    END;
+$delete_store$ LANGUAGE plpgsql;
+ 
+CREATE TRIGGER delete_store INSTEAD OF DELETE ON stores
+    FOR EACH ROW EXECUTE PROCEDURE delete_store();
