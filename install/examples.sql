@@ -1,16 +1,20 @@
 /* Users */
 /* ADMIN - Password: Jihxouigp34 */
 INSERT INTO users(name,email,password,registration_date,privilege_id) 
-VALUES('David Smith','david@gmail.com','d35aa290d06ae9cb981c71250356ce6d415a4e9299500dd2742cdbac5ef78b12','2013-02-01',1);
+VALUES('David Smith','david@gmail.com','d35aa290d06ae9cb981c71250356ce6d415a4e9299500dd2742cdbac5ef78b12',
+'2013-02-01',1);
 /* MERCHANT - Password: Kl6jfuig */
 INSERT INTO users(name,email,password,registration_date,privilege_id) 
-VALUES('Peter Griffin','peter@gmail.com','7fe0eb49c3719f1b97142c1e7bb9f91706d3e2a9167e271fda8b3d7545389cfe','2013-02-01',2);
+VALUES('Peter Griffin','peter@gmail.com','7fe0eb49c3719f1b97142c1e7bb9f91706d3e2a9167e271fda8b3d7545389cfe',
+'2013-02-01',2);
 /* COSTUMER - Password: k8h3ugfs */
 INSERT INTO users(name,email,password,registration_date,privilege_id) 
-VALUES('Sophie Adams','sophie@yahoo.com','a8c3210a0bb31d22b8bb0964ce4a9b3a556d98783b21bd2e787c355efbbad05c','2013-02-01',3);
+VALUES('Sophie Adams','sophie@yahoo.com','a8c3210a0bb31d22b8bb0964ce4a9b3a556d98783b21bd2e787c355efbbad05c',
+'2013-02-01',3);
 /* COSTUMER - Password: sdtg73oig3 */
 INSERT INTO users(name,email,password,registration_date,privilege_id) 
-VALUES('Tony Perry','tony@yahoo.com','bc9d5178b8686a89052bc0b5f5af6a461ed034140e08bf07c4b8ff43477cfa46','2013-02-01',3);
+VALUES('Tony Perry','tony@yahoo.com','bc9d5178b8686a89052bc0b5f5af6a461ed034140e08bf07c4b8ff43477cfa46',
+'2013-02-01',3);
 
 /* Files */
 INSERT INTO files(name,path) VALUES('Lux Cars','luxcars_logotipo.png');
@@ -18,7 +22,8 @@ INSERT INTO files(name,path) VALUES('BMW Brand','luxcars_bmwbrand.png');
 INSERT INTO files(name,path) VALUES('Ferrari Brand','luxcars_ferrari.png');
 
 /* Stores */
-INSERT INTO stores(name,slogan,domain,vat,creation_date,logo_id) VALUES('Lux Cars','Cars have value','luxcars.com',0.23,'2013-01-05',1);
+INSERT INTO stores(name,slogan,domain,vat,creation_date,logo_id) 
+VALUES('Lux Cars','Cars have value','luxcars.com',0.23,'2013-01-05',1);
 
 /* Associate users to stores */
 INSERT INTO stores_users(user_id,store_id) VALUES(2,1);
