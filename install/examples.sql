@@ -46,3 +46,7 @@ VALUES ('2013-03-11','So powerfull...',4,1);
 /* Favorites */
 INSERT INTO favorites(user_id,product_id) VALUES (3,1);
 INSERT INTO favorites(user_id,product_id) VALUES (4,2);
+
+/* Scores */
+INSERT INTO products_scores(user_id,product_id,score) VALUES (3,1,3);
+INSERT INTO products_scores(user_id,product_id,score) VALUES (4,1,4);

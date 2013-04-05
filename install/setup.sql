@@ -157,7 +157,6 @@ DROP INDEX IF EXISTS users_name;
 DROP INDEX IF EXISTS users_email;
 DROP INDEX IF EXISTS stores_name;
 DROP INDEX IF EXISTS orders_date;
-
 CREATE UNIQUE INDEX products_name ON products (name);
 CREATE INDEX products_description ON products USING gin(to_tsvector('english', description));
 CREATE UNIQUE INDEX categories_name ON categories(name);
@@ -167,8 +166,13 @@ CREATE UNIQUE INDEX stores_name on stores(name);
 CREATE UNIQUE INDEX orders_date on orders(order_date);
 
 /* Triggers */
-DROP TRIGGER IF EXISTS delete_store ON stores;
 
+/*
+ * When a store is deleted, this trigger assure that the records,
+ * that are not triggered by the cascade effect,  are deleted.
+ *
+ */
+DROP TRIGGER IF EXISTS delete_store ON stores;
 CREATE OR REPLACE FUNCTION delete_store() RETURNS trigger as $$
      BEGIN
 
@@ -215,3 +219,48 @@ $$ LANGUAGE plpgsql;
  
 CREATE TRIGGER delete_store BEFORE DELETE ON stores
     FOR EACH ROW EXECUTE PROCEDURE delete_store();
+
+ 
+ /*
+  * This triggers automaticly updates the score of the product when a new
+  * user evaluates a product. 
+  * 
+  */ 
+ -- Remove the old score from that costumer in that product
+ DROP TRIGGER IF EXISTS new_score_before ON stores;
+ DROP FUNCTION IF EXISTS new_score_before();
+ CREATE OR REPLACE FUNCTION new_score_before() RETURNS trigger as $$
+    BEGIN
+            DELETE FROM products_scores
+            WHERE NEW.user_id = products_scores.user_id AND
+                  NEW.product_id = products_scores.product_id;  
+            RETURN NEW;
+    END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER new_score_before BEFORE INSERT ON products_scores
+    FOR EACH ROW EXECUTE PROCEDURE new_score_before();
+
+-- Compute the score average again
+DROP TRIGGER IF EXISTS new_score_after ON stores;
+DROP FUNCTION IF EXISTS new_score_after();
+CREATE OR REPLACE FUNCTION new_score_after() RETURNS trigger as $$
+	DECLARE
+	avg_score numeric;
+    BEGIN
+	    	
+            SELECT AVG(score) INTO avg_score
+            FROM products_scores
+            WHERE products_scores.user_id = NEW.user_id AND
+                  products_scores.product_id = NEW.product_id;
+ 
+            UPDATE products SET score = avg_score
+            WHERE products.id = NEW.product_id;
+ 
+            RETURN NEW;
+    END;
+$$ LANGUAGE plpgsql;
+ 
+CREATE TRIGGER new_score_after AFTER INSERT ON products_scores
+    FOR EACH ROW EXECUTE PROCEDURE new_score_after();
+
