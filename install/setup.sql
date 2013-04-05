@@ -43,8 +43,8 @@ CREATE TABLE stores(
 	vat NUMERIC NOT NULL CHECK (vat > 0 and vat<1),
 	creation_date DATE NOT NULL,
 	domain TEXT NOT NULL,
-	logo_id INTEGER REFERENCES files(id),
-	css_id INTEGER REFERENCES files(id)
+	logo_id INTEGER REFERENCES files(id) ON DELETE SET NULL,
+	css_id INTEGER REFERENCES files(id) ON DELETE SET NULL
 );
 
 CREATE TABLE stores_users(
@@ -57,7 +57,7 @@ CREATE TABLE categories(
 	id SERIAL PRIMARY KEY,
 	name TEXT NOT NULL,
 	store_id INTEGER REFERENCES stores(id) ON DELETE CASCADE NOT NULL,
-	image_id INTEGER REFERENCES files(id)
+	image_id INTEGER REFERENCES files(id) ON DELETE SET NULL
 );
 
 CREATE TABLE stores_files(
@@ -79,7 +79,7 @@ CREATE TABLE products(
 
 
 CREATE TABLE products_images(
-	file_id INTEGER REFERENCES files(id),
+	file_id INTEGER REFERENCES files(id) ON DELETE SET NULL,
 	product_id INTEGER REFERENCES products(id) ON DELETE CASCADE,
 	PRIMARY KEY (file_id,product_id)
 );
@@ -166,11 +166,11 @@ CREATE UNIQUE INDEX users_email ON users(email);
 CREATE UNIQUE INDEX stores_name on stores(name);
 CREATE UNIQUE INDEX orders_date on orders(order_date);
 
-/* Triggers */
+/* Triggers  - need to be fixed*/
 DROP TRIGGER IF EXISTS delete_store ON stores;
 
 CREATE OR REPLACE FUNCTION delete_store() RETURNS void as 'SELECT NULL::void'
-    BEGIN
+     BEGIN
 
         DELETE FROM users
         USING stores_users,privileges
@@ -203,8 +203,6 @@ CREATE OR REPLACE FUNCTION delete_store() RETURNS void as 'SELECT NULL::void'
         WHERE NEW.id = stores_files.store_id AND
               stores_files.file_id = files.id;
  
-        DELETE FROM stores
-        WHERE NEW.id = stores.id;
  
         DELETE FROM products
         USING categories
@@ -212,8 +210,8 @@ CREATE OR REPLACE FUNCTION delete_store() RETURNS void as 'SELECT NULL::void'
  
 
         RETURN;
-    END;
+    END
 $delete_store$ LANGUAGE plpgsql;
  
-CREATE TRIGGER delete_store INSTEAD OF DELETE ON stores
+CREATE TRIGGER delete_store BEFORE DELETE ON stores
     FOR EACH ROW EXECUTE PROCEDURE delete_store();
