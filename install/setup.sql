@@ -40,7 +40,7 @@ CREATE TABLE stores(
 	id SERIAL PRIMARY KEY,
 	name TEXT UNIQUE NOT NULL,
 	slogan TEXT NOT NULL,
-	vat INTEGER NOT NULL CHECK (vat > 0),
+	vat NUMERIC NOT NULL CHECK (vat > 0 and vat<1),
 	creation_date DATE NOT NULL,
 	domain TEXT NOT NULL,
 	logo_id INTEGER REFERENCES files(id),
@@ -156,6 +156,7 @@ DROP INDEX IF EXISTS categories_name;
 DROP INDEX IF EXISTS users_name;
 DROP INDEX IF EXISTS users_email;
 DROP INDEX IF EXISTS stores_name;
+DROP INDEX IF EXISTS orders_date;
 
 CREATE UNIQUE INDEX products_name ON products (name);
 CREATE INDEX products_description ON products USING gin(to_tsvector('english', description));
@@ -163,3 +164,4 @@ CREATE UNIQUE INDEX categories_name ON categories(name);
 CREATE UNIQUE INDEX users_name ON users(name);
 CREATE UNIQUE INDEX users_email ON users(email);
 CREATE UNIQUE INDEX stores_name on stores(name);
+CREATE UNIQUE INDEX orders_date on orders(order_date);
