@@ -48,21 +48,21 @@ CREATE TABLE stores(
 );
 
 CREATE TABLE stores_users(
-	user_id INTEGER REFERENCES users(id) NOT NULL,
-	store_id INTEGER REFERENCES stores(id) NOT NULL,
+	user_id INTEGER REFERENCES users(id) ON DELETE CASCADE NOT NULL,
+	store_id INTEGER REFERENCES stores(id) ON DELETE CASCADE NOT NULL,
 	PRIMARY KEY (user_id,store_id)
 );
 
 CREATE TABLE categories(
 	id SERIAL PRIMARY KEY,
 	name TEXT NOT NULL,
-	store_id INTEGER REFERENCES stores(id) NOT NULL,
+	store_id INTEGER REFERENCES stores(id) ON DELETE CASCADE NOT NULL,
 	image_id INTEGER REFERENCES files(id)
 );
 
 CREATE TABLE stores_files(
-	store_id INTEGER REFERENCES stores(id),
-	file_id INTEGER REFERENCES files(id),
+	store_id INTEGER REFERENCES stores(id) ON DELETE CASCADE NOT NULL,
+	file_id INTEGER REFERENCES files(id) ON DELETE CASCADE NOT NULL,
 	PRIMARY KEY (store_id,file_id)
 );
 
@@ -74,13 +74,13 @@ CREATE TABLE products(
 	stock INTEGER NOT NULL,
 	insertion_date DATE NOT NULL,
 	score INTEGER,
-	category_id INTEGER REFERENCES categories(id)
+	category_id INTEGER REFERENCES categories(id) ON DELETE SET NULL
 );
 
 
 CREATE TABLE products_images(
 	file_id INTEGER REFERENCES files(id),
-	product_id INTEGER REFERENCES products(id),
+	product_id INTEGER REFERENCES products(id) ON DELETE CASCADE,
 	PRIMARY KEY (file_id,product_id)
 );
 
@@ -89,33 +89,33 @@ CREATE TABLE transactions(
 	transaction_date DATE NOT NULL,
 	ammount INTEGER NOT NULL CHECK (ammount > 0),
 	description TEXT,
-	store_id INTEGER REFERENCES stores(id)
+	store_id INTEGER REFERENCES stores(id) ON DELETE CASCADE
 );
 
 CREATE TABLE comments(
 	id SERIAL PRIMARY KEY,
 	comment_date DATE NOT NULL,
 	body TEXT NOT NULL,
-	user_id INTEGER references users(id) NOT NULL,
-	product_id INTEGER references products(id) NOT NULL
+	user_id INTEGER references users(id) ON DELETE CASCADE NOT NULL,
+	product_id INTEGER references products(id) ON DELETE CASCADE NOT NULL
 );
 
 CREATE TABLE products_scores(
-	user_id INTEGER REFERENCES users(id),
-	product_id INTEGER REFERENCES products(id),
+	user_id INTEGER REFERENCES users(id) ON DELETE CASCADE NOT NULL,
+	product_id INTEGER REFERENCES products(id)ON DELETE CASCADE NOT NULL,
 	score INTEGER NOT NULL CHECK (score>=0 and score<=5),
 	PRIMARY KEY(user_id,product_id)
 );
 
 CREATE TABLE favorites(
-	user_id INTEGER REFERENCES users(id),
-	product_id INTEGER REFERENCES products(id),
+	user_id INTEGER REFERENCES users(id) ON DELETE CASCADE NOT NULL,
+	product_id INTEGER REFERENCES products(id) ON DELETE CASCADE NOT NULL,
 	PRIMARY KEY(user_id,product_id)
 );
 
 CREATE TABLE products_subscriptions(
-	user_id INTEGER REFERENCES users(id),
-	product_id INTEGER REFERENCES products(id),
+	user_id INTEGER REFERENCES users(id) ON DELETE CASCADE NOT NULL,
+	product_id INTEGER REFERENCES products(id) ON DELETE CASCADE NOT NULL,
 	subscription_date DATE NOT NULL,
 	PRIMARY KEY(user_id,product_id)
 );
@@ -124,8 +124,8 @@ CREATE TABLE orders(
 	id SERIAL PRIMARY KEY,
 	order_date DATE NOT NULL,
 	paid BOOLEAN NOT NULL,
-	costumer_id INTEGER REFERENCES users(id) NOT NULL,
-	transaction_id INTEGER REFERENCES transactions(id)
+	costumer_id INTEGER REFERENCES users(id) ON DELETE CASCADE NOT NULL,
+	transaction_id INTEGER REFERENCES transactions(id)  ON DELETE CASCADE
 );
 
 CREATE TABLE invoice(
@@ -133,12 +133,12 @@ CREATE TABLE invoice(
 	code TEXT UNIQUE NOT NULL,
 	total numeric NOT NULL CHECK (total > 0),
 	vat numeric NOT NULL,
-	order_id INTEGER REFERENCES orders(id) NOT NULL
+	order_id INTEGER REFERENCES orders(id) ON DELETE CASCADE NOT NULL
 );
 
 CREATE TABLE orders_products(
-	order_id INTEGER REFERENCES orders(id),
-	product_id INTEGER REFERENCES products(id),
+	order_id INTEGER REFERENCES orders(id) ON DELETE CASCADE,
+	product_id INTEGER REFERENCES products(id)  ON DELETE CASCADE,
 	quantity INTEGER NOT NULL CHECK (quantity > 0),
 	base_cost NUMERIC NOT NULL CHECK (base_cost > 0),
 	PRIMARY KEY (order_id,product_id)

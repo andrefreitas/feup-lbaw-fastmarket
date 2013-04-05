@@ -46,5 +46,3 @@ VALUES ('2013-03-11','So powerfull...',4,1);
 /* Favorites */
 INSERT INTO favorites(user_id,product_id) VALUES (3,1);
 INSERT INTO favorites(user_id,product_id) VALUES (4,2);
-
-select * from users;
