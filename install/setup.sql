@@ -215,20 +215,3 @@ $$ LANGUAGE plpgsql;
  
 CREATE TRIGGER delete_store BEFORE DELETE ON stores
     FOR EACH ROW EXECUTE PROCEDURE delete_store();
-    
-    
-    /* codigo para testes */
-    DELETE FROM products_scores
-    WHERE 1 = products_scores.user_id AND
-          1 = products_scores.product_id;
-                  
-    INSERT INTO products_scores(user_id,product_id,score) values(1,1,4);
-          
-    SELECT AVG(score) INTO avg_score
-    FROM products_scores
-    WHERE products_scores.user_id = 1 AND
-          products_scores.product_id = 1;
- 
-    UPDATE products SET score = avg_score
-    WHERE products.id = 1;
-    
