@@ -228,7 +228,7 @@ CREATE TRIGGER delete_store BEFORE DELETE ON stores
   */ 
  -- Remove the old score from that costumer in that product
  DROP TRIGGER IF EXISTS new_score_before ON products_scores;
-
+ DROP FUNCTION IF EXISTS new_score_before();
  CREATE OR REPLACE FUNCTION new_score_before() RETURNS trigger as $$
     BEGIN
             DELETE FROM products_scores
@@ -244,7 +244,7 @@ CREATE TRIGGER new_score_before BEFORE INSERT ON products_scores
 
 -- Compute the score average again
 DROP TRIGGER IF EXISTS new_score_after ON products_scores;
-
+DROP FUNCTION IF EXISTS new_score_after();
 CREATE OR REPLACE FUNCTION new_score_after() RETURNS trigger as $$
 	DECLARE
 	avg_score numeric;
