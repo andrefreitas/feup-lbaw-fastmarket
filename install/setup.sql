@@ -264,5 +264,7 @@ $$ LANGUAGE plpgsql;
 CREATE TRIGGER new_score_after AFTER INSERT ON products_scores
     FOR EACH ROW EXECUTE PROCEDURE new_score_after();
 
+    
+    
 
    
