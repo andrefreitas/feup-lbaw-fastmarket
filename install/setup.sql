@@ -157,13 +157,13 @@ DROP INDEX IF EXISTS users_name;
 DROP INDEX IF EXISTS users_email;
 DROP INDEX IF EXISTS stores_name;
 DROP INDEX IF EXISTS orders_date;
-CREATE UNIQUE INDEX products_name ON products (name);
+CREATE INDEX products_name ON products (name);
 CREATE INDEX products_description ON products USING gin(to_tsvector('english', description));
-CREATE UNIQUE INDEX categories_name ON categories(name);
-CREATE UNIQUE INDEX users_name ON users(name);
-CREATE UNIQUE INDEX users_email ON users(email);
-CREATE UNIQUE INDEX stores_name on stores(name);
-CREATE UNIQUE INDEX orders_date on orders(order_date);
+CREATE INDEX categories_name ON categories(name);
+CREATE INDEX users_name ON users(name);
+CREATE INDEX users_email ON users(email);
+CREATE INDEX stores_name on stores(name);
+CREATE INDEX orders_date on orders(order_date);
 
 /* Triggers */
 
@@ -265,15 +265,4 @@ CREATE TRIGGER new_score_after AFTER INSERT ON products_scores
     FOR EACH ROW EXECUTE PROCEDURE new_score_after();
 
 
-    /*codigo para testes*/
-SELECT aux.id, MAX(totalQ)
-FROM (
-SELECT products.id, SUM(orders_products.quantity) as totalQ
-FROM products, orders_products, orders, stores_users
-WHERE products.id=orders_products.product_id AND 
-      orders.id=orders_products.order_id AND 
-      stores_users.store_id=1 AND stores_users.user_id=orders.costumer_id AND 
-      order_date >= '2012-04-05'AND order_date <= '2014-04-05' 
-GROUP BY products.id
-) as aux
-GROUP BY aux.id;
+   
