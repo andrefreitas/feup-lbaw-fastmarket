@@ -265,6 +265,27 @@ CREATE TRIGGER new_score_after AFTER INSERT ON products_scores
     FOR EACH ROW EXECUTE PROCEDURE new_score_after();
 
     
+/* delete categories */
+DROP TRIGGER IF EXISTS delete_category ON categories;
+DROP FUNCTION IF EXISTS delete_category();
+CREATE OR REPLACE FUNCTION delete_category() RETURNS trigger as $$
+	DECLARE
+	categoryID integer;
+    BEGIN
+
+	        SELECT categories.id INTO categoryID
+	        FROM categories
+	        WHERE categories.store_id=OLD.store_id AND categories.name = 'no category';
+	              
+	        UPDATE products SET category_id = categoryID
+            WHERE category_id = OLD.id;
+ 
+            RETURN OLD;
+    END;
+$$ LANGUAGE plpgsql;
+ 
+CREATE TRIGGER delete_category BEFORE DELETE ON categories
+    FOR EACH ROW EXECUTE PROCEDURE delete_category();   
     
 
-   
+  

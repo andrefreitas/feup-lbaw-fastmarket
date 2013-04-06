@@ -33,6 +33,7 @@ INSERT INTO stores_users(user_id,store_id) VALUES(4,1);
 /* Categories */
 INSERT INTO categories(name,store_id,image_id) VALUES('BMW',1,2);
 INSERT INTO categories(name,store_id,image_id) VALUES('Ferrari',1,3);
+INSERT INTO categories(name,store_id,image_id) VALUES('no category',1,null);
 
 /* Products */
 INSERT INTO products(name,description,base_cost,stock,insertion_date,category_id) 
