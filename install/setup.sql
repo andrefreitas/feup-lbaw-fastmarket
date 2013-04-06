@@ -132,7 +132,7 @@ CREATE TABLE invoice(
 	id SERIAL PRIMARY KEY,
 	code TEXT UNIQUE NOT NULL,
 	total numeric NOT NULL CHECK (total > 0),
-	vat numeric NOT NULL,
+	vat numeric NOT NULL CHECK (total >= 0),
 	order_id INTEGER REFERENCES orders(id) ON DELETE CASCADE NOT NULL
 );
 
@@ -227,13 +227,14 @@ CREATE TRIGGER delete_store BEFORE DELETE ON stores
   * 
   */ 
  -- Remove the old score from that costumer in that product
- DROP TRIGGER IF EXISTS new_score_before ON stores;
- DROP FUNCTION IF EXISTS new_score_before();
+ DROP TRIGGER IF EXISTS new_score_before ON products_scores;
+
  CREATE OR REPLACE FUNCTION new_score_before() RETURNS trigger as $$
     BEGIN
             DELETE FROM products_scores
             WHERE NEW.user_id = products_scores.user_id AND
                   NEW.product_id = products_scores.product_id;  
+                  
             RETURN NEW;
     END;
 $$ LANGUAGE plpgsql;
@@ -242,8 +243,8 @@ CREATE TRIGGER new_score_before BEFORE INSERT ON products_scores
     FOR EACH ROW EXECUTE PROCEDURE new_score_before();
 
 -- Compute the score average again
-DROP TRIGGER IF EXISTS new_score_after ON stores;
-DROP FUNCTION IF EXISTS new_score_after();
+DROP TRIGGER IF EXISTS new_score_after ON products_scores;
+
 CREATE OR REPLACE FUNCTION new_score_after() RETURNS trigger as $$
 	DECLARE
 	avg_score numeric;
@@ -251,8 +252,7 @@ CREATE OR REPLACE FUNCTION new_score_after() RETURNS trigger as $$
 	    	
             SELECT AVG(score) INTO avg_score
             FROM products_scores
-            WHERE products_scores.user_id = NEW.user_id AND
-                  products_scores.product_id = NEW.product_id;
+            WHERE products_scores.product_id = NEW.product_id;
  
             UPDATE products SET score = avg_score
             WHERE products.id = NEW.product_id;
@@ -264,3 +264,7 @@ $$ LANGUAGE plpgsql;
 CREATE TRIGGER new_score_after AFTER INSERT ON products_scores
     FOR EACH ROW EXECUTE PROCEDURE new_score_after();
 
+
+    
+    
+    
