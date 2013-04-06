@@ -265,6 +265,15 @@ CREATE TRIGGER new_score_after AFTER INSERT ON products_scores
     FOR EACH ROW EXECUTE PROCEDURE new_score_after();
 
 
-    
-    
-    
+    /*codigo para testes*/
+SELECT aux.id, MAX(totalQ)
+FROM (
+SELECT products.id, SUM(orders_products.quantity) as totalQ
+FROM products, orders_products, orders, stores_users
+WHERE products.id=orders_products.product_id AND 
+      orders.id=orders_products.order_id AND 
+      stores_users.store_id=1 AND stores_users.user_id=orders.costumer_id AND 
+      order_date >= '2012-04-05'AND order_date <= '2014-04-05' 
+GROUP BY products.id
+) as aux
+GROUP BY aux.id;

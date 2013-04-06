@@ -55,3 +55,16 @@ INSERT INTO favorites(user_id,product_id) VALUES (4,2);
 /* Scores */
 INSERT INTO products_scores(user_id,product_id,score) VALUES (3,1,1);
 INSERT INTO products_scores(user_id,product_id,score) VALUES (4,1,3);
+
+/* Transactions */
+INSERT INTO transactions(transaction_date,ammount,description,store_id) VALUES ('2013-04-05',95940,'Online payment',1);
+
+/* Orders */
+INSERT INTO orders(order_date,paid,costumer_id,transaction_id) VALUES ('2013-04-05','true',1,1);
+
+/* Orders_products */
+INSERT INTO orders_products( order_id,product_id,quantity,base_cost) VALUES (1,1,1,24000);
+INSERT INTO orders_products( order_id,product_id,quantity,base_cost) VALUES (1,2,1,54000);
+
+/* Invoice */
+INSERT INTO invoice(code,total,vat,order_id) VALUES ('dsa898321jads',95940,0.23,1);
