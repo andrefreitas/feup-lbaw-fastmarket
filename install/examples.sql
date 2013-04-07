@@ -59,8 +59,8 @@ INSERT INTO products_scores(user_id,product_id,score) VALUES (3,1,1);
 INSERT INTO products_scores(user_id,product_id,score) VALUES (4,1,3);
 
 /* Transactions */
-INSERT INTO transactions(transaction_date,ammount,description,store_id) VALUES ('2013-04-05',95940,'Online payment',1);
-INSERT INTO transactions(transaction_date,ammount,description,store_id) VALUES ('2013-04-05',59040,'Online payment',1);
+INSERT INTO transactions(transaction_date,amount,description,store_id) VALUES ('2013-04-05',95940,'Online payment',1);
+INSERT INTO transactions(transaction_date,amount,description,store_id) VALUES ('2013-04-05',59040,'Online payment',1);
 
 /* Orders */
 INSERT INTO orders(order_date,paid,costumer_id,transaction_id) VALUES ('2013-04-05','true',3,1);

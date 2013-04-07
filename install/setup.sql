@@ -87,7 +87,7 @@ CREATE TABLE products_images(
 CREATE TABLE transactions(
 	id SERIAL PRIMARY KEY,
 	transaction_date DATE NOT NULL,
-	ammount INTEGER NOT NULL CHECK (ammount > 0),
+	amount INTEGER NOT NULL CHECK (amount > 0),
 	description TEXT,
 	store_id INTEGER REFERENCES stores(id) ON DELETE CASCADE
 );
