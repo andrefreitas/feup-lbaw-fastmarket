@@ -8,7 +8,7 @@ SELECT SUM(invoice.total)
 FROM invoice, orders, stores_users, transactions
 WHERE invoice.order_id=orders.id and stores_users.store_id=1 and
 		orders.costumer_id=stores_users.user_id and orders.paid='true' and
-		orders.transaction_id=transactions.id
+		orders.transaction_id=transactions.id and
 		transactions.transaction_date >= '2013-04-01' and transactions.transaction_date < '2013-05-01';
 		
 		
@@ -87,13 +87,17 @@ INSERT INTO transactions(transaction_date,amount,description,store_id)
 VALUES ('2013-04-15',100000,'Private stuff',1);
 
 -- #P208 - Update Design
--- param(store_id)
+-- param(store_id, fileName)
 /*
  * Change css file (dont change db)
- * or
- * DELETE old css
- * INSERT new css
  * */
+
+--param(file_id)
+DELETE FROM files WHERE id=1;
+
+--param(store_id, fileName, path)
+INSERT INTO files (name , path) values ('maincss.css','path-->toFileDestination.css');
+INSERT INTO stores_files (file_id, store_id) values ((SELECT last_value FROM files_id_seq),1);
 
 -- #P209 - Orders
 -- param(store_id)
