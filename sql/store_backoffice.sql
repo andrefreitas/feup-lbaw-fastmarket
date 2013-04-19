@@ -54,5 +54,13 @@ WHERE stores_users.user_id=users.id and stores_users.store_id=1 and
 		users.privilege_id=privileges.id and privileges.name='costumer' and
 		users.name ~* 'tony';
 		
+-- #P203 - Billing
+-- show transactions
+-- param(store_id)
+SELECT * 
+FROM transactions
+WHERE transactions.store_id=1 
+ORDER BY transactions.transaction_date DESC;
+		
 
 
