@@ -74,7 +74,8 @@ CREATE TABLE products(
 	stock INTEGER NOT NULL,
 	insertion_date DATE NOT NULL,
 	score INTEGER,
-	category_id INTEGER REFERENCES categories(id) ON DELETE SET NULL
+	category_id INTEGER REFERENCES categories(id) ON DELETE SET NULL,
+	image_id INTEGER REFERENCES files(id) ON DELETE SET NULL
 );
 
 
