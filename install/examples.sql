@@ -17,9 +17,13 @@ VALUES('Tony Perry','tony@yahoo.com','bc9d5178b8686a89052bc0b5f5af6a461ed034140e
 '2013-02-01',3);
 
 /* Files */
-INSERT INTO files(name,path) VALUES('Lux Cars','luxcars_logotipo.png');
+INSERT INTO files(name,path) VALUES('Lux Cars','luxcars_logo.png');
 INSERT INTO files(name,path) VALUES('BMW Brand','luxcars_bmwbrand.png');
 INSERT INTO files(name,path) VALUES('Ferrari Brand','luxcars_ferrari.png');
+INSERT INTO files(name,path) VALUES('BMW Serie 1','luxcars_bmwserie1.png');
+INSERT INTO files(name,path) VALUES('BMW Serie 3','luxcars_bmwserie3.png');
+INSERT INTO files(name,path) VALUES('458 Italia','luxcars_ferrari458.png');
+INSERT INTO files(name,path) VALUES('458 Italia','luxcars_ferrari458_back.png');
 
 /* Stores */
 INSERT INTO stores(name,slogan,domain,vat,creation_date,logo_id) 
@@ -36,12 +40,18 @@ INSERT INTO categories(name,store_id,image_id) VALUES('Ferrari',1,3);
 INSERT INTO categories(name,store_id,image_id) VALUES('no category',1,null);
 
 /* Products */
-INSERT INTO products(name,description,base_cost,stock,insertion_date,category_id) 
-VALUES('BMW Serie 1','Low budget, a big car.',24000,2,'2012-03-05',1);
-INSERT INTO products(name,description,base_cost,stock,insertion_date,category_id) 
-VALUES('BMW Serie 3','Your rocket to travel the world',54000,1,'2012-03-05',1);
-INSERT INTO products(name,description,base_cost,stock,insertion_date,category_id) 
-VALUES('458 Italia','400 horse power in a red car',120000,10,'2012-03-05',2);
+INSERT INTO products(name,description,base_cost,stock,insertion_date,category_id,image_id) 
+VALUES('BMW Serie 1','Low budget, a big car.',24000,2,'2012-02-05',1,4);
+INSERT INTO products(name,description,base_cost,stock,insertion_date,category_id,image_id) 
+VALUES('BMW Serie 3','Your rocket to travel the world',54000,1,'2012-03-05',1,5);
+INSERT INTO products(name,description,base_cost,stock,insertion_date,category_id,image_id) 
+VALUES('458 Italia','400 horse power in a red car',120000,10,'2012-04-05',2,6);
+
+/* Associate Products to Images */
+INSERT INTO products_images(product_id,file_id) VALUES(1,4);
+INSERT INTO products_images(product_id,file_id) VALUES(2,5);
+INSERT INTO products_images(product_id,file_id) VALUES(3,6);
+INSERT INTO products_images(product_id,file_id) VALUES(3,7);
 
 /* Comments */
 INSERT INTO comments(comment_date,body,user_id,product_id)
