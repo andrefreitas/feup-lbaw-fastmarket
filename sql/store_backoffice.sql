@@ -8,7 +8,7 @@ SELECT SUM(invoice.total)
 FROM invoice, orders, stores_users, transactions
 WHERE invoice.order_id=orders.id and stores_users.store_id=1 and
 		orders.costumer_id=stores_users.user_id and orders.paid='true' and
-		orders.transaction_id=transactions.id
+		orders.transaction_id=transactions.id and
 		transactions.transaction_date >= '2013-04-01' and transactions.transaction_date < '2013-05-01';
 		
 		
