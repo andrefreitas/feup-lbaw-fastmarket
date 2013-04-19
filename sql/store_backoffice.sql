@@ -26,11 +26,33 @@ ORDER BY profits DESC;
 -- param(store_id)
 SELECT products.id as productId, products.name, users.name, users.id as userId, orders_products.base_cost*(invoice.vat+1.0) as profit, 
 				orders.id, transactions.transaction_date
-FROM products, users, stores_users, orders, invoice, orders_products, transactions
+FROM products, users, stores_users, orders, invoice, orders_products, transactions, privileges
 WHERE products.id=orders_products.product_id and orders_products.order_id=orders.id and
 		invoice.order_id=orders.id and orders.costumer_id = stores_users.user_id and
-		stores_users.store_id=1 and stores_users.user_id=users.id and
+		stores_users.store_id=1 and stores_users.user_id=users.id and 
+		privileges.name='costumer' and privileges.id=users.privilege_id and
 		orders.paid='true' and orders.transaction_id=transactions.id
 ORDER BY transactions.transaction_date DESC;
+
+
+
+
+
+-- #P202 - Costumers
+
+-- show costumers
+-- param(store_id)
+SELECT users.id, users.name, users.registration_date, users.email
+FROM users, stores_users, privileges
+WHERE stores_users.user_id=users.id and stores_users.store_id=1 and
+		users.privilege_id=privileges.id and privileges.name='costumer';
+		
+-- param(store_id,filter)
+SELECT users.id, users.name, users.registration_date, users.email
+FROM users, stores_users, privileges
+WHERE stores_users.user_id=users.id and stores_users.store_id=1 and
+		users.privilege_id=privileges.id and privileges.name='costumer' and
+		users.name ~* 'tony';
+		
 
 
