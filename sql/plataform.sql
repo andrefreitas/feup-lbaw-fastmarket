@@ -1,0 +1,1 @@
+/* SQL for the pages of the plataform module */

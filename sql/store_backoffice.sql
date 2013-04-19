@@ -1,4 +1,4 @@
-/* SQL for the pages of the store frontend module */
+/* SQL for the pages of the store backoffice module */
 
 -- #P201 - Admin
 
