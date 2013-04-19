@@ -40,3 +40,7 @@ INSERT INTO favorites(user_id,product_id) VALUES(1,1);
 INSERT INTO comments(product_id, user_id,body,comment_date)
 VALUES (1,1,'A cool comment',CURRENT_TIMESTAMP);
 
+/* #P007 Make Subscription */
+-- Params(user_id,product_id)
+INSERT INTO products_subscriptions(product_id,user_id,subscription_date)
+VALUES (1,1,CURRENT_TIMESTAMP);
