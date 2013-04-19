@@ -123,7 +123,7 @@ CREATE TABLE products_subscriptions(
 
 CREATE TABLE orders(
 	id SERIAL PRIMARY KEY,
-	order_date DATE NOT NULL,
+	order_date TIMESTAMP NOT NULL,
 	paid BOOLEAN NOT NULL,
 	costumer_id INTEGER REFERENCES users(id) ON DELETE CASCADE NOT NULL,
 	transaction_id INTEGER REFERENCES transactions(id)  ON DELETE CASCADE

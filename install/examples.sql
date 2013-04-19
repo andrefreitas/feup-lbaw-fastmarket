@@ -24,10 +24,16 @@ INSERT INTO files(name,path) VALUES('BMW Serie 1','luxcars_bmwserie1.png');
 INSERT INTO files(name,path) VALUES('BMW Serie 3','luxcars_bmwserie3.png');
 INSERT INTO files(name,path) VALUES('458 Italia','luxcars_ferrari458.png');
 INSERT INTO files(name,path) VALUES('458 Italia','luxcars_ferrari458_back.png');
+INSERT INTO files(name,path) VALUES('Contacts','luxcars_contacts.html');
+INSERT INTO files(name,path) VALUES('About','luxcars_about.html');
 
 /* Stores */
 INSERT INTO stores(name,slogan,domain,vat,creation_date,logo_id) 
 VALUES('Lux Cars','Cars have value','luxcars.com',0.23,'2013-01-05',1);
+
+/* Associate Stores to Files */
+INSERT INTO stores_files(file_id,store_id) VALUES(8,1);
+INSERT INTO stores_files(file_id,store_id) VALUES(9,1);
 
 /* Associate users to stores */
 INSERT INTO stores_users(user_id,store_id) VALUES(2,1);
@@ -84,3 +90,4 @@ INSERT INTO orders_products( order_id,product_id,quantity,base_cost) VALUES (2,1
 /* Invoice */
 INSERT INTO invoice(code,total,vat,order_id) VALUES ('dsa898321jads',95940,0.23,1);
 INSERT INTO invoice(code,total,vat,order_id) VALUES ('ngjkd492nfjse',59040,0.23,2);
+
