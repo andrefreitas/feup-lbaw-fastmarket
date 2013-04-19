@@ -87,13 +87,17 @@ INSERT INTO transactions(transaction_date,amount,description,store_id)
 VALUES ('2013-04-15',100000,'Private stuff',1);
 
 -- #P208 - Update Design
--- param(store_id)
+-- param(store_id, fileName)
 /*
  * Change css file (dont change db)
- * or
- * DELETE old css
- * INSERT new css
  * */
+
+--param(file_id)
+DELETE FROM files WHERE id=1;
+
+--param(store_id, fileName, path)
+INSERT INTO files (name , path) values ('maincss.css','path-->toFileDestination.css');
+INSERT INTO stores_files (file_id, store_id) values ((SELECT last_value FROM files_id_seq),1);
 
 -- #P209 - Orders
 -- param(store_id)
