@@ -95,7 +95,7 @@ CREATE TABLE transactions(
 
 CREATE TABLE comments(
 	id SERIAL PRIMARY KEY,
-	comment_date DATE NOT NULL,
+	comment_date TIMESTAMP NOT NULL,
 	body TEXT NOT NULL,
 	user_id INTEGER references users(id) ON DELETE CASCADE NOT NULL,
 	product_id INTEGER references products(id) ON DELETE CASCADE NOT NULL
