@@ -91,3 +91,7 @@ INSERT INTO orders_products( order_id,product_id,quantity,base_cost) VALUES (2,1
 INSERT INTO invoice(code,total,vat,order_id) VALUES ('dsa898321jads',95940,0.23,1);
 INSERT INTO invoice(code,total,vat,order_id) VALUES ('ngjkd492nfjse',59040,0.23,2);
 
+/* Subscriptions */
+INSERT INTO products_subscriptions(product_id,user_id,subscription_date) VALUES(1,1,'2013-04-05');
+INSERT INTO products_subscriptions(product_id,user_id,subscription_date) VALUES(2,1,'2013-01-05');
+
