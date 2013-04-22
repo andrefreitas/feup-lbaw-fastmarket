@@ -6,10 +6,11 @@
 -- param(store_id, init_date, end_date)
 SELECT SUM(invoice.total)
 FROM invoice, orders, stores_users, transactions
-WHERE invoice.order_id=orders.id and stores_users.store_id=1 and
-		orders.costumer_id=stores_users.user_id and orders.paid='true' and
-		orders.transaction_id=transactions.id and
-		transactions.transaction_date >= '2013-04-01' and transactions.transaction_date < '2013-05-01';
+WHERE invoice.order_id=orders.id AND stores_users.store_id=1 AND
+		orders.costumer_id=stores_users.user_id AND orders.paid='true' AND
+		orders.transaction_id=transactions.id AND
+		transactions.transaction_date >= '2013-04-01' AND 
+		transactions.transaction_date < '2013-05-01';
 		
 		
 -- profits by products 
@@ -24,8 +25,9 @@ ORDER BY profits DESC;
 
 -- last paid orders (by products)
 -- param(store_id)
-SELECT products.id as productId, products.name, users.name, users.id as userId, orders_products.base_cost*(invoice.vat+1.0) as profit, 
-				orders.id, transactions.transaction_date
+SELECT products.id as productId, products.name, users.name, users.id as userId, 
+orders_products.base_cost*(invoice.vat+1.0) as profit, 
+orders.id, transactions.transaction_date
 FROM products, users, stores_users, orders, invoice, orders_products, transactions, privileges
 WHERE products.id=orders_products.product_id and orders_products.order_id=orders.id and
 		invoice.order_id=orders.id and orders.costumer_id = stores_users.user_id and
@@ -33,10 +35,6 @@ WHERE products.id=orders_products.product_id and orders_products.order_id=orders
 		privileges.name='costumer' and privileges.id=users.privilege_id and
 		orders.paid='true' and orders.transaction_id=transactions.id
 ORDER BY transactions.transaction_date DESC;
-
-
-
-
 
 -- #P202 - Costumers
 
@@ -67,8 +65,7 @@ ORDER BY transactions.transaction_date DESC;
 -- param(store_id)
 SELECT * 
 FROM stores LEFT OUTER JOIN (SELECT * FROM stores_files, files WHERE files.id=stores_files.file_id) as foo
-ON (foo.store_id=stores.id)
-;
+ON (foo.store_id=stores.id);
 		
 -- #P205 - Update Costumer
 -- param(costumer_id, name, email, password, privilege_id)
@@ -122,7 +119,7 @@ WHERE id=1;
 
 -- #P211 - Update Order
 /*
- * Quando é que isto vai ser preciso?
+ * Quando ï¿½ que isto vai ser preciso?
  * */
 
 -- #P212 - Fetch Order
@@ -141,7 +138,7 @@ VALUES('New Product','A new description',666333,9,'2012-02-05',1,4);
 DELETE FROM products
             WHERE id = 1;
             /*ou
-             * por o stock a 0, que é mais seguro e estavel para as contagens dos lucros.
+             * por o stock a 0, que ï¿½ mais seguro e estavel para as contagens dos lucros.
              */
 UPDATE products SET stock = 0
             WHERE id = 1;
@@ -159,13 +156,10 @@ WHERE products.category_id=categories.id and categories.store_id=1 and
 		
 -- #P216 - Update Product
 -- param(product_id, name, description, base_cost, stock, category_id, image_id)
-UPDATE products SET name='New name', description='New description', base_cost=3366, stock=8, category_id=2, image_id=2
-            WHERE id = 1;
+UPDATE products SET name='New name', description='New description', base_cost=3366, 
+stock=8, category_id=2, image_id=2
+WHERE id = 1;
             
--- #P217 - Delete order
-/*
- * Quando é que isto vai ser preciso?
- */
             
 -- #P218 - Remove Category
 -- param(category_id)

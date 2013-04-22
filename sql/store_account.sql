@@ -3,17 +3,20 @@
 /* P102 Login */
 -- Params(email, password)
 SELECT * FROM users
-WHERE email='josep@gmail.com' AND password='d35aa290d06ae9cb981c71250356ce6d415a4e9299500dd2742cdbac5ef78b12'; 
+WHERE email='josep@gmail.com' 
+AND password='d35aa290d06ae9cb981c71250356ce6d415a4e9299500dd2742cdbac5ef78b12'; 
 
 /* P112 Register Action*/
 -- Params(name,email,password:sha256)
 INSERT INTO users(name,email,password,registration_date,privilege_id)
-VALUES ('Joseph Adams','josep@gmail.com','d35aa290d06ae9cb981c71250356ce6d415a4e9299500dd2742cdbac5ef78b12',
+VALUES ('Joseph Adams','josep@gmail.com',
+'d35aa290d06ae9cb981c71250356ce6d415a4e9299500dd2742cdbac5ef78b12',
 CURRENT_TIMESTAMP,(SELECT id FROM privileges WHERE name='costumer'));
 
 /* P104 Subscriptions */
 -- Params(user_id)
-SELECT products.id, products.name, products.description, products.base_cost as price, categories.name as category, files.path as file
+SELECT products.id, products.name, products.description, products.base_cost as price, 
+categories.name as category, files.path as file
 FROM products,categories,files,products_subscriptions
 WHERE products.category_id=categories.id AND files.id=products.image_id 
 AND products.id=products_subscriptions.product_id AND products_subscriptions.user_id=1
@@ -31,7 +34,8 @@ WHERE id=1;
 
 /* P108 Favorites */
 -- Params(user_id)
-SELECT products.id, products.name, products.description, products.base_cost as price, categories.name as category, files.path as file
+SELECT products.id, products.name, products.description, products.base_cost as price, 
+categories.name as category, files.path as file
 FROM products,categories,files,favorites
 WHERE products.category_id=categories.id AND files.id=products.image_id 
 AND products.id=favorites.product_id AND favorites.user_id=4;
@@ -65,7 +69,8 @@ WHERE costumer_id=3 AND orders.id=invoice.order_id;
 
 /* P112 Orders Items */
 -- Params(order_id)
-SELECT products.id, products.name, products.description, products.base_cost as price, categories.name as category, files.path as file
+SELECT products.id, products.name, products.description, products.base_cost as price, 
+categories.name as category, files.path as file
 FROM products,categories,files,orders_products
 WHERE products.category_id=categories.id AND files.id=products.image_id 
 AND products.id=orders_products.product_id AND orders_products.order_id=1;

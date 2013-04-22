@@ -1,3 +1,4 @@
+SET search_path TO fastmarket;
 /* Users */
 /* ADMIN - Password: Jihxouigp34 */
 INSERT INTO users(name,email,password,registration_date,privilege_id) 

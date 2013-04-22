@@ -2,9 +2,11 @@
 
 /* #P001 HomePage */
 -- Products(store_id,limit)
-SELECT products.id, products.name, products.description, products.base_cost as price, categories.name as category, files.path as file
+SELECT products.id, products.name, products.description, products.base_cost as price, 
+categories.name as category, files.path as file
 FROM products,categories,files
-WHERE products.category_id=categories.id AND categories.store_id=1 AND files.id=products.image_id
+WHERE products.category_id=categories.id AND categories.store_id=1 
+AND files.id=products.image_id
 ORDER BY insertion_date DESC
 LIMIT 20;
 -- Categories(store_id)
@@ -14,7 +16,8 @@ WHERE store_id=1;
 
 /* #P002 Search */
 -- Products(search_term,limit)
-SELECT products.id, products.name, products.description, products.base_cost as price, categories.name as category, files.path as file
+SELECT products.id, products.name, products.description, products.base_cost as price, 
+categories.name as category, files.path as file
 FROM products,categories,files
 WHERE products.category_id=categories.id AND categories.store_id=1 AND files.id=products.image_id
 AND (products.description ~* 'ferrari' or products.name ~* 'ferrari' or categories.name ~* 'ferrari')
@@ -23,7 +26,8 @@ LIMIT 20;
 
 /* #P003 Product */
 -- Product(product_id)
-SELECT products.id, products.name, products.description, products.base_cost as price, products.stock, products.score, categories.name as category, files.path as file
+SELECT products.id, products.name, products.description, products.base_cost as price, 
+products.stock, products.score, categories.name as category, files.path as file
 FROM products,categories,files
 WHERE products.id=1 AND products.category_id=categories.id AND files.id=products.image_id;
 -- Comments(product_id)
@@ -53,7 +57,8 @@ WHERE files.id=stores_files.file_id AND name ~* 'contacts' AND stores_files.stor
 
 /* #P009 Category */
 -- Products(category_id)
-SELECT products.id, products.name, products.description, products.base_cost as price, products.stock, products.score, categories.name as category, files.path as file
+SELECT products.id, products.name, products.description, products.base_cost as price, 
+products.stock, products.score, categories.name as category, files.path as file
 FROM products,categories,files
 WHERE categories.id=1 AND products.category_id=categories.id AND files.id=products.image_id;
 
@@ -68,9 +73,11 @@ BEGIN;
 INSERT INTO orders(costumer_id,paid,order_date) VALUES (1,'false',CURRENT_TIMESTAMP);
 LOCK TABLE orders;
 -- Add product to order(product_id,quantity,base_cost)
-INSERT INTO orders_products(product_id,order_id,quantity,base_cost) VALUES(1,(SELECT last_value FROM orders_id_seq),2,40500);
+INSERT INTO orders_products(product_id,order_id,quantity,base_cost) 
+VALUES(1,(SELECT last_value FROM orders_id_seq),2,40500);
 -- Add product to order(product_id,quantity,base_cost)
-INSERT INTO orders_products(product_id,order_id,quantity,base_cost) VALUES(2,(SELECT last_value FROM orders_id_seq),1,1500);
+INSERT INTO orders_products(product_id,order_id,quantity,base_cost) 
+VALUES(2,(SELECT last_value FROM orders_id_seq),1,1500);
 COMMIT;
 
 /* #P015 About*/

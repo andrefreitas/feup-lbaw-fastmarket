@@ -31,7 +31,8 @@ FROM invoice, orders, stores_users, transactions, stores
 WHERE invoice.order_id=orders.id and stores.id=stores_users.store_id and
 		orders.costumer_id=stores_users.user_id and orders.paid='true' and
 		orders.transaction_id=transactions.id and 
-		transactions.transaction_date >= '2013-04-01' and transactions.transaction_date < '2013-05-01'
+		transactions.transaction_date >= '2013-04-01' and 
+		transactions.transaction_date < '2013-05-01'
 GROUP BY stores.id;
 
 -- #P304 - About
@@ -79,12 +80,14 @@ WHERE users.privilege_id=privileges.id;
 -- #P312 - Add Merchant
 -- param(name,email,password,registration_date)
 INSERT INTO users(name,email,password,registration_date,privilege_id) 
-VALUES('New Merchant','merchant@merchantlandia.com','7fe0eb49c3719f1b97142c1e7bb9f91706d3e2a9167e271fda8b3d7545389cfe',
+VALUES('New Merchant','merchant@merchantlandia.com',
+'7fe0eb49c3719f1b97142c1e7bb9f91706d3e2a9167e271fda8b3d7545389cfe',
 '2013-02-01',2);
 
 -- #P313 - Update Merchant
 -- param(merchant_id, name,email,password,registration_date)
-UPDATE users SET name='New Merchant',email='new@email.com',password='fijdsojfilsdjfljaslfjoasjfço',registration_date='2013-01-05'
+UPDATE users SET name='New Merchant',email='new@email.com',
+password='fijdsojfilsdjfljaslfjoasjfo',registration_date='2013-01-05'
 WHERE id = 2;
 
 
@@ -95,5 +98,6 @@ DELETE FROM users WHERE id=2;
 -- #P315 - Register
 -- param(name,email,password,registration_date,privilege_id)
 INSERT INTO users(name,email,password,registration_date,privilege_id) 
-VALUES('New Merchant','merchant@merchantlandia.com','7fe0eb49c3719f1b97142c1e7bb9f91706d3e2a9167e271fda8b3d7545389cfe',
+VALUES('New Merchant','merchant@merchantlandia.com',
+'7fe0eb49c3719f1b97142c1e7bb9f91706d3e2a9167e271fda8b3d7545389cfe',
 '2013-02-01',2);
