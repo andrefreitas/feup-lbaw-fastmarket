@@ -59,11 +59,9 @@ WHERE id=1;
 
 /* P107 Orders */ 
 -- Params(costumer_id)
--- Problem: So about the VAT?
-SELECT orders.id, order_date as date, SUM(quantity*base_cost) as total
-FROM orders,orders_products
-WHERE costumer_id=3 AND orders.id=orders_products.order_id
-GROUP BY orders.id;
+SELECT orders.id, order_date as date,invoice.total
+FROM orders,invoice
+WHERE costumer_id=3 AND orders.id=invoice.order_id;
 
 /* P112 Orders Items */
 -- Params(order_id)
