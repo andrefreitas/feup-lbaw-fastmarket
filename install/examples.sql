@@ -1,4 +1,3 @@
-SET search_path TO fastmarket;
 /* Users */
 /* ADMIN - Password: Jihxouigp34 */
 INSERT INTO users(name,email,password,registration_date,privilege_id) 
@@ -26,7 +25,8 @@ INSERT INTO files(name,path) VALUES('BMW Serie 3','luxcars_bmwserie3.png');
 INSERT INTO files(name,path) VALUES('458 Italia','luxcars_ferrari458.png');
 INSERT INTO files(name,path) VALUES('458 Italia','luxcars_ferrari458_back.png');
 INSERT INTO files(name,path) VALUES('Contacts','luxcars_contacts.html');
-INSERT INTO files(name,path) VALUES('About','luxcars_about.html');
+INSERT INTO files(name,path) VALUES('Luxcars About','luxcars_about.html');
+INSERT INTO files(name,path) VALUES('About','plataform_about.html');
 
 /* Stores */
 INSERT INTO stores(name,slogan,domain,vat,creation_date,logo_id) 

@@ -1,6 +1,3 @@
-DROP SCHEMA fastmarket CASCADE;
-CREATE SCHEMA fastmarket;
-SET search_path TO fastmarket;
 DROP TABLE IF EXISTS orders_products;
 DROP TABLE IF EXISTS invoice;
 DROP TABLE IF EXISTS orders;
