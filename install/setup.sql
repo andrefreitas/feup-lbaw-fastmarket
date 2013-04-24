@@ -80,7 +80,7 @@ CREATE TABLE products(
 
 
 CREATE TABLE products_images(
-	file_id INTEGER REFERENCES files(id) ON DELETE SET NULL,
+	file_id INTEGER REFERENCES files(id) ON DELETE CASCADE,
 	product_id INTEGER REFERENCES products(id) ON DELETE CASCADE,
 	PRIMARY KEY (file_id,product_id)
 );
