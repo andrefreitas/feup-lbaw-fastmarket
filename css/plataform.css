@@ -1,0 +1,132 @@
+/* Plataform CSS */
+body{
+	font-family:"Verdana", sans-serif;
+}
+
+.container{
+	margin: 0 auto;
+	width: 900px;
+	overflow: auto;
+}
+
+/* Header */
+header{
+	height: 80px;
+	background: url('../images/header.png') repeat-x #505050;
+	width: 100%;
+	border-top: solid 3px #217a9a;
+	margin-bottom: 20px;
+}
+header .logo{
+	margin-top:8px;
+	float:left;
+	
+}
+header li{
+	display: inline;
+	list-style-type: none;
+	color: #fff;
+	margin-right: 30px;
+	text-shadow: 2px 1px #272727;
+	font-size: 15px;
+}
+
+header a{
+	color: #fff;
+	text-decoration: none;
+}
+
+header a:hover{
+	color: #efefef;
+	text-decoration: underline;
+}
+
+header .login{
+	width: 500px;
+	margin-top: 26px;
+	float: right;
+	text-align: right;
+	
+}
+
+header .login input{
+	width: 130px;
+	height: 25px;
+	border-radius: 5px;
+	padding:0px 5px 0px 5px;
+	border:solid 1px #323232;
+	font-size:12px;
+	color: #737373;
+}
+
+header .login button{
+	border: solid 1px #15546b;
+	border-radius: 5px;
+	padding:2px 8px 2px 8px;
+	background: #217a9a;
+	color: #fff;
+	height: 25px;
+	
+}
+
+/* Pages */
+.feature{
+	margin-top: 50px;
+	text-align: justify;
+	line-height: 23px;
+	color: #535353;
+}
+
+ h1{
+	font-size: 30px;
+	color: #217a9a;
+	margin-bottom: 14px;
+	line-height: 40px;
+	
+}
+
+.feature .left{
+	float: left;
+	width: 380px;
+	padding-top:40px;
+}
+
+.feature .right{
+	float: right;
+	width: 500px;	
+}
+
+.registration button,
+.feature button{
+	border: solid 1px #15546b;
+	border-radius: 5px;
+	padding:8px 16px 8px 16px;
+	background: #217a9a;
+	color: #fff;
+	font-size: 20px;
+	margin-top: 20px;
+	text-shadow: 1px 1px #183b48;
+}
+.registration button:HOVER,
+.feature button:HOVER{
+	border:solid 1px #183b48;
+	background: #155971;
+}
+
+.registration{
+	text-align: justify;
+	line-height: 23px;
+	color: #535353;
+	width: 300px;
+	margin:0 auto;
+	margin-top: 50px;
+}
+
+.registration input{
+	border-radius: 5px;
+	padding:0px 5px 0px 5px;
+	border:solid 1px #bdbdbd;
+	height: 30px;
+	margin-bottom:10px;
+	width: 220px;
+}

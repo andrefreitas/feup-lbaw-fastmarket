@@ -149,8 +149,10 @@ function getMerchants(){
 */
 function createMerchant($name, $email, $password){
     $sql = "INSERT INTO users(name,email,password,registration_date,privilege_id) "
-         . "VALUES(?, ?, ?, CURRENT_TIMESTAMP, (SELECT id FROM privileges WHERE name='merchant'))";
-    query($sql, array($name, $email, $password));
+         . "VALUES(?, ?, ?, CURRENT_TIMESTAMP, (SELECT id FROM privileges WHERE name='merchant')) "
+         . "RETURNING id";
+    $result=query($sql, array($name, $email, $password));
+    return $result[0]['id'];
 }
 
 /*
