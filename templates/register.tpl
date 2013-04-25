@@ -1,5 +1,4 @@
 {include file='header.tpl'}
-
  <div id="content">
         <div class="container">
             <div class="registration">
@@ -16,5 +15,4 @@
             </div>
         </div>
     </div>
- 
 {include file='footer.tpl'}
