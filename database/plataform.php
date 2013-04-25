@@ -109,12 +109,10 @@ function createStore($name, $slogan, $domain, $vat,$logoId){
 */
 function insertFile($name,$path){
     $sql = "INSERT INTO files(name, path) "
-         . "VALUES(?, ?) ";
-    query($sql, array($name, $path));
-    $sql = "SELECT *"
-         . "FROM files "
-         . "WHERE name = ? AND path = ?";
-    return end(query($sql, array($name, $path)))["id"];
+         . "VALUES(?, ?) "
+         . "RETURNING id";
+    $result=query($sql, array($name, $path));
+    return $result[0]['id'];
 }
 /*
  * Updates a store
@@ -172,5 +170,5 @@ function delete_merchant($merchantId){
          . "WHERE id = ?";
     query($sql, array($merchantId));
 }
-
 ?>
+
