@@ -85,6 +85,16 @@ function getUserById($userId){
 }
 
 /*
+ * Get a user by the email
+*/
+function getUserByEmail($userEmail){
+    $sql = "SELECT users.id as id, users.name, users.email, privileges.name as privilege "
+         . "FROM users, privileges WHERE email = ? AND users.privilege_id=privileges.id ";
+    $result = query($sql, array($userEmail));
+    return $result ? $result[0] : false;
+}
+
+/*
  * Update User
 */
 function updateUser($userId, $name, $email, $password, $privilegeId){
