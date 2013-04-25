@@ -1,2 +1,2 @@
 RewriteEngine on
-RewriteRule ^home/?$       index.php?store=lol
+RewriteRule ^[a-zA-Z0-9]*$       index.php?store=$0
