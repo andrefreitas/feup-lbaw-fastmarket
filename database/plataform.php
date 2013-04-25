@@ -1,5 +1,5 @@
 <?php
-require_once('../common/database.php');
+require_once($_SERVER["DOCUMENT_ROOT"] .'/fastmarket/common/database.php');
 
 /*
  * Creates a new user
