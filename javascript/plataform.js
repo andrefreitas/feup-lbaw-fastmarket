@@ -22,7 +22,7 @@ $(document).ready(function(){
  * Adds a new merchant
  */
 function addMerchant(name, email, password){
-	$.getJSON("../ajax/add_merchant.php?",{
+	$.getJSON("../ajax/plataform/addMerchant.php?",{
 		name: name,
         email: email,
         password: password
