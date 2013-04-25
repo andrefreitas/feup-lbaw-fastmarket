@@ -38,7 +38,7 @@ GROUP BY stores.id;
 -- #P304 - About
 SELECT path
 FROM files
-WHERE name ~* 'about' and name ~* 'plataform';
+WHERE path ~* 'about' and path ~* 'plataform';
 
 -- #P305 - Stores
 SELECT *
