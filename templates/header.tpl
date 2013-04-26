@@ -19,7 +19,7 @@
                 {else}
                 <div class="login">
                     <form>
-                        <input type="text" name="email" placeholder="email..."/>
+                        <input type="email" name="email" placeholder="email..."/>
                         <input type="password" name="password" placeholder="password..."/>
                         <button type="button" name="login">Login</button>
                         <button type="button" name="register" onclick="window.location.href='register.php'" >Register</button>
