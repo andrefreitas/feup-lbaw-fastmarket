@@ -15,7 +15,6 @@ header{
 	background: url('../images/header.png') repeat-x #505050;
 	width: 100%;
 	border-top: solid 3px #217a9a;
-	margin-bottom: 20px;
 }
 header .logo{
 	margin-top:8px;
@@ -162,4 +161,10 @@ header .login button{
 }
 .permission{
 	text-transform: capitalize;
+}
+
+/* Navigation */
+nav {
+	width: 100%;
+	
 }

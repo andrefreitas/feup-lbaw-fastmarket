@@ -90,7 +90,7 @@ function getGravatar(email){
 	$.ajaxSetup( { "async": false } );
 	var data = $.getJSON("../ajax/getGravatar.php?",{
 		email: email,
-        default: "../images/default-avatar.png",
+        default: "http://gnomo.fe.up.pt/~lbaw12503/fastmarket/images/default-avatar.png",
         size: 70
 	});
 	$.ajaxSetup( { "async": true } );

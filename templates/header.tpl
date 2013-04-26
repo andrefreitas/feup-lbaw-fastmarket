@@ -42,4 +42,9 @@
                 
             </div>
         </header>
+        {if $loggedin}
+        <nav>
+            
+        </nav>
+        {/if}
   
