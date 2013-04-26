@@ -44,7 +44,15 @@
         </header>
         {if $loggedin}
         <nav>
-            
+            <div class="container">
+                <ul>
+                    <li id="storesi"><a href="#">Stores</a></li>
+                    <li id="accounti"><a href="account.php">Account</a></li>
+                    {if $smarty.session.permission == "admin"}
+                    <li id="merchantsi"><a href="merchants.php">Merchants</a></li>
+                    {/if}
+                </ul>
+            </div>
         </nav>
         {/if}
   

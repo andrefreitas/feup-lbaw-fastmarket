@@ -47,6 +47,9 @@ function addMerchant(name, email, password){
 	},
     function(data){
 		console.log(data);
+		if(data["result"]=="ok"){
+			window.location = "index.php";
+		}
 	});
 }
 
