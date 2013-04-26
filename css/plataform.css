@@ -66,6 +66,7 @@ header .login button{
 	background: #217a9a;
 	color: #fff;
 	height: 25px;
+	cursor: pointer;
 	
 }
 
@@ -106,7 +107,9 @@ header .login button{
 	font-size: 20px;
 	margin-top: 20px;
 	text-shadow: 1px 1px #183b48;
+	cursor: pointer;
 }
+.login button:HOVER,
 .registration button:HOVER,
 .feature button:HOVER{
 	border:solid 1px #183b48;
