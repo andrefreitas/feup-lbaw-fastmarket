@@ -58,7 +58,7 @@ header .login input{
 	font-size:12px;
 	color: #737373;
 }
-
+.loggedin button,
 header .login button{
 	border: solid 1px #15546b;
 	border-radius: 5px;
@@ -109,6 +109,7 @@ header .login button{
 	text-shadow: 1px 1px #183b48;
 	cursor: pointer;
 }
+.loggedin button:HOVER,
 .login button:HOVER,
 .registration button:HOVER,
 .feature button:HOVER{
@@ -132,4 +133,33 @@ header .login button{
 	height: 30px;
 	margin-bottom:10px;
 	width: 220px;
+}
+
+/* Loggedin */
+
+.loggedin{
+	width: 300px;
+	float: right;
+	margin-top: 10px;
+}
+
+.loggedin .avatar{
+	float: left;
+}
+
+.loggedin .userinfo{
+	font-size: 14px;
+	float: left;
+	margin-left: 10px;
+	margin-top: 15px;
+	color: #fff;
+}
+
+.loggedin button{
+	margin-top: 20px;
+	margin-left: 20px;
+	float: rigth;
+}
+.permission{
+	text-transform: capitalize;
 }

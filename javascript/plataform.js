@@ -27,6 +27,13 @@ $(document).ready(function(){
 		login(email, password);
 		
 	});
+	
+	/* Logout Event */
+	$(".loggedin button[name='logout']").click( function(){
+		console.log("logout");
+		logout();
+	});
+	
 });
 
 /*
@@ -63,5 +70,29 @@ function login(email, password){
 	},
     function(data){
 		console.log(data);
+		location.reload();
 	});
+}
+
+/*
+* Logout
+*/
+function logout(){
+	$.getJSON("../ajax/plataform/logout.php",{}, function(){
+		location.reload();
+	});
+}
+
+/*
+* Get gravatar
+*/
+function getGravatar(email){
+	$.ajaxSetup( { "async": false } );
+	var data = $.getJSON("../ajax/getGravatar.php?",{
+		email: email,
+        default: "../images/default-avatar.png",
+        size: 70
+	});
+	$.ajaxSetup( { "async": true } );
+	return $.parseJSON(data["responseText"])["url"];
 }

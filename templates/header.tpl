@@ -5,8 +5,9 @@
         <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.10.0/build/cssreset/cssreset-min.css">
         <link rel="stylesheet" type="text/css" href="{$BASE_URL}/css/plataform.css"/>
         <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-        <script src="{$BASE_URL}/javascript/sha256.js"></script>
+        <script src="{$BASE_URL}/javascript/crypt.js"></script>
         <script src="{$BASE_URL}/javascript/plataform.js"></script>
+        <meta charset="UTF-8" />
     </head>
     <body>
         <header>        
@@ -15,7 +16,18 @@
                     <a href="index.php"><img src="../images/logo_dark.png" /></a>
                 </div>
                 {if $loggedin}
-                lulz
+                <div class="loggedin">
+                    <script> 
+                        var avatar = getGravatar("{$smarty.session.email}");
+                        document.write('<img class="avatar" src="'+avatar+'" width="60" height="60" />');
+                    </script>
+                    <div class="userinfo">
+                        <b>{$smarty.session.name}</b><br/>
+                        <span class="permission">{$smarty.session.permission}</span>
+                    </div>
+                     <button type="button" name="logout">Logout</button>
+                </div>
+                
                 {else}
                 <div class="login">
                     <form>
