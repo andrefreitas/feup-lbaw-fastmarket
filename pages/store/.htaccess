@@ -1,2 +1,9 @@
 RewriteEngine on
-RewriteRule ^[a-zA-Z0-9]*$       index.php?store=$0
+#RewriteRule ^[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)+$  index.php?store=$0
+RewriteRule ^[a-zA-Z0-9]*\.com$  index.php?store=$0
+RewriteRule ^[a-zA-Z0-9]*\.net$  index.php?store=$0
+RewriteRule ^[a-zA-Z0-9]*\.org$  index.php?store=$0
+RewriteRule ^[a-zA-Z0-9]*\.info$  index.php?store=$0
+RewriteRule ^[a-zA-Z0-9]*\.biz$  index.php?store=$0
+RewriteRule ^[a-zA-Z0-9]*\.pt$  index.php?store=$0
+RewriteRule ^[a-zA-Z0-9]*\.com\.pt$  index.php?store=$0
