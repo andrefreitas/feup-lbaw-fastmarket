@@ -1,5 +1,8 @@
 <?php
-require_once($_SERVER["DOCUMENT_ROOT"] .'/fastmarket/common/database.php');
+    if($_SERVER['HTTP_HOST'] == 'gnomo.fe.up.pt')
+        require_once('/opt/lbaw/lbaw12503/public_html/fastmarket/common/database.php');
+    else
+        require_once($_SERVER["DOCUMENT_ROOT"] .'/fastmarket/common/database.php');
 
 /*
  * Creates a new user

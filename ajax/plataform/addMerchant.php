@@ -1,14 +1,13 @@
 <?php
+     header('Content-type: application/json');
 	 require_once('../../common/init.php');
      require_once('../../database/plataform.php');
-     header('Content-type: application/json');
-     
      if(isset($_GET['name']) and isset($_GET['email']) and isset($_GET['password'])){
      
      	$user=getUserByEmail($_GET['email']);
-     	if(!isset($user) or $user['privilege']='merchant' or $user['privilege']='admin' )
+     	if(isset($user) and ($user['privilege']=='merchant' or $user['privilege']=='admin' ))
      	{
-     		echo json_encode(Array("result"=>"error"));
+     		echo json_encode(Array("result"=>"userAlreadyExists"));
      	}else
      	{
 	     	 try{
