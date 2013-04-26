@@ -11,7 +11,7 @@ $(document).ready(function(){
 		
 		// Ajax request
 		if(registrationIsValid(name,email,password,passwordCheck)){
-			password = sha256_digest(password);
+			password =  CryptoJS.SHA256(password).toString();
 			addMerchant(name, email, password);
 		}
 		else{
@@ -24,7 +24,7 @@ $(document).ready(function(){
 		var data = $(".login form").serializeArray(),
 	    email = data[0]["value"],
 	    password = data[1]["value"];
-		
+		login(email, password);
 		
 	});
 });
@@ -56,7 +56,7 @@ function registrationIsValid(name,email,password1,password2){
 * Login
 */
 function login(email, password){
-	password = sha256_digest(password);
+	password =  CryptoJS.SHA256(password).toString();
 	$.getJSON("../ajax/plataform/login.php?",{
         email: email,
         password: password

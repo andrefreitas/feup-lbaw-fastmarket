@@ -8,7 +8,9 @@
          {
          	 $user=getUserByEmail($_GET['email']);
          	 $_SESSION['id']=$user['id'];
-         	 $_SESSION['permission']=$user['privilege'];
+         	 $_SESSION['permission'] = $user['privilege'];
+         	 $_SESSION['name'] = $user['name'];
+         	 $_SESSION['email'] = $user['email'];
          	 echo json_encode(Array("result"=>"ok"));
          }else
          {
