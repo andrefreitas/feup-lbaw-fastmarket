@@ -1,9 +1,8 @@
 <?php
-	 require_once('../common/init.php');
-     require_once('../database/plataform.php');
-     header('Content-type: application/json');
-     
-     if(isset($_GET['email']) and isset($_GET['password'])){
+    header('Content-type: application/json');
+	require_once('../../common/init.php');
+    require_once('../../database/plataform.php');
+    if(isset($_GET['email']) and isset($_GET['password'])){
          $id=login($_GET['email'], $_GET['password']);
          if($id==true)
          {
