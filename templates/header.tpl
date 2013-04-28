@@ -4,6 +4,7 @@
         <title>{$title}</title>
         <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.10.0/build/cssreset/cssreset-min.css">
         <link rel="stylesheet" type="text/css" href="{$BASE_URL}/css/plataform.css"/>
+        <link rel="shortcut icon" href="{$BASE_URL}/images/favicon.ico" />
         <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
         <script src="{$BASE_URL}/javascript/crypt.js"></script>
         <script src="{$BASE_URL}/javascript/plataform.js"></script>
@@ -27,7 +28,6 @@
                     </div>
                      <button type="button" name="logout">Logout</button>
                 </div>
-                
                 {else}
                 <div class="login">
                     <form>
@@ -55,4 +55,3 @@
             </div>
         </nav>
         {/if}
-  
