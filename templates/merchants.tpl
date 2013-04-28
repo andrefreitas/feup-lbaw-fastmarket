@@ -1,20 +1,26 @@
 {include file='header.tpl'}
     <div id="content">
-        <div class="container_merchants">
-            <table class="merchant">
-		<tr>
-		<td><span class="merchant_title">Name</span></td>
-		<td><span class="merchant_title">Email</span></td>
-		<td><span class="merchant_title">Registration Date</span></td>
-              </tr>
-	     {foreach from=$merchants item=merchant}
-            <tr>
-		<td><span class="merchant_name">{$merchant.name}</span></td>
-		<td><span class="merchant_email">{$merchant.email}</span></td>
-		<td><span class="merchant_date">{$merchant.registration_date}</span></td>
-	     </tr>
-            {/foreach}
-           </table>
-	</div>
+        <div class="container">
+            <h2>Merchants</h2>
+            Here you can manage all the merchants that exists in the plataform.
+            
+            <table class="dataview">
+               <thead>
+                   <tr>
+                       <td> Name </td>
+                       <td> Email </td>
+                       <td> Registration Date </td>
+                   <tr>
+               </thead>
+               {foreach from=$merchants item=merchant}
+               <tr>
+    		       <td> {$merchant.name} </td>
+    		       <td> {$merchant.email} </td>
+    		       <td> {$merchant.registration_date} </td>
+    	       </tr>   
+               {/foreach}
+            </table>
+
+        </div>
     </div>
 {include file='footer.tpl'}
