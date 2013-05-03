@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS users_confirmations;
 DROP TABLE IF EXISTS orders_products;
 DROP TABLE IF EXISTS invoice;
 DROP TABLE IF EXISTS orders;
@@ -15,7 +16,6 @@ DROP TABLE IF EXISTS stores;
 DROP TABLE IF EXISTS files;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS privileges;
-
 CREATE TABLE privileges(
 	id SERIAL PRIMARY KEY,
 	name TEXT NOT NULL UNIQUE
@@ -27,6 +27,7 @@ CREATE TABLE users(
      email TEXT NOT NULL,
      password TEXT NOT NULL,
      registration_date DATE NOT NULL,
+     active BOOLEAN NOT NULL DEFAULT 'false',
      privilege_id INTEGER REFERENCES privileges(id) NOT NULL
 );
 
@@ -145,6 +146,12 @@ CREATE TABLE orders_products(
 	PRIMARY KEY (order_id,product_id)
 );
 
+
+CREATE TABLE users_confirmations(
+	user_id INTEGER REFERENCES users(id) on DELETE CASCADE,
+	hash TEXT NOT NULL,
+	PRIMARY KEY (user_id, hash)
+);
 /* Privileges */
 INSERT INTO privileges (name) VALUES('admin');
 INSERT INTO privileges (name) VALUES('merchant');

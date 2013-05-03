@@ -14,12 +14,24 @@ function createUser($name,$email,$password,$privilege_id){
 }
 
 /*
+ * Activate user
+ */
+
+function activateUser($email){
+    $sql = "UPDATE FROM users "
+         + "SET active = 'true' "
+         + "WHERE email = ?";
+    query($sql, array($email));
+}
+
+
+/*
  * Login user
 */
 function login($email,$password){
     $sql = "SELECT privilege_id "
          . "FROM users "
-         . "WHERE email = ? AND password = ?";
+         . "WHERE email = ? AND password = ? AND active = 'true'";
     $user = query($sql, array($email, $password));
     return $user ? true : false;
 }
@@ -185,5 +197,7 @@ function delete_merchant($merchantId){
          . "WHERE id = ?";
     query($sql, array($merchantId));
 }
+
+
 ?>
 
