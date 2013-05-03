@@ -1,5 +1,5 @@
 <?php
-    if(!isset($_SESSION['permission']) or $_SESSION['permission']!='admin'){
+    if(!isset($_SESSION['permission']) and $_SESSION['permission']!='admin'){
         header("Location: index.php");
     }
     require_once('../common/init.php');
