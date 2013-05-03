@@ -28,17 +28,12 @@ function activateUser($email){
  * Generate user activation hash
  */
 
-function generateActivationHash($email){
-    $user = getUserByEmail($email);
-    $id = isset($user["id"])? $user["id"] : NULL;
-    if($id){
-        $sql = "INSERT INTO users_confirmations(user_id, hash) "
-             . "VALUES ( ? , ? ) ";
-        $hash = substr(str_shuffle(md5(time())),0,10);
-        query($sql, array($id, $hash));
-        return $hash;
-    }
-    return false;
+function generateActivationHash($userId){
+    $sql = "INSERT INTO users_confirmations(user_id, hash) "
+         . "VALUES ( ? , ? ) ";
+    $hash = substr(str_shuffle(md5(time())),0,10);
+    query($sql, array($userId, $hash));
+    return $hash;
 }
 
 
@@ -53,6 +48,19 @@ function getActivationUserId($hash){
    $result = query($sql, array($hash));
    return isset($result["user_id"])? $result["user_id"] : false;
 }
+
+/* Get user activation
+ * 
+ */
+
+function getUserActivation($userID){
+    $sql = "SELECT hash "
+         . "FROM users_confirmations "
+         . "WHERE user_id = ?";
+    $result = query($sql, array($userID));
+    return isset($result["hash"])? $result["hash"] : false;
+}
+
 /*
  * Activate user by hash
  */
