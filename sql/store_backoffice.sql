@@ -137,9 +137,9 @@ VALUES('New Product','A new description',666333,9,'2012-02-05',1,4);
 -- param(product_id)
 DELETE FROM products
             WHERE id = 1;
-            /*ou
-             * por o stock a 0, que � mais seguro e estavel para as contagens dos lucros.
-             */
+    /*ou
+     * por o stock a 0, que � mais seguro e estavel para as contagens dos lucros.
+     */
 UPDATE products SET stock = 0
             WHERE id = 1;
             
