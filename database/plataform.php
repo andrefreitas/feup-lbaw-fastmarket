@@ -19,11 +19,55 @@ function createUser($name,$email,$password,$privilege_id){
 
 function activateUser($email){
     $sql = "UPDATE FROM users "
-         + "SET active = 'true' "
-         + "WHERE email = ?";
+         . "SET active = 'true' "
+         . "WHERE email = ?";
     query($sql, array($email));
 }
 
+/*
+ * Generate user activation hash
+ */
+
+function generateActivationHash($email){
+    $user = getUserByEmail($email);
+    $id = isset($user["id"])? $user["id"] : NULL;
+    if($id){
+        $sql = "INSERT INTO users_confirmations(user_id, hash) "
+             . "VALUES ( ? , ? ) ";
+        $hash = substr(str_shuffle(md5(time())),0,10);
+        query($sql, array($id, $hash));
+        return $hash;
+    }
+    return false;
+}
+
+
+/* 
+ * Get user_id from an activation
+ */
+
+function getActivationUserId($hash){
+    $sql = "SELECT user_id "
+         . "FROM users_confirmations "
+         . "WHERE hash = ?";
+   $result = query($sql, array($hash));
+   return isset($result["user_id"])? $result["user_id"] : false;
+}
+/*
+ * Activate user by hash
+ */
+
+function activateUserByHash($hash){
+    $userID = getActivationUserId($hash);
+    if($userID){
+        $sql = "UPDATE FROM users "
+             . "SET active = 'true' "
+             . "WHERE id = ?";
+        query($sql, array($sql));
+        return true;
+    }
+    return false;
+}
 
 /*
  * Login user

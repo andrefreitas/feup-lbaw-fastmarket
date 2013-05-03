@@ -8,7 +8,6 @@
      	$user=getUserByEmail($_GET['email']);
      	if(isset($user) and ($user['privilege']=='merchant' or $user['privilege']=='admin' ))
      	{
-     	    
      		echo json_encode(Array("result"=>"userAlreadyExists"));
      	}else
      	{
