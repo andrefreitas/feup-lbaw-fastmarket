@@ -1,7 +1,10 @@
 <?php
-	 require_once('../common/init.php');
-     require_once('../database/plataform.php');
-     header('Content-type: application/json');
-	 
-	 echo json_encode(Array("result"=>"ainda n implementado."));
+chdir('../../common');
+require_once('init.php');
+chdir('../database');
+require_once('plataform.php');
+chdir('../actions');
+require_once('plataform.php');
+chdir('../ajax/plataform');
+
 ?>
