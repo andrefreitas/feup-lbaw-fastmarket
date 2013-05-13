@@ -7,5 +7,4 @@
 	$BASE_PATH = explode("common", dirname(__FILE__) );
 	$BASE_PATH = $BASE_PATH[0];
 	$COOKIE_PATH = $BASE_PATH;
-	
 ?>
