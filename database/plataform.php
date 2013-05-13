@@ -1,76 +1,75 @@
 <?php
-    if($_SERVER['HTTP_HOST'] == 'gnomo.fe.up.pt')
-        require_once('/opt/lbaw/lbaw12503/public_html/fastmarket/common/database.php');
-    else
-        require_once($_SERVER["DOCUMENT_ROOT"] .'/fastmarket/common/database.php');
+chdir('../common');
+require_once('database.php');
+chdir('../database');
 
 /*
  * Creates a new user
 */
 function createUser($name,$email,$password,$privilege_id){
     $sql = "INSERT INTO users(name, email, password, registration_date, privilege_id) "
-         . "VALUES(?, ?, ?, CURRENT_TIMESTAMP, ?)";
+            . "VALUES(?, ?, ?, CURRENT_TIMESTAMP, ?)";
     query($sql, array($name, $email, $password, $privilege_id));
 }
 
 /*
  * Activate user
- */
+*/
 
 function activateUser($email){
     $sql = "UPDATE FROM users "
-         . "SET active = 'true' "
-         . "WHERE email = ?";
+            . "SET active = 'true' "
+                    . "WHERE email = ?";
     query($sql, array($email));
 }
 
 /*
  * Generate user activation hash
- */
+*/
 
 function generateActivationHash($userId){
     $sql = "INSERT INTO users_confirmations(user_id, hash) "
-         . "VALUES ( ? , ? ) ";
+            . "VALUES ( ? , ? ) ";
     $hash = substr(str_shuffle(md5(time())),0,10);
     query($sql, array($userId, $hash));
     return $hash;
 }
 
 
-/* 
+/*
  * Get user_id from an activation
- */
+*/
 
 function getActivationUserId($hash){
     $sql = "SELECT user_id "
-         . "FROM users_confirmations "
-         . "WHERE hash = ?";
-   $result = query($sql, array($hash));
-   return isset($result["user_id"])? $result["user_id"] : false;
+            . "FROM users_confirmations "
+                    . "WHERE hash = ?";
+    $result = query($sql, array($hash));
+    return isset($result["user_id"])? $result["user_id"] : false;
 }
 
 /* Get user activation
- * 
- */
+ *
+*/
 
 function getUserActivation($userID){
     $sql = "SELECT hash "
-         . "FROM users_confirmations "
-         . "WHERE user_id = ?";
+            . "FROM users_confirmations "
+                    . "WHERE user_id = ?";
     $result = query($sql, array($userID));
     return isset($result["hash"])? $result["hash"] : false;
 }
 
 /*
  * Activate user by hash
- */
+*/
 
 function activateUserByHash($hash){
     $userID = getActivationUserId($hash);
     if($userID){
         $sql = "UPDATE FROM users "
-             . "SET active = 'true' "
-             . "WHERE id = ?";
+                . "SET active = 'true' "
+                        . "WHERE id = ?";
         query($sql, array($sql));
         return true;
     }
@@ -82,8 +81,8 @@ function activateUserByHash($hash){
 */
 function login($email,$password){
     $sql = "SELECT privilege_id "
-         . "FROM users "
-         . "WHERE email = ? AND password = ? AND active = 'true'";
+            . "FROM users "
+                    . "WHERE email = ? AND password = ? AND active = 'true'";
     $user = query($sql, array($email, $password));
     return $user ? true : false;
 }
@@ -93,10 +92,10 @@ function login($email,$password){
 */
 function getLastStores(){
     $sql = "SELECT stores.creation_date as date, stores.id, stores.name as store, users.name as owner "
-         . "FROM stores, users, stores_users, privileges "
-         . "WHERE stores.id = stores_users.store_id AND stores_users.user_id = users.id "
-         . "AND users.privilege_id = privileges.id AND privileges.name = 'merchant' "
-         . "ORDER BY stores.creation_date DESC";
+            . "FROM stores, users, stores_users, privileges "
+                    . "WHERE stores.id = stores_users.store_id AND stores_users.user_id = users.id "
+                            . "AND users.privilege_id = privileges.id AND privileges.name = 'merchant' "
+                                    . "ORDER BY stores.creation_date DESC";
     return query($sql);
 }
 
@@ -105,8 +104,8 @@ function getLastStores(){
 */
 function getStoresLogos(){
     $sql = "SELECT stores.id, stores.name, files.path "
-         . "FROM stores, files "
-         . "WHERE stores.logo_id = files.id";
+            . "FROM stores, files "
+                    . "WHERE stores.logo_id = files.id";
     return query($sql);
 }
 /*
@@ -114,13 +113,13 @@ function getStoresLogos(){
 */
 function getStoresProfits($beginDate, $endDate){
     $sql = "SELECT stores.id, stores.name, SUM(invoice.total) as profit "
-         . "FROM invoice, orders, stores_users, transactions, stores "
-         . "WHERE invoice.order_id = orders.id AND stores.id = stores_users.store_id "
-         . "AND orders.costumer_id = stores_users.user_id AND orders.paid = 'true' "
-         . "AND orders.transaction_id = transactions.id AND transactions.transaction_date >= ?"
-         . "AND transactions.transaction_date < ? "
-         . "GROUP BY stores.id "
-         . "LIMIT 10";
+            . "FROM invoice, orders, stores_users, transactions, stores "
+                    . "WHERE invoice.order_id = orders.id AND stores.id = stores_users.store_id "
+                            . "AND orders.costumer_id = stores_users.user_id AND orders.paid = 'true' "
+                                    . "AND orders.transaction_id = transactions.id AND transactions.transaction_date >= ?"
+                                            . "AND transactions.transaction_date < ? "
+                                                    . "GROUP BY stores.id "
+                                                            . "LIMIT 10";
     return query($sql, array($beginDate, $endDate));
 }
 
@@ -129,8 +128,8 @@ function getStoresProfits($beginDate, $endDate){
 */
 function getAboutPath(){
     $sql = "SELECT path "
-         . "FROM files "
-         . "WHERE path ~* 'about' AND path ~* 'plataform'";
+            . "FROM files "
+                    . "WHERE path ~* 'about' AND path ~* 'plataform'";
     return query($sql);
 }
 
@@ -156,7 +155,7 @@ function getUserById($userId){
 */
 function getUserByEmail($userEmail){
     $sql = "SELECT users.id as id, users.name, users.email, privileges.name as privilege "
-         . "FROM users, privileges WHERE email = ? AND users.privilege_id=privileges.id ";
+            . "FROM users, privileges WHERE email = ? AND users.privilege_id=privileges.id ";
     $result = query($sql, array($userEmail));
     return $result ? $result[0] : false;
 }
@@ -166,8 +165,8 @@ function getUserByEmail($userEmail){
 */
 function updateUser($userId, $name, $email, $password, $privilegeId){
     $sql = "UPDATE users "
-         . "SET name = ?, email = ?, password = ?, privilege_id=? "
-         . "WHERE id = ?";
+            . "SET name = ?, email = ?, password = ?, privilege_id=? "
+                    . "WHERE id = ?";
     $sqlVars = array($name, $email, $password, $privilegeId, $userId);
     return getUserById($userId)? query($sql,$sqlVars) : false;
 }
@@ -177,7 +176,7 @@ function updateUser($userId, $name, $email, $password, $privilegeId){
 */
 function createStore($name, $slogan, $domain, $vat,$logoId){
     $sql = "INSERT INTO stores(name, slogan, domain, vat, creation_date,logo_id) "
-         . "VALUES(?, ?, ?, ?, CURRENT_TIMESTAMP,?)";
+            . "VALUES(?, ?, ?, ?, CURRENT_TIMESTAMP,?)";
     query($sql, array($name, $slogan, $domain, $vat,$logoId));
 }
 
@@ -186,8 +185,8 @@ function createStore($name, $slogan, $domain, $vat,$logoId){
 */
 function insertFile($name,$path){
     $sql = "INSERT INTO files(name, path) "
-         . "VALUES(?, ?) "
-         . "RETURNING id";
+            . "VALUES(?, ?) "
+                    . "RETURNING id";
     $result=query($sql, array($name, $path));
     return $result[0]['id'];
 }
@@ -196,8 +195,8 @@ function insertFile($name,$path){
 */
 function updateStore($storeId,$name,$slogan,$domain,$vat,$logoId){
     $sql = "UPDATE stores "
-         . "SET name = ?, slogan = ?, domain = ?, vat = ?, logo_id = ? "
-         . "WHERE id = ?";
+            . "SET name = ?, slogan = ?, domain = ?, vat = ?, logo_id = ? "
+                    . "WHERE id = ?";
     query($sql, array($name, $slogan, $domain, $vat, $logoId, $storeId));
 }
 
@@ -206,7 +205,7 @@ function updateStore($storeId,$name,$slogan,$domain,$vat,$logoId){
 */
 function deleteStore($storeId){
     $sql = "DELETE FROM stores "
-         . "WHERE id = ?";
+            . "WHERE id = ?";
     query($sql, array($storeId));
 }
 
@@ -216,8 +215,8 @@ function deleteStore($storeId){
 
 function getMerchants(){
     $sql = "SELECT users.name, users.email, users.registration_date "
-         . "FROM users, privileges "
-         . "WHERE users.privilege_id = privileges.id AND privileges.name = 'merchant'";
+            . "FROM users, privileges "
+                    . "WHERE users.privilege_id = privileges.id AND privileges.name = 'merchant'";
     return query($sql);
 }
 
@@ -226,8 +225,8 @@ function getMerchants(){
 */
 function createMerchant($name, $email, $password){
     $sql = "INSERT INTO users(name,email,password,registration_date,privilege_id) "
-         . "VALUES(?, ?, ?, CURRENT_TIMESTAMP, (SELECT id FROM privileges WHERE name='merchant')) "
-         . "RETURNING id";
+            . "VALUES(?, ?, ?, CURRENT_TIMESTAMP, (SELECT id FROM privileges WHERE name='merchant')) "
+                    . "RETURNING id";
     $result=query($sql, array($name, $email, $password));
     return $result[0]['id'];
 }
@@ -237,8 +236,8 @@ function createMerchant($name, $email, $password){
 */
 function updateMerchant($merchantId,$name,$email,$password){
     $sql = "UPDATE users "
-         . "SET name = ?,email = ?, password = ? "
-         . "WHERE id = ?";
+            . "SET name = ?,email = ?, password = ? "
+                    . "WHERE id = ?";
     query($sql, array($name,$email,$password,$merchantId));
 }
 /*
@@ -246,7 +245,7 @@ function updateMerchant($merchantId,$name,$email,$password){
 */
 function delete_merchant($merchantId){
     $sql = "DELETE FROM users "
-         . "WHERE id = ?";
+            . "WHERE id = ?";
     query($sql, array($merchantId));
 }
 
