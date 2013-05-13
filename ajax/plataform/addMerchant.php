@@ -7,6 +7,8 @@ chdir('../actions');
 require_once('plataform.php');
 chdir('../ajax/plataform');
 
+header('Content-type: application/json');
+
 if( isset($_GET['name']) and isset($_GET['email']) and isset($_GET['password']) ){
      
     $user=getUserByEmail($_GET['email']);
