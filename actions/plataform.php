@@ -8,7 +8,7 @@ chdir("../actions");
 function sendConfirmationEmail($userID){
     $user    = getUserById($userID);
     $hash    = getUserActivation($userID);
-    $to      = "p.andrefreitas@gmail.com";
+    $to      = $user["email"];
     $subject = 'Please confirm your registration in Fastmarket';
     $message = 'Confirmation : ' . $hash;
     $headers = 'From: noreply@fastmarket.com' . "\r\n" .
@@ -17,4 +17,5 @@ function sendConfirmationEmail($userID){
     
     mail($to, $subject, $message, $headers);
 }
+
 ?>

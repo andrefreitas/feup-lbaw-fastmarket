@@ -19,7 +19,6 @@ if( isset($_GET['name']) and isset($_GET['email']) and isset($_GET['password']) 
         try{
             $id = createMerchant($_GET['name'], $_GET['email'], $_GET['password']);
             $hash = generateActivationHash($id);
-            echo "Hash -> " . $hash;
             sendConfirmationEmail($id);
             echo json_encode(Array("result"=>"ok","id"=>$id));
         }
