@@ -9,7 +9,9 @@ else{
     require_once($documentRoot .'/fastmarket/common/database.php');
 }
 
-
+/*
+ * Get products of store
+*/
 function getStoreProducts($storeId, $limit){
     $sql = "SELECT products.id, products.name, products.description, products.base_cost AS price, "
          . "categories.name AS category, files.path AS file "
@@ -20,6 +22,10 @@ function getStoreProducts($storeId, $limit){
          . "LIMIT ?";
     return query($sql, array($storeId, $limit)); 
 }
+
+/*
+ * Get products of store on stock
+*/
 
 function getStoreProductsOnStock($storeId, $limit){
     $sql = "SELECT products.id, products.name, products.description, products.base_cost AS price, "
@@ -32,6 +38,10 @@ function getStoreProductsOnStock($storeId, $limit){
     return query($sql, array($storeId, $limit)); 
 }
 
+/*
+ * Get categories of store
+*/
+
 function getCategories($storeId)
 {
 	$sql = "SELECT categories.id, categories.name
@@ -41,6 +51,10 @@ function getCategories($storeId)
 	return query($sql, array($storeId));
 
 }
+
+/*
+ * Search products or categories on store
+*/
 
 function searchOnStore($storeId, $searchTerm, $limit)
 {
@@ -54,6 +68,10 @@ function searchOnStore($storeId, $searchTerm, $limit)
 	return query($sql, array($storeId, $searchTerm, $searchTerm, $searchTerm, $limit));
 }
 
+/*
+ * Get product info by id
+*/
+
 function getProduct($productId)
 {
 	$sql = "SELECT products.id, products.name, products.description, products.base_cost AS price, 
@@ -63,6 +81,10 @@ function getProduct($productId)
 	return query($sql, array($productId));
 }
 
+/*
+ * Get comments of product
+*/
+
 function getCommentsOfProduct($productId)
 {
 	$sql = "SELECT comments.id, comments.body,comments.comment_date AS DATE, users.name
@@ -71,12 +93,20 @@ function getCommentsOfProduct($productId)
 	return query($sql, array($productId));
 }
 
+/*
+ * Add new favorite user->product
+*/
+
 function setFavorite($userId, $productId){
 	$sql = "INSERT INTO favorites(user_id,product_id) VALUES(?,?)";
 	
 	query($sql, array($userId,$productId));
 
 }
+
+/*
+ * Add new comment on product
+*/
 
 function insertComment($productId, $userId, $comment)
 {
@@ -86,12 +116,20 @@ function insertComment($productId, $userId, $comment)
 
 }
 
+/*
+ * Add new subscription user->product
+*/
+
 function setSubscription($userId, $productId)
 {
 	$sql = "INSERT INTO products_subscriptions(product_id,user_id,subscription_date)
 			VALUES (?,?,CURRENT_TIMESTAMP)";
 	return query($sql, array($productId,$userId));
 }
+
+/*
+ * Get path of contacts file
+*/
 
 function getContactsFile($storeId)
 {
@@ -100,6 +138,10 @@ function getContactsFile($storeId)
 			WHERE files.id=stores_files.file_id AND name ~* 'contacts' AND stores_files.store_id=?";
 	return query($sql,array($storeId));
 }
+
+/*
+ * Get products of some category
+*/
 
 function getProductsOfCategory($categoryId)
 {
@@ -110,11 +152,19 @@ function getProductsOfCategory($categoryId)
 	return query($sql,array($categoryId));
 }
 
+/*
+ * Evaluate product / user score a product
+*/
+
 function evaluateProduct($productId, $userId, $score)
 {
 	$sql = "INSERT INTO products_scores(product_id,user_id,score) VALUES (?,?,?)";
 	return query($sql, array($productId, $userId, $score));
 }
+
+/*
+ * Add new order
+*/
 
 function newOrder($userId )
 {
@@ -122,12 +172,20 @@ function newOrder($userId )
 	return query($sql, array($userId));
 }
 
+/*
+ * Add products to an existing order
+*/
+
 function addProductToOrder($orderId, $productId, $quantity, $baseCost)
 {
 	$sql = "INSERT INTO orders_products(product_id,order_id,quantity,base_cost) 
 			VALUES(?,?,?,?)";
 	return query($sql, array($productId, $orderId, $quantity, $baseCost));
 }
+
+/*
+ * Get path of about file
+*/
 
 function getAboutFile($storeId)
 {

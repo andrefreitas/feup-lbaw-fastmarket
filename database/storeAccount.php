@@ -9,12 +9,20 @@ else{
     require_once($documentRoot .'/fastmarket/common/database.php');
 }
 
+/*
+ * Login
+*/
+
 function login($userEmail, $pass)
 {
 	$sql = "SELECT * FROM users
 			WHERE email=? AND password=?";
 	return query($sql, array($userEmail,$pass));
 }
+
+/*
+ * Register new costumer 1º step
+*/
 
 function register1Step($userName, $userEmail, $pass)
 {
@@ -23,11 +31,35 @@ function register1Step($userName, $userEmail, $pass)
 	return query($sql, array($userName, $userEmail, $pass));
 }
 
+/*
+ * Register new costumer 2º step
+*/
+
 function register2Step($userId, $storeId)
 {
 	$sql = "INSERT INTO stores_users(user_id,store_id) VALUES(?,?)";
 	return query($sql, array($userId, $storeId));
 }
+
+/*
+ * Activate user by hash
+*/
+
+function activateUserByHash($hash){
+    $userID = getActivationUserId($hash);
+    if($userID){
+        $sql = "UPDATE FROM users "
+             . "SET active = 'true' "
+             . "WHERE id = ?";
+        query($sql, array($sql));
+        return true;
+    }
+    return false;
+}
+
+/*
+ * Get Subscriptions of user
+*/
 
 function getSubscriptions($userId)
 {
@@ -40,6 +72,10 @@ function getSubscriptions($userId)
 	return query($sql, array($userId));
 }
 
+/*
+ * Remove Subscription of user to some product
+*/
+
 function removeSubscription($userId, $productId)
 {
 	$sql = "DELETE FROM products_subscriptions
@@ -47,12 +83,20 @@ function removeSubscription($userId, $productId)
 	return query($sql, array($userId, $productId));
 }
 
+/*
+ * Get account info of user
+*/
+
 function getAccount($userId)
 {
 	$sql = "SELECT * FROM users
 			WHERE id=?";
 	return query($sql, array($userId));
 }
+
+/*
+ * Get favorites of user
+*/
 
 function getFavorites($userId)
 {
@@ -64,12 +108,20 @@ function getFavorites($userId)
 	return query($sql,array($userId));
 }
 
+/*
+ * Remove favorite of user
+*/
+
 function removeFavorite($userId, $productId)
 {
 	$sql = "DELETE FROM favorites
 			WHERE user_id=? AND product_id=?";
 	return query($sql,array($userId,$productId));
 }
+
+/*
+ * Update account name
+*/
 
 function setAccountName($userId, $name)
 {
@@ -79,6 +131,10 @@ function setAccountName($userId, $name)
 	return query($sql,array($name,$userId));
 }
 
+/*
+ * Update account email
+*/
+
 function setAccountEmail($userId, $email)
 {
 	$sql = "UPDATE users
@@ -86,6 +142,10 @@ function setAccountEmail($userId, $email)
 			WHERE id=?";
 	return query($sql,array($email, $userId));
 }
+
+/*
+ * Update account password
+*/
 
 function setAccountPass($userId, $pass)
 {
@@ -95,6 +155,10 @@ function setAccountPass($userId, $pass)
 	return query($sql,array($pass, $userId));
 }
 
+/*
+ * Get orders of user
+*/
+
 function getOrders($userId)
 {
 	$sql = "SELECT orders.id, order_date AS DATE,invoice.total
@@ -102,6 +166,10 @@ function getOrders($userId)
 			WHERE costumer_id=? AND orders.id=invoice.order_id";
 	return query($sql,array($userId));
 }
+
+/*
+ * Get products of user
+*/
 
 function getProductsOfOrder($orderId)
 {
@@ -112,6 +180,10 @@ function getProductsOfOrder($orderId)
 			AND products.id=orders_products.product_id AND orders_products.order_id=?";
 	return query($sql, array($orderId));
 }
+
+/*
+ * Get invoice of order
+*/
 
 function getInvoice($orderId)
 {
