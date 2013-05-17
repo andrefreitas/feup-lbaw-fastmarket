@@ -68,8 +68,8 @@ function activateUserByHash($hash){
     $userID = getActivationUserId($hash);
     if($userID){
         $sql = "UPDATE FROM users "
-                . "SET active = 'true' "
-                        . "WHERE id = ?";
+             . "SET active = 'true' "
+             . "WHERE id = ?";
         query($sql, array($sql));
         return true;
     }
@@ -182,8 +182,9 @@ function createStore($name, $slogan, $domain, $vat,$logoId){
 
 function linkStoreToMerchant($merchantId, $storeId)
 {
-	$sql = "INSERT INTO stores_users(user_id,store_id) VALUES($merchantId,$storeId)";
-	return query($sql,array())
+	$sql = "INSERT INTO stores_users(user_id,store_id) VALUES($merchantId,$storeId);";
+	return query($sql,array());
+
 }
 
 /*
