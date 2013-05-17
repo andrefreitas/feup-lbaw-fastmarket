@@ -15,7 +15,6 @@
     $ROOT_FOLDER = explode("/", $ROOT_FOLDER);
 	$ROOT_FOLDER = end($ROOT_FOLDER);
 
-	
 	/* Compute Cookie Path */
     $COOKIE_PATH = explode($ROOT_FOLDER, $_SERVER['REQUEST_URI']);
 	$COOKIE_PATH = $COOKIE_PATH[0] . $ROOT_FOLDER . "/";	
