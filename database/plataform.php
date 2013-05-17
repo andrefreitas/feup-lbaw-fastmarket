@@ -180,6 +180,12 @@ function createStore($name, $slogan, $domain, $vat,$logoId){
     query($sql, array($name, $slogan, $domain, $vat,$logoId));
 }
 
+function linkStoreToMerchant($merchantId, $storeId)
+{
+	$sql = "INSERT INTO stores_users(user_id,store_id) VALUES($merchantId,$storeId);";
+	return query($sql,array())
+}
+
 /*
  * Add a file ans returns its id
 */
