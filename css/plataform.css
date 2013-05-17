@@ -297,7 +297,7 @@ nav li a:hover{
 	padding: 5px;
 	color: #fff;
 	margin: 5px;
-	text-shadow: 1px 1px 1px #183b48;
+	text-align:center;
 }
 
 .confirmation{
@@ -305,6 +305,7 @@ nav li a:hover{
 	border: solid 1px #31881d;
 	padding: 5px;
 	color: #fff;
-	text-shadow: 1px 1px 2px #194210;
+	margin: 5px;
 	margin-bottom:10px;
+	text-align:center;
 }
