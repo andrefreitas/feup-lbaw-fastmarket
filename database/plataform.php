@@ -257,4 +257,3 @@ function delete_merchant($merchantId){
 
 
 ?>
-

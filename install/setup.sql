@@ -294,6 +294,4 @@ $$ LANGUAGE plpgsql;
  
 CREATE TRIGGER delete_category BEFORE DELETE ON categories
     FOR EACH ROW EXECUTE PROCEDURE delete_category();   
-    
-
-  
+     

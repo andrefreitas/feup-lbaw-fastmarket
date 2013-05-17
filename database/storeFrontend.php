@@ -21,6 +21,16 @@ function getStoreProducts($storeId, $limit){
     return query($sql, array($storeId, $limit)); 
 }
 
+function getStoreProductsOnStock($storeId, $limit){
+    $sql = "SELECT products.id, products.name, products.description, products.base_cost AS price, "
+         . "categories.name AS category, files.path AS file "
+         . "FROM products,categories,files "
+         . "WHERE products.category_id = categories.id AND categories.store_id = ? "
+         . "AND files.id = products.image_id AND products.stock > 0"
+         . "ORDER BY insertion_date DESC "
+         . "LIMIT ?";
+    return query($sql, array($storeId, $limit)); 
+}
 
 function getCategories($storeId)
 {
