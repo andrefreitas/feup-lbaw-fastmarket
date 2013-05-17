@@ -85,7 +85,7 @@ chdir('../database');
 	{
 		$sql="SELECT * 
 				FROM transactions
-				WHERE transactions.store_id=1 
+				WHERE transactions.store_id=? 
 				ORDER BY transactions.transaction_date DESC";
 		return query($sql,array($store_id));
 	}
@@ -95,12 +95,15 @@ chdir('../database');
 	*/
 	function getDesignFiles($store_id)
 	{
-		$sql="SELECT * 
+		$sql_old="SELECT * 
 				FROM stores LEFT OUTER JOIN 
 				    (SELECT * 
 				     FROM stores_files, files 
 				     WHERE files.id=stores_files.file_id) AS foo
 				ON (foo.store_id=stores.id)";
+		$sql = "SELECT files.path
+				FROM stores, files, stores_files
+				WHERE stores.id=? AND files.id=stores_files.file_id AND stores.id=stores_files.store_id";
 		return query($sql,array($store_id));
 	}
 	
@@ -181,7 +184,7 @@ chdir('../database');
 	{
 		$sql="SELECT * 
 				FROM files
-				WHERE id=1";
+				WHERE id=?";
 		return query($sql,array($file_id))
 	}
 	
