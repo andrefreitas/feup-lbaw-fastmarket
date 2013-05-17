@@ -15,8 +15,7 @@ chdir('../database');
 					orders.costumer_id=stores_users.user_id AND orders.paid='true' AND
 					orders.transaction_id=transactions.id AND
 					transactions.transaction_date >= ? AND 
-					transactions.transaction_date < ?;
- ";
+					transactions.transaction_date < ?";
 		return query($sql,array($store_id, $init_date, $end_date));
 	}
 	
@@ -31,7 +30,7 @@ chdir('../database');
 						orders.costumer_id=stores_users.user_id AND orders.paid='true' AND
 						orders_products.order_id=orders.id
 				GROUP BY orders_products.product_id
-				ORDER BY profits DESC;";
+				ORDER BY profits DESC";
 		return query($sql,array($store_id));
 	
 	}
@@ -50,7 +49,7 @@ chdir('../database');
 						stores_users.store_id=? AND stores_users.user_id=users.id AND 
 						privileges.name='costumer' AND privileges.id=users.privilege_id AND
 						orders.paid='true' AND orders.transaction_id=transactions.id
-				ORDER BY transactions.transaction_date DESC;";
+				ORDER BY transactions.transaction_date DESC";
 		return query($sql,array($store_id));
 	}
 	
@@ -62,7 +61,7 @@ chdir('../database');
 		$sql="SELECT users.id, users.name, users.registration_date, users.email
 				FROM users, stores_users, privileges
 				WHERE stores_users.user_id=users.id AND stores_users.store_id=? AND
-						users.privilege_id=privileges.id AND privileges.name='costumer';";
+						users.privilege_id=privileges.id AND privileges.name='costumer'";
 		return query($sql, array($store_id));
 	}
 	
@@ -75,7 +74,7 @@ chdir('../database');
 				FROM users, stores_users, privileges
 				WHERE stores_users.user_id=users.id AND stores_users.store_id=? AND
 						users.privilege_id=privileges.id AND privileges.name='costumer' AND
-						users.name ~* ?;";
+						users.name ~* ?";
 		return query($sql,array($store_id,$filter));
 	}
 	
@@ -87,7 +86,7 @@ chdir('../database');
 		$sql="SELECT * 
 				FROM transactions
 				WHERE transactions.store_id=1 
-				ORDER BY transactions.transaction_date DESC;";
+				ORDER BY transactions.transaction_date DESC";
 		return query($sql,array($store_id));
 	}
 	
@@ -101,7 +100,7 @@ chdir('../database');
 				    (SELECT * 
 				     FROM stores_files, files 
 				     WHERE files.id=stores_files.file_id) AS foo
-				ON (foo.store_id=stores.id);";
+				ON (foo.store_id=stores.id)";
 		return query($sql,array($store_id));
 	}
 	
@@ -111,7 +110,7 @@ chdir('../database');
 	function updateCostumer($costumer_id, $name, $email, $password, $privilege_id)
 	{
 		$sql="UPDATE users SET name = ?, email = ?, password = ?, privilege_id=?
-            WHERE id = ?;";
+            WHERE id = ?";
 		return query($sql,array($name, $email, $password, $privilege_id, $costumer_id));
 	}
 	
@@ -122,7 +121,7 @@ chdir('../database');
 	{
 		$sql="SELECT *
 				FROM users
-				WHERE users.id=?;";
+				WHERE users.id=?";
 		return query($sql,array($costumer_id));
 	}
 	
@@ -132,7 +131,7 @@ chdir('../database');
 	function addTransaction($amount, $description, $store_id)
 	{
 		$sql="INSERT INTO transactions(transaction_date,amount,description,store_id) 
-				VALUES (CURRENT_TIMESTAMP,?,?,?);";
+				VALUES (CURRENT_TIMESTAMP,?,?,?)";
 		return query($sql,array($amount, $description, $store_id));
 	}
 	
@@ -141,13 +140,13 @@ chdir('../database');
 	*/
 	function updateDesign($file_id, $store_id, $fileName, $path)
 	{
-		$sql="DELETE FROM files WHERE id=?;";
+		$sql="DELETE FROM files WHERE id=?";
 		query($sql,array($file_id));
 		
 		$sql="INSERT INTO files (name , path) 
 				VALUES (?,?);
 				INSERT INTO stores_files (file_id, store_id) 
-				VALUES ((SELECT last_value FROM files_id_seq),?);";
+				VALUES ((SELECT last_value FROM files_id_seq),?)";
 		query($sql,array($fileName, $path, $store_id));
 	}
 	
@@ -159,7 +158,7 @@ chdir('../database');
 		$sql="SELECT *
 				FROM orders, stores_users, users
 				WHERE orders.costumer_id=stores_users.user_id AND stores_users.store_id=? AND
-						users.id=stores_users.user_id;";
+						users.id=stores_users.user_id";
 		return query($sql,array($store_id));
 	}
 	
@@ -171,8 +170,7 @@ chdir('../database');
 		$sql="SELECT *
 				FROM products, categories, products_images, files
 				WHERE categories.store_id=? AND products.category_id=categories.id AND
-						products_images.product_id=products.id AND products_images.file_id=files.id;
-				 ";
+						products_images.product_id=products.id AND products_images.file_id=files.id";
 		return query($sql,array($store_id));
 	}
 	
@@ -183,7 +181,7 @@ chdir('../database');
 	{
 		$sql="SELECT * 
 				FROM files
-				WHERE id=1;";
+				WHERE id=1";
 		return query($sql,array($file_id))
 	}
 	
@@ -194,7 +192,7 @@ chdir('../database');
 	{
 		$sql="SELECT *
 				FROM orders, users, invoice
-				WHERE orders.costumer_id=users.id AND orders.id=? AND invoice.order_id=orders.id;";
+				WHERE orders.costumer_id=users.id AND orders.id=? AND invoice.order_id=orders.id";
 		return query($sql,array($order_id));
 	}
 	
@@ -204,7 +202,7 @@ chdir('../database');
 	function addProduct($name,$description,$base_cost,$stock,$category_id,$image_id)
 	{
 		$sql="INSERT INTO products(name,description,base_cost,stock,insertion_date,category_id,image_id) 
-				VALUES(?,?,?,?,CURRENT_TIMESTAMP,?,?);";
+				VALUES(?,?,?,?,CURRENT_TIMESTAMP,?,?)";
 		return query($sql,array($name,$description,$base_cost,$stock,$category_id,$image_id));
 	}
 	
@@ -214,7 +212,7 @@ chdir('../database');
 	function removeProduct($product_id)
 	{
 		$sql="UPDATE products SET stock = 0
-           		 WHERE id = ?;";
+           		 WHERE id = ?";
 		return query($sql,array($product_id));
 	}
 	
@@ -226,7 +224,7 @@ chdir('../database');
 		$sql="SELECT * 
 				FROM users, stores_users
 				WHERE users.id=stores_users.user_id AND
-				stores_users.store_id=? AND users.name ~* ?;";
+				stores_users.store_id=? AND users.name ~* ?";
 		return query($sql,array($store_id,$filter));
 	}
 	function searchProductsAndCategories($store_id,$filter)
@@ -234,7 +232,7 @@ chdir('../database');
 		$sql="SELECT * 
 				FROM products, categories 
 				WHERE products.category_id=categories.id AND categories.store_id=? AND
-						(products.name ~* ? OR categories.name ~* ?);";
+						(products.name ~* ? OR categories.name ~* ?)";
 		return query($sql,array($store_id,$filter,$filter));
 	}
 	
@@ -245,7 +243,7 @@ chdir('../database');
 	{
 		$sql="UPDATE products SET 
 				name=?, description=?, base_cost=?,	stock=?, category_id=?, image_id=?
-				WHERE id = ?; ";
+				WHERE id = ?";
 		return query($sql,array($name, $description, $base_cost, $stock, $category_id, $image_id, $product_id));
 	}
 	
@@ -254,7 +252,7 @@ chdir('../database');
 	*/
 	function removeCategory($category_id)
 	{
-		$sql="DELETE FROM categories WHERE id=?;";
+		$sql="DELETE FROM categories WHERE id=?";
 		return query($sql,array($category_id));
 	}
 	
@@ -264,7 +262,7 @@ chdir('../database');
 	function addCategory($name,$store_id,$image_id)
 	{
 		$sql="INSERT INTO categories(name,store_id,image_id) 
-				VALUES(?,?,?);";
+				VALUES(?,?,?)";
 		return query($sql,array($name,$store_id,$image_id));
 	}
 ?>
