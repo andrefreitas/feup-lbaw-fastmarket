@@ -1,4 +1,14 @@
 {include file='header.tpl'}
+                {if isset($welcome) and $welcome eq 0} 
+                 <div class="error">
+                     Invalid registration key!
+                 </div>
+                {/if}
+                {if isset($welcome) and $welcome eq 1} 
+                 <div class="confirmation">
+                  Your registration has been confirmed :) 
+                 </div>
+                {/if}  
     <div id="content">
         <div class="container">
             <div class="feature">
