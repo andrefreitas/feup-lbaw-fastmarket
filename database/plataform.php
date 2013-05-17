@@ -184,6 +184,7 @@ function linkStoreToMerchant($merchantId, $storeId)
 {
 	$sql = "INSERT INTO stores_users(user_id,store_id) VALUES($merchantId,$storeId);";
 	return query($sql,array());
+
 }
 
 /*
