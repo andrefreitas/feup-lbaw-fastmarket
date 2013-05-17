@@ -1,27 +1,30 @@
-{include file='header.tpl'}
-                {if isset($welcome) and $welcome eq 0} 
-                 <div class="error">
-                     Invalid registration key!
-                 </div>
-                {/if}
-                {if isset($welcome) and $welcome eq 1} 
-                 <div class="confirmation">
-                  Your registration has been confirmed :) 
-                 </div>
-                {/if}  
-    <div id="content">
-        <div class="container">
-            <div class="feature">
-                <div class="left">
-                    <h1>Create your store!</h1>
-                    Fastmarket is a web application that allows you to create a store
-                    in easy steps even if you are not a HTML expert. We have a complete billing system.<br/>
-                   <button type="button" name="register" onclick="window.location.href='register.php'">Register now!</button>
-                </div>
-                <div class="right">
-                    <img src="../images/store.jpg">
-                </div>
-            </div>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Welcome to Fastmarket</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.10.0/build/cssreset/cssreset-min.css">
+        <link rel="stylesheet" type="text/css" href="../css/plataform.css"/>
+        <link rel="shortcut icon" href="../images/favicon.ico" />
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+          <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+        <script src="../javascript/crypt.js"></script>
+        <script src="../javascript/plataform.js"></script>
+    </head>
+    <body>
+        <div class="head">
         </div>
-    </div>
-{include file='footer.tpl'}
+        <div class="header">
+        </div>
+        <div class="loginbox">
+        </div>
+        <div class="whiteblock">
+        </div>
+        <div class="blueblock">
+        </div>
+        <div class="footer">
+        Faculdade de Engenharia da Universidade do Porto | Database and Web Applications Laboratory<br/>
+        <b>Master in Computers Engineering</b>
+        </div>
+    </body>
+</html>

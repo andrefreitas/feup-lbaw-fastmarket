@@ -12,5 +12,4 @@ if(isset($_SESSION['permission']) and $_SESSION['permission']=='admin'){
     $smarty->display('merchants.tpl');
 }
 
-
 ?>

@@ -2,7 +2,7 @@
 
 /* Common */
 body{
-	font-family:"Verdana", sans-serif;
+	font-family:"Tahoma", sans-serif;
 
 }
 
@@ -15,6 +15,42 @@ body{
 	color: #535353;
 }
 
+
+/* Homepage */
+
+.head{
+	height: 27px;
+	background-color: #217a9a;
+}
+
+.header{
+	height: 330px;
+	background-color: #505050;
+}
+
+.loginbox{
+	height: 90px;
+	background-color: #d8d8d8;
+	box-shadow:2px 4px 7px #aeaeae;
+}
+
+.whiteblock{
+	height:200px;
+}
+
+.blueblock{
+	height:200px;
+	background-color: #e1f7ff;
+}
+
+.footer{
+	height:50px;
+	padding-top: 20px;
+	background-color: #217a9a;
+	color: #fff;
+	font-size: 14px;
+	text-align: center;
+}
 
 header{
 	height: 100px;
