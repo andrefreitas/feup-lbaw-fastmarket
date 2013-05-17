@@ -6,6 +6,7 @@ body{
 
 }
 
+
 .container{
 	margin: 0 auto;
 	width: 900px;
@@ -16,10 +17,11 @@ body{
 
 
 header{
-	height: 90px;
+	height: 100px;
 	background: url('../images/header.png') repeat-x #505050;
 	width: 100%;
 	border-top: solid 3px #217a9a;
+	padding-top:10px;
 }
 header .logo{
 	margin-top:15px;
@@ -45,6 +47,7 @@ header a:hover{
 	text-decoration: underline;
 }
 
+/* Login area */
 header .login{
 	width: 500px;
 	margin-top: 30px;
@@ -53,15 +56,27 @@ header .login{
 	
 }
 
+header .login button{
+	height: 30px;
+	width: 60px;
+	font-size:14px;
+}
+
+
 header .login input{
-	width: 130px;
-	height: 25px;
+	width: 170px;
+	height: 30px;
 	border-radius: 5px;
 	padding:0px 5px 0px 5px;
 	border:solid 1px #323232;
-	font-size:12px;
+	font-size:14px;
 	color: #737373;
 }
+
+header .login input[type='email']{
+	width: 200px;
+}
+/* Button */
 button{
 	border: solid 1px #15546b;
 	border-radius: 5px;
@@ -69,21 +84,26 @@ button{
 	background: #217a9a;
 	color: #fff;
 	cursor: pointer;
-	text-shadow: 1px 1px #183b48;
+	text-shadow: 1px 1px 1px #183b48;
 }
 
 button:HOVER{
 	border:solid 1px #183b48;
-	background: #155971;
+	background: #1b8bb3;
+}
+
+button:ACTIVE{
+	box-shadow: inset 0px 3px 7px #1a6c89;
 }
 
 /* Pages */
 .feature{
-	margin-top: 50px;
+	margin-top: 15px;
 	text-align: justify;
 	line-height: 23px;
 	color: #535353;
 }
+/* Titles */
 
  h1{
 	font-size: 30px;
@@ -98,7 +118,7 @@ button:HOVER{
 	color: #217a9a;
 	margin-top:10px;
 }
-
+/* Feature in the homepage */
 .feature .left{
 	float: left;
 	width: 380px;
@@ -110,6 +130,7 @@ button:HOVER{
 	width: 500px;	
 }
 
+/* Registration button size */
 .registration button,
 .feature button{
 	padding:8px 16px 8px 16px;
@@ -135,7 +156,7 @@ button:HOVER{
 	width: 220px;
 }
 
-/* Loggedin */
+/* Loggedin user area */
 
 .loggedin{
 	width: 300px;
@@ -160,6 +181,7 @@ button:HOVER{
 	margin-left: 20px;
 	float: rigth;
 }
+
 .permission{
 	text-transform: capitalize;
 }
@@ -177,12 +199,14 @@ nav ul{
 	
 }
 nav li{
-	display: inline;
+	float: left;
 	list-style-type: none;
 	padding-right: 15px;
 	font-size: 15px;
 	padding-left: 22px;
 }
+
+
 
 nav li a{
 	color: #fff;
@@ -194,6 +218,7 @@ nav li a:hover{
 	color: #e7f9ff;
 }
 
+/* Navigation Icons */
 #merchantsi{
 	background: url('../images/merchants-icon.png') no-repeat ;
 }
@@ -206,6 +231,7 @@ nav li a:hover{
 #storesi{
 	background: url('../images/stores-icon.png') no-repeat ;
 }
+
 
 .merchants{
 	margin-top: 20px;
