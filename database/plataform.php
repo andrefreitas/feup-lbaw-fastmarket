@@ -54,10 +54,10 @@ function getActivationUserId($hash){
 
 function getUserActivation($userID){
     $sql = "SELECT hash "
-            . "FROM users_confirmations "
-                    . "WHERE user_id = ?";
+         . "FROM users_confirmations "
+         . "WHERE user_id = ?";
     $result = query($sql, array($userID));
-    return isset($result["hash"])? $result["hash"] : false;
+    return isset($result[0]["hash"])? $result[0]["hash"] : false;
 }
 
 /*

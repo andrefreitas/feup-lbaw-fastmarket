@@ -13,9 +13,10 @@ $(document).ready(function(){
 		if(registrationIsValid(name,email,password,passwordCheck)){
 			password =  CryptoJS.SHA256(password).toString();
 			addMerchant(name, email, password);
+			$('.nameNotification').html('<div class="confirmation"> Check your email</div>');
 		}
 		else{
-			alert("Invalid data");
+			$('.error').effect( "bounce", {times:3}, 300 );
 		}
 	});
 	
@@ -47,9 +48,7 @@ function addMerchant(name, email, password){
 	},
     function(data){
 		console.log(data);
-		if(data["result"]=="ok"){
-			window.location = "index.php";
-		}
+		
 	});
 }
 
@@ -58,7 +57,24 @@ function addMerchant(name, email, password){
  */
 
 function registrationIsValid(name,email,password1,password2){
+	$('.nameNotification').html('');
+	$('.emailNotification').html('');
+	$('.passwordNotification').html('');
 	var emailRegex= /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/; 
+	if(name.length<1){
+		$('.nameNotification').html('<div class="error"> Please write your name</div>');
+		
+	}
+	else if(!emailRegex.test(email)){
+		$('.emailNotification').html('<div class="error"> Invalid email!</div>');
+	} 
+	else if(password1.length<1){
+		$('.passwordNotification').html('<div class="error"> Please write a password</div>');
+	
+	}else if(password1 != password2){
+		$('.passwordNotification').html('<div class="error"> Passwords don\'t match!</div>');
+	}
+	
 	return ( password1.length > 0) & ( password1.length > 0) & ( password1 == password2 ) & ( name.length > 1 ) & emailRegex.test(email);
 }
 

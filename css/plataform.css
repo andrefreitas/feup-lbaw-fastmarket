@@ -142,9 +142,15 @@ button:ACTIVE{
 	text-align: justify;
 	line-height: 23px;
 	color: #535353;
-	width: 300px;
 	margin:0 auto;
 	margin-top: 50px;
+	border: solid 1px #cfcfcf;
+	padding: 10px 10px 20px 10px;
+	border-radius: 5px;
+	overflow: auto;
+	width: 260px;
+	background-color: #f8f8f8;
+	text-align: center;
 }
 
 .registration input{
@@ -282,4 +288,23 @@ nav li a:hover{
 
 .dataview tr:hover{
 	background: #cae7f1;
+}
+
+/* Notifications */
+.error{
+	background-color: #eb2f20;
+	border: solid 1px #c12d21;
+	padding: 5px;
+	color: #fff;
+	margin: 5px;
+	text-shadow: 1px 1px 1px #183b48;
+}
+
+.confirmation{
+	background-color: #3dc61e;
+	border: solid 1px #31881d;
+	padding: 5px;
+	color: #fff;
+	text-shadow: 1px 1px 2px #194210;
+	margin-bottom:10px;
 }
