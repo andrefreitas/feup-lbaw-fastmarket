@@ -42,10 +42,10 @@ function generateActivationHash($userId){
 
 function getActivationUserId($hash){
     $sql = "SELECT user_id "
-            . "FROM users_confirmations "
-                    . "WHERE hash = ?";
+         . "FROM users_confirmations "
+         . "WHERE hash = ?";
     $result = query($sql, array($hash));
-    return isset($result["user_id"])? $result["user_id"] : false;
+    return isset($result[0]["user_id"])? $result[0]["user_id"] : false;
 }
 
 /* Get user activation
@@ -67,10 +67,10 @@ function getUserActivation($userID){
 function activateUserByHash($hash){
     $userID = getActivationUserId($hash);
     if($userID){
-        $sql = "UPDATE FROM users "
+        $sql = "UPDATE users "
              . "SET active = 'true' "
              . "WHERE id = ?";
-        query($sql, array($sql));
+        query($sql, array($userID));
         return true;
     }
     return false;
