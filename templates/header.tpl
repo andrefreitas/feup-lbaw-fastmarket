@@ -33,6 +33,4 @@
         </header>
         <div class="container">
             <div id="box">
-            </div>
-        </div>
-        
+      

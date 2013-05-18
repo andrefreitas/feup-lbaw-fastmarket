@@ -33,6 +33,14 @@ $(document).ready(function(){
 		}
 	});
 	
+	/* Tiles */
+	$('.tile').hover(function(){
+		var actions = ' <span class="edit"></span><span class="delete"></span>';
+		$(this).children(".actions").html(actions);
+	}		
+	,function(){
+		$(this).children(".actions").html("");
+	});
 	
 });
 
