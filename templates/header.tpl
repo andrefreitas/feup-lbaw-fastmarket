@@ -2,57 +2,37 @@
 <html>
     <head>
         <title>{$title}</title>
+        <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.10.0/build/cssreset/cssreset-min.css">
         <link rel="stylesheet" type="text/css" href="../css/plataform.css"/>
+        <link rel="stylesheet" type="text/css" href="../css/reveal.css"/>
+         <link rel="stylesheet" type="text/css" href="../css/plataform_backoffice.css"/>
         <link rel="shortcut icon" href="../images/favicon.ico" />
-        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-          <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.min.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+        <script src="../javascript/jquery.reveal.js"></script>
         <script src="../javascript/crypt.js"></script>
         <script src="../javascript/plataform.js"></script>
-        <meta charset="UTF-8" />
     </head>
     <body>
-        <header>        
+        <div class="headline"></div>
+        <header>
             <div class="container">
                 <div class="logo">
-                    <a href="index.php"><img src="../images/logo_dark.png" /></a>
+                    <img src="../images/logo_white.png" alt="fastmarket"/>
                 </div>
-                {if $loggedin}
-                <div class="loggedin">
-                    <script> 
-                        var avatar = getGravatar("{$smarty.session.email}");
-                        document.write('<img class="avatar" src="'+avatar+'" width="60" height="60" />');
-                    </script>
-                    <div class="userinfo">
-                        <b>{$smarty.session.name}</b><br/>
-                        <span class="permission">{$smarty.session.permission}</span>
-                    </div>
-                     <button type="button" name="logout">Logout</button>
-                </div>
-                {else}
-                <div class="login">
-                    <form>
-                        <input type="email" name="email" placeholder="email..."/>
-                        <input type="password" name="password" placeholder="password..."/>
-                        <button type="button" name="login">Login</button>
-                        
-                    </form>
-                </div>
-                {/if}
-                
-                
+                <nav>
+                    <ul>
+                        <li class="administration"><a href="administration">Administration</a></li>
+                        <li class="stores"><a href="stores">Stores</a></li>
+                        <li class="merchants"><a href="merchants">Merchants</a></li>
+                        <li class="account"><a href="account">My Account </a></li>
+                    </ul>
+                </nav>
             </div>
         </header>
-        {if $loggedin}
-        <nav>
-            <div class="container">
-                <ul>
-                    <li id="storesi"><a href="#">Stores</a></li>
-                    <li id="accounti"><a href="account.php">Account</a></li>
-                    {if $smarty.session.permission == "admin"}
-                    <li id="merchantsi"><a href="merchants.php">Merchants</a></li>
-                    {/if}
-                </ul>
+        <div class="container">
+            <div id="box">
             </div>
-        </nav>
-        {/if}
+        </div>
+        
