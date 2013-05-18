@@ -33,14 +33,26 @@ $(document).ready(function(){
 		}
 	});
 	
-	/* Tiles */
-	$('.tile').hover(function(){
+	/* Merchants */
+	$('.merchants .tile').hover(function(){
 		var actions = ' <span class="edit"></span><span class="delete"></span>';
 		$(this).children(".actions").html(actions);
+		
+		/* Delete Actions */
+		$('.merchants .tile .actions .delete').click(function(){
+			alert("Delete");
+		});
+		
+		/* Merchants */
+		$('.merchants .tile .actions .edit').click(function(){
+			alert("Edit");
+		});
 	}		
 	,function(){
 		$(this).children(".actions").html("");
 	});
+	
+	
 	
 });
 
