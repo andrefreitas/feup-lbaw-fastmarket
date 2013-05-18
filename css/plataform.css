@@ -150,66 +150,6 @@ body{
 	margin-bottom: 10px;
 }
 
-header{
-	height: 100px;
-	background: url('../images/header.png') repeat-x #505050;
-	width: 100%;
-	border-top: solid 3px #217a9a;
-	padding-top:10px;
-}
-header .logo{
-	margin-top:15px;
-	float:left;
-	
-}
-header li{
-	display: inline;
-	list-style-type: none;
-	color: #fff;
-	margin-right: 30px;
-	text-shadow: 2px 1px #272727;
-	font-size: 15px;
-}
-
-header a{
-	color: #fff;
-	text-decoration: none;
-}
-
-header a:hover{
-	color: #efefef;
-	text-decoration: underline;
-}
-
-/* Login area */
-header .login{
-	width: 500px;
-	margin-top: 30px;
-	float: right;
-	text-align: right;
-	
-}
-
-header .login button{
-	height: 30px;
-	width: 60px;
-	font-size:14px;
-}
-
-
-header .login input{
-	width: 170px;
-	height: 30px;
-	border-radius: 5px;
-	padding:0px 5px 0px 5px;
-	border:solid 1px #323232;
-	font-size:14px;
-	color: #737373;
-}
-
-header .login input[type='email']{
-	width: 200px;
-}
 /* Button */
 button{
 	border: solid 1px #15546b;
@@ -247,13 +187,16 @@ button.orange:ACTIVE{
 	box-shadow: inset 0px 3px 7px #ac3b1f;
 }
 
-/* Pages */
-.feature{
-	margin-top: 15px;
-	text-align: justify;
-	line-height: 23px;
-	color: #535353;
+/* Input */
+input{
+	min-width: 215px;
+	height: 40px;
+	border: solid 1px #acacac;
+	font-size: 18px;
+	pading: 5px;
+	color: #acacac;
 }
+
 /* Titles */
 
  h1{
@@ -269,186 +212,56 @@ button.orange:ACTIVE{
 	color: #217a9a;
 	margin-top:10px;
 }
-/* Feature in the homepage */
-.feature .left{
-	float: left;
-	width: 380px;
-	padding-top:40px;
-}
 
-.feature .right{
-	float: right;
-	width: 500px;	
-}
+
 
 /* Registration button size */
-.registration button,
-.feature button{
+.registration button {
 	padding:8px 16px 8px 16px;
 	font-size: 20px;
-	margin-top: 20px;
+	width: 260px;
 }
 
 .registration{
 	text-align: justify;
-	line-height: 23px;
 	color: #535353;
-	margin:0 auto;
-	margin-top: 50px;
-	border: solid 1px #cfcfcf;
-	padding: 10px 10px 20px 10px;
-	border-radius: 5px;
-	overflow: auto;
 	width: 260px;
-	background-color: #f8f8f8;
-	text-align: center;
 }
 
 .registration input{
-	border-radius: 5px;
-	padding:0px 5px 0px 5px;
-	border:solid 1px #bdbdbd;
-	height: 30px;
-	margin-bottom:10px;
-	width: 220px;
+	margin-bottom: 10px;
+	padding-left: 45px;
 }
 
-/* Loggedin user area */
-
-.loggedin{
-	width: 300px;
-	float: right;
-	margin-top: 15px;
+.registration input[name='email']{
+	background: url('../images/email-icon.png') no-repeat #fff;
+	background-position: 6px 6px;
 }
 
-.loggedin .avatar{
-	float: left;
+.registration input[name='name']{
+	background: url('../images/user-icon.png') no-repeat #fff;
+	background-position: 6px 6px;
 }
 
-.loggedin .userinfo{
-	font-size: 14px;
-	float: left;
-	margin-left: 10px;
-	margin-top: 15px;
-	color: #fff;
-}
-
-.loggedin button{
-	margin-top: 20px;
-	margin-left: 20px;
-	float: rigth;
-}
-
-.permission{
-	text-transform: capitalize;
-}
-
-/* Navigation */
-nav {
-	width: 100%;
-	height: 35px;
-	border-bottom: solid 1px #15546b;
-	border-top: solid 1px #15546b;
-	background: #217a9a;
-}
-nav ul{
-	margin-top:8px;
-	
-}
-nav li{
-	float: left;
-	list-style-type: none;
-	padding-right: 15px;
-	font-size: 15px;
-	padding-left: 22px;
+.registration input[name='password'],
+.registration input[name='password_check']{
+	background: url('../images/password-icon.png') no-repeat #fff;
+	background-position: 6px 6px;
 }
 
 
 
-nav li a{
-	color: #fff;
-	text-decoration: none;
-	text-shadow: 1px 1px #245262;
-}
 
-nav li a:hover{
-	color: #e7f9ff;
-}
-
-/* Navigation Icons */
-#merchantsi{
-	background: url('../images/merchants-icon.png') no-repeat ;
-}
-
-#accounti{
-	background: url('../images/account-icon.png') no-repeat ;
-	
-}
-
-#storesi{
-	background: url('../images/stores-icon.png') no-repeat ;
-}
-
-
-.merchants{
-	margin-top: 20px;
-}
-
-.merchants span{
-	border: solid 1px #15546b;
-	background: #217a9a;
-	width: 100px; 
-}
-
-/* Data view */
-.dataview{
-	width: 100%;
-	border: solid 1px #15546b;
-	margin-top: 20px;
-}
-
-.dataview thead{
-	background-color: red;
-	border: solid 1px #15546b;
-	background: #217a9a;
-	color: #fff;
-	text-align: center;
-	font-size: 16px;
-	font-weight: bold;
-	text-shadow: 1px 1px #245262;
-}
-
-.dataview thead td{
-	padding: 5px;
-	border-right: solid 1px #15546b;
-}
-
-.dataview td{
-	padding: 5px;
-	border-left: solid 1px #15546b;
-}
-
-.dataview tr{
-	border-bottom: solid 1px #15546b;
-	font-size: 13px;
-}
-
-.dataview tr:nth-child(2n) {
-	background: #e7f9ff;
-}
-
-.dataview tr:hover{
-	background: #cae7f1;
-}
 
 /* Notifications */
 .error{
-	background-color: #eb2f20;
-	border: solid 1px #c12d21;
+	border: solid 1px #9a2121;
 	padding: 5px;
 	color: #fff;
 	margin: 5px;
 	text-align:center;
+	background: url('../images/cross-icon.png') no-repeat #ee6565;
+	background-position: 6px 6px;
 }
 
 .confirmation{
@@ -459,4 +272,7 @@ nav li a:hover{
 	margin: 5px;
 	margin-bottom:10px;
 	text-align:center;
+	
+	background: url('../images/ok-icon.png') no-repeat #3dc61e;
+	background-position: 6px 6px;
 }

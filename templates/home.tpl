@@ -7,9 +7,10 @@
         <link rel="stylesheet" type="text/css" href="../css/plataform.css"/>
         <link rel="stylesheet" type="text/css" href="../css/reveal.css"/>
         <link rel="shortcut icon" href="../images/favicon.ico" />
-        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-        <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+      
+       
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.min.js"></script>
+         <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
         <script src="../javascript/jquery.reveal.js"></script>
         <script src="../javascript/crypt.js"></script>
         <script src="../javascript/plataform.js"></script>
@@ -72,9 +73,18 @@
         Faculdade de Engenharia da Universidade do Porto | Database and Web Applications Laboratory<br/>
         <b>Master in Computers Engineering</b>
         </div>
-        <div id="registerDialog" class="reveal-modal">
-			<h1>Merchant registration</h1>
-			<p>This is a default modal in all its glory, but any of the styles here can easily be changed in the CSS.</p>
+        <div id="registerDialog" class="reveal-modal register ">
+			<h1>New registration</h1>
+			<div class="registration">
+    			<form>
+                    <div class="registerNotification"></div>
+                    <input type="text" name="name" placeholder="name..."/><br/>
+                    <input type="email" name="email" placeholder="email..."/><br/>
+                    <input type="password" name="password" placeholder="password"/><br/>
+                    <input type="password" name="password_check" placeholder="confirm password"/><br/>
+                    <button type="button" name="register">Register now!</button>
+                </form>
+			</div>
 			<a class="close-reveal-modal">&#215;</a>
 		</div>
     </body>
