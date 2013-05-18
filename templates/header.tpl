@@ -23,10 +23,10 @@
                 </div>
                 <nav>
                     <ul>
-                        <li class="administration"><a href="administration">Administration</a></li>
-                        <li class="stores"><a href="stores">Stores</a></li>
-                        <li class="merchants"><a href="merchants">Merchants</a></li>
-                        <li class="account"><a href="account">My Account </a></li>
+                        <li><a href="administration" class="administration">Administration</a></li>
+                        <li><a href="stores" class="stores">Stores</a></li>
+                        <li><a href="merchants" class="merchants">Merchants</a></li>
+                        <li><a href="account" class="account">My Account </a></li>
                     </ul>
                 </nav>
             </div>
