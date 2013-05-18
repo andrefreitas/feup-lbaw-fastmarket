@@ -72,8 +72,8 @@ body{
 	margin-top: 40px;
 }
 
-.message h1, 
-.message h2{
+.message h1,
+.message .answer{
 	margin: 0;
 	padding: 0;
 	color: #fff;
@@ -83,7 +83,7 @@ body{
 	font-size: 48px;
 }
 
-.message h2{
+.message .answer{
 	font-size: 30px;
 	margin-top: 8px;
 }

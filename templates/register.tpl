@@ -6,7 +6,6 @@
                     <h1>New registration</h1>
                       <form>
                           <div class="nameNotification">
-                          
                           </div>
                           <input type="text" name="name" placeholder="name..."/><br/>
                           <div class="emailNotification"></div>

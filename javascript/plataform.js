@@ -1,6 +1,13 @@
 /* Plataform Javascript */
 $(document).ready(function(){
 	
+	
+	
+	/* Register dialog box */
+	$(".message button").click(function() {
+		$('#registerDialog').reveal();
+	});
+	
 	/* Register event */
 	$(".registration button[name='register']").click( function(){
 		var data = $(".registration form").serializeArray(),
@@ -21,8 +28,8 @@ $(document).ready(function(){
 	});
 	
 	/* Login Event */
-	$(".login button[name='login']").click( function(){
-		var data = $(".login form").serializeArray(),
+	$(".loginbox button[name='login']").click( function(){
+		var data = $(".loginbox form").serializeArray(),
 	    email = data[0]["value"],
 	    password = data[1]["value"];
 		login(email, password);

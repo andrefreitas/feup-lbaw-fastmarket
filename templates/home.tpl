@@ -5,9 +5,12 @@
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.10.0/build/cssreset/cssreset-min.css">
         <link rel="stylesheet" type="text/css" href="../css/plataform.css"/>
+        <link rel="stylesheet" type="text/css" href="../css/reveal.css"/>
         <link rel="shortcut icon" href="../images/favicon.ico" />
         <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-          <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.min.js"></script>
+        <script src="../javascript/jquery.reveal.js"></script>
         <script src="../javascript/crypt.js"></script>
         <script src="../javascript/plataform.js"></script>
     </head>
@@ -19,9 +22,9 @@
                 <img src="../images/logo_white.png" alt="fastmarket" class="whitelogo"/>
                 <img src="../images/stores.png" alt="stores" class="stores"/>
                 <div class="message">
-                    <h1>Want to sell online?<h1>
-                    <h2>you are in the right place!</h2>
-                    <button type="button" name="register">Register now!</button>
+                    <h1>Want to sell online?</h1>
+                    <span class="answer">you are in the right place!</span>
+                    <button type="button" name="register" data-reveal-id="registerDialog">Register now!</button>
                 </div>
             </div>
         </div>
@@ -69,5 +72,10 @@
         Faculdade de Engenharia da Universidade do Porto | Database and Web Applications Laboratory<br/>
         <b>Master in Computers Engineering</b>
         </div>
+        <div id="registerDialog" class="reveal-modal">
+			<h1>Merchant registration</h1>
+			<p>This is a default modal in all its glory, but any of the styles here can easily be changed in the CSS.</p>
+			<a class="close-reveal-modal">&#215;</a>
+		</div>
     </body>
 </html>
