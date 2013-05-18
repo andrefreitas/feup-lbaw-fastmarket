@@ -272,7 +272,21 @@ input{
 	margin: 5px;
 	margin-bottom:10px;
 	text-align:center;
-	
 	background: url('../images/ok-icon.png') no-repeat #3dc61e;
 	background-position: 6px 6px;
+}
+
+.confirmRegistration{
+	background: url('../images/confirmed.png') no-repeat;
+	height: 80px;
+	width: 370px;
+	padding-left: 120px;
+	padding-top: 50px;
+	font-size: 32px;
+	font-weight: bold;
+	color: #fff;
+	margin: 0 auto;
+	display:none;	
+	margin-top: 30px;
+	
 }

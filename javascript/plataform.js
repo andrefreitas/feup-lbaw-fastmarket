@@ -2,6 +2,8 @@
 $(document).ready(function(){
 	
 	
+	/* Confirm registration fade in */
+	$(".confirmRegistration").fadeIn(500);
 	
 	/* Register dialog box */
 	$(".message button").click(function() {

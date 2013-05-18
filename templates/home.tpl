@@ -21,15 +21,23 @@
         <div class="header">
             <div class="container">
                 <img src="../images/logo_white.png" alt="fastmarket" class="whitelogo"/>
-                <img src="../images/stores.png" alt="stores" class="stores"/>
+                {if isset($welcome) and $welcome eq 1} 
+                     <div class="confirmRegistration">
+                      Registration done!
+                     </div>
+                {else}
+                 <img src="../images/stores.png" alt="stores" class="stores"/>
                 <div class="message">
                     <h1>Want to sell online?</h1>
                     <span class="answer">you are in the right place!</span>
                     <button type="button" name="register" data-reveal-id="registerDialog">Register now!</button>
                 </div>
+                {/if} 
+               
             </div>
         </div>
         <div class="loginbox">
+    
             <form>
                 <input type="email" name="email" placeholder="email"/>
                 <input type="password" name="password" placeholder="password"/>
