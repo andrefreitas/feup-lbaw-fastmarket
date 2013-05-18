@@ -33,20 +33,6 @@ $(document).ready(function(){
 		}
 	});
 	
-	/* Login Event */
-	$(".loginbox button[name='login']").click( function(){
-		var data = $(".loginbox form").serializeArray(),
-	    email = data[0]["value"],
-	    password = data[1]["value"];
-		login(email, password);
-		
-	});
-	
-	/* Logout Event */
-	$(".loggedin button[name='logout']").click( function(){
-		console.log("logout");
-		logout();
-	});
 	
 });
 
@@ -94,15 +80,13 @@ function registrationIsValid(name,email,password1,password2){
 * Login
 */
 function login(email, password){
-	password =  CryptoJS.SHA256(password).toString();
-	$.getJSON("../ajax/plataform/login.php?",{
+	$.ajaxSetup( { "async": false } );
+	var data = $.getJSON("../ajax/plataform/login.php?",{
         email: email,
         password: password
-	},
-    function(data){
-		console.log(data);
-		location.reload();
 	});
+	$.ajaxSetup( { "async": true } );
+	return $.parseJSON(data["responseText"])["result"] =="ok";
 }
 
 /*
@@ -126,4 +110,25 @@ function getGravatar(email){
 	});
 	$.ajaxSetup( { "async": true } );
 	return $.parseJSON(data["responseText"])["url"];
+}
+
+/*
+* Validate login
+*/
+
+function validateLogin(){
+	$('.notifications').html("");
+	var data = $(".loginbox form").serializeArray(),
+		email = data[0]["value"],
+		password = data[1]["value"];
+	if(email.length == 0 || password.length == 0 || !login(email, password)){
+
+		$('.notifications').html("<div class='error'>Invalid Login!</div>");
+		$(".error").effect( "bounce", 
+	            {times:3}, 300 );
+	}else{
+		return true;
+	}
+	
+	return false;
 }

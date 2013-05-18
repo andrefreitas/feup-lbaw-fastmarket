@@ -98,6 +98,13 @@ body{
 .loginbox form{
 	padding-top: 26px;
 	text-align: center;
+	float: left;
+}
+
+.notifications{
+	padding-top: 26px;
+	width: 200px;	
+	float: left;
 }
 
 .loginbox input{
@@ -120,11 +127,31 @@ body{
 	background-position: 6px 6px;
 }
 
-.loginbox button{
-	width: 110px;
-	height: 40px;
+.loginbox input[type="submit"]{
+	width: 150px;
 	font-size: 22px;
+	padding-left: 5px;
+	border: solid 1px #ac3b1f;
+}
 
+
+
+/* Button Orange*/
+.orange{
+	border: solid 1px #ac3b1f;
+	padding:2px 8px 2px 8px;
+	background: #ec6730;
+	color: #fff;
+	cursor: pointer;
+	text-shadow: 1px 1px 1px #ac3b1f;
+}
+
+.orange:HOVER{
+	background: #ec7544;
+}
+
+.orange:ACTIVE{
+	box-shadow: inset 0px 3px 7px #ac3b1f;
 }
 
 .block{
@@ -169,27 +196,10 @@ button:ACTIVE{
 	box-shadow: inset 0px 3px 7px #1a6c89;
 }
 
-/* Button Orange*/
-button.orange{
-	border: solid 1px #ac3b1f;
-	padding:2px 8px 2px 8px;
-	background: #ec6730;
-	color: #fff;
-	cursor: pointer;
-	text-shadow: 1px 1px 1px #ac3b1f;
-}
 
-button.orange:HOVER{
-	background: #ec7544;
-}
-
-button.orange:ACTIVE{
-	box-shadow: inset 0px 3px 7px #ac3b1f;
-}
 
 /* Input */
 input{
-	min-width: 215px;
 	height: 40px;
 	border: solid 1px #acacac;
 	font-size: 18px;
@@ -197,6 +207,10 @@ input{
 	color: #acacac;
 }
 
+.loginbox input[type="submit"].orange{
+	font-size: 22px;
+	width: 100px;
+}
 /* Titles */
 
  h1{
@@ -231,6 +245,7 @@ input{
 .registration input{
 	margin-bottom: 10px;
 	padding-left: 45px;
+	width: 215px;
 }
 
 .registration input[name='email']{
@@ -288,5 +303,5 @@ input{
 	margin: 0 auto;
 	display:none;	
 	margin-top: 30px;
-	
 }
+

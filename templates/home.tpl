@@ -31,19 +31,25 @@
                     <h1>Want to sell online?</h1>
                     <span class="answer">you are in the right place!</span>
                     <button type="button" name="register" data-reveal-id="registerDialog">Register now!</button>
+          
                 </div>
+                
                 {/if} 
                
             </div>
         </div>
         <div class="loginbox">
-    
-            <form>
-                <input type="email" name="email" placeholder="email"/>
-                <input type="password" name="password" placeholder="password"/>
-                <button type="button" name="login" class="orange">Login</button>
-            </form>
+             <div class="container">
+                <form action="../actions/login.php" onsubmit="return validateLogin()">
+                    <input type="email" name="email" placeholder="email"/>
+                    <input type="password" name="password" placeholder="password"/>
+                    <input type="submit" value="Login" class="orange"/>
+                </form>
+                <div class="notifications">
+                </div>
+              </div>
         </div>
+        
         <div class="whiteblock">
             <div class="container">
                 <div class="block">

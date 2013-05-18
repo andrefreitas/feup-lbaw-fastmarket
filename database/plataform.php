@@ -81,8 +81,8 @@ function activateUserByHash($hash){
 */
 function login($email,$password){
     $sql = "SELECT privilege_id "
-            . "FROM users "
-                    . "WHERE email = ? AND password = ? AND active = 'true'";
+         . "FROM users "
+         . "WHERE email = ? AND password = ? AND active = 'true'";
     $user = query($sql, array($email, $password));
     return $user ? true : false;
 }
