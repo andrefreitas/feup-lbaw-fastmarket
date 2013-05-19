@@ -53,10 +53,13 @@ $(document).ready(function(){
 		$('.merchants .item .actions .edit').click(function(){
 			var name = $(this).parent().parent().children(".name").text();
 			var email = $(this).parent().parent().children(".email").text();
+			var status = $(this).parent().parent().children(".status").text();
+			status = status.trim();
 			$('#editMerchantDialog').reveal();
 			$('.editMerchant input[name="oldEmail"]').val(email);
 			$('.editMerchant input[name="name"]').val(name);
 			$('.editMerchant input[name="email"]').val(email);
+			$('.editMerchant option[value="'+status+'"]').attr("selected", "selected");
 		});
 	}		
 	,function(){

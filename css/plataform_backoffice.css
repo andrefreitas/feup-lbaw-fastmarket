@@ -218,3 +218,20 @@ nav li a.account{
 #editMerchantDialog h1{
         margin-bottom: 10px;
 }
+.edit select{
+	width: 262px;
+	margin-bottom: 14px;
+	height: 40px;
+	color: #535353;
+	font-size: 18px;
+}
+
+.edit select{
+ 	background: #f5fcff;
+ 	border: solid 1px #75bcdb;
+ 	color: #217a9a;
+}
+
+.edit input{
+	color: #535353;
+}
