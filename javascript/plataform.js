@@ -52,9 +52,10 @@ $(document).ready(function(){
 		});
 	
 	$('.search button').click(function (){
-		$('.headBox option[value="any"]').attr("selected", "selected");
+		var status = $('.headBox select[name="status"]').find(":selected").text().toLowerCase();
 		var terms = $('.search input').val();
 		var merchants = searchMerchants(terms);
+		merchants = filterMerchantsByStatus(merchants, status);
 		updateMerchantsList(merchants);
 	});
 	
