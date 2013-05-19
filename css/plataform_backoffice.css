@@ -210,3 +210,7 @@ nav li a.account{
 	padding-left: 30px;
 	cursor: pointer;
 }
+
+#editMerchantDialog h1{
+	margin-bottom: 10px;
+}

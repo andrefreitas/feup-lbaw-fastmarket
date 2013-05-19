@@ -51,7 +51,7 @@ $(document).ready(function(){
 		
 		/* Merchants */
 		$('.merchants .item .actions .edit').click(function(){
-			alert("Edit");
+			$('#editMerchantDialog').reveal();
 		});
 	}		
 	,function(){
