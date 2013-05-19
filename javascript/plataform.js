@@ -49,9 +49,14 @@ $(document).ready(function(){
 			}
 		});
 		
-		/* Merchants */
+		/* Edit Actions */
 		$('.merchants .item .actions .edit').click(function(){
+			var name = $(this).parent().parent().children(".name").text();
+			var email = $(this).parent().parent().children(".email").text();
 			$('#editMerchantDialog').reveal();
+			$('.editMerchant input[name="oldEmail"]').val(email);
+			$('.editMerchant input[name="name"]').val(name);
+			$('.editMerchant input[name="email"]').val(email);
 		});
 	}		
 	,function(){

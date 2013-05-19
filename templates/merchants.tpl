@@ -25,10 +25,11 @@
     	<div class="editMerchant">
         <form>
             <input type="text" name="name" placeholder="name..."/><br/>
+            <input name="oldEmail" type="hidden"/>
             <input type="email" name="email" placeholder="email..."/><br/>
             <input type="password" name="password" placeholder="password"/><br/>
             <input type="password" name="password_check" placeholder="confirm password"/><br/>
-            <button type="button" name="register">Save changes</button>
+            <button type="button" name="save">Save changes</button>
         </form>
     	</div>
 		<a class="close-reveal-modal">&#215;</a>
