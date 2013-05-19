@@ -42,10 +42,10 @@ $(document).ready(function(){
 		$('.merchants .item .actions .delete').click(function(){
 			var email = $(this).parent().parent().children(".email").text();
 			if (confirm('Are you sure you want to delete ' + email + '?')) {
-			    
-			    
-			} else {
-			    // Do nothing!
+			    if(deleteMerchant(email)){
+			    	var item = $(this).parent().parent();
+			    	$(item).fadeOut(500, function(){$(item).remove(); });
+			    }
 			}
 		});
 		
@@ -71,6 +71,15 @@ function addMerchant(name, email, password){
 		name: name,
         email: email,
         password: password
+	});
+	$.ajaxSetup( { "async": true } );
+	return $.parseJSON(data["responseText"])["result"] == 'ok' ;
+}
+
+function deleteMerchant(email){
+	$.ajaxSetup( { "async": false } );
+	var data = $.getJSON("../ajax/plataform/deleteMerchant.php?",{
+        email: email
 	});
 	$.ajaxSetup( { "async": true } );
 	return $.parseJSON(data["responseText"])["result"] == 'ok' ;
