@@ -47,6 +47,7 @@ $(document).ready(function(){
 			 $('#box .merchants').append(html);
 		  }
 		  initMerchantsEvents();
+		  updateMerchantsTotal(merchants.length);
 		});
 	
 });
@@ -63,6 +64,16 @@ function createMerchantItem(name, email, date, status){
 		html +='\t\t<div class="actions"></div>\n';
 		html +='\t</div>';
     return html;
+}
+
+function updateMerchantsTotal(total){
+	$(".headBox .total").text(total + " merchants");
+}
+
+function getMerchantsTotal(){
+	var total = $(".headBox .total").text();
+	total = total.split(" ")[0];
+	total = parseInt(total);
 }
 
 function initMerchantsEvents(){
@@ -82,7 +93,7 @@ function initMerchantsEvents(){
 			    	total = total.split(" ")[0];
 			    	total = parseInt(total);
 			    	total = total - 1;
-			    	var total = $(".headBox .total").text(total + " merchants");
+			    	$(".headBox .total").text(total + " merchants");
 			    }
 			}
 		});

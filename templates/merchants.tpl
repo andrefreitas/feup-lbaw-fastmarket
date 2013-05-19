@@ -2,6 +2,7 @@
 <div class="headBox">
     Filter by status: 
     <select name="status">
+        <option value="any" selected="selected">Any</option>
         <option value="active">Active</option>
         <option value="pending">Pending</option>
     </select>
