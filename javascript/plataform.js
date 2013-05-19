@@ -34,17 +34,17 @@ $(document).ready(function(){
 	});
 	
 	/* Merchants */
-	$('.merchants .tile').hover(function(){
-		var actions = ' <span class="edit"></span><span class="delete"></span>';
+	$('.merchants .item').hover(function(){
+		var actions = ' <span class="edit">Edit</span><span class="delete">Delete</span>';
 		$(this).children(".actions").html(actions);
 		
 		/* Delete Actions */
-		$('.merchants .tile .actions .delete').click(function(){
+		$('.merchants .item .actions .delete').click(function(){
 			alert("Delete");
 		});
 		
 		/* Merchants */
-		$('.merchants .tile .actions .edit').click(function(){
+		$('.merchants .item .actions .edit').click(function(){
 			alert("Edit");
 		});
 	}		
