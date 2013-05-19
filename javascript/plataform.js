@@ -40,7 +40,13 @@ $(document).ready(function(){
 		
 		/* Delete Actions */
 		$('.merchants .item .actions .delete').click(function(){
-			alert("Delete");
+			var email = $(this).parent().parent().children(".email").text();
+			if (confirm('Are you sure you want to delete ' + email + '?')) {
+			    
+			    
+			} else {
+			    // Do nothing!
+			}
 		});
 		
 		/* Merchants */

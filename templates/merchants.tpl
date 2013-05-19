@@ -14,8 +14,8 @@
 <div class="merchants">
     {foreach from=$merchants item=merchant}
     <div class="item">
-        <span class="name"> {$merchant.name} </span>
-        <span class="email"> {$merchant.email} </span>
+        <span class="name">{$merchant.name}</span>
+        <span class="email">{$merchant.email}</span>
         <span class="registrationDate"> {$merchant.registration_date} </span>
         <div class="actions"></div>
     </div>
