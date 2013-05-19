@@ -69,14 +69,14 @@ $(document).ready(function(){
 	
 	/* Edit Merchant event */
 	$('.editMerchant button').click(function(){
-		var vals = new Array();
-		var data = $(".editMerchant form").serializeArray(),
-		vals["oldEmail"] = data[0]["value"],
+		var vals = {};
+		var data = $(".editMerchant form").serializeArray();
+		vals["email"] = data[0]["value"],
 		vals["name"] = data[1]["value"],
-		vals["email"] = data[2]["value"],
-		vals["status"] = data[3]["value"],
+		vals["status"] = data[2]["value"],
+		vals["newEmail"] = data[3]["value"],
 		vals["password"] = data[4]["value"];
-		
+		updateMerchant(vals);
 	});
 	
 });
@@ -100,6 +100,16 @@ function deleteMerchant(email){
 	var data = $.getJSON("../ajax/plataform/deleteMerchant.php?",{
         email: email
 	});
+	$.ajaxSetup( { "async": true } );
+	return $.parseJSON(data["responseText"])["result"] == 'ok' ;
+}
+
+/*
+ * Update Merchant
+ */
+function updateMerchant(values){
+	$.ajaxSetup( { "async": false } );
+	var data = $.getJSON("../ajax/plataform/updateMerchant.php?",values);
 	$.ajaxSetup( { "async": true } );
 	return $.parseJSON(data["responseText"])["result"] == 'ok' ;
 }
