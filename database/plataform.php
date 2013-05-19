@@ -246,6 +246,26 @@ function getMerchants($status=""){
     return $merchants;
 }
 
+/* 
+ * Search Merchants
+ */
+
+function searchMerchants($term){
+    $sql = "SELECT users.name, users.email, users.registration_date, users.active "
+         . "FROM users, privileges "
+         . "WHERE users.privilege_id = privileges.id AND privileges.name = 'merchant' AND ( users.name ~* ? OR users.email ~* ?) "
+         . "ORDER BY users.registration_date DESC";
+    $merchants = query($sql, array($term, $term));
+    foreach ($merchants as &$merchant){
+        if($merchant["active"]){
+            $merchant["status"] = "active";
+        }else{
+            $merchant["status"] = "pending";
+        }
+    }
+    return $merchants;
+}
+
 /*
  * Create Merchant
 */

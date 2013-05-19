@@ -38,19 +38,52 @@ $(document).ready(function(){
 	/* Filter merchants by status */
 	$('.headBox select[name="status"]').change(function() {
 		  var status = $('.headBox select[name="status"]').find(":selected").text().toLowerCase();
-		  var merchants = getMerchantsByStatus(status);
-		  console.log(merchants);
-		  $('#box .merchants').html("");
-		  for(var i=0; i<merchants.length;  i++){
-			 var merchant = merchants[i];
-			 var html = createMerchantItem(merchant["name"], merchant["email"], merchant["registration_date"], merchant["status"]);
-			 $('#box .merchants').append(html);
+		  var searchTerms = $('.search input').val();
+		  if(searchTerms!=""){
+			  var merchants = searchMerchants(searchTerms);
+			  console.log(merchants);
+			  merchants = filterMerchantsByStatus(merchants, status);
+			  updateMerchantsList(merchants);
+		  }else{
+			  var merchants = getMerchantsByStatus(status);
+			  updateMerchantsList(merchants);
 		  }
-		  initMerchantsEvents();
-		  updateMerchantsTotal(merchants.length);
+
 		});
 	
+	$('.search button').click(function (){
+		$('.headBox option[value="any"]').attr("selected", "selected");
+		var terms = $('.search input').val();
+		var merchants = searchMerchants(terms);
+		updateMerchantsList(merchants);
+	});
+	
 });
+
+/* Filter merchants by a status */
+function filterMerchantsByStatus(merchants, status){
+	var filteredMerchants = new Array();
+	for(var i=0; i<merchants.length;  i++){
+		var merchant = merchants[i];
+		if(status=="any" || merchant["status"] == status){
+			filteredMerchants.push(merchant);
+		}
+	}
+	return filteredMerchants;
+}
+/*
+ * Update merchants list
+ */
+function updateMerchantsList(merchants){
+	  $('#box .merchants').html("");
+	  for(var i=0; i<merchants.length;  i++){
+		 var merchant = merchants[i];
+		 var html = createMerchantItem(merchant["name"], merchant["email"], merchant["registration_date"], merchant["status"]);
+		 $('#box .merchants').append(html);
+	  }
+	  initMerchantsEvents();
+	  updateMerchantsTotal(merchants.length);
+}
 /*
  * Create merchant item
  */
@@ -261,6 +294,17 @@ function validateLogin(){
 function getMerchantsByStatus(status){
 	$.ajaxSetup( { "async": false } );
 	var data = $.getJSON("../ajax/plataform/getMerchants.php?",{status : status});
+	$.ajaxSetup( { "async": true } );
+	return $.parseJSON(data["responseText"]);
+}
+
+/*
+ * Search merchants
+ */
+
+function searchMerchants(terms){
+	$.ajaxSetup( { "async": false } );
+	var data = $.getJSON("../ajax/plataform/getMerchants.php?",{search : terms});
 	$.ajaxSetup( { "async": true } );
 	return $.parseJSON(data["responseText"]);
 }

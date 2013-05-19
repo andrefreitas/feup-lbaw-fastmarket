@@ -15,7 +15,13 @@ if(isset($_GET["status"])){
         $merchants = getMerchants($_GET["status"]);
     }
     echo json_encode($merchants);
-}else{
+}else if (isset($_GET["search"])){
+    $term = $_GET["search"];
+    $merchants = searchMerchants($term);
+    echo json_encode($merchants);
+}
+
+else{
     $merchants = getMerchants();
     echo json_encode($merchants);
 }
