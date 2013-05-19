@@ -24,19 +24,21 @@
     <div id="editMerchantDialog" class="reveal-modal edit">
         <h1>Edit merchant</h1>
         <div class="editMerchant">
-        <form>
-            <input name="oldEmail" type="hidden"/>
-            <input type="text" name="name" placeholder="name..."/><br/>
-            <select name="status">
-               <option value="active">Active</option>
-               <option value="pending">Pending</option>
-            </select>
-            <input type="email" name="email" placeholder="email..."/><br/>
-            <input type="password" name="password" placeholder="password"/><br/>
-            <button type="button" name="save">Save changes</button>
-        </form>
+            <div class="notifications">
+            </div>
+            <form>
+                <input name="oldEmail" type="hidden"/>
+                <input type="text" name="name" placeholder="name..."/><br/>
+                <select name="status">
+                   <option value="active">Active</option>
+                   <option value="pending">Pending</option>
+                </select>
+                <input type="email" name="email" placeholder="email..."/><br/>
+                <input type="password" name="password" placeholder="password"/><br/>
+                <button type="button" name="save">Save changes</button>
+            </form>
         </div>
-                <a class="close-reveal-modal">&#215;</a>
+        <a class="close-reveal-modal">&#215;</a>
         </div>
 </div>
 {include file='footer.tpl'}

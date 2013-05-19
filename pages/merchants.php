@@ -13,6 +13,8 @@ if(isset($_SESSION['permission']) and $_SESSION['permission']=='admin'){
     $smarty->assign('merchants',$merchants);
     $smarty->assign('total', $total);
     $smarty->display('merchants.tpl');
+}else{
+    header("Location: index.php");
 }
 
 ?>

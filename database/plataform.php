@@ -227,7 +227,8 @@ function deleteStore($storeId){
 function getMerchants(){
     $sql = "SELECT users.name, users.email, users.registration_date, users.active "
          . "FROM users, privileges "
-         . "WHERE users.privilege_id = privileges.id AND privileges.name = 'merchant'";
+         . "WHERE users.privilege_id = privileges.id AND privileges.name = 'merchant' "
+         . "ORDER BY users.registration_date DESC";
     $merchants = query($sql);
     foreach ($merchants as &$merchant){
         if($merchant["active"]){

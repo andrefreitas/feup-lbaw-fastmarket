@@ -28,7 +28,7 @@
                     <ul>
                         <li><a href="administration" class="administration">Administration</a></li>
                         <li><a href="stores" class="stores">Stores</a></li>
-                        <li><a href="merchants" class="merchants">Merchants</a></li>
+                        <li><a href="merchants.php" class="merchants">Merchants</a></li>
                         <li><a href="account" class="account">My Account </a></li>
                     </ul>
                 </nav>

@@ -45,6 +45,11 @@ $(document).ready(function(){
 			    if(deleteMerchant(email)){
 			    	var item = $(this).parent().parent();
 			    	$(item).fadeOut(500, function(){$(item).remove(); });
+			    	var total = $(".headBox .total").text();
+			    	total = total.split(" ")[0];
+			    	total = parseInt(total);
+			    	total = total - 1;
+			    	var total = $(".headBox .total").text(total + " merchants");
 			    }
 			}
 		});
@@ -69,14 +74,24 @@ $(document).ready(function(){
 	
 	/* Edit Merchant event */
 	$('.editMerchant button').click(function(){
+		$(".editMerchant .notifications").html("");
 		var vals = {};
 		var data = $(".editMerchant form").serializeArray();
-		vals["email"] = data[0]["value"],
-		vals["name"] = data[1]["value"],
-		vals["status"] = data[2]["value"],
-		vals["newEmail"] = data[3]["value"],
-		vals["password"] = data[4]["value"];
-		updateMerchant(vals);
+		vals["email"] = data[0]["value"].trim(),
+		vals["name"] = data[1]["value"].trim(),
+		vals["status"] = data[2]["value"].trim(),
+		vals["newEmail"] = data[3]["value"].trim(),
+		vals["password"] = data[4]["value"].trim();
+		if (vals["name"] == "") {
+			$(".editMerchant .notifications").html('<div class="error"> Name cannot be empty!</div>');
+			$('.error').effect( "bounce", {times:3}, 300 );
+		} else if (vals["newEmail"] == ""){
+			$(".editMerchant .notifications").html('<div class="error"> Email cannot be empty!</div>');
+			$('.error').effect( "bounce", {times:3}, 300 );
+		} else{
+			updateMerchant(vals);
+			$(".editMerchant .notifications").html('<div class="confirmation"> Changes done!</div>');
+		}
 	});
 	
 });

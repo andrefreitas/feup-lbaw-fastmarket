@@ -235,3 +235,9 @@ nav li a.account{
 .edit input{
 	color: #535353;
 }
+
+.edit .notifications{
+	padding-top: 0;
+	width: 260px;	
+	float: left;
+}
