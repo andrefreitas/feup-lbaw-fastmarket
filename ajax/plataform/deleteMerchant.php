@@ -1,5 +1,5 @@
 <?php
-//header('Content-type: application/json');
+header('Content-type: application/json');
 
 chdir('../../common');
 require_once('init.php');

@@ -25,15 +25,14 @@
         <h1>Edit merchant</h1>
         <div class="editMerchant">
         <form>
+            <input name="oldEmail" type="hidden"/>
             <input type="text" name="name" placeholder="name..."/><br/>
             <select name="status">
                <option value="active">Active</option>
                <option value="pending">Pending</option>
             </select>
-            <input name="oldEmail" type="hidden"/>
             <input type="email" name="email" placeholder="email..."/><br/>
             <input type="password" name="password" placeholder="password"/><br/>
-            <input type="password" name="password_check" placeholder="confirm password"/><br/>
             <button type="button" name="save">Save changes</button>
         </form>
         </div>

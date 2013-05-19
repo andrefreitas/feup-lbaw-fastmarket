@@ -253,12 +253,39 @@ function createMerchant($name, $email, $password){
 /*
  * Update Merchant
 */
-function updateMerchant($merchantId,$name,$email,$password){
+function updateMerchantName($merchantId, $name){
     $sql = "UPDATE users "
-         . "SET name = ?,email = ?, password = ? "
+         . "SET name = ? "
          . "WHERE id = ?";
-    query($sql, array($name,$email,$password,$merchantId));
+    query($sql, array($name, $merchantId));
 }
+
+function updateMerchantEmail($merchantId, $email){
+    $sql = "UPDATE users "
+         . "SET email = ? "
+         . "WHERE id = ?";
+    query($sql, array($email, $merchantId));
+}
+
+function updateMerchantPassword($merchantId, $password){
+    $sql = "UPDATE users "
+          . "SET password = ? "
+          . "WHERE id = ?";
+    query($sql, array($password, $merchantId));
+}
+
+
+function updateMerchantStatus($merchantId, $status){
+    $active = "false";
+    if($status == "active")
+        $active = "true";
+    $sql = "UPDATE users "
+         . "SET active = ? "
+         . "WHERE id = ?";
+    query($sql, array($active, $merchantId));
+}
+
+
 /*
  * Delete Merchant
 */

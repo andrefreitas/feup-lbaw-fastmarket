@@ -67,6 +67,17 @@ $(document).ready(function(){
 	});
 	
 	
+	/* Edit Merchant event */
+	$('.editMerchant button').click(function(){
+		var vals = new Array();
+		var data = $(".editMerchant form").serializeArray(),
+		vals["oldEmail"] = data[0]["value"],
+		vals["name"] = data[1]["value"],
+		vals["email"] = data[2]["value"],
+		vals["status"] = data[3]["value"],
+		vals["password"] = data[4]["value"];
+		
+	});
 	
 });
 
