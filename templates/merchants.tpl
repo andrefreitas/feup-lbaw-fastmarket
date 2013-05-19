@@ -9,6 +9,7 @@
     <span class="search">
         Search: <input type="text" placeholder="keywords"/><button></button>
     </span>
+    <button id="addMerchant">Add Merchant</button>
     <span class="total">{$total} merchants</span>
 </div>
 
@@ -42,4 +43,19 @@
         </div>
         <a class="close-reveal-modal">&#215;</a>
         </div>
+        
+    <div id="addMerchantDialog" class="reveal-modal register ">
+			<h1>Add Merchant</h1>
+			<div class="registration">
+    			<form>
+                    <div class="registerNotification"></div>
+                    <input type="text" name="name" placeholder="name..."/><br/>
+                    <input type="email" name="email" placeholder="email..."/><br/>
+                    <input type="password" name="password" placeholder="password"/><br/>
+                    <input type="password" name="password_check" placeholder="confirm password"/><br/>
+                    <button type="button" name="register">Add Merchant</button>
+                </form>
+			</div>
+			<a class="close-reveal-modal">&#215;</a>
+		</div>
 {include file='footer.tpl'}

@@ -48,7 +48,7 @@ header{
 
 #box .headBox .total{
         float: right;
-        margin-top: 5px;
+        margin-top: 7px;
         font-size: 14px;
         text-transform: uppercase;
 }
@@ -59,9 +59,15 @@ header{
         padding: 5px;
 }
 
+#box .headBox #addMerchant{
+	width: 150px;
+	height: 26px;
+	margin-left: 35px;
+}
+
 /* Search input */
 .search{
-        margin-left: 60px;
+        margin-left: 30px;
 }
 
 .search input{

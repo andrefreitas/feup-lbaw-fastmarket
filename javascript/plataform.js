@@ -24,7 +24,7 @@ $(document).ready(function(){
 		if(registrationIsValid(name,email,password,passwordCheck)){
 			password =  CryptoJS.SHA256(password).toString();
 			if(addMerchant(name, email, password))
-				$('.registerNotification').html('<div class="confirmation"> Check your email</div>');
+				$('.registerNotification').html('<div class="confirmation"> Confirmation email sent</div>');
 			else
 				$('.registerNotification').html('<div class="error"> User already exists!</div>');
 		}
@@ -50,7 +50,7 @@ $(document).ready(function(){
 		  }
 
 		});
-	
+	/* Search Merchants */
 	$('.search button').click(function (){
 		var status = $('.headBox select[name="status"]').find(":selected").text().toLowerCase();
 		var terms = $('.search input').val();
@@ -59,6 +59,10 @@ $(document).ready(function(){
 		updateMerchantsList(merchants);
 	});
 	
+	/* Add Merchant */
+	$('#addMerchant').click(function(){
+		$('#addMerchantDialog').reveal();
+	});
 });
 
 /* Filter merchants by a status */
@@ -169,6 +173,7 @@ function initMerchantsEvents(){
 		} else{
 			updateMerchant(vals);
 			$(".editMerchant .notifications").html('<div class="confirmation"> Changes done!</div>');
+			location.reload();
 		}
 	});
 }
