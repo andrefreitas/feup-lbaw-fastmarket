@@ -224,11 +224,17 @@ function deleteStore($storeId){
  * Get Merchants
 */
 
-function getMerchants(){
+function getMerchants($status=""){
     $sql = "SELECT users.name, users.email, users.registration_date, users.active "
          . "FROM users, privileges "
-         . "WHERE users.privilege_id = privileges.id AND privileges.name = 'merchant' "
-         . "ORDER BY users.registration_date DESC";
+         . "WHERE users.privilege_id = privileges.id AND privileges.name = 'merchant' ";
+    if($status){
+        $active = "false";
+        if($status == "active")
+            $active = "true";
+        $sql .= " AND users.active = ".$active." ";
+    }
+    $sql .= "ORDER BY users.registration_date DESC";
     $merchants = query($sql);
     foreach ($merchants as &$merchant){
         if($merchant["active"]){

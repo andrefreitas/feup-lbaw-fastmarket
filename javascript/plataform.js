@@ -33,6 +33,39 @@ $(document).ready(function(){
 		}
 	});
 	
+	initMerchantsEvents();
+	
+	/* Filter merchants by status */
+	$('.headBox select[name="status"]').change(function() {
+		  var status = $('.headBox select[name="status"]').find(":selected").text().toLowerCase();
+		  var merchants = getMerchantsByStatus(status);
+		  console.log(merchants);
+		  $('#box .merchants').html("");
+		  for(var i=0; i<merchants.length;  i++){
+			 var merchant = merchants[i];
+			 var html = createMerchantItem(merchant["name"], merchant["email"], merchant["registration_date"], merchant["status"]);
+			 $('#box .merchants').append(html);
+		  }
+		  initMerchantsEvents();
+		});
+	
+});
+/*
+ * Create merchant item
+ */
+
+function createMerchantItem(name, email, date, status){
+	var html = '\t<div class="item">\n';
+		html += '\t\t<span class="name">' + name + '</span>\n';
+		html += '\t\t<span class="email">' + email + '</span>\n';
+		html +='\t\t<span class="registrationDate">' + date + ' </span>\n';
+		html +='\t\t<span class="status">' + status + '</span>\n';
+		html +='\t\t<div class="actions"></div>\n';
+		html +='\t</div>';
+    return html;
+}
+
+function initMerchantsEvents(){
 	/* Merchants */
 	$('.merchants .item').hover(function(){
 		var actions = ' <span class="edit">Edit</span><span class="delete">Delete</span>';
@@ -93,9 +126,7 @@ $(document).ready(function(){
 			$(".editMerchant .notifications").html('<div class="confirmation"> Changes done!</div>');
 		}
 	});
-	
-});
-
+}
 /*
  * Adds a new merchant
  */
@@ -210,4 +241,15 @@ function validateLogin(){
 	}
 	
 	return false;
+}
+
+/*
+ * Get merchants by status
+ */
+
+function getMerchantsByStatus(status){
+	$.ajaxSetup( { "async": false } );
+	var data = $.getJSON("../ajax/plataform/getMerchants.php?",{status : status});
+	$.ajaxSetup( { "async": true } );
+	return $.parseJSON(data["responseText"]);
 }

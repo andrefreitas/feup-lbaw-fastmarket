@@ -1,9 +1,9 @@
 {include file='header.tpl'}
 <div class="headBox">
     Filter by status: 
-    <select id="status">
+    <select name="status">
         <option value="active">Active</option>
-        <option value="inactive">Inactive</option>
+        <option value="pending">Pending</option>
     </select>
     <span class="search">
         Search: <input type="text" placeholder="keywords"/><button></button>
@@ -21,6 +21,7 @@
         <div class="actions"></div>
     </div>
     {/foreach}
+</div>
     <div id="editMerchantDialog" class="reveal-modal edit">
         <h1>Edit merchant</h1>
         <div class="editMerchant">
@@ -40,5 +41,4 @@
         </div>
         <a class="close-reveal-modal">&#215;</a>
         </div>
-</div>
 {include file='footer.tpl'}
