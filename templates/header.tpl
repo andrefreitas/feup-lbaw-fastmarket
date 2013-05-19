@@ -3,16 +3,19 @@
     <head>
         <title>{$title}</title>
         <meta charset="utf-8">
+        <!--  CSS -->
         <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.10.0/build/cssreset/cssreset-min.css">
         <link rel="stylesheet" type="text/css" href="../css/plataform.css"/>
         <link rel="stylesheet" type="text/css" href="../css/reveal.css"/>
-         <link rel="stylesheet" type="text/css" href="../css/plataform_backoffice.css"/>
+        <link rel="stylesheet" type="text/css" href="../css/plataform_backoffice.css"/>
+        <!--  Javascript  -->
+        <script type="text/javascript" src="../javascript/jquery.js"></script>
+        <script type="text/javascript" src="../javascript/jquery-ui.js"></script>
+        <script type="text/javascript" src="../javascript/jquery.reveal.js"></script>
+        <script type="text/javascript" src="../javascript/crypt.js"></script>
+        <script type="text/javascript" src="../javascript/plataform.js"></script>
+        <!--  Favicon -->
         <link rel="shortcut icon" href="../images/favicon.ico" />
-        <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.min.js"></script>
-        <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
-        <script src="../javascript/jquery.reveal.js"></script>
-        <script src="../javascript/crypt.js"></script>
-        <script src="../javascript/plataform.js"></script>
     </head>
     <body>
         <div class="headline"></div>

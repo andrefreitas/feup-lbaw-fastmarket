@@ -225,10 +225,18 @@ function deleteStore($storeId){
 */
 
 function getMerchants(){
-    $sql = "SELECT users.name, users.email, users.registration_date "
+    $sql = "SELECT users.name, users.email, users.registration_date, users.active "
          . "FROM users, privileges "
          . "WHERE users.privilege_id = privileges.id AND privileges.name = 'merchant'";
-    return query($sql);
+    $merchants = query($sql);
+    foreach ($merchants as &$merchant){
+        if($merchant["active"]){
+            $merchant["status"] = "active";
+        }else{
+            $merchant["status"] = "pending";
+        }
+    }
+    return $merchants;
 }
 
 /*

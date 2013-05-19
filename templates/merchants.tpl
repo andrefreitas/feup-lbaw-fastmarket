@@ -17,12 +17,13 @@
         <span class="name">{$merchant.name}</span>
         <span class="email">{$merchant.email}</span>
         <span class="registrationDate"> {$merchant.registration_date} </span>
+        <span class="status"> {$merchant.status} </span>
         <div class="actions"></div>
     </div>
     {/foreach}
     <div id="editMerchantDialog" class="reveal-modal edit">
-    	<h1>Edit merchant</h1>
-    	<div class="editMerchant">
+        <h1>Edit merchant</h1>
+        <div class="editMerchant">
         <form>
             <input type="text" name="name" placeholder="name..."/><br/>
             <input name="oldEmail" type="hidden"/>
@@ -31,8 +32,8 @@
             <input type="password" name="password_check" placeholder="confirm password"/><br/>
             <button type="button" name="save">Save changes</button>
         </form>
-    	</div>
-		<a class="close-reveal-modal">&#215;</a>
-	</div>
+        </div>
+                <a class="close-reveal-modal">&#215;</a>
+        </div>
 </div>
 {include file='footer.tpl'}

@@ -3,214 +3,218 @@
 ****************************/
 
 html{
-	background-color: #f1f3f4;
+        background-color: #f1f3f4;
 }
 
 
 /* Header */
 .headline{
-	background-color: #217a9a;
-	height: 10px;
+        background-color: #217a9a;
+        height: 10px;
 }
 
 header{
-	height: 150px;
-	background-color: #535353;
-	box-shadow:2px 4px 14px #aeaeae;
+        height: 150px;
+        background-color: #535353;
+        box-shadow:2px 4px 14px #aeaeae;
 }
 
 .logo{
-	margin-top: 43px;
-	float: left;
+        margin-top: 43px;
+        float: left;
 }
 
 #box{
-	width: 990px;
-	margin: 0 auto;
-	overflow: hidden;
-	border: solid 1px #dfdfdf;
-	background-color: white;
-	margin-top: 35px;
-	min-height: 350px;
-	margin-bottom: 20px;
+        width: 990px;
+        margin: 0 auto;
+        overflow: hidden;
+        border: solid 1px #dfdfdf;
+        background-color: white;
+        margin-top: 35px;
+        min-height: 350px;
+        margin-bottom: 20px;
 }
 
 #box .headBox{
-	height: 22px;
-	border-bottom: solid 1px #dedede;
-	background-color: #e8e8e8;
-	background: -moz-linear-gradient(top, #fbfbfb, #e8e8e8) repeat-X;
-	background: -webkit-gradient(linear, left top, left bottom, from(#fbfbfb), to(#e8e8e8)) repeat-X;
-	color: #777777;
-	padding: 13px 20px 20px 20px;
-	font-weight: 500;
-	font-size: 14px;
+        height: 22px;
+        border-bottom: solid 1px #dedede;
+        background-color: #e8e8e8;
+        background: -moz-linear-gradient(top, #fbfbfb, #e8e8e8) repeat-X;
+        background: -webkit-gradient(linear, left top, left bottom, from(#fbfbfb), to(#e8e8e8)) repeat-X;
+        color: #777777;
+        padding: 13px 20px 20px 20px;
+        font-weight: 500;
+        font-size: 14px;
 }
 
 #box .headBox .total{
-	float: right;
-	margin-top: 5px;
-	font-size: 14px;
-	text-transform: uppercase;
+        float: right;
+        margin-top: 5px;
+        font-size: 14px;
+        text-transform: uppercase;
 }
 
 #box .headBox input{
-	height: 16px;
-	font-size: 14px;
-	padding: 5px;
+        height: 16px;
+        font-size: 14px;
+        padding: 5px;
 }
 
 /* Search input */
 .search{
-	margin-left: 30px;
+        margin-left: 30px;
 }
 
 .search input{
-	width: 300px;
-	border-right: none;
+        width: 300px;
+        border-right: none;
 }
 
 .search button{
-	width: 40px;
-	height: 28px;
-	position:relative;
-	top: -3px;
-	background-color: #d7d7d7;
-	border:solid 1px #a2a2a2;
-	background: -moz-linear-gradient(top, #fbfbfb, #e8e8e8) repeat-X;
-	background: -webkit-gradient(linear, left top, left bottom, from(#fbfbfb), to(#e8e8e8)) repeat-X;
-	background-image: url('../images/search-icon.png');
-	background-repeat: no-repeat;
-	background-position: 11px 5px;
+        width: 40px;
+        height: 28px;
+        position:relative;
+        top: -3px;
+        background-color: #d7d7d7;
+        border:solid 1px #a2a2a2;
+        background: -moz-linear-gradient(top, #fbfbfb, #e8e8e8) repeat-X;
+        background: -webkit-gradient(linear, left top, left bottom, from(#fbfbfb), to(#e8e8e8)) repeat-X;
+        background-image: url('../images/search-icon.png');
+        background-repeat: no-repeat;
+        background-position: 11px 5px;
 
 }
 
 .search button:hover{
-	background-color: #e1e1e1;
+        background-color: #e1e1e1;
 }
 
 .search button:active{
-	box-shadow:none;
+        box-shadow:none;
 }
 
 
 
 #box h1{
-	margin: 0px;
-	padding: 0px;
+        margin: 0px;
+        padding: 0px;
 }
 
  select{
-	padding: 4px;
+        padding: 4px;
 
 }
 
 /* Navigation */
 
 nav{
-	float: right;
-	margin-top: 55px;
+        float: right;
+        margin-top: 55px;
 }
 nav li{
-	float: left;
+        float: left;
 }
 nav li a{
-	color: #fff;
-	border-radius: 3px;
-	padding: 9px 10px 5px 33px; 
-	height: 21px;
-	margin-right: 5px;
-	background-color: #217a9a;
-	text-transform: uppercase;
-	font-size: 14px;
-	background-repeat: no-repeat;
-	background-position: 8px 8px;
-	text-decoration: none;
-	display: block;
+        color: #fff;
+        border-radius: 3px;
+        padding: 9px 10px 5px 33px; 
+        height: 21px;
+        margin-right: 5px;
+        background-color: #217a9a;
+        text-transform: uppercase;
+        font-size: 14px;
+        background-repeat: no-repeat;
+        background-position: 8px 8px;
+        text-decoration: none;
+        display: block;
 }
 
 nav li a:hover{
-	background-color: #1b8bb3;
-	color: #fff;
-	text-decoration: none;
+        background-color: #1b8bb3;
+        color: #fff;
+        text-decoration: none;
 }
 
 nav li a.administration{
-	background-image: url('../images/admin-icon.png');
+        background-image: url('../images/admin-icon.png');
 }
 
 nav li a.stores{
-	background-image: url('../images/stores-icon.png');
+        background-image: url('../images/stores-icon.png');
 }
 
 nav li a.merchants{
-	background-image: url('../images/merchants-icon.png');
+        background-image: url('../images/merchants-icon.png');
 }
 
 nav li a.account{
-	background-image: url('../images/account-icon.png');
+        background-image: url('../images/account-icon.png');
 }
 
 /* Data items */
 
 .item {
-	color: #777777;
-	padding: 20px;
-	border-bottom: solid 1px #dedede;
+        color: #777777;
+        padding: 20px;
+        border-bottom: solid 1px #dedede;
 }
 
 .item:nth-child(even){
-	background-color: #fafafa;
+        background-color: #fafafa;
 }
 .item:hover {
-	background-color: #f4f4f4;
+        background-color: #f4f4f4;
 }
 
 .merchants .item .name{
-	font-weight: bold;
-	font-size: 18px;
-	width: 250px;
-	float: left;
+        font-weight: bold;
+        font-size: 18px;
+        width: 250px;
+        float: left;
 }
 
 .merchants .item .email{
-	width: 250px;
-	float: left;
+        width: 250px;
+        float: left;
+}
+
+.merchants .item .status{
+        margin-left: 80px;
 }
 
 .item .actions{
-	float: right;
+        float: right;
 }
 
 
 .item .actions .delete{
-	float: right;
-	padding: 5px;
-	margin-right: 10px;
-	border: solid 1px #9a2121;
-	background-color: #ee6565;
-	color: #fff;
-	background-image: url('../images/delete-icon.png');
-	background-repeat: no-repeat;
-	background-position: 5px 5px;
-	padding-left: 30px;
-	cursor: pointer;
+        float: right;
+        padding: 5px;
+        margin-right: 10px;
+        border: solid 1px #9a2121;
+        background-color: #ee6565;
+        color: #fff;
+        background-image: url('../images/delete-icon.png');
+        background-repeat: no-repeat;
+        background-position: 5px 5px;
+        padding-left: 30px;
+        cursor: pointer;
 }
 
 .item .actions .edit{
-	float: right;
-	padding: 5px;
-	margin-right: 10px;
-	border: solid 1px #409140;
-	background-color: #5ebb5e;
-	color: #fff;
-	background-image: url('../images/edit-icon.png');
-	background-repeat: no-repeat;
-	background-position: 5px 5px;
-	padding-left: 30px;
-	cursor: pointer;
+        float: right;
+        padding: 5px;
+        margin-right: 10px;
+        border: solid 1px #409140;
+        background-color: #5ebb5e;
+        color: #fff;
+        background-image: url('../images/edit-icon.png');
+        background-repeat: no-repeat;
+        background-position: 5px 5px;
+        padding-left: 30px;
+        cursor: pointer;
 }
 
 #editMerchantDialog h1{
-	margin-bottom: 10px;
+        margin-bottom: 10px;
 }
