@@ -29,14 +29,11 @@
             <div class="notifications">
             </div>
             <form>
-                <input name="oldEmail" type="hidden"/>
+                
                 <input type="text" name="name" placeholder="name..."/><br/>
-                <select name="status">
-                   <option value="active">Active</option>
-                   <option value="pending">Pending</option>
-                </select>
-                <input type="email" name="email" placeholder="email..."/><br/>
-                <input type="password" name="password" placeholder="password"/><br/>
+                <input type="email" name="slogan" placeholder="slogan..."/><br/>
+                <input type="text" name="vat" placeholder="vat..."/><br/>
+                <input type="text" name="domain" placeholder="domain..."/><br/>
                 <button type="button" name="save">Save changes</button>
             </form>
         </div>
