@@ -177,6 +177,23 @@ function initMerchantsEvents(){
 		}
 	});
 }
+
+/*
+ * Adds a new store
+ */
+function addStore(name, slogan, vat, domain,logo){
+	$.ajaxSetup( { "async": false } );
+	var data = $.getJSON("../ajax/plataform/addStore.php?",{
+		name: name,
+        slogan: slogan,
+        vat: vat,
+        domain: domain,
+        logo: logo
+	});
+	$.ajaxSetup( { "async": true } );
+	return $.parseJSON(data["responseText"])["result"] == 'ok' ;
+}
+
 /*
  * Adds a new merchant
  */

@@ -24,7 +24,7 @@
     {/foreach}
 </div>
     <div id="editMerchantDialog" class="reveal-modal edit">
-        <h1>Edit merchant</h1>
+        <h1>Edit store</h1>
         <div class="editMerchant">
             <div class="notifications">
             </div>
