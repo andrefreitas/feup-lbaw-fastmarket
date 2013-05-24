@@ -44,14 +44,14 @@
         
     <div id="addStoreDialog" class="reveal-modal register ">
 			<h1>Add Store</h1>
-			<div class="registration">
+			<div class="registrationStore">
     			<form>
                     <div class="registerNotification"></div>
                     <input type="text" name="name" placeholder="name..."/><br/>
                     <input type="text" name="slogan" placeholder="slogan..."/><br/>
                     <input type="text" name="vat" placeholder="vat..."/><br/>
                     <input type="text" name="domain" placeholder="domain..."/><br/>
-                    <button type="button" name="register">Add Store</button>
+                    <button type="button" name="addStore">Add Store</button>
                 </form>
 			</div>
 			<a class="close-reveal-modal">&#215;</a>

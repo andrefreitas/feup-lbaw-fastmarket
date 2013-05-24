@@ -190,6 +190,16 @@ function createStore($name, $slogan, $domain, $vat,$logoId){
     query($sql, array($name, $slogan, $domain, $vat,$logoId));
 }
 
+/*
+ * Check name and domain of new store
+*/
+function checkNameDomainStore($name,$domain)
+{
+	$sql = "SELECT name, domain FROM stores WHERE name=? OR domain=?";
+	
+	return query($sql, array($name,$domain));
+}
+
 
 /*
  * Add a file ans returns its id

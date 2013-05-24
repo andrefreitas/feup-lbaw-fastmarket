@@ -32,6 +32,28 @@ $(document).ready(function(){
 		}
 	});
 	
+	/* Register Store event */
+	$(".registrationStore button[name='addStore']").click( function(){
+		$('.registerNotification').html('');
+		var data = $(".registrationStore form").serializeArray(),
+		    name = data[0]["value"],
+		    slogan = data[1]["value"],
+		    vat = data[2]["value"],
+		    domain = data[3]["value"];
+		
+		// Ajax request
+		if(addStoreIsValid(name,slogan,vat,domain)){
+			
+			if(addStore(name,slogan,vat,domain))
+				$('.registerNotification').html('<div class="confirmation"> Store added</div>');
+			else
+				$('.registerNotification').html('<div class="error"> Store name/domain already exists!</div>');
+		}
+		else{
+			$('.error').effect( "bounce", {times:3}, 300 );
+		}
+	});
+	
 	/**************************************
 	 ************** MERCHANTS *************
 	 *************************************/
@@ -364,6 +386,14 @@ function registrationIsValid(name,email,password1,password2){
 	}
 	
 	return ( password1.length > 0) & ( password1.length > 0) & ( password1 == password2 ) & ( name.length > 1 ) & emailRegex.test(email);
+}
+
+/*
+ * Check add store
+ * */
+function addStoreIsValid(name,slogan,vat,domain){
+	
+	return true;
 }
 
 /*
