@@ -310,6 +310,15 @@ function addMerchant(name, email, password){
 	return $.parseJSON(data["responseText"])["result"] == 'ok' ;
 }
 
+function deleteStore(id){
+	$.ajaxSetup( { "async": false } );
+	var data = $.getJSON("../ajax/plataform/deleteStore.php?",{
+        id: id
+	});
+	$.ajaxSetup( { "async": true } );
+	return $.parseJSON(data["responseText"])["result"] == 'ok' ;
+}
+
 function deleteMerchant(email){
 	$.ajaxSetup( { "async": false } );
 	var data = $.getJSON("../ajax/plataform/deleteMerchant.php?",{
