@@ -208,7 +208,17 @@ nav li a.account{
 }
 
 .stores .item .slogan{
-        width: 150px;
+        width: 100px;
+        float: left;
+}
+
+.stores .item .vat{
+        width: 100px;
+        float: left;
+}
+
+.stores .item .domain{
+        width: 100px;
         float: left;
 }
 
