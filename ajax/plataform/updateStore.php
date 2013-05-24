@@ -11,7 +11,7 @@ if (isset($_GET['id']) and isset($_GET['name']) and isset($_GET['slogan']) and i
 	and isset($_GET['domain'])) {
     $id = $_GET['id'];
     
-    updateStore($id,$_GET['name'],$_GET['slogan'],$_GET['domain'],$_GET['vat'],null)
+    updateStore($id,$_GET['name'],$_GET['slogan'],$_GET['domain'],$_GET['vat'],null);
     
     
     echo json_encode(Array("result"=>"ok"));
