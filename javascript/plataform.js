@@ -40,7 +40,7 @@ $(document).ready(function(){
 	initStoresEvents();
 	
 	/* Filter merchants by status */
-	$('.headBox select[name="status"]').change(function() {
+	$('.merchantsBox .headBox select[name="status"]').change(function() {
 		  var status = $('.headBox select[name="status"]').find(":selected").text().toLowerCase();
 		  var searchTerms = $('.search input').val();
 		  if(searchTerms!=""){
@@ -55,7 +55,7 @@ $(document).ready(function(){
 
 		});
 	/* Search Merchants */
-	$('.search button').click(function (){
+	$('.merchantsBox .search button').click(function (){
 		var status = $('.headBox select[name="status"]').find(":selected").text().toLowerCase();
 		var terms = $('.search input').val();
 		var merchants = searchMerchants(terms);
