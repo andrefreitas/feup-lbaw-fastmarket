@@ -225,8 +225,9 @@ function initStoresEvents(){
 		/* Delete Actions */
 		$('.stores .item .actions .delete').click(function(){
 			var name = $(this).parent().parent().children(".name").text();
+			var id = $(this).parent().parent().children(".id").text();
 			if (confirm('Are you sure you want to delete ' + name + '?')) {
-			    if(deleteStore(name)){
+			    if(deleteStore(id)){
 			    	var item = $(this).parent().parent();
 			    	$(item).fadeOut(500, function(){$(item).remove(); });
 			    	var total = $(".headBox .total").text();
