@@ -265,6 +265,7 @@ function initStoresEvents(){
 		$(".editStore .notifications").html("");
 		var vals = {};
 		var data = $(".editStore form").serializeArray();
+		vals["id"]=$(".stores .item .id").text();
 		vals["name"] = data[0]["value"].trim(),
 		vals["slogan"] = data[1]["value"].trim(),
 		vals["vat"] = data[2]["value"].trim(),
