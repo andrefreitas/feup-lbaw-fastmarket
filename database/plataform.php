@@ -218,7 +218,7 @@ function updateStore($storeId,$name,$slogan,$domain,$vat,$logoId){
     $sql = "UPDATE stores "
          . "SET name = ?, slogan = ?, domain = ?, vat = ?, logo_id = ? "
          . "WHERE id = ?";
-    query($sql, array($name, $slogan, $domain, $vat, $logoId, $storeId));
+    return query($sql, array($name, $slogan, $domain, $vat, $logoId, $storeId));
 }
 
 /*
