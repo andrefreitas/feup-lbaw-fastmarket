@@ -57,7 +57,7 @@ body{
 	margin-top:30px;
     display: block;
     margin-left: auto;
-    margin-right: auto }
+    margin-right: auto 
 
 }
 
@@ -203,7 +203,7 @@ input{
 	height: 40px;
 	border: solid 1px #acacac;
 	font-size: 18px;
-	pading: 5px;
+	padding: 5px;
 	color: #acacac;
 }
 

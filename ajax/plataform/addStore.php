@@ -15,6 +15,7 @@ if( isset($_GET['name']) and isset($_GET['slogan']) and isset($_GET['vat'])
      if(checkNameDomainStore($_GET['name'],$_GET['domain'])==null)
      {
      	createStore($_GET['name'],$_GET['slogan'],$_GET['vat'],$_GET['domain'],null);
+     	echo json_encode(Array("result"=>"ok","id"=>$id));
      }else{
     	echo json_encode(Array("result"=>"name or domain in use"));
 	}
