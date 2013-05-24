@@ -68,6 +68,11 @@ $(document).ready(function(){
 		$('#addMerchantDialog').reveal();
 	});
 	
+	/* Add Store */
+	$('#addStore').click(function(){
+		$('#addStoreDialog').reveal();
+	});
+	
 	/**************************************
 	 ************** Stores ****************
 	 *************************************/
