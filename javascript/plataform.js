@@ -241,11 +241,11 @@ function initStoresEvents(){
 		vals["slogan"] = data[1]["value"].trim(),
 		vals["vat"] = data[2]["value"].trim(),
 		vals["domain"] = data[3]["value"].trim(),
-		
+		/*
 		if (vals["name"] == "") {
 			$(".editStore .notifications").html('<div class="error"> Name cannot be empty!</div>');
 			$('.error').effect( "bounce", {times:3}, 300 );
-		} else{
+		} else*/{
 			updateStore(vals);
 			$(".editStore .notifications").html('<div class="confirmation"> Changes done!</div>');
 			location.reload();
