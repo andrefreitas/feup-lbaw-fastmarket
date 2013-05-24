@@ -16,6 +16,7 @@
 <div class="stores">
     {foreach from=$stores item=store}
     <div class="item">
+    	<span class="id">{$store.id}</span>
         <span class="name">{$store.name}</span>
         <span class="slogan">{$store.slogan}</span>
         <span class="vat">{$store.vat}</span>

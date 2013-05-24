@@ -200,6 +200,11 @@ nav li a.account{
         margin-left: 80px;
 }
 
+.stores .item .id{
+        display: none;
+        visibility: hidden;
+}
+
 .stores .item .name{
         font-weight: bold;
         font-size: 18px;
