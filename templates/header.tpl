@@ -14,6 +14,8 @@
         <script type="text/javascript" src="../javascript/jquery.reveal.js"></script>
         <script type="text/javascript" src="../javascript/crypt.js"></script>
         <script type="text/javascript" src="../javascript/plataform.js"></script>
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+        <script type="text/javascript" src="../javascript/plataform_dashboard.js"></script>
         <!--  Favicon -->
         <link rel="shortcut icon" href="../images/favicon.ico" />
     </head>

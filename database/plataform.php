@@ -332,5 +332,14 @@ function delete_merchant($merchantId){
     query($sql, array($merchantId));
 }
 
-
+/* 
+ * Get new stores by months
+ */
+function getNewStoresByMonths($year){
+    $sql = "SELECT  EXTRACT (MONTH FROM creation_date) as month, count(*) as total "
+         . "FROM stores "
+         . "WHERE  EXTRACT (YEAR FROM creation_date) = ? "
+         . "GROUP BY month";
+    return query($sql, array($year));
+}
 ?>
