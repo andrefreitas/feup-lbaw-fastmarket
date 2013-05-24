@@ -203,12 +203,12 @@ nav li a.account{
 .stores .item .name{
         font-weight: bold;
         font-size: 18px;
-        width: 250px;
+        width: 150px;
         float: left;
 }
 
 .stores .item .slogan{
-        width: 250px;
+        width: 150px;
         float: left;
 }
 
