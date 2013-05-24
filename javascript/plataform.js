@@ -266,11 +266,11 @@ function initStoresEvents(){
 		$(".editStore .notifications").html("");
 		var vals = {};
 		var data = $(".editStore form").serializeArray();
-		vals["id"]=$(".stores .item .id").text();
-		vals["name"] = data[0]["value"].trim(),
-		vals["slogan"] = data[1]["value"].trim(),
-		vals["vat"] = data[2]["value"].trim(),
-		vals["domain"] = data[3]["value"].trim();
+		vals["id"]=data[0]["value"].trim(),
+		vals["name"] = data[1]["value"].trim(),
+		vals["slogan"] = data[2]["value"].trim(),
+		vals["vat"] = data[3]["value"].trim(),
+		vals["domain"] = data[4]["value"].trim();
 		
 		if (vals["name"] == "") {
 			$(".editStore .notifications").html('<div class="error"> Name cannot be empty!</div>');
