@@ -200,7 +200,8 @@ nav li a.account{
         margin-left: 80px;
 }
 
-.stores .item .id{
+.stores .item .id,
+.editStore .id{
         display: none;
         visibility: hidden;
 }

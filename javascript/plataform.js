@@ -241,13 +241,14 @@ function initStoresEvents(){
 		
 		/* Edit Actions */
 		$('.stores .item .actions .edit').click(function(){
+			var id = $(this).parent().parent().children(".id").text();
 			var name = $(this).parent().parent().children(".name").text();
 			var slogan = $(this).parent().parent().children(".slogan").text();
 			var vat = $(this).parent().parent().children(".vat").text();
 			var domain = $(this).parent().parent().children(".domain").text();
 			//status = status.trim();
 			$('#editStoreDialog').reveal();
-			$('.editStore input[name="oldname"]').val(name);
+			$('.editStore input[name="id"]').val(id);
 			$('.editStore input[name="name"]').val(name);
 			$('.editStore input[name="slogan"]').val(slogan);
 			$('.editStore input[name="vat"]').val(vat);

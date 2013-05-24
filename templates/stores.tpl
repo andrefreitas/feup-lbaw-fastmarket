@@ -32,7 +32,7 @@
             <div class="notifications">
             </div>
             <form>
-                
+                 <input type="text" name="id" class="id" placeholder=""/><br/>
                 <input type="text" name="name" placeholder="name..."/><br/>
                 <input type="text" name="slogan" placeholder="slogan..."/><br/>
                 <input type="text" name="vat" placeholder="vat..."/><br/>
