@@ -18,6 +18,8 @@
     <div class="item">
         <span class="name">{$store.name}</span>
         <span class="slogan">{$store.slogan}</span>
+        <span class="vat">{$store.vat}</span>
+        <span class="domain">{$store.domain}</span>
         <span class="registrationDate"> {$store.creation_date} </span>
         <div class="actions"></div>
     </div>
