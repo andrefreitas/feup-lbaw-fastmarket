@@ -1,6 +1,8 @@
 <?php
 chdir('../common');
 require_once('init.php');
+chdir('../database');
+require_once('plataform.php');
 chdir('../pages');
 
 if(!isset($_SESSION["id"]))

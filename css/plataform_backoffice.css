@@ -253,3 +253,59 @@ nav li a.account{
 	width: 260px;	
 	float: left;
 }
+
+/*************************
+***** Administration ***** 
+*************************/
+.dashboard{
+	padding: 20px;
+}
+.dashboard .title{
+	font-weight: bold;
+	border-bottom: dashed 1px #dedede;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+	color: #217a9a;
+	font-size: 16px;
+	padding-left: 10px;
+}
+
+/* Widgets */
+
+.widget{
+	border: solid 1px #dfdfdf;
+	float: left;
+	margin-right: 20px;
+	margin-bottom: 20px;
+}
+
+.row .widget:last-child{
+	margin-right: 0px;
+}
+
+.widget h2{
+	background: -moz-linear-gradient(top, #fbfbfb, #e8e8e8) repeat-X;
+    background: -webkit-gradient(linear, left top, left bottom, from(#fbfbfb), to(#e8e8e8)) repeat-X;
+	color: #777777;
+	padding: 10px 5px 5px 10px;
+	font-size: 14px;
+	margin: 0;
+	border-bottom: solid 1px #dedede;
+    height: 20px;
+    font-weight: bold;
+    
+}
+
+
+.widget.medium{
+	width: 350px;
+	height: 240px;
+}
+
+.widget.big{
+	width: 575px;
+    height: 240px;
+}
+
+
+
