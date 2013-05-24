@@ -1,7 +1,6 @@
 /* Plataform Javascript */
 $(document).ready(function(){
 	
-	
 	/* Confirm registration fade in */
 	$(".confirmRegistration").fadeIn(500);
 	
@@ -32,6 +31,10 @@ $(document).ready(function(){
 			$('.error').effect( "bounce", {times:3}, 300 );
 		}
 	});
+	
+	/**************************************
+	 ************** MERCHANTS *************
+	 *************************************/
 	
 	initMerchantsEvents();
 	initStoresEvents();
@@ -64,6 +67,12 @@ $(document).ready(function(){
 	$('#addMerchant').click(function(){
 		$('#addMerchantDialog').reveal();
 	});
+	
+	/**************************************
+	 ************** Stores ****************
+	 *************************************/
+	
+	
 });
 
 /* Filter merchants by a status */
@@ -297,6 +306,28 @@ function updateMerchant(values){
 }
 
 /*
+ * Get merchants by status
+ */
+
+function getMerchantsByStatus(status){
+	$.ajaxSetup( { "async": false } );
+	var data = $.getJSON("../ajax/plataform/getMerchants.php?",{status : status});
+	$.ajaxSetup( { "async": true } );
+	return $.parseJSON(data["responseText"]);
+}
+
+/*
+ * Search merchants
+ */
+
+function searchMerchants(terms){
+	$.ajaxSetup( { "async": false } );
+	var data = $.getJSON("../ajax/plataform/getMerchants.php?",{search : terms});
+	$.ajaxSetup( { "async": true } );
+	return $.parseJSON(data["responseText"]);
+}
+
+/*
  * Check registration
  */
 
@@ -320,6 +351,27 @@ function registrationIsValid(name,email,password1,password2){
 	}
 	
 	return ( password1.length > 0) & ( password1.length > 0) & ( password1 == password2 ) & ( name.length > 1 ) & emailRegex.test(email);
+}
+
+/*
+* Validate login
+*/
+
+function validateLogin(){
+	$('.notifications').html("");
+	var data = $(".loginbox form").serializeArray(),
+		email = data[0]["value"],
+		password = data[1]["value"];
+	if(email.length == 0 || password.length == 0 || !login(email, password)){
+
+		$('.notifications').html("<div class='error'>Invalid Login!</div>");
+		$(".error").effect( "bounce", 
+	            {times:3}, 300 );
+	}else{
+		return true;
+	}
+	
+	return false;
 }
 
 /*
@@ -356,47 +408,4 @@ function getGravatar(email){
 	});
 	$.ajaxSetup( { "async": true } );
 	return $.parseJSON(data["responseText"])["url"];
-}
-
-/*
-* Validate login
-*/
-
-function validateLogin(){
-	$('.notifications').html("");
-	var data = $(".loginbox form").serializeArray(),
-		email = data[0]["value"],
-		password = data[1]["value"];
-	if(email.length == 0 || password.length == 0 || !login(email, password)){
-
-		$('.notifications').html("<div class='error'>Invalid Login!</div>");
-		$(".error").effect( "bounce", 
-	            {times:3}, 300 );
-	}else{
-		return true;
-	}
-	
-	return false;
-}
-
-/*
- * Get merchants by status
- */
-
-function getMerchantsByStatus(status){
-	$.ajaxSetup( { "async": false } );
-	var data = $.getJSON("../ajax/plataform/getMerchants.php?",{status : status});
-	$.ajaxSetup( { "async": true } );
-	return $.parseJSON(data["responseText"]);
-}
-
-/*
- * Search merchants
- */
-
-function searchMerchants(terms){
-	$.ajaxSetup( { "async": false } );
-	var data = $.getJSON("../ajax/plataform/getMerchants.php?",{search : terms});
-	$.ajaxSetup( { "async": true } );
-	return $.parseJSON(data["responseText"]);
 }
