@@ -207,12 +207,12 @@ nav li a.account{
         float: left;
 }
 
-.stores .item .email{
+.stores .item .slogan{
         width: 250px;
         float: left;
 }
 
-.stores .item .status{
+.stores .item .registrationDate{
         margin-left: 80px;
 }
 
