@@ -285,8 +285,7 @@ function searchStores($term){
          . "FROM stores "
          . "WHERE ( name ~* ? OR domain ~* ? OR slogan ~* ?) "
          . "ORDER BY creation_date DESC";
-    return query($sql, array($term, $term, $term));
-    
+    return query($sql, array($term, $term, $term));  
 }
 
 /*
