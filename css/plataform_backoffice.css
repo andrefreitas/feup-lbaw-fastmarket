@@ -172,6 +172,7 @@ nav li a.account{
 /* Data items */
 
 .item {
+		width: 950px;
         color: #777777;
         padding: 20px;
         border-bottom: solid 1px #dedede;
