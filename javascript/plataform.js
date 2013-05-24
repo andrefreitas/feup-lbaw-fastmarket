@@ -34,6 +34,7 @@ $(document).ready(function(){
 	});
 	
 	initMerchantsEvents();
+	initStoresEvents();
 	
 	/* Filter merchants by status */
 	$('.headBox select[name="status"]').change(function() {
@@ -147,6 +148,74 @@ function initMerchantsEvents(){
 			$('.editMerchant input[name="name"]').val(name);
 			$('.editMerchant input[name="email"]').val(email);
 			$('.editMerchant option[value="'+status+'"]').attr("selected", "selected");
+		});
+	}		
+	,function(){
+		$(this).children(".actions").html("");
+	});
+	
+	
+	/* Edit Merchant event */
+	$('.editMerchant button').click(function(){
+		$(".editMerchant .notifications").html("");
+		var vals = {};
+		var data = $(".editMerchant form").serializeArray();
+		vals["email"] = data[0]["value"].trim(),
+		vals["name"] = data[1]["value"].trim(),
+		vals["status"] = data[2]["value"].trim(),
+		vals["newEmail"] = data[3]["value"].trim(),
+		vals["password"] = data[4]["value"].trim();
+		if (vals["name"] == "") {
+			$(".editMerchant .notifications").html('<div class="error"> Name cannot be empty!</div>');
+			$('.error').effect( "bounce", {times:3}, 300 );
+		} else if (vals["newEmail"] == ""){
+			$(".editMerchant .notifications").html('<div class="error"> Email cannot be empty!</div>');
+			$('.error').effect( "bounce", {times:3}, 300 );
+		} else{
+			updateMerchant(vals);
+			$(".editMerchant .notifications").html('<div class="confirmation"> Changes done!</div>');
+			location.reload();
+		}
+	});
+}
+
+
+function initStoresEvents(){
+	/* Stores */
+	$('.stores .item').hover(function(){
+		var actions = ' <span class="edit">Edit</span><span class="delete">Delete</span>';
+		$(this).children(".actions").html(actions);
+		
+		/* Delete Actions */
+		$('.stores .item .actions .delete').click(function(){
+			var name = $(this).parent().parent().children(".name").text();
+			if (confirm('Are you sure you want to delete ' + name + '?')) {
+			    if(deleteStore(name)){
+			    	var item = $(this).parent().parent();
+			    	$(item).fadeOut(500, function(){$(item).remove(); });
+			    	var total = $(".headBox .total").text();
+			    	total = total.split(" ")[0];
+			    	total = parseInt(total);
+			    	total = total - 1;
+			    	$(".headBox .total").text(total + " stores");
+			    }
+			}
+		});
+		
+		/* Edit Actions */
+		$('.stores .item .actions .edit').click(function(){
+			var name = $(this).parent().parent().children(".name").text();
+			var slogan = $(this).parent().parent().children(".slogan").text();
+			var vat = $(this).parent().parent().children(".vat").text();
+			var domain = $(this).parent().parent().children(".domain").text();
+			//status = status.trim();
+			$('#editStoreDialog').reveal();
+			$('.editStore input[name="oldname"]').val(name);
+			$('.editStore input[name="name"]').val(name);
+			$('.editStore input[name="slogan"]').val(slogan);
+			$('.editStore input[name="vat"]').val(vat);
+			$('.editStore input[name="domain"]').val(domain);
+			$('.editStore option[value="'+status+'"]').attr("selected", "selected");
 		});
 	}		
 	,function(){
