@@ -13,7 +13,7 @@
     <span class="total">{$total} stores</span>
 </div>
 
-<div class="merchants">
+<div class="stores">
     {foreach from=$stores item=store}
     <div class="item">
         <span class="name">{$store.name}</span>
