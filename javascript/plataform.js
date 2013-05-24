@@ -302,6 +302,17 @@ function updateMerchant(values){
 	return $.parseJSON(data["responseText"])["result"] == 'ok' ;
 }
 
+
+/*
+ * Update Store
+ */
+function updateStore(values){
+	$.ajaxSetup( { "async": false } );
+	var data = $.getJSON("../ajax/plataform/updateStore.php?",values);
+	$.ajaxSetup( { "async": true } );
+	return $.parseJSON(data["responseText"])["result"] == 'ok' ;
+}
+
 /*
  * Get merchants by status
  */
