@@ -85,6 +85,13 @@ $(document).ready(function(){
 		updateMerchantsList(merchants);
 	});
 	
+	/* Search Stores */
+	$('.storesBox .search button').click(function (){
+		var terms = $('.search input').val();
+		var stores = searchStores(terms);
+		updateStoresList(stores);
+	});
+	
 	/* Add Merchant */
 	$('#addMerchant').click(function(){
 		$('#addMerchantDialog').reveal();
@@ -127,6 +134,20 @@ function updateMerchantsList(merchants){
 	  updateMerchantsTotal(merchants.length);
 }
 /*
+ * Update stores list
+ */
+function updateStoresList(stores){
+	  $('#box .stores').html("");
+	  for(var i=0; i<stores.length;  i++){
+		 var store = stores[i];
+		 var html = createStoreItem(store["id"],store["name"],store["slogan"],store["vat"],store["domain"],store["creation_date"]);
+		 $('#box .stores').append(html);
+	  }
+	  initStoresEvents();
+	  updateStoresTotal(stores.length);
+}
+
+/*
  * Create merchant item
  */
 
@@ -141,8 +162,28 @@ function createMerchantItem(name, email, date, status){
     return html;
 }
 
+/*
+ * Create store item
+ */
+
+function createStoreItem(id,name, slogan,vat,domain, date){
+	var html = '\t<div class="item">\n';
+		html += '\t\t<span class="id">' + id + '</span>\n';
+		html += '\t\t<span class="name">' + name + '</span>\n';
+		html += '\t\t<span class="slogan">' + slogan + '</span>\n';
+		html +='\t\t<span class="domain">' + domain + ' </span>\n';
+		html +='\t\t<span class="registrationDate">' + date + '</span>\n';
+		html +='\t\t<div class="actions"></div>\n';
+		html +='\t</div>';
+    return html;
+}
+
 function updateMerchantsTotal(total){
 	$(".headBox .total").text(total + " merchants");
+}
+
+function updateStoresTotal(total){
+	$(".headBox .total").text(total + " stores");
 }
 
 function getMerchantsTotal(){
@@ -370,6 +411,17 @@ function getMerchantsByStatus(status){
 function searchMerchants(terms){
 	$.ajaxSetup( { "async": false } );
 	var data = $.getJSON("../ajax/plataform/getMerchants.php?",{search : terms});
+	$.ajaxSetup( { "async": true } );
+	return $.parseJSON(data["responseText"]);
+}
+
+/*
+ * Search stores
+ */
+
+function searchStores(terms){
+	$.ajaxSetup( { "async": false } );
+	var data = $.getJSON("../ajax/plataform/getStores.php?",{search : terms});
 	$.ajaxSetup( { "async": true } );
 	return $.parseJSON(data["responseText"]);
 }

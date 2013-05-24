@@ -276,6 +276,19 @@ function searchMerchants($term){
     return $merchants;
 }
 
+/* 
+ * Search Stores
+ */
+
+function searchStores($term){
+    $sql = "SELECT * "
+         . "FROM stores "
+         . "WHERE ( name ~* ? OR domain ~* ? OR slogan ~* ?) "
+         . "ORDER BY creation_date DESC";
+    return query($sql, array($term, $term, $term));
+    
+}
+
 /*
  * Create Merchant
 */
