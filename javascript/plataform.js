@@ -243,7 +243,7 @@ function initStoresEvents(){
 		vals["domain"] = data[3]["value"].trim(),
 		
 		if (vals["name"] == "") {
-			$(".editMerchant .notifications").html('<div class="error"> Name cannot be empty!</div>');
+			$(".editStore .notifications").html('<div class="error"> Name cannot be empty!</div>');
 			$('.error').effect( "bounce", {times:3}, 300 );
 		} else{
 			updateStore(vals);
