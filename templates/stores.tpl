@@ -1,11 +1,6 @@
 {include file='header.tpl'}
 <div class="headBox storesBox">
-    Filter by status: 
-    <select name="status">
-        <option value="any" selected="selected">Any</option>
-        <option value="active">Active</option>
-        <option value="pending">Pending</option>
-    </select>
+   
     <span class="search">
         Search: <input type="text" placeholder="keywords"/><button></button>
     </span>
