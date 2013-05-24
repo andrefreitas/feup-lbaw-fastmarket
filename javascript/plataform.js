@@ -32,14 +32,37 @@ $(document).ready(function(){
 		}
 	});
 	
+	/* Register Store event */
+	$(".registrationStore button[name='addStore']").click( function(){
+		$('.registerNotification').html('');
+		var data = $(".registrationStore form").serializeArray(),
+		    name = data[0]["value"],
+		    slogan = data[1]["value"],
+		    vat = data[2]["value"],
+		    domain = data[3]["value"];
+		
+		// Ajax request
+		if(addStoreIsValid(name,slogan,vat,domain)){
+			
+			if(addStore(name,slogan,vat,domain))
+				$('.registerNotification').html('<div class="confirmation"> Store added</div>');
+			else
+				$('.registerNotification').html('<div class="error"> Store name/domain already exists!</div>');
+		}
+		else{
+			$('.error').effect( "bounce", {times:3}, 300 );
+		}
+	});
+	
 	/**************************************
 	 ************** MERCHANTS *************
 	 *************************************/
 	
 	initMerchantsEvents();
+	initStoresEvents();
 	
 	/* Filter merchants by status */
-	$('.headBox select[name="status"]').change(function() {
+	$('.merchantsBox .headBox select[name="status"]').change(function() {
 		  var status = $('.headBox select[name="status"]').find(":selected").text().toLowerCase();
 		  var searchTerms = $('.search input').val();
 		  if(searchTerms!=""){
@@ -54,7 +77,7 @@ $(document).ready(function(){
 
 		});
 	/* Search Merchants */
-	$('.search button').click(function (){
+	$('.merchantsBox .search button').click(function (){
 		var status = $('.headBox select[name="status"]').find(":selected").text().toLowerCase();
 		var terms = $('.search input').val();
 		var merchants = searchMerchants(terms);
@@ -65,6 +88,11 @@ $(document).ready(function(){
 	/* Add Merchant */
 	$('#addMerchant').click(function(){
 		$('#addMerchantDialog').reveal();
+	});
+	
+	/* Add Store */
+	$('#addStore').click(function(){
+		$('#addStoreDialog').reveal();
 	});
 	
 	/**************************************
@@ -187,6 +215,71 @@ function initMerchantsEvents(){
 	});
 }
 
+
+function initStoresEvents(){
+	/* Stores */
+	$('.stores .item').hover(function(){
+		var actions = ' <span class="edit">Edit</span><span class="delete">Delete</span>';
+		$(this).children(".actions").html(actions);
+		
+		/* Delete Actions */
+		$('.stores .item .actions .delete').click(function(){
+			var name = $(this).parent().parent().children(".name").text();
+			if (confirm('Are you sure you want to delete ' + name + '?')) {
+			    if(deleteStore(name)){
+			    	var item = $(this).parent().parent();
+			    	$(item).fadeOut(500, function(){$(item).remove(); });
+			    	var total = $(".headBox .total").text();
+			    	total = total.split(" ")[0];
+			    	total = parseInt(total);
+			    	total = total - 1;
+			    	$(".headBox .total").text(total + " stores");
+			    }
+			}
+		});
+		
+		/* Edit Actions */
+		$('.stores .item .actions .edit').click(function(){
+			var name = $(this).parent().parent().children(".name").text();
+			var slogan = $(this).parent().parent().children(".slogan").text();
+			var vat = $(this).parent().parent().children(".vat").text();
+			var domain = $(this).parent().parent().children(".domain").text();
+			//status = status.trim();
+			$('#editStoreDialog').reveal();
+			$('.editStore input[name="oldname"]').val(name);
+			$('.editStore input[name="name"]').val(name);
+			$('.editStore input[name="slogan"]').val(slogan);
+			$('.editStore input[name="vat"]').val(vat);
+			$('.editStore input[name="domain"]').val(domain);
+			$('.editStore option[value="'+status+'"]').attr("selected", "selected");
+		});
+	}		
+	,function(){
+		$(this).children(".actions").html("");
+	});
+	
+	
+	/* Edit Store event */
+	$('.editStore button').click(function(){
+		$(".editStore .notifications").html("");
+		var vals = {};
+		var data = $(".editStore form").serializeArray();
+		vals["name"] = data[0]["value"].trim(),
+		vals["slogan"] = data[1]["value"].trim(),
+		vals["vat"] = data[2]["value"].trim(),
+		vals["domain"] = data[3]["value"].trim();
+		
+		if (vals["name"] == "") {
+			$(".editStore .notifications").html('<div class="error"> Name cannot be empty!</div>');
+			$('.error').effect( "bounce", {times:3}, 300 );
+		} else{
+			updateStore(vals);
+			$(".editStore .notifications").html('<div class="confirmation"> Changes done!</div>');
+			location.reload();
+		}
+	});
+}
+
 /*
  * Adds a new store
  */
@@ -232,6 +325,17 @@ function deleteMerchant(email){
 function updateMerchant(values){
 	$.ajaxSetup( { "async": false } );
 	var data = $.getJSON("../ajax/plataform/updateMerchant.php?",values);
+	$.ajaxSetup( { "async": true } );
+	return $.parseJSON(data["responseText"])["result"] == 'ok' ;
+}
+
+
+/*
+ * Update Store
+ */
+function updateStore(values){
+	$.ajaxSetup( { "async": false } );
+	var data = $.getJSON("../ajax/plataform/updateStore.php?",values);
 	$.ajaxSetup( { "async": true } );
 	return $.parseJSON(data["responseText"])["result"] == 'ok' ;
 }
@@ -282,6 +386,14 @@ function registrationIsValid(name,email,password1,password2){
 	}
 	
 	return ( password1.length > 0) & ( password1.length > 0) & ( password1 == password2 ) & ( name.length > 1 ) & emailRegex.test(email);
+}
+
+/*
+ * Check add store
+ * */
+function addStoreIsValid(name,slogan,vat,domain){
+	
+	return true;
 }
 
 /*
