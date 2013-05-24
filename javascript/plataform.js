@@ -232,25 +232,22 @@ function initStoresEvents(){
 	});
 	
 	
-	/* Edit Merchant event */
-	$('.editMerchant button').click(function(){
-		$(".editMerchant .notifications").html("");
+	/* Edit Store event */
+	$('.editStore button').click(function(){
+		$(".editStore .notifications").html("");
 		var vals = {};
-		var data = $(".editMerchant form").serializeArray();
-		vals["email"] = data[0]["value"].trim(),
-		vals["name"] = data[1]["value"].trim(),
-		vals["status"] = data[2]["value"].trim(),
-		vals["newEmail"] = data[3]["value"].trim(),
-		vals["password"] = data[4]["value"].trim();
+		var data = $(".editStore form").serializeArray();
+		vals["name"] = data[0]["value"].trim(),
+		vals["slogan"] = data[1]["value"].trim(),
+		vals["vat"] = data[2]["value"].trim(),
+		vals["domain"] = data[3]["value"].trim(),
+		
 		if (vals["name"] == "") {
 			$(".editMerchant .notifications").html('<div class="error"> Name cannot be empty!</div>');
 			$('.error').effect( "bounce", {times:3}, 300 );
-		} else if (vals["newEmail"] == ""){
-			$(".editMerchant .notifications").html('<div class="error"> Email cannot be empty!</div>');
-			$('.error').effect( "bounce", {times:3}, 300 );
 		} else{
-			updateMerchant(vals);
-			$(".editMerchant .notifications").html('<div class="confirmation"> Changes done!</div>');
+			updateStore(vals);
+			$(".editStore .notifications").html('<div class="confirmation"> Changes done!</div>');
 			location.reload();
 		}
 	});
