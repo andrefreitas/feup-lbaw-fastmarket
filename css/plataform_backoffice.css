@@ -90,11 +90,13 @@ header{
 
 }
 
+/* Firefox */
 @-moz-document url-prefix() {
   .search button{
         top: -5px;
     }
 }
+
 .search button:hover{
         background-color: #e1e1e1;
 }
