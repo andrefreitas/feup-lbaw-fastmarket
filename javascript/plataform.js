@@ -1,7 +1,6 @@
 /* Plataform Javascript */
 $(document).ready(function(){
 	
-	
 	/* Confirm registration fade in */
 	$(".confirmRegistration").fadeIn(500);
 	
@@ -33,10 +32,37 @@ $(document).ready(function(){
 		}
 	});
 	
+	/* Register Store event */
+	$(".registrationStore button[name='addStore']").click( function(){
+		$('.registerNotification').html('');
+		var data = $(".registrationStore form").serializeArray(),
+		    name = data[0]["value"],
+		    slogan = data[1]["value"],
+		    vat = data[2]["value"],
+		    domain = data[3]["value"];
+		
+		// Ajax request
+		if(addStoreIsValid(name,slogan,vat,domain)){
+			
+			if(addStore(name,slogan,vat,domain))
+				$('.registerNotification').html('<div class="confirmation"> Store added</div>');
+			else
+				$('.registerNotification').html('<div class="error"> Store name/domain already exists!</div>');
+		}
+		else{
+			$('.error').effect( "bounce", {times:3}, 300 );
+		}
+	});
+	
+	/**************************************
+	 ************** MERCHANTS *************
+	 *************************************/
+	
 	initMerchantsEvents();
+	initStoresEvents();
 	
 	/* Filter merchants by status */
-	$('.headBox select[name="status"]').change(function() {
+	$('.merchantsBox .headBox select[name="status"]').change(function() {
 		  var status = $('.headBox select[name="status"]').find(":selected").text().toLowerCase();
 		  var searchTerms = $('.search input').val();
 		  if(searchTerms!=""){
@@ -51,7 +77,7 @@ $(document).ready(function(){
 
 		});
 	/* Search Merchants */
-	$('.search button').click(function (){
+	$('.merchantsBox .search button').click(function (){
 		var status = $('.headBox select[name="status"]').find(":selected").text().toLowerCase();
 		var terms = $('.search input').val();
 		var merchants = searchMerchants(terms);
@@ -59,10 +85,28 @@ $(document).ready(function(){
 		updateMerchantsList(merchants);
 	});
 	
+	/* Search Stores */
+	$('.storesBox .search button').click(function (){
+		var terms = $('.search input').val();
+		var stores = searchStores(terms);
+		updateStoresList(stores);
+	});
+	
 	/* Add Merchant */
 	$('#addMerchant').click(function(){
 		$('#addMerchantDialog').reveal();
 	});
+	
+	/* Add Store */
+	$('#addStore').click(function(){
+		$('#addStoreDialog').reveal();
+	});
+	
+	/**************************************
+	 ************** Stores ****************
+	 *************************************/
+	
+	
 });
 
 /* Filter merchants by a status */
@@ -90,6 +134,20 @@ function updateMerchantsList(merchants){
 	  updateMerchantsTotal(merchants.length);
 }
 /*
+ * Update stores list
+ */
+function updateStoresList(stores){
+	  $('#box .stores').html("");
+	  for(var i=0; i<stores.length;  i++){
+		 var store = stores[i];
+		 var html = createStoreItem(store["id"],store["name"],store["slogan"],store["vat"],store["domain"],store["creation_date"]);
+		 $('#box .stores').append(html);
+	  }
+	  initStoresEvents();
+	  updateStoresTotal(stores.length);
+}
+
+/*
  * Create merchant item
  */
 
@@ -104,8 +162,28 @@ function createMerchantItem(name, email, date, status){
     return html;
 }
 
+/*
+ * Create store item
+ */
+
+function createStoreItem(id,name, slogan,vat,domain, date){
+	var html = '\t<div class="item">\n';
+		html += '\t\t<span class="id">' + id + '</span>\n';
+		html += '\t\t<span class="name">' + name + '</span>\n';
+		html += '\t\t<span class="slogan">' + slogan + '</span>\n';
+		html +='\t\t<span class="domain">' + domain + ' </span>\n';
+		html +='\t\t<span class="registrationDate">' + date + '</span>\n';
+		html +='\t\t<div class="actions"></div>\n';
+		html +='\t</div>';
+    return html;
+}
+
 function updateMerchantsTotal(total){
 	$(".headBox .total").text(total + " merchants");
+}
+
+function updateStoresTotal(total){
+	$(".headBox .total").text(total + " stores");
 }
 
 function getMerchantsTotal(){
@@ -178,6 +256,74 @@ function initMerchantsEvents(){
 	});
 }
 
+
+function initStoresEvents(){
+	/* Stores */
+	$('.stores .item').hover(function(){
+		var actions = ' <span class="edit">Edit</span><span class="delete">Delete</span>';
+		$(this).children(".actions").html(actions);
+		
+		/* Delete Actions */
+		$('.stores .item .actions .delete').click(function(){
+			var name = $(this).parent().parent().children(".name").text();
+			var id = $(this).parent().parent().children(".id").text();
+			if (confirm('Are you sure you want to delete ' + name + '?')) {
+			    if(deleteStore(id)){
+			    	var item = $(this).parent().parent();
+			    	$(item).fadeOut(500, function(){$(item).remove(); });
+			    	var total = $(".headBox .total").text();
+			    	total = total.split(" ")[0];
+			    	total = parseInt(total);
+			    	total = total - 1;
+			    	$(".headBox .total").text(total + " stores");
+			    }
+			}
+		});
+		
+		/* Edit Actions */
+		$('.stores .item .actions .edit').click(function(){
+			var id = $(this).parent().parent().children(".id").text();
+			var name = $(this).parent().parent().children(".name").text();
+			var slogan = $(this).parent().parent().children(".slogan").text();
+			var vat = $(this).parent().parent().children(".vat").text();
+			var domain = $(this).parent().parent().children(".domain").text();
+			//status = status.trim();
+			$('#editStoreDialog').reveal();
+			$('.editStore input[name="id"]').val(id);
+			$('.editStore input[name="name"]').val(name);
+			$('.editStore input[name="slogan"]').val(slogan);
+			$('.editStore input[name="vat"]').val(vat);
+			$('.editStore input[name="domain"]').val(domain);
+			$('.editStore option[value="'+status+'"]').attr("selected", "selected");
+		});
+	}		
+	,function(){
+		$(this).children(".actions").html("");
+	});
+	
+	
+	/* Edit Store event */
+	$('.editStore button').click(function(){
+		$(".editStore .notifications").html("");
+		var vals = {};
+		var data = $(".editStore form").serializeArray();
+		vals["id"]=data[0]["value"].trim(),
+		vals["name"] = data[1]["value"].trim(),
+		vals["slogan"] = data[2]["value"].trim(),
+		vals["vat"] = data[3]["value"].trim(),
+		vals["domain"] = data[4]["value"].trim();
+		
+		if (vals["name"] == "") {
+			$(".editStore .notifications").html('<div class="error"> Name cannot be empty!</div>');
+			$('.error').effect( "bounce", {times:3}, 300 );
+		} else{
+			updateStore(vals);
+			$(".editStore .notifications").html('<div class="confirmation"> Changes done!</div>');
+			location.reload();
+		}
+	});
+}
+
 /*
  * Adds a new store
  */
@@ -208,6 +354,15 @@ function addMerchant(name, email, password){
 	return $.parseJSON(data["responseText"])["result"] == 'ok' ;
 }
 
+function deleteStore(id){
+	$.ajaxSetup( { "async": false } );
+	var data = $.getJSON("../ajax/plataform/deleteStore.php?",{
+        id: id
+	});
+	$.ajaxSetup( { "async": true } );
+	return $.parseJSON(data["responseText"])["result"] == 'ok' ;
+}
+
 function deleteMerchant(email){
 	$.ajaxSetup( { "async": false } );
 	var data = $.getJSON("../ajax/plataform/deleteMerchant.php?",{
@@ -225,6 +380,50 @@ function updateMerchant(values){
 	var data = $.getJSON("../ajax/plataform/updateMerchant.php?",values);
 	$.ajaxSetup( { "async": true } );
 	return $.parseJSON(data["responseText"])["result"] == 'ok' ;
+}
+
+
+/*
+ * Update Store
+ */
+function updateStore(values){
+	$.ajaxSetup( { "async": false } );
+	var data = $.getJSON("../ajax/plataform/updateStore.php?",values);
+	$.ajaxSetup( { "async": true } );
+	return $.parseJSON(data["responseText"])["result"] == 'ok' ;
+}
+
+/*
+ * Get merchants by status
+ */
+
+function getMerchantsByStatus(status){
+	$.ajaxSetup( { "async": false } );
+	var data = $.getJSON("../ajax/plataform/getMerchants.php?",{status : status});
+	$.ajaxSetup( { "async": true } );
+	return $.parseJSON(data["responseText"]);
+}
+
+/*
+ * Search merchants
+ */
+
+function searchMerchants(terms){
+	$.ajaxSetup( { "async": false } );
+	var data = $.getJSON("../ajax/plataform/getMerchants.php?",{search : terms});
+	$.ajaxSetup( { "async": true } );
+	return $.parseJSON(data["responseText"]);
+}
+
+/*
+ * Search stores
+ */
+
+function searchStores(terms){
+	$.ajaxSetup( { "async": false } );
+	var data = $.getJSON("../ajax/plataform/getStores.php?",{search : terms});
+	$.ajaxSetup( { "async": true } );
+	return $.parseJSON(data["responseText"]);
 }
 
 /*
@@ -251,6 +450,35 @@ function registrationIsValid(name,email,password1,password2){
 	}
 	
 	return ( password1.length > 0) & ( password1.length > 0) & ( password1 == password2 ) & ( name.length > 1 ) & emailRegex.test(email);
+}
+
+/*
+ * Check add store
+ * */
+function addStoreIsValid(name,slogan,vat,domain){
+	
+	return true;
+}
+
+/*
+* Validate login
+*/
+
+function validateLogin(){
+	$('.notifications').html("");
+	var data = $(".loginbox form").serializeArray(),
+		email = data[0]["value"],
+		password = data[1]["value"];
+	if(email.length == 0 || password.length == 0 || !login(email, password)){
+
+		$('.notifications').html("<div class='error'>Invalid Login!</div>");
+		$(".error").effect( "bounce", 
+	            {times:3}, 300 );
+	}else{
+		return true;
+	}
+	
+	return false;
 }
 
 /*
@@ -287,47 +515,4 @@ function getGravatar(email){
 	});
 	$.ajaxSetup( { "async": true } );
 	return $.parseJSON(data["responseText"])["url"];
-}
-
-/*
-* Validate login
-*/
-
-function validateLogin(){
-	$('.notifications').html("");
-	var data = $(".loginbox form").serializeArray(),
-		email = data[0]["value"],
-		password = data[1]["value"];
-	if(email.length == 0 || password.length == 0 || !login(email, password)){
-
-		$('.notifications').html("<div class='error'>Invalid Login!</div>");
-		$(".error").effect( "bounce", 
-	            {times:3}, 300 );
-	}else{
-		return true;
-	}
-	
-	return false;
-}
-
-/*
- * Get merchants by status
- */
-
-function getMerchantsByStatus(status){
-	$.ajaxSetup( { "async": false } );
-	var data = $.getJSON("../ajax/plataform/getMerchants.php?",{status : status});
-	$.ajaxSetup( { "async": true } );
-	return $.parseJSON(data["responseText"]);
-}
-
-/*
- * Search merchants
- */
-
-function searchMerchants(terms){
-	$.ajaxSetup( { "async": false } );
-	var data = $.getJSON("../ajax/plataform/getMerchants.php?",{search : terms});
-	$.ajaxSetup( { "async": true } );
-	return $.parseJSON(data["responseText"]);
 }

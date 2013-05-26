@@ -1,5 +1,5 @@
 {include file='header.tpl'}
-<div class="headBox">
+<div class="headBox merchantsBox">
     Filter by status: 
     <select name="status">
         <option value="any" selected="selected">Any</option>

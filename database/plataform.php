@@ -190,6 +190,16 @@ function createStore($name, $slogan, $domain, $vat,$logoId){
     query($sql, array($name, $slogan, $domain, $vat,$logoId));
 }
 
+/*
+ * Check name and domain of new store
+*/
+function checkNameDomainStore($name,$domain)
+{
+	$sql = "SELECT name, domain FROM stores WHERE name=? OR domain=?";
+	
+	return query($sql, array($name,$domain));
+}
+
 
 /*
  * Add a file ans returns its id
@@ -208,7 +218,7 @@ function updateStore($storeId,$name,$slogan,$domain,$vat,$logoId){
     $sql = "UPDATE stores "
          . "SET name = ?, slogan = ?, domain = ?, vat = ?, logo_id = ? "
          . "WHERE id = ?";
-    query($sql, array($name, $slogan, $domain, $vat, $logoId, $storeId));
+    return query($sql, array($name, $slogan, $domain, $vat, $logoId, $storeId));
 }
 
 /*
@@ -264,6 +274,18 @@ function searchMerchants($term){
         }
     }
     return $merchants;
+}
+
+/* 
+ * Search Stores
+ */
+
+function searchStores($term){
+    $sql = "SELECT * "
+         . "FROM stores "
+         . "WHERE ( name ~* ? OR domain ~* ? OR slogan ~* ?) "
+         . "ORDER BY creation_date DESC";
+    return query($sql, array($term, $term, $term));  
 }
 
 /*
@@ -322,5 +344,14 @@ function delete_merchant($merchantId){
     query($sql, array($merchantId));
 }
 
-
+/* 
+ * Get new stores by months
+ */
+function getNewStoresByMonths($year){
+    $sql = "SELECT  EXTRACT (MONTH FROM creation_date) as month, count(*) as total "
+         . "FROM stores "
+         . "WHERE  EXTRACT (YEAR FROM creation_date) = ? "
+         . "GROUP BY month";
+    return query($sql, array($year));
+}
 ?>
