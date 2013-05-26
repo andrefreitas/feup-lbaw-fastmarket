@@ -1,0 +1,9 @@
+.bodyContainer{
+	width: 900px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+header{
+	height: 150px;
+}
