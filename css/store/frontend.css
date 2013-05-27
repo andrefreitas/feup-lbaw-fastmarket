@@ -16,3 +16,8 @@ header .logo{
 	margin-top: 30px;
 	margin-bottom: 30px;
 }
+
+.span10{
+	border: solid 1px #d4d4d4;
+	border-radius: 4px;	
+}

@@ -203,14 +203,28 @@ function getStoreLogo($domain){
 }
 
 /**
- * 
+ * Check if store exists
  */
 
 function storeExists($domain){
     $sql = "SELECT * "
          . "FROM stores "
          . "WHERE stores.domain = ?";
-    $logo = query($sql, array($domain));
-    return isset($logo[0]);
+    $store = query($sql, array($domain));
+    return isset($store[0]);
+}
+
+/**
+ * Get store id by domain
+ */
+
+function getStoreId($domain){
+    $sql = "SELECT stores.id "
+         . "FROM stores "
+         . "WHERE stores.domain = ?";
+    $store = query($sql, array($domain));
+    if(isset($store[0])){
+        return $store[0]["id"];
+    }
 }
 ?>
