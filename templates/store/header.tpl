@@ -18,6 +18,14 @@
         <div class="bodyContainer">
             <header>
             <img src="{$logoPath}" alt="Logo" class="logo"/>
+            <div class="login">
+                <form class="form-inline">
+                      <input type="text" class="input" placeholder="Email">
+                      <input type="password" class="input-medium" placeholder="Password">
+
+                      <button type="submit" class="btn">Login</button>
+                </form>
+            </div>
             </header>
         </div>
         <!--  Navigation -->
@@ -29,6 +37,8 @@
         				<li><a href="#"><i class="icon-star"></i> Favorites</a></li>
         				<li><a href="#"><i class="icon-shopping-cart"></i> Cart</a></li>
         			</ul>
+        			
+
         		</div>
         	</div>
         </div>
