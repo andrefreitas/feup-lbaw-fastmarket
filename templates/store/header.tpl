@@ -10,8 +10,8 @@
 <!--  Javascript  -->
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript" src="../../javascript/jquery-ui.js"></script>
-<script type="text/javascript"
-	src="../../lib/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../lib/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../javascript/crypt.js"></script>
 <script type="text/javascript" src="../../javascript/store/frontend.js"></script>
 
 </head>
@@ -60,15 +60,16 @@
 		<div class="modal-body">
 		<!--  Body -->
 	
-		<form>
-            <input type="text" placeholder="Name">
-            <input type="text" placeholder="Email">
-            <input type="password" placeholder="Password">
-            <input type="password" placeholder="Confirm Password">
+		<form id="registerForm">
+            <input type="text" id="name" placeholder="Name">
+            <input type="text" id="email" placeholder="Email">
+            <input type="password" id="password" placeholder="Password">
+            <input type="password" id="confirmPassword" placeholder="Confirm Password">
+            <input type="hidden" id="storeId" value="{$storeId}">
         </form>
 		</div>
 		<div class="modal-footer">
 			<button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
-			<button class="btn btn-primary">Register</button>
+			<button class="btn btn-primary" id="registerButton" >Register</button>
 		</div>
 	</div>

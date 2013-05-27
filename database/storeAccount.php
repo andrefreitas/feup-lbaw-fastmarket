@@ -1,14 +1,7 @@
 <?php
-if(isset($_SERVER['HTTP_HOST']) and  $_SERVER['HTTP_HOST'] == 'gnomo.fe.up.pt')
-    require_once('/opt/lbaw/lbaw12503/public_html/fastmarket/common/database.php');
-else{
-    $documentRoot = $_SERVER["DOCUMENT_ROOT"];
-    if($_SERVER["DOCUMENT_ROOT"] == ""){
-        $documentRoot = "/home/andre/git";
-    }
-    require_once($documentRoot .'/fastmarket/common/database.php');
-}
-
+chdir('../common');
+require_once('database.php');
+chdir('../database');
 /*
  * Login
 */
@@ -39,6 +32,35 @@ function register2Step($userId, $storeId)
 {
 	$sql = "INSERT INTO stores_users(user_id,store_id) VALUES(?,?)";
 	return query($sql, array($userId, $storeId));
+}
+
+/** 
+ * Adds a new costumer
+ */
+
+function addCostumer($storeId, $name, $email, $password){
+    $sql = "INSERT INTO users(name,email,password,registration_date,privilege_id) "
+	     . "VALUES (?,?,?,CURRENT_TIMESTAMP,(SELECT id FROM privileges WHERE name='costumer')) "
+	     . "RETURNING id";
+    $id = query($sql, array($name, $email, $password));
+    $id = $id[0]["id"];
+    $sql = "INSERT INTO stores_users(user_id,store_id) VALUES(?,?)";
+    
+    // Activate user
+    activateUserById($id);
+    
+    return query($sql, array($id , $storeId));
+}
+
+/*
+ *  Activate user
+ */
+
+function activateUserById($userId){
+    $sql = "UPDATE users "
+         . "SET active='true' "
+         . "WHERE id = ?";
+    query($sql, array($userId));
 }
 
 /*

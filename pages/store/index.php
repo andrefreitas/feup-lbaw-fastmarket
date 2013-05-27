@@ -37,6 +37,7 @@ $smarty->assign('title', "Welcome");
 $smarty->assign('logoPath', $logoPath);
 $smarty->assign('categories', $categories);
 $smarty->assign('products', $products);
+$smarty->assign('storeId', $storeId);
 $smarty->display('store/home.tpl');
 
 ?>
