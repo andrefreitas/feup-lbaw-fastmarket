@@ -7,7 +7,6 @@ $(document).ready(function(){
 	/* E01 - When a user clicks the register button */
 	$("#registerButton").click(function(){
 		handleUserRegister();
-		
 	});
 	
 	
@@ -25,6 +24,7 @@ function handleUserRegister(){
 	var	confirmPassword = $("#registerForm #confirmPassword").val();
 	var	storeId = $("#registerForm #storeId").val();
 	requestAddCostumer(name, email, password, storeId);
+	$('#registrationModal').modal('hide');
 }
 
 function requestAddCostumer(name, email, password, storeId){

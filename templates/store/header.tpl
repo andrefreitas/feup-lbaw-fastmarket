@@ -27,7 +27,7 @@
 						type="password" class="input-medium" placeholder="Password">
 
 					<button type="submit" class="btn" id="login">Login</button>
-					<a href="#myModal" role="button" class="btn btn-inverse"
+					<a href="#registrationModal" role="button" class="btn btn-inverse"
 						data-toggle="modal">Register</a>
 				</form>
 			</div>
@@ -50,7 +50,7 @@
 
 
 	<!-- Modal -->
-	<div id="myModal" class="modal hide fade register" tabindex="-1"
+	<div id="registrationModal" class="modal hide fade register" tabindex="-1"
 		role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal"
@@ -69,7 +69,7 @@
         </form>
 		</div>
 		<div class="modal-footer">
-			<button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+			<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
 			<button class="btn btn-primary" id="registerButton" >Register</button>
 		</div>
 	</div>

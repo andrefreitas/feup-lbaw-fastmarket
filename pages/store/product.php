@@ -7,6 +7,9 @@ chdir('../pages/store');
 
 if(!isset($_GET["store"]) or !storeExists($_GET["store"])){
     header("Location: ../index.php");
+}else if(!isset($_GET["id"])) {
+    
+    header("Location: ". $_GET["store"]);
 }
 
 // Update paths
@@ -26,9 +29,9 @@ $logoPath = "../../files/" . getStoreLogo($domain);
 // Categories
 $categories = getCategories($storeId);
 
-// Products
-$products = getStoreProductsOnStock($storeId, 10);
-$products = array_map($updatePath, $products);
+// Product
+$id = intval($_GET["id"]);
+$product = getProduct($id);
 
 /* END -- Get store data */
 
@@ -36,9 +39,8 @@ $products = array_map($updatePath, $products);
 $smarty->assign('title', "Welcome");
 $smarty->assign('logoPath', $logoPath);
 $smarty->assign('categories', $categories);
-$smarty->assign('products', $products);
-$smarty->assign('storeDomain', $domain);
+$smarty->assign('product', $product);
 $smarty->assign('storeId', $storeId);
-$smarty->display('store/home.tpl');
+$smarty->display('store/product.tpl');
 
 ?>

@@ -24,7 +24,7 @@
 					        <div class="price">{$product.price}  &euro;</div>
 					        <div class="actions">
 					            <a class="btn" href="#"><i class="icon-shopping-cart"></i> Add Item</a>
-					            <button type="button" class="btn btn-inverse">View</button>
+					            <a class="btn btn-inverse" href="product.php?store={$storeDomain}&id={$product.id}">View</a>
 					        </div>
 					    </div>
                 {/foreach}

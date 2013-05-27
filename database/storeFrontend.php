@@ -72,7 +72,10 @@ function getProduct($productId)
 			products.stock, products.score, categories.name AS category, files.path AS file
 			FROM products,categories,files
 			WHERE products.id=? AND products.category_id=categories.id AND files.id=products.image_id";
-	return query($sql, array($productId));
+	$product = query($sql, array($productId));
+	if(isset($product[0])){
+	    return $product[0];
+	}
 }
 
 /*
