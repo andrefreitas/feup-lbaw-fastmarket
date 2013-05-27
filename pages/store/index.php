@@ -9,6 +9,12 @@ if(!isset($_GET["store"]) or !storeExists($_GET["store"])){
     header("Location: ../index.php");
 }
 
+// Update paths
+$updatePath = function($elem){
+    $elem["file"] = "../../files/" . $elem["file"];
+    return $elem;
+};
+
 
 /* BEGIN -- Get store data */
 $domain = $_GET["store"];
@@ -16,11 +22,14 @@ $storeId = getStoreId($domain);
 
 // Logo
 $logoPath = "../../files/" . getStoreLogo($domain);
+
 // Categories
 $categories = getCategories($storeId);
+
 // Products
 $products = getStoreProductsOnStock($storeId, 10);
-//print_r($products);
+$products = array_map($updatePath, $products);
+
 /* END -- Get store data */
 
 

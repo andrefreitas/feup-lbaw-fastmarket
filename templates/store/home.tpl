@@ -17,7 +17,7 @@
 			<div class="span10">
 				<!--Body content-->
 				{foreach from=$products item=product}
-					    <img src="..." class="img-polaroid">
+					    <img src="{$product.file}" class="img-polaroid">
                 {/foreach}
 			</div>
 		</div>
