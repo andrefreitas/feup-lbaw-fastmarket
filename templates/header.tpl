@@ -28,10 +28,10 @@
                 </div>
                 <nav>
                     <ul>
-                        <li><a href="administration" class="administration">Administration</a></li>
+                        <li><a href="administration.php" class="administration">Administration</a></li>
                         <li><a href="stores.php" class="stores">Stores</a></li>
                         <li><a href="merchants.php" class="merchants">Merchants</a></li>
-                        <li><a href="account" class="account">My Account </a></li>
+                        <li><a href="account.php" class="account">My Account </a></li>
                     </ul>
                 </nav>
             </div>
