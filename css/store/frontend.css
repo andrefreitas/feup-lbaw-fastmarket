@@ -18,6 +18,43 @@ header .logo{
 }
 
 .span10{
-	border: solid 1px #d4d4d4;
+	/*border: solid 1px #d4d4d4; */
 	border-radius: 4px;	
+}
+
+/* Home products */
+
+.productItem{
+	float: left;
+	width: 160px;
+	border: solid 1px #d4d4d4;
+	margin-right: 35px;
+	padding: 20px;
+	height: 250px;
+}
+
+.productItem img{
+	width: 160px;
+}
+
+.productItem .name{
+	text-transform: uppercase;
+	height: 20px;
+}
+
+.productItem .description{
+	color: #898989;
+	overflow: hidden;
+	height: 20px;
+
+}
+
+.productItem .price{
+	font-size: 22px;
+	font-weight:bold;
+	margin-top: 20px;
+}
+
+.productItem .actions{
+	margin-top: 20px;
 }

@@ -17,7 +17,16 @@
 			<div class="span10">
 				<!--Body content-->
 				{foreach from=$products item=product}
-					    <img src="{$product.file}" class="img-polaroid">
+				        <div class="productItem">
+					        <img src="{$product.file}" >
+					        <div class="name"> {$product.name}</div>
+					        <div class="description">{$product.description}</div> 
+					        <div class="price">{$product.price}  &euro;</div>
+					        <div class="actions">
+					            <a class="btn" href="#"><i class="icon-shopping-cart"></i> Add Item</a>
+					            <button type="button" class="btn btn-inverse">View</button>
+					        </div>
+					    </div>
                 {/foreach}
 			</div>
 		</div>
