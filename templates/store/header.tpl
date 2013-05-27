@@ -13,16 +13,21 @@
          <meta charset="UTF-8" />
     </head>
     <body>
-        <header>
-        </header>
+       
+        <!-- Header -->
+        <div class="bodyContainer">
+            <header>
+            <img src="{$logoPath}" alt="Logo" class="logo"/>
+            </header>
+        </div>
         <!--  Navigation -->
         <div class="bodyContainer">
         	<div class="navbar">
         		<div class="navbar-inner">
         			<ul class="nav">
-        				<li class="active"><a href="#">Home</a></li>
-        				<li><a href="#">Favorites</a></li>
-        				<li><a href="#">Cart</a></li>
+        				<li class="active"><a href="#"><i class="icon-home"></i> Home</a></li>
+        				<li><a href="#"><i class="icon-star"></i> Favorites</a></li>
+        				<li><a href="#"><i class="icon-shopping-cart"></i> Cart</a></li>
         			</ul>
         		</div>
         	</div>

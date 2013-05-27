@@ -4,6 +4,15 @@
 	overflow: hidden;
 }
 
+/* Header */
+
 header{
-	height: 150px;
+	
+}
+
+/* Logo */
+
+header .logo{
+	margin-top: 30px;
+	margin-bottom: 30px;
 }

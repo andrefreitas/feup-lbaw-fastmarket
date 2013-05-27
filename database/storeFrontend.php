@@ -1,13 +1,7 @@
 <?php
-if(isset($_SERVER['HTTP_HOST']) and  $_SERVER['HTTP_HOST'] == 'gnomo.fe.up.pt')
-    require_once('/opt/lbaw/lbaw12503/public_html/fastmarket/common/database.php');
-else{
-    $documentRoot = $_SERVER["DOCUMENT_ROOT"];
-    if($_SERVER["DOCUMENT_ROOT"] == ""){
-        $documentRoot = "/home/andre/git";
-    }
-    require_once($documentRoot .'/fastmarket/common/database.php');
-}
+chdir('../common');
+require_once('database.php');
+chdir('../database');
 
 /*
  * Get products of store
@@ -99,7 +93,6 @@ function getCommentsOfProduct($productId)
 
 function setFavorite($userId, $productId){
 	$sql = "INSERT INTO favorites(user_id,product_id) VALUES(?,?)";
-	
 	query($sql, array($userId,$productId));
 
 }
@@ -195,4 +188,29 @@ function getAboutFile($storeId)
 	return query($sql, array($storeId));
 }
 
+/*
+ * Get store logo by domain
+ */
+
+function getStoreLogo($domain){
+    $sql = "SELECT files.path "
+         . "FROM stores, files "
+         . "WHERE stores.logo_id = files.id AND stores.domain = ?";
+    $logo = query($sql, array($domain));
+    if(isset($logo[0])){
+        return $logo[0]["path"];
+    }
+}
+
+/**
+ * 
+ */
+
+function storeExists($domain){
+    $sql = "SELECT * "
+         . "FROM stores "
+         . "WHERE stores.domain = ?";
+    $logo = query($sql, array($domain));
+    return isset($logo[0]);
+}
 ?>
