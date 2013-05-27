@@ -77,6 +77,14 @@ INSERT INTO comments(comment_date,body,user_id,product_id)
 VALUES ('2013-04-01','Awesome car!!!',3,1);
 INSERT INTO comments(comment_date,body,user_id,product_id)
 VALUES ('2013-03-11','So powerfull...',4,1);
+INSERT INTO comments(comment_date,body,user_id,product_id)
+VALUES ('2013-03-13','It works',4,2);
+INSERT INTO comments(comment_date,body,user_id,product_id)
+VALUES ('2013-03-14','So cheap...',4,2);
+INSERT INTO comments(comment_date,body,user_id,product_id)
+VALUES ('2013-03-15','The car is black',4,3);
+INSERT INTO comments(comment_date,body,user_id,product_id)
+VALUES ('2013-03-16','Will buy it once i have the gold...',4,3);
 
 /* Favorites */
 INSERT INTO favorites(user_id,product_id) VALUES (3,1);
@@ -85,7 +93,11 @@ INSERT INTO favorites(user_id,product_id) VALUES (4,3);
 
 /* Scores */
 INSERT INTO products_scores(user_id,product_id,score) VALUES (3,1,1);
+INSERT INTO products_scores(user_id,product_id,score) VALUES (3,2,3);
+INSERT INTO products_scores(user_id,product_id,score) VALUES (3,3,5);
 INSERT INTO products_scores(user_id,product_id,score) VALUES (4,1,3);
+INSERT INTO products_scores(user_id,product_id,score) VALUES (4,2,2);
+INSERT INTO products_scores(user_id,product_id,score) VALUES (4,3,4);
 
 /* Transactions */
 INSERT INTO transactions(transaction_date,amount,description,store_id) VALUES ('2013-04-05',95940,'Online payment',1);
