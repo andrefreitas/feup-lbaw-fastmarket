@@ -66,3 +66,9 @@ header .login{
 	padding-top: 45px;
 
 }
+
+/* Modal Register */
+.modal.register{
+    width:250px;
+    margin-left: -125px; /* - width/2 */
+}
