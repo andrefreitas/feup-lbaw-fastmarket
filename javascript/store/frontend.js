@@ -72,4 +72,5 @@ function handleUserLogin(){
 function setLogedInState()
 {
 	/*TODO ... mostrar gravatar, nome...*/
+	alert("Login ok");
 }
