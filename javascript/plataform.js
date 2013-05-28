@@ -62,8 +62,8 @@ $(document).ready(function(){
 	initStoresEvents();
 	
 	/* Filter merchants by status */
-	$('.merchantsBox .headBox select[name="status"]').change(function() {
-		  var status = $('.headBox select[name="status"]').find(":selected").text().toLowerCase();
+	$('.merchantsBox select').change(function() {
+		  var status = $('.merchantsBox select').find(":selected").text().toLowerCase();
 		  var searchTerms = $('.search input').val();
 		  if(searchTerms!=""){
 			  var merchants = searchMerchants(searchTerms);
@@ -75,7 +75,10 @@ $(document).ready(function(){
 			  updateMerchantsList(merchants);
 		  }
 
+		
 		});
+
+	
 	/* Search Merchants */
 	$('.merchantsBox .search button').click(function (){
 		var status = $('.headBox select[name="status"]').find(":selected").text().toLowerCase();
