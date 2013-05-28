@@ -11,7 +11,7 @@ $(document).ready(function(){
 	
 	/* Login */
 	$("#login").click(function(){
-		handleUserRegister();
+		handleUserLogin();
 	});
 	
 });
@@ -63,6 +63,7 @@ function handleUserLogin(){
 	
 	if(result == "ok")
 	{
+		
 		setLogedInState();
 	
 	}
