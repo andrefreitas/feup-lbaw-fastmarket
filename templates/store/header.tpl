@@ -23,8 +23,8 @@
 			<img src="{$logoPath}" alt="Logo" class="logo" />
 			<div class="login">
 				<form class="form-inline">
-					<input type="text" class="input" placeholder="Email"> <input
-						type="password" class="input-medium" placeholder="Password">
+					<input type="text" class="input" id="login_email" placeholder="Email"> 
+					<input type="password" class="input-medium" id="login_pass" placeholder="Password">
 
 					<button type="submit" class="btn" id="login">Login</button>
 					<a href="#registrationModal" role="button" class="btn btn-inverse"
