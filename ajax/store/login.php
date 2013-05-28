@@ -8,8 +8,8 @@ chdir('../ajax/store');
 
 if (isset($_GET['email']) and isset($_GET['password']) and isset($_GET['storeId'])) {
     $password = hash('sha256',$_GET['password']);
-    $id = loginOnStore($_GET['email'], $password,$_GET['storeId']);
-    if($id)
+    $user = loginOnStore($_GET['email'], $password,$_GET['storeId']);
+    if(isset($user.id))
         echo json_encode(Array("result"=>"ok"));
     else 
        echo json_encode(Array("result"=>"invalid"));
