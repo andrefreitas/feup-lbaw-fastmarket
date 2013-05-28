@@ -13,12 +13,12 @@ if(!isset($_GET["store"]) or !storeExists($_GET["store"])){
 }
 
 // Update paths
-
+/*
 $updatePath = function($elem){
     $elem["file"] = "../../files/" . $elem["file"];
     return $elem;
 };
-
+*/
 /*
 function updatePath($elem){
 	$elem["file"] = "../../files/" . $elem["file"];
