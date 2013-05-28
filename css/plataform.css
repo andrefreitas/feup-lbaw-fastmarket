@@ -109,7 +109,7 @@ body{
 
 .loginbox input{
 	width: 215px;
-	height: 40px;
+	height: 30px;
 	border: solid 1px #acacac;
 	font-size: 18px;
 	padding-left: 40px;
@@ -132,6 +132,7 @@ body{
 	font-size: 22px;
 	padding-left: 5px;
 	border: solid 1px #ac3b1f;
+	height: 40px;
 }
 
 
