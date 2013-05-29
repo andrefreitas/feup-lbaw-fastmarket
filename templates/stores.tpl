@@ -4,7 +4,9 @@
     <span class="search">
         Search: <input type="text" placeholder="keywords"/><button>Search</button>
     </span>
+    {if $smarty.session.permission== "merchant"}
     <button id="addStore">Add Store</button>
+    {/if}
     <span class="total">{$total} stores</span>
 </div>
 

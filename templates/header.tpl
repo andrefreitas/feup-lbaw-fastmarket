@@ -9,7 +9,7 @@
         <link rel="stylesheet" type="text/css" href="../css/reveal.css"/>
         <link rel="stylesheet" type="text/css" href="../css/plataform_backoffice.css"/>
         <!--  Javascript  -->
-        <script type="text/javascript" src="../javascript/jquery.js"></script>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.min.js"></script>
         <script type="text/javascript" src="../javascript/jquery-ui.js"></script>
         <script type="text/javascript" src="../javascript/jquery.reveal.js"></script>
         <script type="text/javascript" src="../javascript/crypt.js"></script>
@@ -28,10 +28,14 @@
                 </div>
                 <nav>
                     <ul>
+                        {if $smarty.session.permission== "admin"}
                         <li><a href="administration.php" class="administration">Administration</a></li>
+                        {/if}
                         <li><a href="stores.php" class="stores">Stores</a></li>
+                        {if $smarty.session.permission== "admin"}
                         <li><a href="merchants.php" class="merchants">Merchants</a></li>
-                        <li><a href="account.php" class="account">My Account </a></li>
+                        {/if}
+                        <li><a href="#" class="account">My Account </a></li>
                     </ul>
                       <div class="userInfo">
                         <span class="permission">{$permission}</span> {$user} <button>Logout</button>

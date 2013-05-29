@@ -45,11 +45,13 @@ $(document).ready(function(){
 		if(addStoreIsValid(name,slogan,vat,domain)){
 			
 			if(addStore(name,slogan,vat,domain)){
-				
-				$('.registerNotification').html('<div class="confirmation"> Store added</div>');
+				var merchantEmail = getSession()["email"];
+				addStoreOwner(merchantEmail, domain);
+				$('.registerNotification').html('<div class="confirmation"> Store added!</div>');
+				$('.registrationStore input').attr('readonly', 'readonly');
 			}
 			else
-				$('.registerNotification').html('<div class="error"> Store name/domain already exists!</div>');
+				$('.registerNotification').html('<div class="error"> Store already exists!</div>');
 		}
 		else{
 			$('.error').effect( "bounce", {times:3}, 300 );
@@ -537,6 +539,17 @@ function addStoreOwner(merchantEmail, storeDomain){
 		domain: storeDomain,
 		email: merchantEmail
 	});
+	$.ajaxSetup( { "async": true } );
+	return $.parseJSON(data["responseText"]);
+}
+
+/** 
+ * Get session
+ * */
+
+function getSession(){
+	$.ajaxSetup( { "async": false } );
+	var data = $.getJSON("../ajax/getSession.php?");
 	$.ajaxSetup( { "async": true } );
 	return $.parseJSON(data["responseText"]);
 }

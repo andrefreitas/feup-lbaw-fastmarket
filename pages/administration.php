@@ -7,6 +7,9 @@ chdir('../pages');
 
 if(!isset($_SESSION["id"]))
     header("Location: index.php");
+else if($_SESSION["permission"] == "merchant"){
+    header("Location: stores.php");
+}
 
 // Last merchants
 $lastMerchants = getMerchants();
