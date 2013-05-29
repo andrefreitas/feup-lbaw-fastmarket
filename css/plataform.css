@@ -231,6 +231,7 @@ input{
 
 
 /* Registration button size */
+.reveal-modal button,
 .editStore button,
 .editMerchant button,
 .registration button {
@@ -245,6 +246,7 @@ input{
 	width: 260px;
 }
 
+.reveal-modal input,
 .editStore input,
 .editMerchant input,
 .registration input{

@@ -436,24 +436,28 @@ header .userInfo .permission{
 }
 
 /* Edit Store */
+.registrationStore input[name="name"],
 .editStore input[name="name"]{
 	  background-image: url('../images/store-edit-icon.png');
       background-repeat: no-repeat;
       background-position: 12px 13px;
 }
 
+.registrationStore input[name="slogan"],
 .editStore input[name="slogan"]{
 	  background-image: url('../images/slogan-edit-icon.png');
       background-repeat: no-repeat;
       background-position: 12px 13px;
 }
 
+.registrationStore input[name="vat"],
 .editStore input[name="vat"]{
 	  background-image: url('../images/vat-edit-icon.png');
       background-repeat: no-repeat;
       background-position: 12px 13px;
 }
 
+.registrationStore input[name="domain"],
 .editStore input[name="domain"]{
 	  background-image: url('../images/domain-edit-icon.png');
       background-repeat: no-repeat;
@@ -461,3 +465,40 @@ header .userInfo .permission{
 }
 
 /* Add Store */
+
+
+
+.reveal-modal  select{
+	width: 262px;
+	margin-bottom: 14px;
+	height: 40px;
+	color: #535353;
+	font-size: 18px;
+}
+
+
+
+.reveal-modal select{
+ 	background: #f5fcff;
+ 	border: solid 1px #75bcdb;
+ 	color: #217a9a;
+}
+
+.reveal-modal  input{
+	height: 35px;
+	width: 210px;
+	color: #535353;
+	margin-bottom: 20px;
+}
+
+
+.reveal-modal  .notifications{
+	padding-top: 0;
+	width: 260px;	
+	float: left;
+}
+
+
+.reveal-modal h1{
+	line-height: 55px;
+}
