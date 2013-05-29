@@ -50,6 +50,7 @@ function handleUserLogin(){
 	var email = $("#login_email").val();
 	var pass = $("#login_pass").val();
 	var storeId = 1; /*TODO ...........trocar 1 por id da loja*/
+	storeId = $("#registerForm #storeId").val();
 	$.ajaxSetup( { "async": false } );
 	var data = $.getJSON("../../ajax/store/login.php?",{
         email: email,
