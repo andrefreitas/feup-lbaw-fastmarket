@@ -12,7 +12,7 @@ if (isset($_GET['email']) and isset($_GET['password']) and isset($_GET['storeId'
     echo 'login: ';
     print_r($user);
     echo '<br>';
-    if(isset($user['id']))
+    if(isset($user[0]['id']))
         echo json_encode(Array("result"=>"ok"));
     else 
        echo json_encode(Array("result"=>"invalid"));
