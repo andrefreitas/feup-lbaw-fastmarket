@@ -9,6 +9,10 @@ $(document).ready(function(){
 		handleUserRegister();
 	});
 	
+	/* Login */
+	$("#login").click(function(){
+		handleUserLogin();
+	});
 	
 });
 
@@ -39,3 +43,34 @@ function requestAddCostumer(name, email, password, storeId){
 	return $.parseJSON(data["responseText"])["result"];
 }
 
+/**
+ * Handles a user login event
+ */
+function handleUserLogin(){
+	var email = $("#login_email").val();
+	var pass = $("#login_pass").val();
+	var storeId = 1; /*TODO ...........trocar 1 por id da loja*/
+	$.ajaxSetup( { "async": false } );
+	var data = $.getJSON("../../ajax/store/login.php?",{
+        email: email,
+        password: pass,
+        storeId: storeId
+	});
+	$.ajaxSetup( { "async": true } );
+	
+	
+	var result = $.parseJSON(data["responseText"])["result"];
+	
+	if(result == "ok")
+	{
+		
+		setLogedInState();
+	
+	}
+}
+
+function setLogedInState()
+{
+	/*TODO ... mostrar gravatar, nome...*/
+	alert("Login ok");
+}

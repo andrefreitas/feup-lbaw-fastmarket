@@ -14,6 +14,18 @@ function login($userEmail, $pass)
 }
 
 /*
+ * Login on store
+*/
+
+function loginOnStore($userEmail, $pass, $store)
+{
+	$sql = "SELECT users.id, users.name, users.email, users.privilege_id 
+			FROM users, stores_users
+			WHERE email=? AND password=? AND stores_users.user_id=users.id AND stores_users.store_id=?";
+	return query($sql, array($userEmail,$pass,$store));
+}
+
+/*
  * Register new costumer 1º step
 */
 
