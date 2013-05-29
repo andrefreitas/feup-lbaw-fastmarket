@@ -322,6 +322,7 @@ nav li a.account{
 	float: left;
 	margin-right: 20px;
 	margin-bottom: 20px;
+	color: #777777;
 }
 
 .row .widget:last-child{
@@ -358,7 +359,6 @@ nav li a.account{
 	padding: 10px;
 	border-bottom: solid 1px #dedede;
 	height: 20px;
-	color: #777777;
 }
 
 .merchant .name{
@@ -377,4 +377,46 @@ nav li a.account{
 	width: 130px;
 	display: block;
 	float: left;
+}
+
+#topShops .store{ 
+	padding: 24px;
+	border-bottom: solid 1px #dedede;
+}
+
+#topShops .store:last-child{ 
+	border-bottom: none;
+	
+}
+
+
+#topShops .store .domain{ 
+	background-image: url('../images/store-icon.png');
+    background-repeat: no-repeat;
+    background-position: 7px 2px;
+    padding-left: 30px;
+}
+
+#topShops .store .profit{ 
+	background-image: url('../images/money-icon.png');
+    background-repeat: no-repeat;
+    background-position: 7px 3px;
+    padding-left: 30px;
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+#lastStores .store{
+	border-bottom: solid 1px #dedede;
+}
+
+#lastStores .store:last-child{
+	border-bottom: none;
+}
+
+#lastStores .store .domain{
+	padding-top: 20px;
+	padding-right: 50px;
+	float: right;
+	font-size: 25px;
 }

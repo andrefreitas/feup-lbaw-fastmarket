@@ -103,16 +103,17 @@ function getLastStores(){
  * Get logos from the stores
 */
 function getStoresLogos(){
-    $sql = "SELECT stores.id, stores.name, files.path "
+    $sql = "SELECT stores.id, stores.name, files.path as file, stores.domain "
          . "FROM stores, files "
-         . "WHERE stores.logo_id = files.id";
+         . "WHERE stores.logo_id = files.id "
+         . "ORDER BY stores.creation_date DESC ";
     return query($sql);
 }
 /*
  * Gets all the stores profits
 */
 function getStoresProfits($beginDate, $endDate){
-    $sql = "SELECT stores.id, stores.name, SUM(invoice.total) as profit "
+    $sql = "SELECT stores.id, stores.name, stores.domain,  SUM(invoice.total) as profit "
          . "FROM invoice, orders, stores_users, transactions, stores "
          . "WHERE invoice.order_id = orders.id AND stores.id = stores_users.store_id "
          . "AND orders.costumer_id = stores_users.user_id AND orders.paid = 'true' "

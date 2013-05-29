@@ -30,17 +30,29 @@
         <div class="row">
         <!-- Top Shops by sales -->
         <div class="widget medium" id="topShops">
-            <h2> Top Shops by sales</h2>
+            <h2> Top 3 Shops by sales</h2>
             <div class="content">
-            
+            {foreach from=$storesProfits item=store}
+                    <div class="store">
+                        <span class="domain">{$store.domain}</span>
+                        <span class="profit">{$store.profit} &euro;</span>
+                    </div>
+            {/foreach}
             </div>
         </div>
         
          <!-- Last Shops thumbnails -->
-        <div class="widget big" id="lastShops">
-            <h2>Last Shops</h2>
+        <div class="widget big" id="lastStores">
+            <h2>Last Stores</h2>
             <div class="content">
-            
+            {foreach from=$storesLogos item=logo}
+                    <div class="store">
+                      <img src="{$logo.file}"/>
+                      <span class="domain">
+                          {$logo.domain}
+                      </span>
+                    </div>
+            {/foreach}
             </div>
         </div>
     </div>
