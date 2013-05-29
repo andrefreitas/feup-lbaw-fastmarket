@@ -7,7 +7,7 @@
         <option value="pending">Pending</option>
     </select>
     <span class="search">
-        Search: <input type="text" placeholder="keywords"/><button></button>
+        Search: <input type="text" placeholder="keywords"/><button>Search</button>
     </span>
     <button id="addMerchant">Add Merchant</button>
     <span class="total">{$total} merchants</span>

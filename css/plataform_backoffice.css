@@ -60,7 +60,7 @@ header{
 }
 
 #box .headBox #addMerchant{
-	width: 150px;
+	width: 120px;
 	height: 26px;
 	margin-left: 35px;
 }
@@ -78,23 +78,24 @@ header{
 
 .search input{
         width: 300px;
-        border-right: none;
+		
 }
 
 .search button{
-        width: 40px;
         height: 28px;
-        position:relative;
-        top: -3px;
-        background-color: #d7d7d7;
+  		background-color: #d7d7d7;
         border:solid 1px #a2a2a2;
         background: -moz-linear-gradient(top, #fbfbfb, #e8e8e8) repeat-X;
         background: -webkit-gradient(linear, left top, left bottom, from(#fbfbfb), to(#e8e8e8)) repeat-X;
         background-image: url('../images/search-icon.png');
         background-repeat: no-repeat;
         background-position: 11px 5px;
+        padding-left: 30px;
+		color: #a2a2a2;
+		text-shadow:none;
 
 }
+
 
 /* Firefox */
 @-moz-document url-prefix() {

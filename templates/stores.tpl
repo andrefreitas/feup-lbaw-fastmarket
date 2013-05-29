@@ -2,7 +2,7 @@
 <div class="headBox storesBox">
    
     <span class="search">
-        Search: <input type="text" placeholder="keywords"/><button></button>
+        Search: <input type="text" placeholder="keywords"/><button>Search</button>
     </span>
     <button id="addStore">Add Store</button>
     <span class="total">{$total} stores</span>
