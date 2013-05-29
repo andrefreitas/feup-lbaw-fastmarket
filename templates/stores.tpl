@@ -38,7 +38,7 @@
         <a class="close-reveal-modal">&#215;</a>
         </div>
         
-    <div id="addStoreDialog" class="reveal-modal register ">
+    <div id="addStoreDialog" class="reveal-modal register">
 			<h1>Add Store</h1>
 			<div class="registrationStore">
     			<form>

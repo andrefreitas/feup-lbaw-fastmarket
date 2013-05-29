@@ -299,6 +299,7 @@ nav li a.account{
 	float: left;
 }
 
+
 /*************************
 ***** Administration ***** 
 *************************/
@@ -427,3 +428,36 @@ header .userInfo{
 	margin-top: 10px;
 	margin-right: 5px;
 }
+
+header .userInfo .permission{
+	font-size: 12px;
+	color: #fff;
+	font-weight: bold;
+}
+
+/* Edit Store */
+.editStore input[name="name"]{
+	  background-image: url('../images/store-edit-icon.png');
+      background-repeat: no-repeat;
+      background-position: 12px 13px;
+}
+
+.editStore input[name="slogan"]{
+	  background-image: url('../images/slogan-edit-icon.png');
+      background-repeat: no-repeat;
+      background-position: 12px 13px;
+}
+
+.editStore input[name="vat"]{
+	  background-image: url('../images/vat-edit-icon.png');
+      background-repeat: no-repeat;
+      background-position: 12px 13px;
+}
+
+.editStore input[name="domain"]{
+	  background-image: url('../images/domain-edit-icon.png');
+      background-repeat: no-repeat;
+      background-position: 12px 13px;
+}
+
+/* Add Store */
