@@ -11,8 +11,10 @@ if (isset($_GET['email']) and isset($_GET['password']) and isset($_GET['storeId'
     $user = loginOnStore($_GET['email'], $password,$_GET['storeId']);
     
     if(isset($user[0]['id']))
+    {
+        $_SESSION['storesLogin'][$_GET['storeId']]['userId']=$user[0]['id'];
         echo json_encode(Array("result"=>"ok"));
-    else 
+    }else 
        echo json_encode(Array("result"=>"invalid"));
 }
 else {
