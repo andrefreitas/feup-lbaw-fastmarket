@@ -6,7 +6,12 @@ require_once('plataform.php');
 chdir('../pages');
 
 if(isset($_SESSION['permission']) and ($_SESSION['permission']=='admin' or $_SESSION['permission']=='merchant') ){
-    $stores = getStores();
+    if($_SESSION['permission']=='merchant'){
+        $stores = getStores($_SESSION['id']);
+    }else{
+        $stores = getStores();
+    }
+   
     $total = count($stores);
     $smarty->assign('title','Stores');
     $smarty->assign('loggedin',isset($_SESSION['id']));

@@ -137,7 +137,13 @@ function getAboutPath(){
 /*
  * Get all stores
 */
-function getStores(){
+function getStores($merchantId=null){
+    if($merchantId){
+        $sql = "SELECT * "
+             . "FROM stores, stores_users "
+             . "WHERE stores.id = stores_users.store_id AND stores_users.user_id = ?";
+        return query($sql, array($merchantId));
+    }
     $sql = "SELECT * FROM stores";
     return query($sql);
 }
@@ -291,7 +297,14 @@ function searchMerchants($term){
  * Search Stores
  */
 
-function searchStores($term){
+function searchStores($term, $merchantId = null){
+    if($merchantId){      
+        $sql = "SELECT * "
+             . "FROM stores, stores_users "
+             . "WHERE ( name ~* ? OR domain ~* ? OR slogan ~* ?) AND stores_users.user_id = ? AND  stores_users.store_id = stores.id "
+             . "ORDER BY creation_date DESC";
+        return query($sql, array($term, $term, $term, $merchantId));
+    }
     $sql = "SELECT * "
          . "FROM stores "
          . "WHERE ( name ~* ? OR domain ~* ? OR slogan ~* ?) "

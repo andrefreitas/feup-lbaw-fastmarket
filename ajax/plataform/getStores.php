@@ -9,7 +9,13 @@ chdir('../ajax/plataform');
 
 if (isset($_GET["search"])){
     $term = $_GET["search"];
-    $stores = searchStores($term);
+    if(isset($_GET["merchantId"])){
+        $merchantId = intval($_GET["merchantId"]);
+        $stores = searchStores($term, $merchantId);
+    } else{
+        $stores = searchStores($term);
+    }
+     
     echo json_encode($stores);
 }
 

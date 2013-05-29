@@ -433,8 +433,13 @@ function searchMerchants(terms){
  */
 
 function searchStores(terms){
+	var permission = getSession()["permission"];
+	var params = {search : terms};
+	if(permission == "merchant"){
+		params["merchantId"] = getSession()["id"];
+	}
 	$.ajaxSetup( { "async": false } );
-	var data = $.getJSON("../ajax/plataform/getStores.php?",{search : terms});
+	var data = $.getJSON("../ajax/plataform/getStores.php?", params);
 	$.ajaxSetup( { "async": true } );
 	return $.parseJSON(data["responseText"]);
 }
