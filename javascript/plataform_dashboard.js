@@ -4,20 +4,32 @@ google.load("visualization", "1", {
 
 google.setOnLoadCallback(drawNewShopsChart);
 
-
 /* New Shops Chart */
 function drawNewShopsChart() {
-	var data = google.visualization
-			.arrayToDataTable([ [ 'Month', 'Shops' ],
-					[ 'Jan.', 1 ], [ 'Feb.', 1170 ],
-					[ 'Mar.', 1170 ], [ 'Apr.', 1030],
-					[ 'May', 1170 ], [ 'Jun.', 1030],
-					[ 'Jul.', 1170 ], [ 'Aug.', 1030],
-					[ 'Sep.', 1170 ], [ 'Oct.', 1030],
-					]);
+	var thisYear = new Date().getFullYear();
+	var stores = getNewStores(thisYear)["stores"];
+	var table = [ [ 'Month', 'Shops' ],
+	  			  [ 'Jan.', 0 ], 
+	  			  [ 'Feb.', 0 ], 
+	  			  [ 'Mar.', 0 ],
+				  [ 'Apr.', 0 ], 
+				  [ 'May', 0 ], 
+				  [ 'Jun.', 0 ],
+				  [ 'Jul.', 0 ], 
+				  [ 'Aug.', 0 ], 
+				  [ 'Sep.', 0 ],
+				  [ 'Oct.', 0 ],];
+	
+	for (var i=0; i < stores.length; i++){
+		var month = parseInt(stores[i]["month"]);
+		var total = parseInt(stores[i]["total"]);
+		table[month][1] = total;
+		
+	}
+	var data = google.visualization.arrayToDataTable(table);
 
 	var options = {
-			 title: 'Year 2013',
+		title : 'Year 2013',
 		hAxis : {
 			title : 'Month',
 			titleTextStyle : {
@@ -30,3 +42,20 @@ function drawNewShopsChart() {
 			.getElementById('chart_newShops'));
 	chart.draw(data, options);
 }
+
+/**
+ * Get stores by months
+ */
+function getNewStores(year) {
+	$.ajaxSetup({
+		"async" : false
+	});
+	var data = $.getJSON("../ajax/plataform/getNewStoresByMonths.php?", {
+		year : year
+	});
+	$.ajaxSetup({
+		"async" : true
+	});
+	return $.parseJSON(data["responseText"]);
+}
+
