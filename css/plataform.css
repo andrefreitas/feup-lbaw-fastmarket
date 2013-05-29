@@ -255,16 +255,20 @@ input{
 	width: 215px;
 }
 .editMerchant input[name='email'],
+.myAccount input[name='email'],
 .registration input[name='email']{
 	background: url('../images/email-icon.png') no-repeat #fff;
 	background-position: 6px 6px;
 }
 
 .editMerchant input[name='name'],
+.myAccount input[name='name'],
 .registration input[name='name']{
 	background: url('../images/user-icon.png') no-repeat #fff;
 	background-position: 6px 6px;
 }
+.myAccount input[name='password'],
+.myAccount input[name='password_check'],
 .editMerchant input[name='password'],
 .editMerchant input[name='password_check'],
 .registration input[name='password'],

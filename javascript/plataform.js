@@ -1,6 +1,10 @@
 /* Plataform Javascript */
 $(document).ready(function(){
 	
+	$("a.account").click(function(){
+		$('#myAccountDialog').reveal();
+	});
+	
 	/* Confirm registration fade in */
 	$(".confirmRegistration").fadeIn(500);
 	
