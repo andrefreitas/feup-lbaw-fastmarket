@@ -192,6 +192,16 @@ function createStore($name, $slogan, $domain, $vat,$logoId){
 }
 
 /*
+ * Add merchant owner to store
+ */
+
+function addStoreOwner($storeId, $userId){
+    $sql = "INSERT INTO stores_users(store_id, user_id) "
+         . "VALUES(?, ? ) ";
+    query($sql, array($storeId, $userId));
+}
+
+/*
  * Check name and domain of new store
 */
 function checkNameDomainStore($name,$domain)
@@ -355,4 +365,6 @@ function getNewStoresByMonths($year){
          . "GROUP BY month";
     return query($sql, array($year));
 }
+
+
 ?>

@@ -44,8 +44,10 @@ $(document).ready(function(){
 		// Ajax request
 		if(addStoreIsValid(name,slogan,vat,domain)){
 			
-			if(addStore(name,slogan,vat,domain))
+			if(addStore(name,slogan,vat,domain)){
+				
 				$('.registerNotification').html('<div class="confirmation"> Store added</div>');
+			}
 			else
 				$('.registerNotification').html('<div class="error"> Store name/domain already exists!</div>');
 		}
@@ -524,4 +526,17 @@ function getGravatar(email){
 	});
 	$.ajaxSetup( { "async": true } );
 	return $.parseJSON(data["responseText"])["url"];
+}
+
+/**
+ * Add a Store Owner
+ */
+function addStoreOwner(merchantEmail, storeDomain){
+	$.ajaxSetup( { "async": false } );
+	var data = $.getJSON("../ajax/plataform/addStoreOwner.php?",{
+		domain: storeDomain,
+		email: merchantEmail
+	});
+	$.ajaxSetup( { "async": true } );
+	return $.parseJSON(data["responseText"]);
 }
