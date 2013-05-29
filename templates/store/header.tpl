@@ -22,14 +22,14 @@
 		<header>
 			<img src="{$logoPath}" alt="Logo" class="logo" />
 			<div class="login">
-				<form class="form-inline">
+				<div class="form-inline">
 					<input type="text" class="input" id="login_email" placeholder="Email"> 
 					<input type="password" class="input-medium" id="login_pass" placeholder="Password">
 
-					<button type="submit" class="btn" id="login">Login</button>
+					<button class="btn" id="login">Login</button>
 					<a href="#registrationModal" role="button" class="btn btn-inverse"
 						data-toggle="modal">Register</a>
-				</form>
+				</div>
 			</div>
 		</header>
 	</div>

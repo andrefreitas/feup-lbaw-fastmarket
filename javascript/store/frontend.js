@@ -49,7 +49,7 @@ function requestAddCostumer(name, email, password, storeId){
 function handleUserLogin(){
 	var email = $("#login_email").val();
 	var pass = $("#login_pass").val();
-	var storeId = 1; /*TODO ...........trocar 1 por id da loja*/
+	storeId = $("#registerForm #storeId").val();
 	$.ajaxSetup( { "async": false } );
 	var data = $.getJSON("../../ajax/store/login.php?",{
         email: email,
@@ -73,5 +73,7 @@ function setLogedInState()
 {
 	/*TODO ... mostrar gravatar, nome...*/
 	
+	$(".login").css("display","none"); 
+	$(".login").css("visibility","hidden");
 	alert("Login ok");
 }
