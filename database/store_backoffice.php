@@ -185,7 +185,7 @@ chdir('../database');
 		$sql="SELECT * 
 				FROM files
 				WHERE id=?";
-		return query($sql,array($file_id))
+		return query($sql,array($file_id));
 	}
 	
 	/*

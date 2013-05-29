@@ -15,7 +15,14 @@
         <div class="widget big" id="lastMerchants">
             <h2>Last Merchants</h2>
             <div class="content">
-            
+                    {foreach from=$lastMerchants item=merchant}
+                    <div class="merchant">
+                        <span class="name">{$merchant.name}</span>
+                        <span class="email">{$merchant.email}</span>
+                        <span class="registrationDate"> {$merchant.registration_date} </span>
+                        <span class="status"> {$merchant.status} </span>
+                    </div>
+                    {/foreach}
             </div>
         </div>
     </div>

@@ -353,4 +353,28 @@ nav li a.account{
 }
 
 
+/* Merchants */
+.merchant{
+	padding: 10px;
+	border-bottom: solid 1px #dedede;
+	height: 20px;
+	color: #777777;
+}
 
+.merchant .name{
+	width: 150px;
+	display: block;
+	float: left;
+}
+
+.merchant .email{
+	width: 190px;
+	display: block;
+	float: left;
+}
+
+.merchant .registrationDate{
+	width: 130px;
+	display: block;
+	float: left;
+}
