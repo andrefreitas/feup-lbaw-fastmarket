@@ -30,7 +30,7 @@ function updatePath($elem){
 $storesLogos = array_map("updatePath", $storesLogos);
 $smarty->assign('storesLogos', $storesLogos);
 
-
+$smarty->assign('user', $_SESSION["name"]);
 $smarty->assign('title','Administration');
 $smarty->display('administration.tpl');
 ?>

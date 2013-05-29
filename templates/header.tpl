@@ -33,7 +33,11 @@
                         <li><a href="merchants.php" class="merchants">Merchants</a></li>
                         <li><a href="account.php" class="account">My Account </a></li>
                     </ul>
+                      <div class="userInfo">
+                        {$user} <button>Logout</button>
+                     </div>
                 </nav>
+              
             </div>
         </header>
         <div class="container">

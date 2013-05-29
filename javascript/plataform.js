@@ -105,6 +105,12 @@ $(document).ready(function(){
 		$('#addStoreDialog').reveal();
 	});
 	
+	/* Logout */
+	$('.userInfo button').click(function(){
+		logout();
+	});
+
+	
 	/**************************************
 	 ************** Stores ****************
 	 *************************************/
