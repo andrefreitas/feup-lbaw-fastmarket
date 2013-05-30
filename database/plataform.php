@@ -148,17 +148,7 @@ function getStores($merchantId=null){
     return query($sql);
 }
 
-/*
- * Get store by id
-*/
-function getStoreById($storeId){
-    
-    $sql = "SELECT * "
-         . "FROM stores "
-         . "WHERE stores.id = ? ";
-    return query($sql, array($storeId));
 
-}
 
 /*
  * Get a user by the id
