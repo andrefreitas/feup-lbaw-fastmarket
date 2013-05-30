@@ -43,6 +43,8 @@ $id = intval($_GET["id"]);
 $product = getProduct($id);
 //print_r($product);
 $price=$product["price"]*(1+$vat);
+
+$comments=getCommentsOfProduct($id);
 /* END -- Get store data */
 
 
@@ -52,6 +54,7 @@ $smarty->assign('categories', $categories);
 $smarty->assign('product', $product);
 $smarty->assign('storeId', $storeId);
 $smarty->assign('price', $price);
+$smarty->assign('comments', $comments);
 $smarty->display('store/product.tpl');
 
 ?>

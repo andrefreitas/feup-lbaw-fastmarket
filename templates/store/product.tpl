@@ -19,6 +19,17 @@
 		    {$product.score}<br>
 		    &euro; {$product.price}<br>
 		    {$price}
+		    
+		    <div class="product_comments">
+		    {foreach from=$comments item=comment}
+		    	<div class="comment">
+		    		<span class="comment_body"> {$comment.body} </span><br>
+		    		<span class="comment_date"> {$comment.DATE} </span><br>
+		    		<span class="comment_author"> {$comment.name} </span>
+		    	</div>
+		    {/foreach}
+		    </div>
+		    
 			</div>
 		</div>
 	</div>
