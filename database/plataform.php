@@ -148,6 +148,8 @@ function getStores($merchantId=null){
     return query($sql);
 }
 
+
+
 /*
  * Get a user by the id
 */

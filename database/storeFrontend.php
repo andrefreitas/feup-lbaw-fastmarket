@@ -230,4 +230,16 @@ function getStoreId($domain){
         return $store[0]["id"];
     }
 }
+
+/*
+ * Get store by id
+*/
+function getStoreById($storeId){
+    
+    $sql = "SELECT * "
+         . "FROM stores "
+         . "WHERE stores.id = ? ";
+    return query($sql, array($storeId));
+
+}
 ?>
