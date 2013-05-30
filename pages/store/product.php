@@ -29,7 +29,7 @@ function updatePath($elem){
 /* BEGIN -- Get store data */
 $domain = $_GET["store"];
 $storeId = getStoreId($domain);
-$vat = getStoreById($storeId)["vat"];
+$vat = getStoreById($storeId)[0]["vat"];
 // Logo
 $logoPath = "../../files/" . getStoreLogo($domain);
 
