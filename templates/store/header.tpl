@@ -72,6 +72,7 @@
             <input type="password" id="password" placeholder="Password">
             <input type="password" id="confirmPassword" placeholder="Confirm Password">
             <input type="hidden" id="storeId" value="{$storeId}">
+            <input type="hidden" id="storeDomain" value="{$storeDomain}">
         </form>
 		</div>
 		<div class="modal-footer">
