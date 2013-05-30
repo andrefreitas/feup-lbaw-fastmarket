@@ -1,8 +1,32 @@
 /* Plataform Javascript */
 $(document).ready(function(){
 	
+	/* Edit my account */
 	$("a.account").click(function(){
 		$('#myAccountDialog').reveal();
+	});
+	
+	$(".myAccount button").click(function(){
+		var data = $(".myAccount form").serializeArray(),
+	        oldEmail = data[0]["value"],
+	        name = data[1]["value"],
+	        email = data[2]["value"],
+	        password = data[3]["value"],
+	        password_check = data[4]["value"];
+		
+		if((password.length== 0 && registrationIsValid(name, email, "12", "12")) || (password.length> 0 && registrationIsValid(name, email, password, password_check))){
+			var params = {};
+			params["email"] = oldEmail;
+			params["newEmail"] = email;
+			params["name"] = name;
+			if(password.length > 0){
+				params["password"] = password;
+			}
+			updateAccount(params);
+			$('.registerNotification').html('<div class="confirmation">Changes done sucessfully</div>');
+			setTimeout(location.reload(true), 2000);
+		  }
+
 	});
 	
 	/* Confirm registration fade in */
@@ -561,4 +585,14 @@ function getSession(){
 	var data = $.getJSON("../ajax/getSession.php?");
 	$.ajaxSetup( { "async": true } );
 	return $.parseJSON(data["responseText"]);
+}
+
+/**
+ * Updates an account
+ */
+function updateAccount(params){
+	$.ajaxSetup( { "async": false } );
+	var data = $.getJSON("../ajax/plataform/updateAccount.php?", params);
+	$.ajaxSetup( { "async": true } );
+	console.log( $.parseJSON(data["responseText"]));
 }

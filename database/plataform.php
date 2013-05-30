@@ -379,5 +379,29 @@ function getNewStoresByMonths($year){
     return query($sql, array($year));
 }
 
+/** Update Account (Admins or Merchants)**/
+function updateAccountEmail($oldEmail, $newEmail){
+    $sql = "UPDATE users "
+         . "SET email = ? "
+         . "WHERE email = ? AND (users.privilege_id = 1 OR users.privilege_id = 2) ";
+    query($sql, array($newEmail, $oldEmail));
+}
+
+function updateAccountName($email, $name){
+    $sql = "UPDATE users "
+         . "SET name = ? "
+         . "WHERE email = ? AND (users.privilege_id = 1 OR users.privilege_id = 2) ";
+    query($sql, array($name, $email));
+}
+
+function updateAccountPassword($email, $password){
+    $password = hash("sha256", $password);
+    $sql = "UPDATE users "
+         . "SET password = ? "
+         . "WHERE email = ? AND (users.privilege_id = 1 OR users.privilege_id = 2) ";
+    query($sql, array($password, $email));
+}
+
+
 
 ?>
