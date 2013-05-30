@@ -14,16 +14,17 @@
 			</div>
 			<div class="span10">
 		    <!-- Product -->
-		    <h1>{$product.name}</h1>
+		    <h1>{$product.name} </h1>   
 		    <!--  -->
 		    <img src="{$product.file}" class="img-polaroid">
 		    <div class="productInfo">
-    		    <div class="description">{$product.description}</div>
+    		    <div class="description"> {$product.description}</div>
     		   
     		    <span class="price">&euro; {$price}</span>
 		    </div> 
 		    <!--  -->
 		    <div class="subProduct">
+		        <div id="star" data-score="{$product.score}"></div>
 		        <button class="btn btn-inverse" href="#"><i class="icon-shopping-cart icon-white"></i> Add Item to cart</button>
 		        <button class="btn" href="#"><i class="icon-star"></i> Make Favorite</button>
 		    </div>

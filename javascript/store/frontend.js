@@ -14,6 +14,13 @@ $(document).ready(function(){
 		handleUserLogin();
 	});
 	
+	/* Rating */
+	$('#star').raty({
+		  score: function() {
+		    return $(this).attr('data-score');
+		  }
+		});
+	
 });
 
 

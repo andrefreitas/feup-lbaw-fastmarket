@@ -9,7 +9,7 @@
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script type="text/javascript" src="../../javascript/jquery-ui.js"></script>
     <script type="text/javascript" src="../../lib/bootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../../lib/raty/jquery.raty.min.js"></script>
+    <script type="text/javascript" src="../../lib/raty/jquery.raty.js"></script>
     <script type="text/javascript" src="../../javascript/crypt.js"></script>
     <script type="text/javascript" src="../../javascript/store/frontend.js"></script>
 
