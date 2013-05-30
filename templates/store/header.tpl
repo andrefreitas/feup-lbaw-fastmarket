@@ -34,6 +34,7 @@
 			</div>
 			{else}
 			<div class="logout">
+				<span class="username">Welcome {$userInfo.name}</span>
 				<button class="btn" id="logout">Logout</button>
 			</div>
 			{/if}
