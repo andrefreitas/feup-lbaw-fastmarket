@@ -42,7 +42,7 @@ $categories = getCategories($storeId);
 $id = intval($_GET["id"]);
 $product = getProduct($id);
 
-$price=$product["base_cost"]*$vat;
+$price=$product["base_cost"]*(1+$vat);
 /* END -- Get store data */
 
 
@@ -51,7 +51,6 @@ $smarty->assign('logoPath', $logoPath);
 $smarty->assign('categories', $categories);
 $smarty->assign('product', $product);
 $smarty->assign('storeId', $storeId);
-$smarty->assign('vat', $vat);
 $smarty->assign('price', $price);
 $smarty->display('store/product.tpl');
 
