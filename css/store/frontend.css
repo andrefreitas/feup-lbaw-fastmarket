@@ -67,6 +67,12 @@ header .login{
 
 }
 
+header .logout{
+	float: right;
+	padding-top: 45px;
+
+}
+
 /* Modal Register */
 .modal.register{
     width:250px;
