@@ -3,6 +3,7 @@ chdir('../../common');
 require_once('init.php');
 chdir('../database');
 require_once('storeFrontend.php');
+require_once('plataform.php');
 chdir('../pages/store');
 
 if(!isset($_GET["store"]) or !storeExists($_GET["store"])){
@@ -30,7 +31,20 @@ $categories = getCategories($storeId);
 $products = getStoreProductsOnStock($storeId, 10);
 $products = array_map("updatePath", $products);
 
+// Vat
+$vat_oux = getStoreById($storeId);
+$vat=$vat_oux[0]["vat"];
+
 //loged in user
+
+//print_r($_SESSION);
+
+$userInfo = $_SESSION['storesLogin'][$storeId]['userId'];
+
+if(isset($userInfo))
+{
+	$userInfo = getuserById($userInfo);
+}
 
 /* END -- Get store data */
 
@@ -41,6 +55,8 @@ $smarty->assign('categories', $categories);
 $smarty->assign('products', $products);
 $smarty->assign('storeDomain', $domain);
 $smarty->assign('storeId', $storeId);
+$smarty->assign('vat', $vat);
+$smarty->assign('userInfo', $userInfo);
 $smarty->display('store/home.tpl');
 
 ?>

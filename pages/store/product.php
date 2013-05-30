@@ -3,6 +3,7 @@ chdir('../../common');
 require_once('init.php');
 chdir('../database');
 require_once('storeFrontend.php');
+require_once('plataform.php');
 chdir('../pages/store');
 
 if(!isset($_GET["store"]) or !storeExists($_GET["store"])){
@@ -45,6 +46,14 @@ $product["file"] = "../../files/".$product["file"];
 $price=$product["price"]*(1+$vat);
 
 $comments=getCommentsOfProduct($id);
+
+
+$userInfo = $_SESSION['storesLogin'][$storeId]['userId'];
+
+if(isset($userInfo))
+{
+	$userInfo = getuserById($userInfo);
+}
 /* END -- Get store data */
 
 
@@ -56,6 +65,7 @@ $smarty->assign('storeDomain', $domain);
 $smarty->assign('storeId', $storeId);
 $smarty->assign('price', $price);
 $smarty->assign('comments', $comments);
+$smarty->assign('userInfo', $userInfo);
 $smarty->display('store/product.tpl');
 
 ?>

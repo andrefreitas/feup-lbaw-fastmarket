@@ -20,6 +20,7 @@
 	<div class="bodyContainer">
 		<header>
 			<img src="{$logoPath}" alt="Logo" class="logo" />
+			{if !isset($userInfo)}
 			<div class="login">
 				<div class="form-inline">
 					<input type="text" class="input" id="login_email" placeholder="Email"> 
@@ -30,6 +31,12 @@
 						data-toggle="modal">Register</a>
 				</div>
 			</div>
+			{else}
+			<div class="logout">
+				<span class="username">Welcome {$userInfo.name} </span>
+				<button class="btn" id="logout">Logout</button>
+			</div>
+			{/if}
 		</header>
 	</div>
 	<!--  Navigation -->
@@ -65,6 +72,7 @@
             <input type="password" id="password" placeholder="Password">
             <input type="password" id="confirmPassword" placeholder="Confirm Password">
             <input type="hidden" id="storeId" value="{$storeId}">
+            <input type="hidden" id="storeDomain" value="{$storeDomain}">
         </form>
 		</div>
 		<div class="modal-footer">
