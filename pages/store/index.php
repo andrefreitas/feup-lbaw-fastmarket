@@ -31,6 +31,10 @@ $categories = getCategories($storeId);
 $products = getStoreProductsOnStock($storeId, 10);
 $products = array_map("updatePath", $products);
 
+// Vat
+$vat_oux = getStoreById($storeId);
+$vat=$vat_oux[0]["vat"];
+
 //loged in user
 
 //print_r($_SESSION);
@@ -51,6 +55,7 @@ $smarty->assign('categories', $categories);
 $smarty->assign('products', $products);
 $smarty->assign('storeDomain', $domain);
 $smarty->assign('storeId', $storeId);
+$smarty->assign('vat', $vat);
 $smarty->assign('userInfo', $userInfo);
 $smarty->display('store/home.tpl');
 

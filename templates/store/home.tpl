@@ -21,7 +21,7 @@
 					        <img src="{$product.file}" >
 					        <div class="name"> {$product.name}</div>
 					        <div class="description">{$product.description}</div> 
-					        <div class="price">{$product.price}  &euro;</div>
+					        <div class="price">{($product.price * (1 + $vat))}  &euro;</div>
 					        <div class="actions">
 					            <a class="btn" href="#"><i class="icon-shopping-cart"></i> Add Item</a>
 					            <a class="btn btn-inverse" href="product.php?store={$storeDomain}&id={$product.id}">View</a>
