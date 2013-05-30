@@ -17,8 +17,7 @@
 		    <h1>{$product.name}</h1>
 		    {$product.description}<br>
 		    {$product.score}<br>
-		    &euro; {$product.price}<br>
-		    {$price}
+		    &euro; {$price}
 		    
 		    <div class="product_comments">
 		    {foreach from=$comments item=comment}
