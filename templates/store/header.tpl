@@ -38,7 +38,7 @@
 		<div class="navbar">
 			<div class="navbar-inner">
 				<ul class="nav">
-					<li class="active"><a href="http://gnomo.fe.up.pt/~lbaw12503/fm/pages/store/product.php?store={$storeDomain}"><i class="icon-home"></i> Home</a></li>
+					<li class="active"><a href="http://gnomo.fe.up.pt/~lbaw12503/fm/pages/store/index.php?store={$storeDomain}"><i class="icon-home"></i> Home</a></li>
 					<li><a href="#"><i class="icon-star"></i> Favorites</a></li>
 					<li><a href="#"><i class="icon-shopping-cart"></i> Cart</a></li>
 				</ul>
