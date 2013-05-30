@@ -33,6 +33,8 @@ $products = array_map("updatePath", $products);
 
 //loged in user
 
+print_r($_SESSION);
+
 $userInfo = $_SESSION['storesLogin'][$_GET['storeId']]['userId'];
 if(isset($userInfo))
 {
