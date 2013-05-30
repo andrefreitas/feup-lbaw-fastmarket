@@ -51,6 +51,7 @@ $smarty->assign('logoPath', $logoPath);
 $smarty->assign('categories', $categories);
 $smarty->assign('product', $product);
 $smarty->assign('storeId', $storeId);
+$smarty->assign('vat', $vat);
 $smarty->assign('price', $price);
 $smarty->display('store/product.tpl');
 

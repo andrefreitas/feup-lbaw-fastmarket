@@ -17,6 +17,7 @@
 		    <h1>{$product.name}</h1>
 		    {$product.description}<br>
 		    {$product.score}<br>
+		    {$vat}<br>
 		    {$price}
 			</div>
 		</div>
