@@ -29,7 +29,7 @@ function updatePath($elem){
 /* BEGIN -- Get store data */
 $domain = $_GET["store"];
 $storeId = getStoreId($domain);
-
+$vat = getStoreById($storeId)["vat"];
 // Logo
 $logoPath = "../../files/" . getStoreLogo($domain);
 
@@ -48,6 +48,7 @@ $smarty->assign('logoPath', $logoPath);
 $smarty->assign('categories', $categories);
 $smarty->assign('product', $product);
 $smarty->assign('storeId', $storeId);
+$smarty->assign('vat', $vat);
 $smarty->display('store/product.tpl');
 
 ?>

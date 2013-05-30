@@ -30,6 +30,8 @@ $categories = getCategories($storeId);
 $products = getStoreProductsOnStock($storeId, 10);
 $products = array_map("updatePath", $products);
 
+//loged in user
+
 /* END -- Get store data */
 
 
