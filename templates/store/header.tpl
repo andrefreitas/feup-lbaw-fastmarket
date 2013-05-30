@@ -20,6 +20,7 @@
 	<div class="bodyContainer">
 		<header>
 			<img src="{$logoPath}" alt="Logo" class="logo" />
+			{if !isset($userInfo)}
 			<div class="login">
 				<div class="form-inline">
 					<input type="text" class="input" id="login_email" placeholder="Email"> 
@@ -30,6 +31,7 @@
 						data-toggle="modal">Register</a>
 				</div>
 			</div>
+			{/if}
 		</header>
 	</div>
 	<!--  Navigation -->
