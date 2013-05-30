@@ -27,9 +27,10 @@
 		        <div id="star" data-score="{$product.score}"></div>
 		        <button class="btn btn-inverse" href="#"><i class="icon-shopping-cart icon-white"></i> Add Item to cart</button>
 		        <button class="btn" href="#"><i class="icon-star"></i> Make Favorite</button>
+		        <button class="btn" id="addComment"><i class="icon-pencil"></i> Comment</button>
 		    </div>
 		    <!--  -->
-		    <h3>Comments <button class="btn" id="addComment"><i class="icon-pencil"></i> Comment</button></h3>
+		    <h3>Comments</h3>
 		    <div class="product_comments">
 		    {foreach from=$comments item=comment}
 		    	<div class="comment">
