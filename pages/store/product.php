@@ -41,7 +41,7 @@ $categories = getCategories($storeId);
 // Product
 $id = intval($_GET["id"]);
 $product = getProduct($id);
-
+print_r($product);
 $price=$product["base_cost"]*(1+$vat);
 /* END -- Get store data */
 
