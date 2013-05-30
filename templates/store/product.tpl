@@ -17,7 +17,7 @@
 		    <h1>{$product.name}</h1>
 		    {$product.description}<br>
 		    {$product.score}<br>
-		    {&euro $product.base_cost}<br>
+		    {$product.base_cost}<br>
 		    {$price}
 			</div>
 		</div>
