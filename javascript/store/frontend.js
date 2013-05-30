@@ -92,9 +92,10 @@ function setLogedInState()
  function handleUserLogout()
  {
  	var storeDomain = $("#registerForm #storeDomain").val();
+ 	var storeId = $("#registerForm #storeId").val();
  	$.ajaxSetup( { "async": false } );
 	var data = $.getJSON("../../ajax/store/logout.php?",{
-        
+        storeId: storeId
 	});
 	$.ajaxSetup( { "async": true } );
 	
