@@ -21,6 +21,11 @@ $(document).ready(function(){
 		  }
 		});
 	
+	/* Logout */
+	$("#logout").click(function(){
+		handleUserLogout();
+	});
+	
 });
 
 
@@ -56,7 +61,7 @@ function requestAddCostumer(name, email, password, storeId){
 function handleUserLogin(){
 	var email = $("#login_email").val();
 	var pass = $("#login_pass").val();
-	storeId = $("#registerForm #storeId").val();
+	var storeId = $("#registerForm #storeId").val();
 	$.ajaxSetup( { "async": false } );
 	var data = $.getJSON("../../ajax/store/login.php?",{
         email: email,
@@ -79,8 +84,28 @@ function handleUserLogin(){
 function setLogedInState()
 {
 	/*TODO ... mostrar gravatar, nome...*/
-	
+	var storeDomain = $("#registerForm #storeDomain").val();
+	window.location="http://gnomo.fe.up.pt/~lbaw12503/fm/pages/store/index.php?store="+storeDomain;
+	/*
 	$(".login").css("display","none"); 
 	$(".login").css("visibility","hidden");
 	alert("Login ok");
+	*/
 }
+
+/**
+ * Handles a user logout event
+ */
+ function handleUserLogout()
+ {
+ 	var storeDomain = $("#registerForm #storeDomain").val();
+ 	$.ajaxSetup( { "async": false } );
+	var data = $.getJSON("../../ajax/store/logout.php?",{
+        
+	});
+	$.ajaxSetup( { "async": true } );
+	
+	
+	var result = $.parseJSON(data["responseText"])["result"];
+	window.location="http://gnomo.fe.up.pt/~lbaw12503/fm/pages/store/index.php?store="+storeDomain;
+ }
