@@ -20,7 +20,7 @@ $(document).ready(function(){
 		    return $(this).attr('data-score');
 		  }
 		});
-	
+	/* Commit */
 });
 
 
