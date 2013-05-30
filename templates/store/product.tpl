@@ -15,16 +15,31 @@
 			<div class="span10">
 		    <!-- Product -->
 		    <h1>{$product.name}</h1>
-		    {$product.description}<br>
-		    {$product.score}<br>
-		    &euro; {$price}
-		    
+		    <!--  -->
+		    <img src="{$product.file}" class="img-polaroid">
+		    <div class="productInfo">
+    		    <div class="description">{$product.description}</div>
+    		   
+    		    <span class="price">&euro; {$price}</span>
+		    </div> 
+		    <!--  -->
+		    <div class="subProduct">
+		        <button class="btn btn-inverse" href="#"><i class="icon-shopping-cart icon-white"></i> Add Item to cart</button>
+		        <button class="btn" href="#"><i class="icon-star"></i> Make Favorite</button>
+		    </div>
+		    <!--  -->
+		    <h3>Comments <button class="btn" id="addComment"><i class="icon-pencil"></i> Comment</button></h3>
 		    <div class="product_comments">
 		    {foreach from=$comments item=comment}
 		    	<div class="comment">
-		    		<span class="comment_body"> {$comment.body} </span><br>
-		    		<span class="comment_date"> {$comment.comment_date} </span><br>
-		    		<span class="comment_author"> {$comment.name} </span>
+		    	   <div class="tab">
+    		    	   <span class="author"> {$comment.name} </span>
+    		    	   <span class="date"> {$comment.comment_date} </span>
+		    	   </div>
+		   
+		    	   <span class="body"> {$comment.body} </span><br>
+		    	
+		    		
 		    	</div>
 		    {/foreach}
 		    </div>
