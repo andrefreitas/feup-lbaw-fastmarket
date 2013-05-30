@@ -84,7 +84,7 @@ function getProduct($productId)
 
 function getCommentsOfProduct($productId)
 {
-	$sql = "SELECT comments.id, comments.body,comments.comment_date AS DATE, users.name
+	$sql = "SELECT comments.id, comments.body,comments.comment_date , users.name
 			FROM comments,users
 			WHERE comments.product_id=? AND comments.user_id=users.id";
 	return query($sql, array($productId));

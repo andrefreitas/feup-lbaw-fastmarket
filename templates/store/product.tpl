@@ -24,7 +24,7 @@
 		    {foreach from=$comments item=comment}
 		    	<div class="comment">
 		    		<span class="comment_body"> {$comment.body} </span><br>
-		    		<span class="comment_date"> {$comment.DATE} </span><br>
+		    		<span class="comment_date"> {$comment.comment_date} </span><br>
 		    		<span class="comment_author"> {$comment.name} </span>
 		    	</div>
 		    {/foreach}
