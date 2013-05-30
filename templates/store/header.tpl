@@ -31,6 +31,10 @@
 						data-toggle="modal">Register</a>
 				</div>
 			</div>
+			{else}
+			<div class="logout">
+				<button class="btn" id="logout">Logout</button>
+			</div>
 			{/if}
 		</header>
 	</div>
