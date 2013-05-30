@@ -35,8 +35,8 @@ $products = array_map("updatePath", $products);
 
 print_r($_SESSION);
 
-$userInfo = $_SESSION['storesLogin'][$_GET['storeId']]['userId'];
-echo $userInfo;
+$userInfo = $_SESSION['storesLogin'][$storeId]['userId'];
+
 if(isset($userInfo))
 {
 	$userInfo = getuserById($userInfo);
