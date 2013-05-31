@@ -38,18 +38,11 @@ $(document).ready(function(){
 		handleRemoveFavorite();
 	});
 	
-	
+	/* E07 - Insert new comment */
 	$("#addComment").click(function(){
-		$("#commentModal").modal({
-		     keyboard: true,
-		     backdrop: 'static'
-		 });
-		$("#commentText").val('');
-	});
-	
-	$("#commentButton").click(function(){
 		handleAddComment();
 	});
+	
 
 });
 
@@ -57,11 +50,21 @@ $(document).ready(function(){
 /**
  * Handles add comment event
  */
+function getCommentText(){
+	return $("#addCommentForm textarea").val();
+}
 function handleAddComment(){
-	var storeId = $("#registerForm #storeId").val();
-	var storeDomain = $("#registerForm #storeDomain").val();
-	var text = $("#commentText").val();
+	var text = getCommentText();
 	var productId = getProductId();
+	var storeId = getStoreId();
+	requestAddComment(text, productId, storeId);
+	location.reload();
+}
+
+/**
+ * Request add comment
+ */
+function requestAddComment(text, productId, storeId){
 	$.ajaxSetup( { "async": false } );
 	var data = $.getJSON("../../ajax/store/addComment.php?",{
         text: text,
@@ -69,11 +72,9 @@ function handleAddComment(){
         storeId: storeId
 	});
 	$.ajaxSetup( { "async": true } );
-	var res= $.parseJSON(data["responseText"])["result"];
-	/*TODO mostrar resultado*/
-	window.location="index.php?store="+storeDomain;
+	
+	return $.parseJSON(data["responseText"])["result"];
 }
-
 /**
  * Handles a user registration event
  */

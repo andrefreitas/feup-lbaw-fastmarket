@@ -32,9 +32,10 @@ $product["file"] = "../../files/".$product["file"];
 $price=$product["price"]*(1+$vat);
 
 $comments=getCommentsOfProduct($id);
-
+$isLoggedIn = false;
 $isFavorite = false;
 if(isset($_SESSION['storesLogin'][$storeId]['userId'])){
+    $isLoggedIn = true;
     $userInfo = $_SESSION['storesLogin'][$storeId]['userId'];
     $isFavorite = favoriteExists($userInfo, $id);
     if(isset($userInfo))
@@ -44,6 +45,7 @@ if(isset($_SESSION['storesLogin'][$storeId]['userId'])){
     $smarty->assign('userInfo', $userInfo);
     
 }
+$smarty->assign('isLoggedIn', $isLoggedIn);
 /* END -- Get store data */
  
  

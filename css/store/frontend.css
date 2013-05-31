@@ -140,6 +140,17 @@ header .logout{
 #userNotification{
 	margin-top: 5px;
 	width: 220px;
-	
+}
 
+/* Add comment */
+#addCommentForm textarea{
+	width: 695px;
+}
+#addCommentForm button{
+	float: right;
+}
+
+#addCommentForm{
+	overflow: hidden;
+	margin-bottom: 20px;
 }

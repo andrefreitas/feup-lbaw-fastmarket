@@ -31,14 +31,22 @@
 		        {if !$isFavorite}
 		        <button class="btn" id="makeFavorite" href="#"><i class="icon-star"></i> Make Favorite</button>
 		        {else}
-		        <button class="btn btn-warning" id="removeFavorite" href="#"><i class="icon-star icon-white"></i> Remove Favorite</button>
+		        <button class="btn" id="removeFavorite" href="#"><i class="icon-star"></i> Remove Favorite</button>
 		        {/if}
 		        <button class="btn" id="subscribe"><i class="icon-bookmark"></i> Subscribe</button>
-		        <button class="btn" id="addComment"><i class="icon-pencil"></i> Comment</button>
+		       
 		       
 		    </div>
 		    <!--  -->
 		    <h3>Comments</h3>
+		    {if $isLoggedIn}
+		    <div id="addCommentForm">
+		         <textarea rows="3" ></textarea>
+		         <button class="btn btn-mini" type="button" id="addComment">Add Comment</button>
+		    </div>
+		    {else}
+		    <div class="alert alert-info"> You must login to comment </div>
+		    {/if}
 		    <div class="product_comments">
 		    {foreach from=$comments item=comment}
 		    	<div class="comment">

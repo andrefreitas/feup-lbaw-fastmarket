@@ -8,10 +8,12 @@ chdir('../ajax/store');
 
 if(isset($_GET["text"]) and isset($_GET["productId"]) and isset($_GET['storeId'])){
 
-	$userId = $_SESSION['storesLogin'][$_GET['storeId']]['userId'];
+	$userId = intval($_SESSION['storesLogin'][$_GET['storeId']]['userId']);
+	$productId = intval($_GET["productId"]);
 	if(isset($userId))
 	{
-		insertComment($_GET["productId"], $userId, $_GET["text"]);
+	    $text = strip_tags($_GET["text"]);
+		insertComment($productId, $userId, $text);
 		echo json_encode(array("result" => "ok"));
 	}else{
 		echo json_encode(array("result" => "not logged in"));
