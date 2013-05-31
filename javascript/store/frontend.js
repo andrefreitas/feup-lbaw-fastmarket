@@ -16,10 +16,10 @@ $(document).ready(function() {
 
 	/* E03 -Rating */
 	$('#star').raty({
-		score : function() {
-			return $(this).attr('data-score');
-		}
+		score : function() { return $(this).attr('data-score'); },
+		click : function() { handleRating() }
 	});
+
 
 	/* E04 - Logout */
 	$("#logout").click(function() {
@@ -357,6 +357,7 @@ function requestSubscribe(productId, userId) {
 	return $.parseJSON(data["responseText"])["result"];
 }
 
+/* Handles unsubscribe */
 function handleUnsubscribe() {
 	var productId = getProductId();
 	var userId = getUserId();
@@ -364,6 +365,7 @@ function handleUnsubscribe() {
 	document.location.reload(true);
 }
 
+/* Request unsubscribe */
 function requestUnsubscribe(productId, userId) {
 	$.ajaxSetup({
 		"async" : false
@@ -371,6 +373,29 @@ function requestUnsubscribe(productId, userId) {
 	var data = $.getJSON("../../ajax/store/unsubscribe.php?", {
 		productId : productId,
 		userId : userId
+	});
+	$.ajaxSetup({
+		"async" : true
+	});
+	return $.parseJSON(data["responseText"])["result"];
+}
+
+function handleRating(){
+	var score = $('#star').raty('score');
+	var productId = getProductId();
+	var userId = getUserId();
+	requestRate(productId, userId, score);
+	document.location.reload(true);
+}
+
+function requestRate(productId, userId, score){
+	$.ajaxSetup({
+		"async" : false
+	});
+	var data = $.getJSON("../../ajax/store/rate.php?", {
+		productId : productId,
+		userId : userId,
+		score : score
 	});
 	$.ajaxSetup({
 		"async" : true
