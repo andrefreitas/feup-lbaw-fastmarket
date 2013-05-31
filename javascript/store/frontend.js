@@ -97,26 +97,32 @@ function requestAddCostumer(name, email, password, storeId){
  */
 function handleUserLogin(){
 	var email = $("#login_email").val();
-	var pass = $("#login_pass").val();
+	var password = $("#login_pass").val();
 	var storeId = $("#registerForm #storeId").val();
+	var result = requestLogin(email, password, storeId);
+	$('#userNotification').html("");
+	if (result == "invalid") {
+		$('#userNotification').html('<div class="alert alert-error">Invalid login !</div>');
+	} else if (result == "ok"){
+		location.reload();
+	}
+}
+
+/**
+ * Request login
+ */
+
+function requestLogin(email, password, storeId){
 	$.ajaxSetup( { "async": false } );
 	var data = $.getJSON("../../ajax/store/login.php?",{
         email: email,
-        password: pass,
+        password: password,
         storeId: storeId
 	});
 	$.ajaxSetup( { "async": true } );
-	
-	
-	var result = $.parseJSON(data["responseText"])["result"];
-	
-	if(result == "ok")
-	{
-		
-		setLogedInState();
-	
-	}
+	return $.parseJSON(data["responseText"])["result"];
 }
+
 
 function setLogedInState()
 {
@@ -133,8 +139,7 @@ function setLogedInState()
 /**
  * Handles a user logout event
  */
- function handleUserLogout()
- {
+ function handleUserLogout(){
  	var storeDomain = $("#registerForm #storeDomain").val();
  	var storeId = $("#registerForm #storeId").val();
  	$.ajaxSetup( { "async": false } );
@@ -145,7 +150,7 @@ function setLogedInState()
 	
 	
 	var result = $.parseJSON(data["responseText"])["result"];
-	window.location="http://gnomo.fe.up.pt/~lbaw12503/fm/pages/store/index.php?store="+storeDomain;
+	window.location="index.php?store="+storeDomain;
  }
  
  /**
