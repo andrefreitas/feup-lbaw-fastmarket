@@ -19,7 +19,7 @@
 		    <img src="{$product.file}" class="img-polaroid">
 		    <div class="productInfo">
     		    <div class="description"> {$product.description}</div>
-    		   
+    		    <input type="hidden" id="productId" value="{$product.id}"/>
     		    <span class="price">&euro; {$price}</span>
 		    </div> 
 		    <!--  -->

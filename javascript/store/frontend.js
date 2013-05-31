@@ -9,13 +9,13 @@ $(document).ready(function(){
 		handleUserRegister();
 	});
 	
-	/* Login */
+	/* E02 - Login */
 	$("#login").click(function(){
 		handleUserLogin();
 	});
 	
 
-	/* Rating */
+	/* E03 -Rating */
 	$('#star').raty({
 		  score: function() {
 		    return $(this).attr('data-score');
@@ -23,10 +23,16 @@ $(document).ready(function(){
 		});
 
 	
-	/* Logout */
+	/* E04 -  Logout */
 	$("#logout").click(function(){
 		handleUserLogout();
 	});
+	
+	/* E05 - Make favorite a product */
+	$("#makeFavorite").click(function(){
+		handleMakeFavorite();
+	});
+	
 	
 
 });
@@ -60,6 +66,9 @@ function handleUserRegister(){
 	
 	
 }
+/** 
+* Request an add costumer
+ */
 
 function requestAddCostumer(name, email, password, storeId){
 	$.ajaxSetup( { "async": false } );
@@ -105,18 +114,6 @@ function requestLogin(email, password, storeId){
 }
 
 
-function setLogedInState()
-{
-	/*TODO ... mostrar gravatar, nome...*/
-	var storeDomain = $("#registerForm #storeDomain").val();
-	window.location="http://gnomo.fe.up.pt/~lbaw12503/fm/pages/store/index.php?store="+storeDomain;
-	/*
-	$(".login").css("display","none"); 
-	$(".login").css("visibility","hidden");
-	alert("Login ok");
-	*/
-}
-
 /**
  * Handles a user logout event
  */
@@ -155,4 +152,73 @@ function setLogedInState()
 		}
 		
 		return ( password1.length > 0) & ( password1.length > 0) & ( password1 == password2 ) & ( name.length > 1 ) & emailRegex.test(email);
+	}
+ 
+ 
+ /** 
+  * Get session
+  * */
+
+ function getSession(){
+ 	$.ajaxSetup( { "async": false } );
+ 	var data = $.getJSON("../../ajax/getSession.php?");
+ 	$.ajaxSetup( { "async": true } );
+ 	return $.parseJSON(data["responseText"]);
+ }
+
+ /**
+  * Is logged in
+  */
+ 
+ function isLoggedIn(){
+	 var stores = getSession()["storesLogin"];
+	 return stores[getStoreId()]["userId"]!= null;
+ }
+ 
+ /**
+  * Get store Id
+  */
+ function getStoreId(){
+	return $('.storeId').val();
+ }
+ 
+ /**
+  * Get product id
+  */
+ 
+ function getProductId(){
+	 return $('#productId').val();
+ }
+ 
+ /**
+  * Get session userId
+  */
+ function getUserId(){
+	 var stores = getSession()["storesLogin"];
+	 return stores[getStoreId()]["userId"];
+ }
+ 
+ 
+ /**
+ * Handle make a favorite
+ */
+ function handleMakeFavorite(){
+	 if(isLoggedIn()){
+		 var productId = getProductId();
+		 var userId = getUserId();
+		 requestMakeFavorite(productId, userId);
+	 }
+ }
+ 
+ /**
+  * Request make favorite
+  */
+ function requestMakeFavorite(productId, userId){
+		$.ajaxSetup( { "async": false } );
+		var data = $.getJSON("../../ajax/store/makeFavorite.php?",{
+	        productId: productId,
+	        userId: userId
+		});
+		$.ajaxSetup( { "async": true } );
+		return $.parseJSON(data["responseText"])["result"];
 	}
