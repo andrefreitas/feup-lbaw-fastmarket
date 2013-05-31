@@ -34,7 +34,10 @@ $(document).ready(function(){
 	});
 	
 	$("#addComment").click(function(){
-		//$("#commentModal").modal();
+		$("#commentModal").modal({
+		     keyboard: true,
+		     backdrop: 'static'
+		 });
 	});
 	
 	$("#commentButton").click(function(){
