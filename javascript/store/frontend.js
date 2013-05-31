@@ -34,7 +34,7 @@ $(document).ready(function(){
 	});
 	
 	$("#addComment").click(function(){
-		$("#commentModal")
+		//$("#commentModal").modal();
 	});
 	
 	$("#commentButton").click(function(){
