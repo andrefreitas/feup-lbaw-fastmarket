@@ -31,8 +31,7 @@
 		        <button class="btn" id="makeFavorite" href="#"><i class="icon-star"></i> Make Favorite</button>
 		        <button class="btn" id="subscribe"><i class="icon-bookmark"></i> Subscribe</button>
 		        <button class="btn" id="addComment"><i class="icon-pencil"></i> Comment</button>
-		        <a href="#commentModal" role="button" class="btn icon-pencil"
-						data-toggle="modal">Comment</a>
+		       
 		    </div>
 		    <!--  -->
 		    <h3>Comments</h3>
