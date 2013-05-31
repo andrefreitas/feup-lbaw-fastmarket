@@ -4,7 +4,7 @@ require_once('init.php');
 chdir('../database');
 require_once('storeFrontend.php');
 require_once('storeAccount.php');
-require_once('plataform.php');
+
 chdir('../pages/store');
 
 if(!isset($_GET["store"]) or !storeExists($_GET["store"])){
@@ -32,8 +32,6 @@ $logoPath = "../../files/" . getStoreLogo($domain);
 // Categories
 $categories = getCategories($storeId);
 
-// User data
-$account = getAccount($_SESSION['storesLogin'][$storeId]['userId']);
 
 //loged in user
 
@@ -43,7 +41,7 @@ if(isset($_SESSION['storesLogin'][$storeId]['userId'])){
     
     if(isset($userInfo))
     {
-    	$userInfo = getuserById($userInfo);
+    	$userInfo = getAccount($userInfo);
     }
     $smarty->assign('userInfo', $userInfo);
 }
