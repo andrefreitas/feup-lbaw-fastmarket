@@ -130,3 +130,9 @@ header .logout{
 	margin-right: 50px;
 	margin-left: 35px;
 }
+
+#userNotification{
+	margin-top: 5px;
+	width: 220px;
+	
+}

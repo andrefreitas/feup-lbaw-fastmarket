@@ -18,6 +18,7 @@
 
 	<!-- Header -->
 	<div class="bodyContainer">
+	   
 		<header>
 			<img src="{$logoPath}" alt="Logo" class="logo" />
 			{if !isset($userInfo)}
@@ -30,7 +31,9 @@
 					<a href="#registrationModal" role="button" class="btn btn-inverse"
 						data-toggle="modal">Register</a>
 				</div>
+				 <div id="userNotification"></div>
 			</div>
+			
 			{else}
 			<div class="logout">
 				<span class="username">Welcome {$userInfo.name} </span>
