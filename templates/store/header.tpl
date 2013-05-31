@@ -75,17 +75,17 @@
 			<h3 id="myModalLabel">Registration</h3>
 		</div>
 		<div class="modal-body">
-		<!--  Body -->
-	    <div class="registerNotification">
-	    </div>
-		<form id="registerForm">
-            <input type="text" id="name" placeholder="Name">
-            <input type="text" id="email" placeholder="Email">
-            <input type="password" id="password" placeholder="Password">
-            <input type="password" id="confirmPassword" placeholder="Confirm Password">
-            <input type="hidden" id="storeId" value="{$storeId}">
-            <input type="hidden" id="storeDomain" value="{$storeDomain}">
-        </form>
+			<!--  Body -->
+		    <div class="registerNotification">
+		    </div>
+			<form id="registerForm">
+	            <input type="text" id="name" placeholder="Name">
+	            <input type="text" id="email" placeholder="Email">
+	            <input type="password" id="password" placeholder="Password">
+	            <input type="password" id="confirmPassword" placeholder="Confirm Password">
+	            <input type="hidden" id="storeId" value="{$storeId}">
+	            <input type="hidden" id="storeDomain" value="{$storeDomain}">
+	        </form>
 		</div>
 		<div class="modal-footer">
 			<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
