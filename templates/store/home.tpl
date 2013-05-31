@@ -8,7 +8,7 @@
 				<ul class="nav nav-list">
 					<li class="nav-header">Categories</li>
 					{foreach from=$categories item=category}
-					    <li><a href="http://gnomo.fe.up.pt/~lbaw12503/fm/pages/store/category.php?store={$storeDomain}&categoryid={$category.id}">{$category.name}</a></li>
+					    <li><a href="category.php?store={$storeDomain}&categoryid={$category.id}">{$category.name}</a></li>
                     {/foreach}
 				</ul>
 				<!--  New Registration -->
