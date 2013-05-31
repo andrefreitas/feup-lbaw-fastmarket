@@ -33,6 +33,10 @@ $(document).ready(function(){
 		handleMakeFavorite();
 	});
 	
+	$("#addComment").click(function(){
+		$("#commentModal")
+	});
+	
 	$("#commentButton").click(function(){
 		handleAddComment();
 	});
