@@ -48,7 +48,7 @@
 			<div class="navbar-inner">
 				<ul class="nav">
 					<li class="active"><a href="index.php?store={$storeDomain}"><i class="icon-home"></i> Home</a></li>
-					<li><a href="#"><i class="icon-star"></i> Favorites</a></li>
+					<li><a href="favorites.php?store={$storeDomain}"><i class="icon-star"></i> Favorites</a></li>
 					<li><a href="#"><i class="icon-shopping-cart"></i> Cart</a></li>
 				</ul>
 
