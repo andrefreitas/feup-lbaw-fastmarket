@@ -159,6 +159,14 @@ function setSubscription($userId, $productId)
 	return query($sql, array($productId,$userId));
 }
 
+function subscriptionExists($userId, $productId){
+    $sql = "SELECT * "
+	     . "FROM products_subscriptions "
+	     . "WHERE user_id = ? AND product_id = ? ";
+	$result = query($sql, array($userId, $productId));
+	return isset($result[0]);
+}
+
 /*
  * Get path of contacts file
 */

@@ -34,10 +34,12 @@ $price=$product["price"]*(1+$vat);
 $comments=getCommentsOfProduct($id);
 $isLoggedIn = false;
 $isFavorite = false;
+$isSubscribed = false;
 if(isset($_SESSION['storesLogin'][$storeId]['userId'])){
     $isLoggedIn = true;
     $userInfo = $_SESSION['storesLogin'][$storeId]['userId'];
     $isFavorite = favoriteExists($userInfo, $id);
+    $isSubscribed = subscriptionExists($userInfo, $id);
     if(isset($userInfo))
     {
         $userInfo = getuserById($userInfo);
@@ -45,6 +47,7 @@ if(isset($_SESSION['storesLogin'][$storeId]['userId'])){
     $smarty->assign('userInfo', $userInfo);
     
 }
+$smarty->assign('isSubscribed', $isSubscribed);
 $smarty->assign('isLoggedIn', $isLoggedIn);
 /* END -- Get store data */
  

@@ -16,7 +16,7 @@
 		    <!-- Product -->
 		    
 		    <input type="hidden" id="productId" value="{$productId}">
-		    <h1>{$product.name} {if $isFavorite}<span class="label label-warning"> Favorite </span>{/if} </h1>   
+		    <h1>{$product.name} {if $isFavorite}<span class="label label-warning"> Favorite </span>{/if} {if $isSubscribed} <span class="label label-info"> Subscribed </span>{/if}</h1>   
 		    <!--  -->
 		    <img src="{$product.file}" class="img-polaroid">
 		    <div class="productInfo">
@@ -33,9 +33,12 @@
 		        {else}
 		        <button class="btn" id="removeFavorite" href="#"><i class="icon-star"></i> Remove Favorite</button>
 		        {/if}
+		        
+		        {if !$isSubscribed}
 		        <button class="btn" id="subscribe"><i class="icon-bookmark"></i> Subscribe</button>
-		       
-		       
+		        {else}
+		         <button class="btn" id="unsubscribe"><i class="icon-bookmark"></i> Unsubscribe</button>
+		        {/if}
 		    </div>
 		    <!--  -->
 		    <h3>Comments</h3>
