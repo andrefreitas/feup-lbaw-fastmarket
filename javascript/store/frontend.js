@@ -171,9 +171,12 @@ function requestLogin(email, password, storeId){
   */
  
  function isLoggedIn(){
+	 if(getSession().hasOwnProperty("storesLogin")){
 	 var stores = getSession()["storesLogin"];
 	 var storeId = getStoreId();
-	 return (storeId in stored) && stores[storeId]["userId"]!= null;
+	 return (stores.hasOwnProperty(storeId)) && stores[storeId]["userId"]!= null;
+	 }
+	 return false;
  }
  
  /**
