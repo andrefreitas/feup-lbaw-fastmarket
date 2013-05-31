@@ -3,6 +3,7 @@ chdir('../../common');
 require_once('init.php');
 chdir('../database');
 require_once('storeFrontend.php');
+require_once('storeAccount.php');
 chdir('../pages/store');
 
 if(!isset($_GET["store"]) or !storeExists($_GET["store"])){
