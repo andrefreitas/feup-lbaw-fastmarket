@@ -33,6 +33,20 @@ function getStoreProductsOnStock($storeId, $limit){
 }
 
 /*
+ * Get favorite products of user
+*/
+
+function getFavoriteProductsOfUser($userId){
+    $sql = "SELECT products.id, products.name, products.description, products.base_cost AS price, "
+         . "categories.name AS category, files.path AS file "
+         . "FROM products,categories,files,favorites "
+         . "WHERE products.category_id = categories.id "
+         . "AND files.id = products.image_id AND products.stock > 0 "
+         . "AND products.id=favorites.product_id AND favorites.user_id=?";
+    return query($sql, array($userId)); 
+}
+
+/*
  * Get categories of store
 */
 
