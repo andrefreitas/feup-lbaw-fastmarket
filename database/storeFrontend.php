@@ -115,6 +115,17 @@ function setFavorite($userId, $productId){
 }
 
 /*
+ * Favorite exists
+ */
+
+function favoriteExists($userId, $productId){
+	$sql = "SELECT * "
+	     . "FROM favorites "
+	     . "WHERE user_id = ? AND product_id = ? ";
+	$result = query($sql, array($userId, $productId));
+	return isset($result[0]);
+}
+/*
  * Add new comment on product
 */
 
