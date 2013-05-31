@@ -35,11 +35,13 @@ $products = array_map("updatePath", $products);
 
 
 
-$userInfo = $_SESSION['storesLogin'][$storeId]['userId'];
-
-if(isset($userInfo))
-{
-	$userInfo = getuserById($userInfo);
+if(isset($_SESSION['storesLogin'][$storeId]['userId'])){
+    $userInfo = $_SESSION['storesLogin'][$storeId]['userId'];
+    $smarty->assign('userInfo', $userInfo);
+    if(isset($userInfo))
+    {
+    	$userInfo = getuserById($userInfo);
+    }
 }
 /* END -- Get store data */
 
@@ -50,7 +52,6 @@ $smarty->assign('categories', $categories);
 $smarty->assign('products', $products);
 $smarty->assign('storeDomain', $domain);
 $smarty->assign('storeId', $storeId);
-$smarty->assign('userInfo', $userInfo);
 $smarty->assign('vat', $vat);
 $smarty->display('store/home.tpl');
 ?>

@@ -47,12 +47,13 @@ $price=$product["price"]*(1+$vat);
 
 $comments=getCommentsOfProduct($id);
 
-
-$userInfo = $_SESSION['storesLogin'][$storeId]['userId'];
-
-if(isset($userInfo))
-{
-	$userInfo = getuserById($userInfo);
+if(isset($_SESSION['storesLogin'][$storeId]['userId'])){
+    $userInfo = $_SESSION['storesLogin'][$storeId]['userId'];
+    $smarty->assign('userInfo', $userInfo);
+    if(isset($userInfo))
+    {
+        $userInfo = getuserById($userInfo);
+    }
 }
 /* END -- Get store data */
 
@@ -65,7 +66,6 @@ $smarty->assign('storeDomain', $domain);
 $smarty->assign('storeId', $storeId);
 $smarty->assign('price', $price);
 $smarty->assign('comments', $comments);
-$smarty->assign('userInfo', $userInfo);
 $smarty->display('store/product.tpl');
 
 ?>

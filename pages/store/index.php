@@ -37,15 +37,15 @@ $vat=$vat_oux[0]["vat"];
 
 //loged in user
 
-//print_r($_SESSION);
 
-$userInfo = $_SESSION['storesLogin'][$storeId]['userId'];
-
-if(isset($userInfo))
-{
-	$userInfo = getuserById($userInfo);
+if(isset($_SESSION['storesLogin'][$storeId]['userId'])){
+    $userInfo = $_SESSION['storesLogin'][$storeId]['userId'];
+    $smarty->assign('userInfo', $userInfo);
+    if(isset($userInfo))
+    {
+    	$userInfo = getuserById($userInfo);
+    }
 }
-
 /* END -- Get store data */
 
 
@@ -56,7 +56,7 @@ $smarty->assign('products', $products);
 $smarty->assign('storeDomain', $domain);
 $smarty->assign('storeId', $storeId);
 $smarty->assign('vat', $vat);
-$smarty->assign('userInfo', $userInfo);
+
 $smarty->display('store/home.tpl');
 
 ?>
