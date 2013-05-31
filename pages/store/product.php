@@ -56,7 +56,7 @@ if(isset($_SESSION['storesLogin'][$storeId]['userId'])){
     }
 }
 /* END -- Get store data */
-
+ 
 
 $smarty->assign('title', "Product");
 $smarty->assign('logoPath', $logoPath);
