@@ -46,6 +46,12 @@ $(document).ready(function() {
 	$("#subscribe").click(function() {
 		handleSubscribe();
 	});
+	
+	/* E08 - Subscribe */
+
+	$("#unsubscribe").click(function() {
+		handleUnsubscribe();
+	});
 
 });
 
@@ -342,6 +348,27 @@ function requestSubscribe(productId, userId) {
 		"async" : false
 	});
 	var data = $.getJSON("../../ajax/store/subscribe.php?", {
+		productId : productId,
+		userId : userId
+	});
+	$.ajaxSetup({
+		"async" : true
+	});
+	return $.parseJSON(data["responseText"])["result"];
+}
+
+function handleUnsubscribe() {
+	var productId = getProductId();
+	var userId = getUserId();
+	requestUnsubscribe(productId, userId);
+	document.location.reload(true);
+}
+
+function requestUnsubscribe(productId, userId) {
+	$.ajaxSetup({
+		"async" : false
+	});
+	var data = $.getJSON("../../ajax/store/unsubscribe.php?", {
 		productId : productId,
 		userId : userId
 	});
