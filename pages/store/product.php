@@ -13,20 +13,6 @@ if(!isset($_GET["store"]) or !storeExists($_GET["store"])){
     header("Location: ". $_GET["store"]);
 }
 
-// Update paths
-/*
-$updatePath = function($elem){
-    $elem["file"] = "../../files/" . $elem["file"];
-    return $elem;
-};
-*/
-/*
-function updatePath($elem){
-	$elem["file"] = "../../files/" . $elem["file"];
-    return $elem;
-};
-*/
-
 /* BEGIN -- Get store data */
 $domain = $_GET["store"];
 $storeId = getStoreId($domain);
@@ -47,14 +33,16 @@ $price=$product["price"]*(1+$vat);
 
 $comments=getCommentsOfProduct($id);
 
+$isFavorite = false;
 if(isset($_SESSION['storesLogin'][$storeId]['userId'])){
     $userInfo = $_SESSION['storesLogin'][$storeId]['userId'];
-    
+    $isFavorite = favoriteExists($userInfo, $id);
     if(isset($userInfo))
     {
         $userInfo = getuserById($userInfo);
     }
     $smarty->assign('userInfo', $userInfo);
+    
 }
 /* END -- Get store data */
  
@@ -68,6 +56,7 @@ $smarty->assign('storeDomain', $domain);
 $smarty->assign('storeId', $storeId);
 $smarty->assign('price', $price);
 $smarty->assign('comments', $comments);
+$smarty->assign('isFavorite', $isFavorite);
 $smarty->display('store/product.tpl');
 
 ?>

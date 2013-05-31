@@ -33,6 +33,12 @@ $(document).ready(function(){
 		handleMakeFavorite();
 	});
 	
+	/* E06 - Remove Favorite */
+	$("#removeFavorite").click(function(){
+		handleRemoveFavorite();
+	});
+	
+	
 	$("#addComment").click(function(){
 		$("#commentModal").modal({
 		     keyboard: true,
@@ -241,6 +247,9 @@ function requestLogin(email, password, storeId){
 		 var productId = getProductId();
 		 var userId = getUserId();
 		 requestMakeFavorite(productId, userId);
+		 document.location.reload(true);
+	 }else{
+		 $('#userNotification').html('<div class="alert alert-error">You need to login first </div>');
 	 }
  }
  
@@ -258,3 +267,24 @@ function requestLogin(email, password, storeId){
 		$.ajaxSetup( { "async": true } );
 		return $.parseJSON(data["responseText"])["result"];
 	}
+ 
+ /**
+  * Request remove favorite
+  */
+ function requestRemoveFavorite(productId, userId){
+		$.ajaxSetup( { "async": false } );
+		var data = $.getJSON("../../ajax/store/removeFavorite.php?",{
+	        productId: productId,
+	        userId: userId
+		});
+		$.ajaxSetup( { "async": true } );
+		return $.parseJSON(data["responseText"])["result"];
+	}
+ 
+ /** Handle remove favorite **/
+ function handleRemoveFavorite(){
+	 var productId = getProductId();
+	 var userId = getUserId();
+	 requestRemoveFavorite(productId, userId);
+	 document.location.reload(true);
+ }

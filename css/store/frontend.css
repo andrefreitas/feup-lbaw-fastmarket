@@ -135,6 +135,7 @@ header .logout{
 .hidden{
 	display: none;
 	visibility: hidden;
+}
 
 #userNotification{
 	margin-top: 5px;

@@ -115,6 +115,17 @@ function setFavorite($userId, $productId){
 }
 
 /*
+ * Removes a favorite
+*/
+
+function removeFavorite($userId, $productId){
+    $sql = "DELETE "
+         . "FROM favorites "
+         . "WHERE user_id = ? AND product_id = ? ";
+    query($sql, array($userId, $productId));
+}
+
+/*
  * Favorite exists
  */
 

@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>{$title}</title>
-        <meta charset="utf-8">
+        
         <!--  CSS -->
         <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.10.0/build/cssreset/cssreset-min.css">
         <link rel="stylesheet" type="text/css" href="../css/plataform.css"/>
