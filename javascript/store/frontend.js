@@ -28,9 +28,28 @@ $(document).ready(function(){
 		handleUserLogout();
 	});
 	
+	/* makeFavorite */
+	$("#makeFavorite").click(function(){
+		handleMakeFavorite();
+	});
 
 });
 
+/**
+ * Handles a user new favorite
+ */
+function handleMakeFavorite()
+{
+	var	storeId = $("#registerForm #storeId").val();
+	var	productId = $("#productId").val();
+	$.ajaxSetup( { "async": false } );
+	var data = $.getJSON("../../ajax/store/addFavorite.php?",{
+        productId: productId,
+        storeId: storeId
+	});
+	$.ajaxSetup( { "async": true } );
+	var res = $.parseJSON(data["responseText"])["result"];
+}
 
 /**
  * Handles a user registration event

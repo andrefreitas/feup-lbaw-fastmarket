@@ -130,3 +130,8 @@ header .logout{
 	margin-right: 50px;
 	margin-left: 35px;
 }
+
+.hidden{
+	display: none;
+	visibility: hidden;
+}
