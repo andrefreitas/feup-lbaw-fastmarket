@@ -32,7 +32,7 @@ $logoPath = "../../files/" . getStoreLogo($domain);
 $categories = getCategories($storeId);
 
 // User data
-$account = getAccount($_SESSION["id"]);
+$account = getAccount($_SESSION['storesLogin'][$storeId]['userId']);
 
 /* END -- Get store data */
 
