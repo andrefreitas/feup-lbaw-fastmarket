@@ -21,12 +21,16 @@ $(document).ready(function(){
 		    return $(this).attr('data-score');
 		  }
 		});
-	/* Commit */
 
+	
 	/* Logout */
 	$("#logout").click(function(){
 		handleUserLogout();
 	});
+	
+
+
+
 
 });
 
