@@ -1,6 +1,11 @@
 <?php
+header('Content-type: application/json');
+chdir('../../common');
+require_once('init.php');
 chdir("../../database");
 require_once("storeFrontend.php");
+chdir('../ajax/store');
+
 if(isset($_GET["text"]) and isset($_GET["productId"]) and isset($_GET['storeId'])){
 
 	$userId = $_SESSION['storesLogin'][$_GET['storeId']]['userId'];
