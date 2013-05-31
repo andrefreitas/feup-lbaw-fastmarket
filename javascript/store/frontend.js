@@ -172,7 +172,8 @@ function requestLogin(email, password, storeId){
  
  function isLoggedIn(){
 	 var stores = getSession()["storesLogin"];
-	 return stores[getStoreId()]["userId"]!= null;
+	 var storeId = getStoreId();
+	 return (storeId in stored) && stores[storeId]["userId"]!= null;
  }
  
  /**
