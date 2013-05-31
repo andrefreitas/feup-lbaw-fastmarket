@@ -52,10 +52,20 @@ $(document).ready(function(){
  * Handles add comment event
  */
 function handleAddComment(){
+	var storeId = $("#registerForm #storeId").val();
 	var storeDomain = $("#registerForm #storeDomain").val();
 	var text = $("#commentText").val();
-	alert(text);
-	//window.location="index.php?store="+storeDomain;
+	var productId = getProductId();
+	$.ajaxSetup( { "async": false } );
+	var data = $.getJSON("../../ajax/store/addComment.php?",{
+        text: text,
+        productId: productId,
+        storeId: storeId
+	});
+	$.ajaxSetup( { "async": true } );
+	var res= $.parseJSON(data["responseText"])["result"];
+	/*TODO mostrar resultado*/
+	window.location="index.php?store="+storeDomain;
 }
 
 /**
