@@ -2,7 +2,7 @@
 header('Content-type: application/json');
 chdir('../../common');
 require_once('init.php');
-chdir("../../database");
+chdir("../database");
 require_once("storeFrontend.php");
 chdir('../ajax/store');
 
