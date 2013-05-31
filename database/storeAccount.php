@@ -125,7 +125,9 @@ function getAccount($userId)
 {
 	$sql = "SELECT * FROM users
 			WHERE id=?";
-	return query($sql, array($userId));
+	
+	$result = query($sql, array($userId));
+    return $result ? $result[0] : false;
 }
 
 /*
