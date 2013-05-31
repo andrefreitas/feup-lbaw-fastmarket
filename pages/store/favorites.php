@@ -31,7 +31,7 @@ $categories = getCategories($storeId);
 $userId=$_SESSION['storesLogin'][$storeId]['userId'];
 if(!isset($userId))
 {
-	header("Location: /index.php?store=" . $domain);
+	header("Location: ../store/index.php?store=" . $domain);
 }
 $products = getFavoriteProductsOfUser($userId);
 $products = array_map("updatePath", $products);
