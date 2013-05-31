@@ -44,6 +44,8 @@ if(isset($_SESSION['storesLogin'][$storeId]['userId'])){
     	$userInfo = getAccount($userInfo);
     }
     $smarty->assign('userInfo', $userInfo);
+}else{
+	header("Location: ../store/index.php?store=" . $domain);
 }
 /* END -- Get store data */
 

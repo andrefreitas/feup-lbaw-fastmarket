@@ -36,7 +36,7 @@
 			
 			{else}
 			<div class="logout">
-				<span class="username">Welcome {$userInfo.name} </span>
+				<a class="username" href="account.php?store={$storeDomain}">Welcome {$userInfo.name} </a>
 				<button class="btn" id="logout">Logout</button>
 			</div>
 			{/if}
