@@ -38,6 +38,7 @@ $(document).ready(function(){
 		     keyboard: true,
 		     backdrop: 'static'
 		 });
+		$("#commentText").val('');
 	});
 	
 	$("#commentButton").click(function(){
@@ -51,8 +52,10 @@ $(document).ready(function(){
  * Handles add comment event
  */
 function handleAddComment(){
-	
-	
+	var storeDomain = $("#registerForm #storeDomain").val();
+	var text = $("#commentText").val();
+	alert(text);
+	//window.location="index.php?store="+storeDomain;
 }
 
 /**
