@@ -1,7 +1,7 @@
 <?php
 	$dbName = 'lbaw12503';
 	$dbUser = 'lbaw12503';
-	$dbPassword = 'nB50vy';
+	$dbPassword = 'OKVoWenYu18j';
 	$dbSchema = 'public';
 	$host = 'vdbm.fe.up.pt';
 	
