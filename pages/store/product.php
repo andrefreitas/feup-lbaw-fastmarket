@@ -49,11 +49,12 @@ $comments=getCommentsOfProduct($id);
 
 if(isset($_SESSION['storesLogin'][$storeId]['userId'])){
     $userInfo = $_SESSION['storesLogin'][$storeId]['userId'];
-    $smarty->assign('userInfo', $userInfo);
+    
     if(isset($userInfo))
     {
         $userInfo = getuserById($userInfo);
     }
+    $smarty->assign('userInfo', $userInfo);
 }
 /* END -- Get store data */
  

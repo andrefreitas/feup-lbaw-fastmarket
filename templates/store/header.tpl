@@ -47,9 +47,17 @@
 		<div class="navbar">
 			<div class="navbar-inner">
 				<ul class="nav">
-					<li class="active"><a href="index.php?store={$storeDomain}"><i class="icon-home"></i> Home</a></li>
-					<li><a href="#"><i class="icon-star"></i> Favorites</a></li>
-					<li><a href="#"><i class="icon-shopping-cart"></i> Cart</a></li>
+					{if isset($favoritesPage) && $favoritesPage==1}
+					
+						<li><a href="index.php?store={$storeDomain}"><i class="icon-home"></i> Home</a></li>
+						<li class="active"><a href="favorites.php?store={$storeDomain}"><i class="icon-star"></i> Favorites</a></li>
+						<li><a href="#"><i class="icon-shopping-cart"></i> Cart</a></li>
+					{else}
+					
+						<li class="active"><a href="index.php?store={$storeDomain}"><i class="icon-home"></i> Home</a></li>
+						<li><a href="favorites.php?store={$storeDomain}"><i class="icon-star"></i> Favorites</a></li>
+						<li><a href="#"><i class="icon-shopping-cart"></i> Cart</a></li>
+					{/if}
 				</ul>
 
 			</div>
@@ -67,17 +75,17 @@
 			<h3 id="myModalLabel">Registration</h3>
 		</div>
 		<div class="modal-body">
-		<!--  Body -->
-	    <div class="registerNotification">
-	    </div>
-		<form id="registerForm">
-            <input type="text" id="name" placeholder="Name">
-            <input type="text" id="email" placeholder="Email">
-            <input type="password" id="password" placeholder="Password">
-            <input type="password" id="confirmPassword" placeholder="Confirm Password">
-            <input type="hidden" id="storeId" value="{$storeId}">
-            <input type="hidden" id="storeDomain" value="{$storeDomain}">
-        </form>
+			<!--  Body -->
+		    <div class="registerNotification">
+		    </div>
+			<form id="registerForm">
+	            <input type="text" id="name" placeholder="Name">
+	            <input type="text" id="email" placeholder="Email">
+	            <input type="password" id="password" placeholder="Password">
+	            <input type="password" id="confirmPassword" placeholder="Confirm Password">
+	            <input type="hidden" id="storeId" value="{$storeId}">
+	            <input type="hidden" id="storeDomain" value="{$storeDomain}">
+	        </form>
 		</div>
 		<div class="modal-footer">
 			<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>

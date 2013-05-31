@@ -31,6 +31,7 @@
 		        <button class="btn" id="makeFavorite" href="#"><i class="icon-star"></i> Make Favorite</button>
 		        <button class="btn" id="subscribe"><i class="icon-bookmark"></i> Subscribe</button>
 		        <button class="btn" id="addComment"><i class="icon-pencil"></i> Comment</button>
+		       
 		    </div>
 		    <!--  -->
 		    <h3>Comments</h3>
@@ -53,5 +54,29 @@
 		</div>
 	</div>
 </div>
+
+<!-- Modal for comment -->
+	<div id="commentModal" class="modal hide fade register" tabindex="-1"
+		role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"
+				aria-hidden="true">×</button>
+			<h3 id="myModalLabel">Comment</h3>
+		</div>
+		<div class="modal-body">
+			<!--  Body -->
+		    <div class="commentNotification">
+		    </div>
+			<form id="commentForm">
+	            <textarea id="commentText">
+	            
+	            </textarea>
+	        </form>
+		</div>
+		<div class="modal-footer">
+			<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+			<button class="btn btn-primary" id="commentButton" >Submit</button>
+		</div>
+	</div>
 
 {include file='store/footer.tpl'}

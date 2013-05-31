@@ -33,10 +33,20 @@ $(document).ready(function(){
 		handleMakeFavorite();
 	});
 	
-	
+	$("#commentButton").click(function(){
+		handleAddComment();
+	});
 
 });
 
+
+/**
+ * Handles add comment event
+ */
+function handleAddComment(){
+	
+	
+}
 
 /**
  * Handles a user registration event
@@ -214,16 +224,7 @@ function requestLogin(email, password, storeId){
 	 }
  }
  
-/**
- * Handles a user new favorite
- */
- function handleMakeFavorite(){
-	 if(isLoggedIn()){
-		 var productId = getProductId();
-		 var userId = getUserId();
-		 requestMakeFavorite(productId, userId);
-	 }
- }
+
  
  /**
   * Request make favorite
