@@ -12,12 +12,12 @@
                     {/foreach}
 				</ul>
 			</div>
-			
+			<div class="span_account span10">
+			    <!-- Account -->
+			    <h1>{$userInfo.name}</h1>
+			</div>
 		</div>
-		<div class="span_account">
-		    <!-- Account -->
-		    <h1>{$userInfo.name}</h1>
-		</div>
+		
 	</div>
 </div>
 
