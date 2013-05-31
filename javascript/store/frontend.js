@@ -209,6 +209,7 @@ function requestLogin(email, password, storeId){
 		 requestMakeFavorite(productId, userId);
 	 }
  }
+ 
 /**
  * Handles a user new favorite
  */
