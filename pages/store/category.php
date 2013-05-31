@@ -33,8 +33,6 @@ $categories = getCategories($storeId);
 $products = getProductsOfCategory($_GET["categoryid"]);
 $products = array_map("updatePath", $products);
 
-
-
 if(isset($_SESSION['storesLogin'][$storeId]['userId'])){
     $userInfo = $_SESSION['storesLogin'][$storeId]['userId'];
     $smarty->assign('userInfo', $userInfo);
