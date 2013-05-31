@@ -34,6 +34,18 @@ $categories = getCategories($storeId);
 // User data
 $account = getAccount($_SESSION['storesLogin'][$storeId]['userId']);
 
+//loged in user
+
+
+if(isset($_SESSION['storesLogin'][$storeId]['userId'])){
+    $userInfo = $_SESSION['storesLogin'][$storeId]['userId'];
+    
+    if(isset($userInfo))
+    {
+    	$userInfo = getuserById($userInfo);
+    }
+    $smarty->assign('userInfo', $userInfo);
+}
 /* END -- Get store data */
 
 
@@ -41,6 +53,7 @@ $smarty->assign('title', "Welcome");
 $smarty->assign('logoPath', $logoPath);
 $smarty->assign('categories', $categories);
 $smarty->assign('storeId', $storeId);
+$smarty->assign('storeDomain', $domain);
 $smarty->assign('account', $account);
 $smarty->display('store/account.tpl');
 
