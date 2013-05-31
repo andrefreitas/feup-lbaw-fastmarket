@@ -14,6 +14,8 @@
 			</div>
 			<div class="span10">
 		    <!-- Product -->
+		    
+		    <input type="hidden" id="productId" value="{$productId}">
 		    <h1>{$product.name} </h1>   
 		    <!--  -->
 		    <img src="{$product.file}" class="img-polaroid">

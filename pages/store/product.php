@@ -62,6 +62,7 @@ $smarty->assign('title', "Welcome");
 $smarty->assign('logoPath', $logoPath);
 $smarty->assign('categories', $categories);
 $smarty->assign('product', $product);
+$smarty->assign('productId', $id);
 $smarty->assign('storeDomain', $domain);
 $smarty->assign('storeId', $storeId);
 $smarty->assign('price', $price);

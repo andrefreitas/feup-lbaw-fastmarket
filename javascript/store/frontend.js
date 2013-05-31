@@ -209,6 +209,16 @@ function requestLogin(email, password, storeId){
 		 requestMakeFavorite(productId, userId);
 	 }
  }
+/**
+ * Handles a user new favorite
+ */
+ function handleMakeFavorite(){
+	 if(isLoggedIn()){
+		 var productId = getProductId();
+		 var userId = getUserId();
+		 requestMakeFavorite(productId, userId);
+	 }
+ }
  
  /**
   * Request make favorite

@@ -154,6 +154,17 @@ function removeFavorite($userId, $productId)
 }
 
 /*
+ * Add favorite of user
+*/
+
+function addFavorite($userId, $productId)
+{
+	$sql = "INSERT INTO favorites(user_id,product_id) VALUES (?,?)";
+	return query($sql,array($userId,$productId));
+}
+
+
+/*
  * Update account name
 */
 

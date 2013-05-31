@@ -131,8 +131,14 @@ header .logout{
 	margin-left: 35px;
 }
 
+
+.hidden{
+	display: none;
+	visibility: hidden;
+
 #userNotification{
 	margin-top: 5px;
 	width: 220px;
 	
+
 }
