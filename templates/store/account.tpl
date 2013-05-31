@@ -14,7 +14,7 @@
 			</div>
 			<div class="span_account">
 		    <!-- Account -->
-		    <h1>{$account.name}</h1>
+		    <h1>{$userInfo.name}</h1>
 			</div>
 		</div>
 	</div>
