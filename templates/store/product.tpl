@@ -14,7 +14,7 @@
 			</div>
 			<div class="span10">
 		    <!-- Product -->
-		    <span class="hidden" id="productId">{$product.id}</span>
+		    <span class="hidden" id="productId">{$productId}</span>
 		    <h1>{$product.name} </h1>   
 		    <!--  -->
 		    <img src="{$product.file}" class="img-polaroid">

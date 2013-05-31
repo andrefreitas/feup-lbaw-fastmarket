@@ -6,7 +6,7 @@ chdir('../database');
 require_once('storeAccount.php');
 chdir('../ajax/store');
 
-if(isset($_GET["storeId"]) and isset($_GET["productId"])){
+if(isset($_GET['storeId']) and isset($_GET['productId'])){
 	$userId=$_SESSION['storesLogin'][$_GET['storeId']]['userId'];
 	if(isset($userId))
 	{
