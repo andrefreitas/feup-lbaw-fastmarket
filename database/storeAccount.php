@@ -226,4 +226,16 @@ function getInvoice($orderId)
 			WHERE order_id=?";
 	return query($sql,array($orderId));
 }
+
+/**
+ * Costumer Exists
+ */
+
+function costumerExists($storeId, $email){
+    $sql = "SELECT * "
+            . "FROM users, stores_users "
+                    . "WHERE users.id = stores_users.user_id AND stores_users.store_id = ? AND users.email = ? ";
+    $result = query($sql, array($storeId, $email));
+    return isset($result[0]);
+}
 ?>

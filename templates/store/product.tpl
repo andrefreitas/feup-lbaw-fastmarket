@@ -25,8 +25,9 @@
 		    <!--  -->
 		    <div class="subProduct">
 		        <div id="star" data-score="{$product.score}"></div>
-		        <button class="btn btn-inverse" href="#"><i class="icon-shopping-cart icon-white"></i> Add Item to cart</button>
-		        <button class="btn" href="#"><i class="icon-star"></i> Make Favorite</button>
+		        <button class="btn btn-inverse" href="#"><i class="icon-shopping-cart icon-white"></i> Add to cart</button>
+		        <button class="btn" id="makeFavorite" href="#"><i class="icon-star"></i> Make Favorite</button>
+		        <button class="btn" id="subscribe"><i class="icon-bookmark"></i> Subscribe</button>
 		        <button class="btn" id="addComment"><i class="icon-pencil"></i> Comment</button>
 		    </div>
 		    <!--  -->

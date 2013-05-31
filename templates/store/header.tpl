@@ -65,7 +65,8 @@
 		</div>
 		<div class="modal-body">
 		<!--  Body -->
-	
+	    <div class="registerNotification">
+	    </div>
 		<form id="registerForm">
             <input type="text" id="name" placeholder="Name">
             <input type="text" id="email" placeholder="Email">

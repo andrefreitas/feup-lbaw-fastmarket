@@ -29,9 +29,6 @@ $(document).ready(function(){
 	});
 	
 
-
-
-
 });
 
 
@@ -45,8 +42,23 @@ function handleUserRegister(){
 	var	password = $("#registerForm #password").val();
 	var	confirmPassword = $("#registerForm #confirmPassword").val();
 	var	storeId = $("#registerForm #storeId").val();
-	requestAddCostumer(name, email, password, storeId);
-	$('#registrationModal').modal('hide');
+	
+	$('.registerNotification').html('');
+	if(registrationIsValid(name,email,password, confirmPassword)){
+		var result = requestAddCostumer(name, email, password, storeId);
+		
+		if(result == "ok"){
+			$('.registerNotification').html('<div class="alert alert-success"> Registration is complete! </div>');
+			setTimeout(function() {
+				$('#registrationModal').modal('hide');
+				
+			}, 1500);	
+		} else if (result == "userExists"){
+			$('.registerNotification').html('<div class="alert alert-error"> Email already in use! </div>');
+		}
+	}
+	
+	
 }
 
 function requestAddCostumer(name, email, password, storeId){
@@ -116,3 +128,26 @@ function setLogedInState()
 	var result = $.parseJSON(data["responseText"])["result"];
 	window.location="http://gnomo.fe.up.pt/~lbaw12503/fm/pages/store/index.php?store="+storeDomain;
  }
+ 
+ /**
+  * Validate registration
+  */
+ function registrationIsValid(name,email,password1,password2){
+
+		var emailRegex= /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/; 
+		if(name.length<1){
+			$('.registerNotification').html('<div class="alert alert-error"> Please write your name! </div>');
+			
+		}
+		else if(!emailRegex.test(email)){
+			$('.registerNotification').html('<div class="alert alert-error"> Invalid email!</div>');
+		} 
+		else if(password1.length<1){
+			$('.registerNotification').html('<div class="alert alert-error"> Please write a password!</div>');
+		
+		}else if(password1 != password2){
+			$('.registerNotification').html('<div class="alert alert-error"> Passwords don\'t match!</div>');
+		}
+		
+		return ( password1.length > 0) & ( password1.length > 0) & ( password1 == password2 ) & ( name.length > 1 ) & emailRegex.test(email);
+	}
