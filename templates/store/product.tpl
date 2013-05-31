@@ -30,7 +30,7 @@
 		        <button class="btn btn-inverse" href="#"><i class="icon-shopping-cart icon-white"></i> Add to cart</button>
 		        <button class="btn" id="makeFavorite" href="#"><i class="icon-star"></i> Make Favorite</button>
 		        <button class="btn" id="subscribe"><i class="icon-bookmark"></i> Subscribe</button>
-		        <button class="btn" id="addComment" href="#commentModal"><i class="icon-pencil"></i> Comment</button>
+		        <button class="btn" id="addComment"><i class="icon-pencil"></i> Comment</button>
 		       
 		    </div>
 		    <!--  -->
