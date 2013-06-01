@@ -89,7 +89,7 @@ function updateAccount(){
 	if(ret=="ok")
 	{
 		var storeDomain = $("#registerForm #storeDomain").val();
-		window.location.href= "/fm/pages/store/account.php?store=" + storeDomain;
+		window.location.href= "account.php?store=" + storeDomain;
 		
 	}else{
 		alert("erro: "+ret);
