@@ -83,13 +83,13 @@ function updateAccount(){
 		"async" : true
 	});
 
-	alert("teste");
+	
 
 	var ret = $.parseJSON(data["responseText"])["result"];
 	if(ret=="ok")
 	{
 		var storeDomain = $("#registerForm #storeDomain").val();
-		window.location= "account.php?store=" + storeDomain;
+		window.location= "index.php?store=" + storeDomain;
 	}else{
 		alert("erro: "+ret);
 	}
