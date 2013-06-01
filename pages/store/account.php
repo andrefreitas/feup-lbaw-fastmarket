@@ -9,9 +9,6 @@ chdir('../pages/store');
 
 if(!isset($_GET["store"]) or !storeExists($_GET["store"])){
     header("Location: ../index.php");
-}else if(!isset($_SESSION["id"])) {
-    
-    header("Location: ". $_GET["store"]);
 }
 
 // Update paths
