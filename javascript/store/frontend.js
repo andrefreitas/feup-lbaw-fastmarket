@@ -89,7 +89,8 @@ function updateAccount(){
 	if(ret=="ok")
 	{
 		var storeDomain = $("#registerForm #storeDomain").val();
-		window.location= "index.php?store=" + storeDomain;
+		//window.location= "index.php?store=" + storeDomain;
+		document.location.reload(true);
 	}else{
 		alert("erro: "+ret);
 	}
