@@ -66,7 +66,7 @@ $(document).ready(function() {
  * Update Account info
  */
 function updateAccount(){
-	var userId = $("#AccountId).val();
+	var userId = $("#AccountId").val();
 	var name = $("#newName").val();
 	var email = $("#newEmail").val();
 	var pass = $("#newPass").val();
