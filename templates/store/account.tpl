@@ -17,9 +17,10 @@
 			    <h1>{$userInfo.name}</h1><br>
 			    Email: <input type="text" id="newEmail" value="{$userInfo.email}"><br>
 			    <form>
-			    	New password: <input type="password" value="" id="newPassAccount"><br>
+			    	Email: <input type="text" id="newEmail" value="{$userInfo.email}"><br>
+			    	Password: <input type="password" value="" id="newPassAccount"><br>
 			    	
-			    	<button class="btn" id="newPassButton">Submit</button>
+			    	<button class="btn" id="newPassButton">Update Account</button>
 			    </form>
 			    
 			</div>
