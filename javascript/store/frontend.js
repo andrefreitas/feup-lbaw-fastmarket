@@ -55,8 +55,42 @@ $(document).ready(function() {
 	$("#addToCart").click(function() {
 		handleAddToCart();
 	});
+	
+	$("#updateAccountButton").click(function() {
+		updateAccount();
+	});
 
 });
+
+/*
+ * Update Account info
+ */
+function updateAccount(){
+	var userId = $("#AccountId).val();
+	var name = $("#newName").val();
+	var email = $("#newEmail").val();
+	var pass = $("#newPass").val();
+	$.ajaxSetup({
+		"async" : false
+	});
+	var data = $.getJSON("../../ajax/store/updateAccount.php?", {
+		name : name,
+		email : email,
+		password: pass,
+		userId : userId
+	});
+	$.ajaxSetup({
+		"async" : true
+	});
+
+	var ret = $.parseJSON(data["responseText"])["result"];
+	if(ret=="ok")
+	{
+		location.reload();
+	}else{
+		alert("erro: "+ret);
+	}
+};
 
 /**
  * Handles add comment event

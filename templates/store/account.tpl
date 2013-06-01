@@ -15,13 +15,13 @@
 			<div class="span_account span10">
 			    <!-- Account -->
 			    <h1>{$userInfo.name}</h1><br>
-			    
+			    <input type="hidden" value="{$userInfo.id}" id="AccountId">
 			    <form>
 			    	Account name: <input type="text" id="newName" value="{$userInfo.name}"><br>
 			    	Email: <input type="text" id="newEmail" value="{$userInfo.email}"><br>
-			    	Password: <input type="password" value="" id="newPassAccount"><br>
+			    	New password: <input type="password" value="" id="newPass"><br>
 			    	
-			    	<button class="btn" id="newPassButton">Update Account</button>
+			    	<button class="btn" id="updateAccountButton">Update Account</button>
 			    </form>
 			    
 			</div>
