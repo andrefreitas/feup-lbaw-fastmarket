@@ -17,9 +17,9 @@
 			    <h1>{$userInfo.name}</h1><br>
 			    {$userInfo.email}<br>
 			    <form>
-			    	New password: <input type="password" name="pass1"></input><br>
+			    	New password: <input type="password" name="" id="newPassAccount"></input><br>
 			    	
-			    	<button type="submit" name="submitPass" class="btn">Submit</button>
+			    	<button type="submit" name="submitPass" class="btn" id="newPassButton">Submit</button>
 			    </form>
 			    
 			</div>
