@@ -154,3 +154,7 @@ header .logout{
 	overflow: hidden;
 	margin-bottom: 20px;
 }
+
+#productNotifications{
+	margin-top: 5px;
+}

@@ -27,7 +27,7 @@
 		    <!--  -->
 		    <div class="subProduct">
 		        <div id="star" data-score="{$product.score}"></div>
-		        <button class="btn btn-inverse" href="#"><i class="icon-shopping-cart icon-white"></i> Add to cart</button>
+		        <button class="btn btn-inverse" href="#" id="addToCart"><i class="icon-shopping-cart icon-white"></i> Add to cart</button>
 		        {if !$isFavorite}
 		        <button class="btn" id="makeFavorite" href="#"><i class="icon-star"></i> Make Favorite</button>
 		        {else}
@@ -40,6 +40,9 @@
 		         <button class="btn" id="unsubscribe"><i class="icon-bookmark"></i> Unsubscribe</button>
 		        {/if}
 		    </div>
+		    <!--  -->
+		    <div id="productNotifications"></div>
+	
 		    <!--  -->
 		    <h3>Comments</h3>
 		    {if $isLoggedIn}
