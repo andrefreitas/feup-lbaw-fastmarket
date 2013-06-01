@@ -42,15 +42,18 @@ $(document).ready(function() {
 	});
 
 	/* E08 - Subscribe */
-
 	$("#subscribe").click(function() {
 		handleSubscribe();
 	});
 	
-	/* E08 - Subscribe */
-
+	/* E09 - Subscribe */
 	$("#unsubscribe").click(function() {
 		handleUnsubscribe();
+	});
+	
+	/* E10 - Add product to cart */
+	$("#addToCart").click(function() {
+		handleAddToCart();
 	});
 
 });
@@ -402,6 +405,29 @@ function requestRate(productId, userId, score){
 		productId : productId,
 		userId : userId,
 		score : score
+	});
+	$.ajaxSetup({
+		"async" : true
+	});
+	return $.parseJSON(data["responseText"])["result"];
+}
+
+/** Handle add to cart **/
+function handleAddToCart(){
+	var productId = getProductId();
+	var storeId = getStoreId();
+	//requestAddToCart(storeId, productId);
+	$("#productNotifications").html('<div class="alert alert-success">Product added to cart </div>');
+}
+
+/** Request add to cart **/
+function requestAddToCart(storeId, productId){
+	$.ajaxSetup({
+		"async" : false
+	});
+	var data = $.getJSON("../../ajax/store/addToCart.php?", {
+		productId : productId,
+		storeId : storeId
 	});
 	$.ajaxSetup({
 		"async" : true
