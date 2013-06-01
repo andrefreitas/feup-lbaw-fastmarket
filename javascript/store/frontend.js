@@ -83,6 +83,8 @@ function updateAccount(){
 		"async" : true
 	});
 
+	alert("teste");
+
 	var ret = $.parseJSON(data["responseText"])["result"];
 	if(ret=="ok")
 	{
