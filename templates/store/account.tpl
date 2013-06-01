@@ -15,11 +15,11 @@
 			<div class="span_account span10">
 			    <!-- Account -->
 			    <h1>{$userInfo.name}</h1><br>
-			    {$userInfo.email}<br>
+			    Email: <input type="text" id="newEmail">{$userInfo.email}</input><br>
 			    <form>
 			    	New password: <input type="password" name="" id="newPassAccount"></input><br>
 			    	
-			    	<button type="submit" name="submitPass" class="btn" id="newPassButton">Submit</button>
+			    	<button class="btn" id="newPassButton">Submit</button>
 			    </form>
 			    
 			</div>
