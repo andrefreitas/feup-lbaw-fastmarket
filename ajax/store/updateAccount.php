@@ -1,6 +1,8 @@
 <?php
 chdir("../../database");
 require_once("storeAccount.php");
+chdir('../ajax/store');
+
 if(isset($_GET["userId"]) && $_GET["userId"] >= 0){
 
 	if(isset($_GET["name"]) && strlen($_GET["name"])>=1)
