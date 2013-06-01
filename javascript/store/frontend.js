@@ -381,11 +381,17 @@ function requestUnsubscribe(productId, userId) {
 }
 
 function handleRating(){
-	var score = $('#star').raty('score');
-	var productId = getProductId();
-	var userId = getUserId();
-	requestRate(productId, userId, score);
-	document.location.reload(true);
+	if(isLoggedIn()){
+		var score = $('#star').raty('score');
+		var productId = getProductId();
+		var userId = getUserId();
+		requestRate(productId, userId, score);
+		document.location.reload(true);
+	}else{
+		$('#userNotification')
+		.html(
+				'<div class="alert alert-error">You need to login first </div>');
+	}
 }
 
 function requestRate(productId, userId, score){
