@@ -16,6 +16,11 @@
 			    <!-- Account -->
 			    <h1>{$userInfo.name}</h1><br>
 			    {$userInfo.email}<br>
+			    <form>
+			    	<input type="password" name="pass1"></input>
+			    	<input type="password" name="pass2"></input>
+			    	<button type="submit" name="submitPass"></button>
+			    </form>
 			    
 			</div>
 		</div>
