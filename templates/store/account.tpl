@@ -21,7 +21,7 @@
 			    	Email: <input type="text" id="newEmail" value="{$userInfo.email}"><br>
 			    	New password: <input type="password" value="" id="newPass"><br>
 			    	
-			    	<button class="btn" id="updateAccountButton">Update Account</button>
+			    	<button class="btn" id="updateAccount">Update Account</button>
 			    </form>
 			    
 			</div>

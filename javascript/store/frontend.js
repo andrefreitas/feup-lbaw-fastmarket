@@ -56,7 +56,7 @@ $(document).ready(function() {
 		handleAddToCart();
 	});
 	
-	$("#updateAccountButton").click(function() {
+	$("#updateAccount").click(function() {
 		updateAccount();
 	});
 
