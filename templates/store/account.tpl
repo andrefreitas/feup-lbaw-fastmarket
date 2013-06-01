@@ -15,8 +15,9 @@
 			<div class="span_account span10">
 			    <!-- Account -->
 			    <h1>{$userInfo.name}</h1><br>
-			    Email: <input type="text" id="newEmail" value="{$userInfo.email}"><br>
+			    
 			    <form>
+			    	Account name: <input type="text" id="newName" value="{$userInfo.name}"><br>
 			    	Email: <input type="text" id="newEmail" value="{$userInfo.email}"><br>
 			    	Password: <input type="password" value="" id="newPassAccount"><br>
 			    	
