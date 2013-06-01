@@ -147,24 +147,24 @@ function getFavorites($userId)
 /*
  * Remove favorite of user
 */
-
+/*
 function removeFavorite($userId, $productId)
 {
 	$sql = "DELETE FROM favorites
 			WHERE user_id=? AND product_id=?";
 	return query($sql,array($userId,$productId));
 }
-
+*/
 /*
  * Add favorite of user
 */
-
+/*
 function addFavorite($userId, $productId)
 {
 	$sql = "INSERT INTO favorites(user_id,product_id) VALUES (?,?)";
 	return query($sql,array($userId,$productId));
 }
-
+*/
 
 /*
  * Update account name
