@@ -253,12 +253,23 @@ chdir('../database');
 	/*
 		update product
 	*/
-	function updateProduct($product_id, $name, $description, $base_cost, $stock, $category_id, $image_id)
+	function updateProduct($product_id, $name, $description, $base_cost, $stock, $category_id)
 	{
 		$sql="UPDATE products SET 
-				name=?, description=?, base_cost=?,	stock=?, category_id=?, image_id=?
+				name=?, description=?, base_cost=?,	stock=?, category_id=?
 				WHERE id = ?";
-		return query($sql,array($name, $description, $base_cost, $stock, $category_id, $image_id, $product_id));
+		return query($sql,array($name, $description, $base_cost, $stock, $category_id, $product_id));
+	}
+	
+	/*
+		update product image
+	*/
+	function updateProductImage($product_id, $image_id)
+	{
+		$sql="UPDATE products SET 
+				image_id=?
+				WHERE id = ?";
+		return query($sql,array($image_id, $product_id));
 	}
 	
 	/*

@@ -140,7 +140,38 @@ $(document).ready(function() {
  * Edit product
  */
 function editProduct(){
-	
+	var productId=$("#productId").val();
+	var name=$("#editProductName").val();
+	var description=$("#editProductDescription").val();
+	var cost=$("#editProductCost").val();
+	var stock=$("#editProductStock").val();
+	var category=$("#editProductCategory").val();
+	var storeId = getStoreId();
+	$.ajaxSetup({
+		"async" : false
+	});
+	var data = $.getJSON("../../ajax/store/updateProduct.php?", {
+		productId: productId,
+		name: name,
+		description: description,
+		cost: cost,
+		stock: stock,
+		category: category,
+		storeId: storeId
+	});
+	$.ajaxSetup({
+		"async" : true
+	});
+
+	var ret = $.parseJSON(data["responseText"])["result"];
+	if(ret=="ok")
+	{
+		var storeDomain = $("#registerForm #storeDomain").val();
+		window.location.href= "index.php?store=" + storeDomain;
+		
+	}else{
+		alert("erro: "+ret);
+	}
 }
 
 /*
