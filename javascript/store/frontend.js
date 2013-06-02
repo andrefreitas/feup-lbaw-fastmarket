@@ -60,6 +60,16 @@ $(document).ready(function() {
 	$("#updateAccount").click(function() {
 		updateAccount();
 	});
+	
+	/* E11 - Cart item remove */
+	$(".cart .remove").click(function(){
+		handleCartRemove(this);
+	});
+	
+	/* E12 - Cart item change*/
+	$(".cart .change").click(function(){
+		handleCartChange(this);
+	});
 
 	/* Add category to store*/
 	$("#addCategory").click(function(){
@@ -580,6 +590,69 @@ function requestAddToCart(storeId, productId){
 	var data = $.getJSON("../../ajax/store/addToCart.php?", {
 		productId : productId,
 		storeId : storeId
+	});
+	$.ajaxSetup({
+		"async" : true
+	});
+	return $.parseJSON(data["responseText"])["result"];
+}
+
+function getCartItemId(line){
+	return parseInt($(line).parent().parent().children().first().html());
+}
+function getCartItemQuantity(line){
+	return parseInt($(line).parent().parent().children().eq(3).html());
+}
+/** Remove from cart **/
+function requestRemoveFromCart(storeId, productId){
+	$.ajaxSetup({
+		"async" : false
+	});
+	var data = $.getJSON("../../ajax/store/removeFromCart.php?", {
+		productId : productId,
+		storeId : storeId
+	});
+	$.ajaxSetup({
+		"async" : true
+	});
+	return $.parseJSON(data["responseText"])["result"];
+}
+/** Handle cart remove **/
+function handleCartRemove(line){
+	var productId = getCartItemId(line);
+	var storeId = getStoreId();
+	var par = $(line).parent().parent();
+	if (confirm('Are you sure you want to delete this item?')) {
+		requestRemoveFromCart(storeId, productId);
+		$(par).fadeOut(500, function(){document.location.reload(true); });
+	} 
+	
+}
+
+/** Handle cart change **/
+function handleCartChange(line){
+	var productId = getCartItemId(line);
+	var quantity = getCartItemQuantity(line);
+	var storeId = getStoreId();
+	var newQuantity = prompt("Product quantity", quantity);
+	if(newQuantity == 0 ){
+		requestRemoveFromCart(storeId, productId);
+	}else{
+	requestCartChangeQuantity(storeId, productId, newQuantity);
+	}
+	document.location.reload(true);
+}
+
+
+/** Request cart change quantity **/
+function requestCartChangeQuantity(storeId, productId, newQuantity){
+	$.ajaxSetup({
+		"async" : false
+	});
+	var data = $.getJSON("../../ajax/store/cartChangeQuantity.php?", {
+		productId : productId,
+		storeId : storeId,
+		quantity : newQuantity
 	});
 	$.ajaxSetup({
 		"async" : true
