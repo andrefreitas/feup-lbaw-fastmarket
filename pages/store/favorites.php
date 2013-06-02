@@ -3,7 +3,8 @@ chdir('../../common');
 require_once('init.php');
 chdir('../database');
 require_once('storeFrontend.php');
-require_once('plataform.php');
+require_once('storeAccount.php');
+//require_once('plataform.php');
 chdir('../pages/store');
 
 if(!isset($_GET["store"]) or !storeExists($_GET["store"])){
@@ -48,9 +49,12 @@ if(isset($_SESSION['storesLogin'][$storeId]['userId'])){
     
     if(isset($userInfo))
     {
-    	$userInfo = getuserById($userInfo);
+    	$userInfo = getAccount($userInfo);
+    	$userPermission = getAccountPermission($userInfo["id"]);
+    	$userPermission = $userPermission["name"];
     }
     $smarty->assign('userInfo', $userInfo);
+    $smarty->assign('userPermission', $userPermission);
 }
 
 $favoritesPage=1;
