@@ -23,7 +23,7 @@ if(isset($_GET["storeId"]) and isset($_GET["name"]) and strlen($_GET["name"])>0 
 	$imageId = $imageId[0]["id"];
 	
 	addProduct($_GET["name"],$_GET["description"],$_GET["base_cost"],$_GET["stock"],$categoryId,$imageId);
-	echo json_encode(array("result" => "ok" . $categoryId));
+	echo json_encode(array("result" => "ok"));
 	
 }else{
     echo json_encode(array("result" => "missingParams"));
