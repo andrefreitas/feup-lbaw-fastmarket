@@ -6,7 +6,7 @@ if(isset($_GET["storeId"]) and isset($_GET["category"]) and strlen($_GET["catego
 	$checkExists = checkCategory($_GET["category"],$_GET["storeId"]);
 	if(!isset($checkExists[0]["id"]))
 	{
-		addCategory($_GET["category"],$_GET["storeId"],null)
+		addCategory($_GET["category"],$_GET["storeId"],null);
 		echo json_encode(array("result" => "ok"));
 	}else
 	{
