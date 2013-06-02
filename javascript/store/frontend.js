@@ -9,20 +9,20 @@ $(document).ready(function() {
 	
 	if(linkPage.match(/favorites.php/) != null)
 	{
-		storeHome.attr("");
-		storeFavorites.attr("active");
-		storeCart.attr("");
+		storeHome.attr("class","");
+		storeFavorites.attr("class","active");
+		storeCart.attr("class","");
 	}else if(linkPage.match(/index.php/) != null)
 	{
 		
-		storeHome.attr("active");
-		storeFavorites.attr("");
-		storeCart.attr("");
+		storeHome.attr("class","active");
+		storeFavorites.attr("class","");
+		storeCart.attr("class","");
 	}else if(linkPage.match(/cart.php/) != null)
 	{
-		storeHome.attr("");
-		storeFavorites.attr("");
-		storeCart.attr("active");
+		storeHome.attr("class","");
+		storeFavorites.attr("class","");
+		storeCart.attr("class","active");
 	}
 
 	/***************************************************************************
