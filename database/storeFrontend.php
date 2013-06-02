@@ -223,8 +223,11 @@ function evaluateProduct($productId, $userId, $score)
 
 function newOrder($userId )
 {
-	$sql = "INSERT INTO orders(costumer_id,paid,order_date) VALUES (?,'false',CURRENT_TIMESTAMP)";
-	return query($sql, array($userId));
+	$sql = "INSERT INTO orders(costumer_id, paid, order_date) "
+	     . "VALUES (?,'false',CURRENT_TIMESTAMP) "
+	     . "RETURNING id";
+	$result = query($sql, array($userId));
+	return $result[0]["id"];
 }
 
 /*
@@ -300,6 +303,15 @@ function getStoreById($storeId){
          . "WHERE stores.id = ? ";
     return query($sql, array($storeId));
 
+}
+
+/** Create an invoice **/
+function createInvoice($code, $total, $vat, $orderId){
+    $sql = "INSERT INTO invoice(code, total, vat, order_id) "
+         . "VALUES (?, ?, ?, ?) "
+         . "RETURNING id";
+    $result = query($sql, array($code, $total, $vat, $orderId));
+    return $result[0]["id"];
 }
 
 

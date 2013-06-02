@@ -100,6 +100,12 @@ $(document).ready(function() {
 	$("#clearCart").click(function(){
 		handleClearCart();
 	});
+	
+	/* E14 - Checkout */
+	$("#checkout").click(function(){
+		handleCheckout();
+	});
+	
 
 	/* Add category to store*/
 	$("#addCategory").click(function(){
@@ -814,4 +820,31 @@ function requestUpdateCartTotal(storeId){
 		$("#cartTotal").attr("class", "label");
 		$("#cartTotal").html(total);
 	});
+}
+
+function getCartTotal(storeId){
+	$.ajaxSetup({
+		"async" : false
+	});
+	var data = $.getJSON("../../ajax/store/getCartTotal.php?", {
+		storeId : storeId
+	});
+	$.ajaxSetup({
+		"async" : true
+	});
+	return $.parseJSON(data["responseText"])["total"];
+}
+
+function handleCheckout(){
+	if(isLoggedIn()){
+		var storeId = getStoreId();
+		var cartTotal = getCartTotal(storeId);
+		if(cartTotal>0 && confirm("Are you sure you want to checkout?")){
+				window.location = "../../actions/store/checkout.php?storeId="+ storeId;
+		} else if(cartTotal == 0){
+			alert("Your cart is empty!");
+		}
+	}else{
+		$('#userNotification').html('<div class="alert alert-error">You need to login first </div>');
+	}
 }
