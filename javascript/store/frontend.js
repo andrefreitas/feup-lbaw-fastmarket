@@ -121,6 +121,11 @@ $(document).ready(function() {
 		removeProduct();
 	});
 	
+	/* Edit Product modal*/
+	$("#editProduct").click(function(){
+		$("#editModal").attr("href","#editModal");
+	});
+	
 	/* Update Cart total */
 	updateCartTotal();
 	
