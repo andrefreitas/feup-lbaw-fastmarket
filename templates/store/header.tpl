@@ -56,8 +56,9 @@
 			<div class="navbar-inner">
 				<ul class="nav">
 				    <li class="" id="storeHome"><a href="index.php?store={$storeDomain}"><i class="icon-home"></i> Home</a></li>
-				    <li class="" id="storeFavorites"><a href="favorites.php?store={$storeDomain}"><i class="icon-star"></i> Favorites</a></li>
-				    <li class="" id="storeSubscriptions"><a href="subscriptions.php?store={$storeDomain}"><i class="icon-bookmark"></i> Subscriptions</a></li>
+				    <li class="" id="storeFavorites"><a href="favorites.php?store={$storeDomain}"><i class="icon-star"></i> My Favorites</a></li>
+				    <li class="" id="storeSubscriptions"><a href="subscriptions.php?store={$storeDomain}"><i class="icon-bookmark"></i> My Subscriptions</a></li>
+				    <li class="" id="storeOrders"><a href="orders.php?store={$storeDomain}"><i class="icon-list"></i> My Orders</a></li>
 				    <li class="" id="storeCart"><a href="cart.php?store={$storeDomain}"><i class="icon-shopping-cart"></i> Cart <span  id="cartTotal"></span></a></li>
 				</ul>
 			</div>

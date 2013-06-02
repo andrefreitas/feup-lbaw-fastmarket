@@ -220,7 +220,7 @@ function setAccountPass($userId, $pass)
 
 function getOrders($userId)
 {
-	$sql = "SELECT orders.id, order_date AS DATE,invoice.total
+	$sql = "SELECT orders.id, order_date as date, invoice.total, orders.paid
 			FROM orders,invoice
 			WHERE costumer_id=? AND orders.id=invoice.order_id";
 	return query($sql,array($userId));
