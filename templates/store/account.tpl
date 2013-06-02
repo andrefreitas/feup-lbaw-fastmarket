@@ -23,7 +23,19 @@
 			    	
 			    	<button class="btn" id="updateAccount">Update Account</button>
 			    </form>
-			    
+			    <br>
+			    {if $userPermission == "merchant"}
+				    <div id="merchantTools">
+				    	<h1>Merchant Tools</h1><br>
+				    	<form>
+				    		Category: <input type="text" id="categoryName" value="">
+				    		<button class="btn" id="addCategory">Add Category</button>
+				    		<button class="btn" id="removeCategory">Remove Category</button><br>
+					    	
+					    	TODO...
+				    	</form>
+				    </div>
+			    {/if}
 			</div>
 		</div>
 		
