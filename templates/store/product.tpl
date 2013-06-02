@@ -95,7 +95,7 @@
 				Description: <input type="text" value="{$product.description}" id="editProductDescription"><br>
 				Base cost: <input type="text" value="{$product.price}" id="editProductCost"><br>
 				Stock: <input type="text" value="{$product.stock}" id="editProductStock"><br>
-				Category: <input type="text" value="{$product.category}" id="editProductCategory"><br>
+				Category: <input type="text" value="{$product.category}" id="editProductCategory">
 	        </form>
 		</div>
 		<div class="modal-footer">
