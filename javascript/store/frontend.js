@@ -145,8 +145,14 @@ $(document).ready(function() {
 	$(".search button").click(function(){
 		handleSearch(this);
 	});
+	
 	/* Update Cart total */
 	updateCartTotal();
+	
+	/* View Invoice */
+	$(".viewInvoice").click(function(){
+		handleViewInvoice(this);
+	});
 	
 });
 
@@ -874,4 +880,9 @@ function handleSearch(bt){
 	var storeDomain = getStoreDomain();
 	var terms = $(bt).parent().children("input").val();
 	window.location = "search.php?store=" + storeDomain + "&terms=" +  terms;
+}
+
+function handleViewInvoice(bt){
+	var orderId = $(bt).parent().parent().children().eq(0).html();
+	window.location = "invoice.php?orderId=" + orderId;
 }

@@ -186,3 +186,18 @@ header .logout{
 .logo{
 	float: left;
 }
+
+/* Invoice */
+
+#invoice{
+	background-color: #fbfbfb;
+}
+#paper {
+	width: 500px;
+	min-height: 600px;
+	border: solid 1px #d4d4d4;
+	margin: 0 auto;
+	background-color: #fff;
+	margin-top: 50px;
+	padding: 20px;
+}
