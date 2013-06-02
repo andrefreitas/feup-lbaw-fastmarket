@@ -41,6 +41,7 @@
 		        {/if}
 		        
 		        {if $userPermission == "merchant"}
+		        <button class="btn" id="editProduct"> Edit </button>
 		        <button class="btn" id="removeProduct"> Remove </button>
 		        {/if}
 		    </div>
@@ -76,6 +77,28 @@
 		</div>
 	</div>
 </div>
+
+<!-- Modal for editing product info -->
+	<div id="editModal" class="modal hide fade register" tabindex="-1"
+		role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"
+				aria-hidden="true">×</button>
+			<h3 id="myModalLabel">Edit Product</h3>
+		</div>
+		<div class="modal-body">
+			<!--  Body -->
+		    <div class="editNotification">
+		    </div>
+			<form id="editForm">
+				Name: <input type="text" value="{$product.name}" id="editProductName"><br>
+	        </form>
+		</div>
+		<div class="modal-footer">
+			<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+			<button class="btn btn-primary" id="editButton" >Save</button>
+		</div>
+	</div>
 
 <!-- Modal for comment -->
 	<div id="commentModal" class="modal hide fade register" tabindex="-1"
