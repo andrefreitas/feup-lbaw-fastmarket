@@ -121,15 +121,27 @@ $(document).ready(function() {
 		removeProduct();
 	});
 	
-	/* Edit Product modal*/
+	/* Show Product modal*/
 	$("#editProduct").click(function(){
 		$("#editModal").modal("show");
+	});
+	
+	/* Edit Product info*/
+	$("#editButton").click(function(){
+		editProduct();
 	});
 	
 	/* Update Cart total */
 	updateCartTotal();
 	
 });
+
+/*
+ * Edit product
+ */
+function editProduct(){
+	alert("TODO.. faço isto depois de almoço");
+}
 
 /*
  * Remove product from store
