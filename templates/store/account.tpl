@@ -24,7 +24,6 @@
 			    	<button class="btn" id="updateAccount">Update Account</button>
 			    </form>
 			    <br>
-			    Account permission: {$userPermission}<br>
 			    {if $userPermission == "merchant"}
 				    <div id="merchantTools">
 				    	<h1>Merchant Tools</h1><br>
