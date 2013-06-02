@@ -47,17 +47,14 @@
 		<div class="navbar">
 			<div class="navbar-inner">
 				<ul class="nav">
-					{if isset($favoritesPage) && $favoritesPage==1}
 					
-						<li><a href="index.php?store={$storeDomain}"><i class="icon-home"></i> Home</a></li>
-						<li class="active"><a href="favorites.php?store={$storeDomain}"><i class="icon-star"></i> Favorites</a></li>
-						<li><a href="cart.php?store={$storeDomain}"><i class="icon-shopping-cart"></i> Cart</a></li>
-					{else}
 					
-						<li class="active"><a href="index.php?store={$storeDomain}"><i class="icon-home"></i> Home</a></li>
-						<li><a href="favorites.php?store={$storeDomain}"><i class="icon-star"></i> Favorites</a></li>
-						<li><a href="cart.php?store={$storeDomain}"><i class="icon-shopping-cart"></i> Cart</a></li>
-					{/if}
+					<li class="active"><a href="index.php?store={$storeDomain}"><i class="icon-home"></i> Home</a></li>
+					<li ><a href="favorites.php?store={$storeDomain}"><i class="icon-star"></i> Favorites</a></li>
+					<li ><a href="cart.php?store={$storeDomain}"><i class="icon-shopping-cart"></i> Cart</a></li>
+				
+					
+						
 				</ul>
 
 			</div>
