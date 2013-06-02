@@ -45,7 +45,7 @@ if(isset($_SESSION['storesLogin'][$storeId]['userId'])){
     
     if(isset($userInfo))
     {
-    	$userInfo = getuserById($userInfo);
+    	$userInfo = getAccount($userInfo);
     	$userPermission = getAccountPermission($userInfo["id"]);
     	$userPermission = $userPermission["name"];
     }
