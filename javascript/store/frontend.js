@@ -141,6 +141,10 @@ $(document).ready(function() {
 		editProduct();
 	});
 	
+	/* Search button */
+	$(".search button").click(function(){
+		handleSearch(this);
+	});
 	/* Update Cart total */
 	updateCartTotal();
 	
@@ -549,6 +553,10 @@ function getStoreId() {
 	return $('.storeId').val();
 }
 
+function getStoreDomain() {
+	return $('.storeDomain').val();
+}
+
 /**
  * Get product id
  */
@@ -860,4 +868,10 @@ function handleAddItem(item){
 		requestAddToCart(storeId, productId);
 		requestUpdateCartTotal(storeId);
 	}
+}
+
+function handleSearch(bt){
+	var storeDomain = getStoreDomain();
+	var terms = $(bt).parent().children("input").val();
+	window.location = "search.php?store=" + storeDomain + "&terms=" +  terms;
 }

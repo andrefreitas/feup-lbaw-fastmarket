@@ -21,13 +21,11 @@
 	   
 		<header>
 			<img src="{$logoPath}" alt="Logo" class="logo" />
-			<div class="search">
-			    <form class="form-search">
+			<div class="search form-search">
                   <div class="input-append">
                     <input type="text" class="span2 search-query">
                     <button type="submit" class="btn">Search</button>
                   </div>
-                 </form>
             </div>    
 			{if !isset($userInfo)}
 			<div class="login">
