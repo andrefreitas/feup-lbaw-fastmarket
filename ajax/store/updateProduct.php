@@ -14,7 +14,7 @@ if(isset($_GET["storeId"]) and isset($_GET["name"]) and strlen($_GET["name"])>0 
 	if(isset($categoryId) )
 	{
 		
-		function updateProduct($_GET["productId"], $_GET["name"], $_GET["description"], 
+		updateProduct($_GET["productId"], $_GET["name"], $_GET["description"], 
 								$_GET["cost"], $_GET["stock"], $categoryId);
 		
 		echo json_encode(array("result" => "ok"));	
