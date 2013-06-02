@@ -1,7 +1,8 @@
 $(document).ready(function() {
 
 	/* Check active page*/
-	var linkPage = window.location;
+	var linkPage = window.location.href;
+	linkPage = String(linkPage);
 	var storeHome= $("#storeHome");
 	var storeFavorites= $("#storeFavorites");
 	var storeCart= $("#storeCart");
