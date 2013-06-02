@@ -185,7 +185,7 @@ function addProduct(){
 	if(ret=="ok")
 	{
 		var storeDomain = $("#registerForm #storeDomain").val();
-		window.location.href= "account.php?store=" + storeDomain;
+		window.location.href= "index.php?store=" + storeDomain;
 		
 	}else{
 		alert("erro: "+ret);
