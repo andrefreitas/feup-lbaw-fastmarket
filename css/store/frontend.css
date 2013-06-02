@@ -172,3 +172,7 @@ header .logout{
 .cart .remove{
 	cursor: pointer;
 }
+
+.cart .change{
+	cursor: pointer;
+}
