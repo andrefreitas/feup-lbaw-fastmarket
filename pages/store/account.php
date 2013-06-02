@@ -39,8 +39,10 @@ if(isset($_SESSION['storesLogin'][$storeId]['userId'])){
     if(isset($userInfo))
     {
     	$userInfo = getAccount($userInfo);
+    	$userPermission = getAccountPermission($userInfo["id"]);
     }
     $smarty->assign('userInfo', $userInfo);
+    $smarty->assign('userPermission', $userPermission);
 }else{
 	header("Location: ../store/index.php?store=" . $domain);
 }

@@ -131,6 +131,18 @@ function getAccount($userId)
 }
 
 /*
+ * Get user permission
+ */
+function getAccountPermission($userId)
+{
+	$sql = "SELECT privileges.name FROM users, privileges
+			WHERE users.id=? AND users.privilege_id=privileges.id ";
+	
+	$result = query($sql, array($userId));
+    return $result ? $result[0] : false;
+}
+
+/*
  * Get favorites of user
 */
 
