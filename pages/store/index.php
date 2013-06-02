@@ -45,8 +45,11 @@ if(isset($_SESSION['storesLogin'][$storeId]['userId'])){
     if(isset($userInfo))
     {
     	$userInfo = getuserById($userInfo);
+    	$userPermission = getAccountPermission($userInfo["id"]);
+    	$userPermission = $userPermission["name"];
     }
     $smarty->assign('userInfo', $userInfo);
+    $smarty->assign('userPermission', $userPermission);
 }
 /* END -- Get store data */
 
