@@ -10,6 +10,10 @@
 					{foreach from=$categories item=category}
 					    <li><a href="category.php?store={$storeDomain}&categoryid={$category.id}">{$category.name}</a></li>
                     {/foreach}
+                    
+                    {if $userPermission == "merchant"}
+                    	<li><a href="outstock.php?store={$storeDomain}">Out of stock/removed</a></li>
+                    {/if}
 				</ul>
 			</div>
 			<div class="span_account span10">
