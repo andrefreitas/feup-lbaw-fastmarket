@@ -202,7 +202,7 @@ function getProductsOutOfStock($storeId)
 	$sql = "SELECT products.id, products.name, products.description, products.base_cost AS price, 
 			products.stock, products.score, categories.name AS category, files.path AS file
 			FROM products,categories,files
-			WHERE products.category_id=categories.id AND categories.store_id=? 
+			WHERE products.category_id=categories.id AND categories.store_id=? AND 
 			files.id=products.image_id AND stock <= 0 ";
 	return query($sql,array($storeId));
 }
