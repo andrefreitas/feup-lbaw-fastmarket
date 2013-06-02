@@ -56,6 +56,7 @@ $(document).ready(function() {
 		handleAddToCart();
 	});
 	
+	/* Update Account info*/
 	$("#updateAccount").click(function() {
 		updateAccount();
 	});
@@ -66,7 +67,120 @@ $(document).ready(function() {
 		handleCartRemove(this);
 	});
 
+	/* Add category to store*/
+	$("#addCategory").click(function(){
+		addCategory();
+	});
+	
+	/* Remove category from store*/
+	$("#removeCategory").click(function(){
+		removeCategory();
+	});
+	
+	/* Add product to store*/
+	$("#addProduct").click(function(){
+		addProduct();
+	});
+	
 });
+
+/*
+ * Add product to store
+ */
+function addProduct(){
+	var storeId = getStoreId();
+	var name = $("#newProductName").val();
+	var description = $("#newProductDescription").val();
+	var cost = $("#newProductCost").val();
+	var stock = $("#newProductStock").val();
+	var category = $("#newProductCategory").val();
+	$.ajaxSetup({
+		"async" : false
+	});
+	var data = $.getJSON("../../ajax/store/addProduct.php?", {
+		name: name,
+		description: description,
+		base_cost: cost,
+		stock: stock,
+		category: category,
+		storeId: storeId
+	});
+	$.ajaxSetup({
+		"async" : true
+	});
+
+	
+
+	var ret = $.parseJSON(data["responseText"])["result"];
+	if(ret=="ok")
+	{
+		var storeDomain = $("#registerForm #storeDomain").val();
+		window.location.href= "account.php?store=" + storeDomain;
+		
+	}else{
+		alert("erro: "+ret);
+	}
+}
+
+/*
+ * Remove category from store
+ */
+function removeCategory(){
+	var storeId = getStoreId();
+	var category = $("#categoryName").val();
+	$.ajaxSetup({
+		"async" : false
+	});
+	var data = $.getJSON("../../ajax/store/removeCategory.php?", {
+		category: category,
+		storeId: storeId
+	});
+	$.ajaxSetup({
+		"async" : true
+	});
+
+	
+
+	var ret = $.parseJSON(data["responseText"])["result"];
+	if(ret=="ok")
+	{
+		var storeDomain = $("#registerForm #storeDomain").val();
+		window.location.href= "account.php?store=" + storeDomain;
+		
+	}else{
+		alert("erro: "+ret);
+	}
+}
+
+/*
+ * Add category to store
+ */
+function addCategory(){
+	var storeId = getStoreId();
+	var category = $("#categoryName").val();
+	$.ajaxSetup({
+		"async" : false
+	});
+	var data = $.getJSON("../../ajax/store/addCategory.php?", {
+		category: category,
+		storeId: storeId
+	});
+	$.ajaxSetup({
+		"async" : true
+	});
+
+	
+
+	var ret = $.parseJSON(data["responseText"])["result"];
+	if(ret=="ok")
+	{
+		var storeDomain = $("#registerForm #storeDomain").val();
+		window.location.href= "account.php?store=" + storeDomain;
+		
+	}else{
+		alert("erro: "+ret);
+	}
+}
 
 /*
  * Update Account info

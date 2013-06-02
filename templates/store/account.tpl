@@ -31,7 +31,15 @@
 				    		Category: <input type="text" id="categoryName" value="">
 				    		<button class="btn" id="addCategory">Add Category</button>
 				    		<button class="btn" id="removeCategory">Remove Category</button><br>
-					    	
+					    	<br>
+					    	New Product
+					    	<br>
+					    	Name: <input type="text" id="newProductName" value=""><br>
+					    	Description: <input type="text" id="newProductDescription" value=""><br>
+					    	Base Cost: <input type="text" id="newProductCost" value=""><br>
+					    	Stock: <input type="text" id="newProductStock" value=""><br>
+					    	Category name: <input type="text" id="newProductCategory" value=""><br>
+					    	<button class="btn" id="addProduct">Add Product</button><br>
 					    	TODO...
 				    	</form>
 				    </div>

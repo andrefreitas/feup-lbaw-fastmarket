@@ -268,4 +268,13 @@ chdir('../database');
 				VALUES(?,?,?)";
 		return query($sql,array($name,$store_id,$image_id));
 	}
+	
+	/*
+		check category
+	*/
+	function checkCategory($name,$store_id)
+	{
+		$sql="SELECT * FROM categories WHERE name=? and store_id=?";
+		return query($sql,array($name,$store_id));
+	}
 ?>
