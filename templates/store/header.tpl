@@ -21,12 +21,14 @@
 	   
 		<header>
 			<img src="{$logoPath}" alt="Logo" class="logo" />
+			{if $userPermission != "guest"}
 			<div class="search form-search">
                   <div class="input-append">
                     <input type="text" class="span2 search-query">
                     <button type="submit" class="btn">Search</button>
                   </div>
             </div>    
+            {/if}
 			{if !isset($userInfo)}
 			<div class="login">
 				<div class="form-inline">
@@ -55,6 +57,7 @@
 				<ul class="nav">
 				    <li class="" id="storeHome"><a href="index.php?store={$storeDomain}"><i class="icon-home"></i> Home</a></li>
 				    <li class="" id="storeFavorites"><a href="favorites.php?store={$storeDomain}"><i class="icon-star"></i> Favorites</a></li>
+				    <li class="" id="storeSubscriptions"><a href="subscriptions.php?store={$storeDomain}"><i class="icon-bookmark"></i> Subscriptions</a></li>
 				    <li class="" id="storeCart"><a href="cart.php?store={$storeDomain}"><i class="icon-shopping-cart"></i> Cart <span  id="cartTotal"></span></a></li>
 				</ul>
 			</div>
