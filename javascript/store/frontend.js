@@ -5,17 +5,17 @@ $(document).ready(function() {
 	var storeHome= $("#storeHome");
 	var storeFavorites= $("#storeFavorites");
 	var storeCart= $("#storeCart");
-	if(linkPage.match(/favorites.php/g))
+	if(linkPage.match(/favorites.php/g) != null)
 	{
 		storeHome.class="";
 		storeFavorites.class="active";
 		storeCart.class="";
-	}else if(linkPage.match(/index.php/g))
+	}else if(linkPage.match(/index.php/g) != null)
 	{
 		storeHome.class="active";
 		storeFavorites.class="";
 		storeCart.class="";
-	}else if(linkPage.match(/cart.php/g))
+	}else if(linkPage.match(/cart.php/g) != null)
 	{
 		storeHome.class="";
 		storeFavorites.class="";
