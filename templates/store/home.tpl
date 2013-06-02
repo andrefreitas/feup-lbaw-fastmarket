@@ -16,18 +16,19 @@
                     {/if}
 				</ul>
 				<!--  New Registration -->
-			
+			  
 			</div>
 			<div class="span10">
 				<!--Body content-->
 				{foreach from=$products item=product}
 				        <div class="productItem">
+				            <input type="hidden" class="productId" value="{$product.id}">
 					        <img src="{$product.file}" >
 					        <div class="name"> {$product.name}</div>
 					        <div class="description">{$product.description}</div> 
 					        <div class="price">{($product.price * (1 + $vat))}  &euro;</div>
 					        <div class="actions">
-					            <a class="btn" href="#"><i class="icon-shopping-cart"></i> Add Item</a>
+					            <button class="btn addItem" href="#"><i class="icon-shopping-cart"></i> Add Item</button>
 					            <a class="btn btn-inverse" href="product.php?store={$storeDomain}&id={$product.id}">View</a>
 					        </div>
 					    </div>

@@ -106,6 +106,10 @@ $(document).ready(function() {
 		handleCheckout();
 	});
 	
+	/* E15 - Add Item */
+	$(".addItem").click(function(){
+		handleAddItem(this);
+	});
 
 	/* Add category to store*/
 	$("#addCategory").click(function(){
@@ -846,5 +850,14 @@ function handleCheckout(){
 		}
 	}else{
 		$('#userNotification').html('<div class="alert alert-error">You need to login first </div>');
+	}
+}
+
+function handleAddItem(item){
+	var productId = parseInt($(item).parent().parent().children(".productId").eq(0).attr("value"));
+	var storeId = getStoreId();
+	if(confirm("Are you sure you want to add this item to cart?")){
+		requestAddToCart(storeId, productId);
+		requestUpdateCartTotal(storeId);
 	}
 }
