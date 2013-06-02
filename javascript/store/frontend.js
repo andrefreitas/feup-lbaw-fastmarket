@@ -123,7 +123,7 @@ $(document).ready(function() {
 	
 	/* Edit Product modal*/
 	$("#editProduct").click(function(){
-		$("#editModal").attr("href","#editModal");
+		$("#editModal").modal("show");
 	});
 	
 	/* Update Cart total */
