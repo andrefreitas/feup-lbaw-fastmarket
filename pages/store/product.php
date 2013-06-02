@@ -43,7 +43,7 @@ if(isset($_SESSION['storesLogin'][$storeId]['userId'])){
     $isSubscribed = subscriptionExists($userInfo, $id);
     if(isset($userInfo))
     {
-        $userInfo = getuserById($userInfo);
+        $userInfo = getAccount($userInfo);
         $userPermission = getAccountPermission($userInfo["id"]);
     	$userPermission = $userPermission["name"];
     }

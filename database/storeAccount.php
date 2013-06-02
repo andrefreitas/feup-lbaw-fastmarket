@@ -78,7 +78,7 @@ function activateUserById($userId){
 /*
  * Activate user by hash
 */
-/*
+
 function activateUserByHash($hash){
     $userID = getActivationUserId($hash);
     if($userID){
@@ -90,7 +90,7 @@ function activateUserByHash($hash){
     }
     return false;
 }
-*/
+
 /*
  * Get Subscriptions of user
 */
