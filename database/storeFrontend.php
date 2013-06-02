@@ -188,7 +188,8 @@ function getProductsOfCategory($categoryId)
 	$sql = "SELECT products.id, products.name, products.description, products.base_cost AS price, 
 			products.stock, products.score, categories.name AS category, files.path AS file
 			FROM products,categories,files
-			WHERE categories.id=? AND products.category_id=categories.id AND files.id=products.image_id";
+			WHERE categories.id=? AND products.category_id=categories.id AND 
+			files.id=products.image_id AND stock > 0 ";
 	return query($sql,array($categoryId));
 }
 
