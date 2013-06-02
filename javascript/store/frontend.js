@@ -131,6 +131,7 @@ $(document).ready(function() {
  */
 function removeProduct(){
 	var storeId = getStoreId();
+	var productId= $("#productId").val();
 	$.ajaxSetup({
 		"async" : false
 	});
