@@ -55,7 +55,6 @@ $smarty->assign('logoPath', $logoPath);
 $smarty->assign('categories', $categories);
 $smarty->assign('storeId', $storeId);
 $smarty->assign('storeDomain', $domain);
-$smarty->assign('account', $account);
 $smarty->display('store/account.tpl');
 
 ?>
