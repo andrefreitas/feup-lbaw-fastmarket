@@ -65,7 +65,42 @@ $(document).ready(function() {
 	$("#addCategory").click(function(){
 		addCategory();
 	});
+	
+	/* Remove category from store*/
+	$("#removeCategory").click(function(){
+		removeCategory();
+	});
 });
+
+/*
+ * Remove category from store
+ */
+function removeCategory(){
+	var storeId = getStoreId();
+	var category = $("#categoryName").val();
+	$.ajaxSetup({
+		"async" : false
+	});
+	var data = $.getJSON("../../ajax/store/removeCategory.php?", {
+		category: category,
+		storeId: storeId
+	});
+	$.ajaxSetup({
+		"async" : true
+	});
+
+	
+
+	var ret = $.parseJSON(data["responseText"])["result"];
+	if(ret=="ok")
+	{
+		var storeDomain = $("#registerForm #storeDomain").val();
+		window.location.href= "account.php?store=" + storeDomain;
+		
+	}else{
+		alert("erro: "+ret);
+	}
+}
 
 /*
  * Add category to store
