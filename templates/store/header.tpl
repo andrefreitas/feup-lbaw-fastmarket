@@ -51,12 +51,12 @@
 					
 						<li><a href="index.php?store={$storeDomain}"><i class="icon-home"></i> Home</a></li>
 						<li class="active"><a href="favorites.php?store={$storeDomain}"><i class="icon-star"></i> Favorites</a></li>
-						<li><a href="#"><i class="icon-shopping-cart"></i> Cart</a></li>
+						<li><a href="cart.php?store={$storeDomain}"><i class="icon-shopping-cart"></i> Cart</a></li>
 					{else}
 					
 						<li class="active"><a href="index.php?store={$storeDomain}"><i class="icon-home"></i> Home</a></li>
 						<li><a href="favorites.php?store={$storeDomain}"><i class="icon-star"></i> Favorites</a></li>
-						<li><a href="#"><i class="icon-shopping-cart"></i> Cart</a></li>
+						<li><a href="cart.php?store={$storeDomain}"><i class="icon-shopping-cart"></i> Cart</a></li>
 					{/if}
 				</ul>
 
