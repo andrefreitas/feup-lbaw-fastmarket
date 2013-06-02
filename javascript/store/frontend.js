@@ -140,7 +140,7 @@ $(document).ready(function() {
  * Edit product
  */
 function editProduct(){
-	alert("TODO.. faço isto depois de almoço");
+	
 }
 
 /*
