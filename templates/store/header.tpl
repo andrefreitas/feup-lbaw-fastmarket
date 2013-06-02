@@ -49,9 +49,9 @@
 				<ul class="nav">
 					
 					
-					<li class="active"><a href="index.php?store={$storeDomain}"><i class="icon-home"></i> Home</a></li>
-					<li ><a href="favorites.php?store={$storeDomain}"><i class="icon-star"></i> Favorites</a></li>
-					<li ><a href="cart.php?store={$storeDomain}"><i class="icon-shopping-cart"></i> Cart</a></li>
+					<li class="active" id="storeHome"><a href="index.php?store={$storeDomain}"><i class="icon-home"></i> Home</a></li>
+					<li id="storeFavorites"><a href="favorites.php?store={$storeDomain}"><i class="icon-star"></i> Favorites</a></li>
+					<li id="storeCart"><a href="cart.php?store={$storeDomain}"><i class="icon-shopping-cart"></i> Cart</a></li>
 				
 					
 						
