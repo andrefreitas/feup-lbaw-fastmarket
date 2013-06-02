@@ -454,7 +454,7 @@ function requestRate(productId, userId, score){
 function handleAddToCart(){
 	var productId = getProductId();
 	var storeId = getStoreId();
-	//requestAddToCart(storeId, productId);
+	requestAddToCart(storeId, productId);
 	$("#productNotifications").html('<div class="alert alert-success">Product added to cart </div>');
 }
 

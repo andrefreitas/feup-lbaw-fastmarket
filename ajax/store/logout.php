@@ -5,8 +5,10 @@ require_once('init.php');
 
 chdir('../ajax/store');
 
-
-$_SESSION['storesLogin'][$_GET['storeId']]['userId']=null;
+if(isset($_GET['storeId'])){
+    unset($_SESSION['storesLogin'][$_GET['storeId']]['userId']);
 echo json_encode(Array("result"=>"ok"));
- 
+}else{
+echo json_encode(Array("result"=>"missingStoreId"));
+}
 ?>
