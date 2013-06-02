@@ -5,17 +5,17 @@ $(document).ready(function() {
 	var storeHome= $("#storeHome");
 	var storeFavorites= $("#storeFavorites");
 	var storeCart= $("#storeCart");
-	if(linkPage.match("\favorites.php\"))
+	if(linkPage.match(\favorites.php\g))
 	{
 		storeHome.class="";
 		storeFavorites.class="active";
 		storeCart.class="";
-	}else if(linkPage.match("\index.php\"))
+	}else if(linkPage.match(\index.php\g))
 	{
 		storeHome.class="active";
 		storeFavorites.class="";
 		storeCart.class="";
-	}else if(linkPage.match("\cart.php\"))
+	}else if(linkPage.match(\cart.php\g))
 	{
 		storeHome.class="";
 		storeFavorites.class="";
