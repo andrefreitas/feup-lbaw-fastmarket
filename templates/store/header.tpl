@@ -21,6 +21,14 @@
 	   
 		<header>
 			<img src="{$logoPath}" alt="Logo" class="logo" />
+			<div class="search">
+			    <form class="form-search">
+                  <div class="input-append">
+                    <input type="text" class="span2 search-query">
+                    <button type="submit" class="btn">Search</button>
+                  </div>
+                 </form>
+            </div>    
 			{if !isset($userInfo)}
 			<div class="login">
 				<div class="form-inline">
@@ -47,13 +55,12 @@
 		<div class="navbar">
 			<div class="navbar-inner">
 				<ul class="nav">
-
 				    <li class="" id="storeHome"><a href="index.php?store={$storeDomain}"><i class="icon-home"></i> Home</a></li>
 				    <li class="" id="storeFavorites"><a href="favorites.php?store={$storeDomain}"><i class="icon-star"></i> Favorites</a></li>
 				    <li class="" id="storeCart"><a href="cart.php?store={$storeDomain}"><i class="icon-shopping-cart"></i> Cart <span  id="cartTotal"></span></a></li>
-
 				</ul>
 			</div>
+			
 		</div>
 	</div>
 

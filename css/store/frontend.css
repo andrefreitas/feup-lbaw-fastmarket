@@ -176,3 +176,13 @@ header .logout{
 .cart .change{
 	cursor: pointer;
 }
+
+.search{
+	float: left;
+	margin-top: 50px;
+	margin-left: 40px;
+}
+
+.logo{
+	float: left;
+}
