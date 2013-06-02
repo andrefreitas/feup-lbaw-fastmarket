@@ -2,6 +2,7 @@
 chdir('../../common');
 require_once('init.php');
 chdir('../database');
+require_once('storeAccount.php');
 require_once('storeFrontend.php');
 require_once('plataform.php');
 chdir('../pages/store');
