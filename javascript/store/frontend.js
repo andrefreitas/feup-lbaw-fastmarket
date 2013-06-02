@@ -116,10 +116,42 @@ $(document).ready(function() {
 		addProduct();
 	});
 	
+	/* Remove product from store*/
+	$("#removeProduct").click(function(){
+		removeProduct();
+	});
+	
 	/* Update Cart total */
 	updateCartTotal();
 	
 });
+
+/*
+ * Remove product from store
+ */
+function removeProduct(){
+	var storeId = getStoreId();
+	$.ajaxSetup({
+		"async" : false
+	});
+	var data = $.getJSON("../../ajax/store/removeProduct.php?", {
+		productId: productId,
+		storeId: storeId
+	});
+	$.ajaxSetup({
+		"async" : true
+	});
+
+	var ret = $.parseJSON(data["responseText"])["result"];
+	if(ret=="ok")
+	{
+		var storeDomain = $("#registerForm #storeDomain").val();
+		window.location.href= "index.php?store=" + storeDomain;
+		
+	}else{
+		alert("erro: "+ret);
+	}
+}
 
 /*
  * Add product to store
