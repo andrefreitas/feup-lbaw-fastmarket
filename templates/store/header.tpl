@@ -47,6 +47,11 @@
 		<div class="navbar">
 			<div class="navbar-inner">
 				<ul class="nav">
+<<<<<<< HEAD
+				    <li><a href="index.php?store={$storeDomain}"><i class="icon-home"></i> Home</a></li>
+				    <li><a href="favorites.php?store={$storeDomain}"><i class="icon-star"></i> Favorites</a></li>
+				    <li><a href="cart.php?store={$storeDomain}"><i class="icon-shopping-cart"></i> Cart <span  id="cartTotal"></span></a></li>
+=======
 					
 					
 					<li class="active" id="storeHome"><a href="index.php?store={$storeDomain}"><i class="icon-home"></i> Home</a></li>
@@ -55,8 +60,8 @@
 				
 					
 						
+>>>>>>> branch 'master' of https://andrefreitas@bitbucket.org/andrefreitas/fastmarket.git
 				</ul>
-
 			</div>
 		</div>
 	</div>

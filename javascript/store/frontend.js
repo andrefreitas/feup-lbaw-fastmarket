@@ -92,6 +92,11 @@ $(document).ready(function() {
 	$(".cart .change").click(function(){
 		handleCartChange(this);
 	});
+	
+	/* E13 - Clear cart */
+	$("#clearCart").click(function(){
+		handleClearCart();
+	});
 
 	/* Add category to store*/
 	$("#addCategory").click(function(){
@@ -107,6 +112,9 @@ $(document).ready(function() {
 	$("#addProduct").click(function(){
 		addProduct();
 	});
+	
+	/* Update Cart total */
+	updateCartTotal();
 	
 });
 
@@ -602,6 +610,7 @@ function handleAddToCart(){
 	var storeId = getStoreId();
 	requestAddToCart(storeId, productId);
 	$("#productNotifications").html('<div class="alert alert-success">Product added to cart </div>');
+	updateCartTotal();
 }
 
 /** Request add to cart **/
@@ -680,4 +689,39 @@ function requestCartChangeQuantity(storeId, productId, newQuantity){
 		"async" : true
 	});
 	return $.parseJSON(data["responseText"])["result"];
+}
+
+/* Clear Cart */
+function handleClearCart(){
+	if (confirm('Are you sure you want to clear the cart?')) {
+	var storeId = getStoreId();
+	requestClearCart(storeId);
+	document.location.reload(true);
+	}
+}
+
+function requestClearCart(storeId){
+	$.ajaxSetup({
+		"async" : false
+	});
+	var data = $.getJSON("../../ajax/store/clearCart.php?", {
+		storeId : storeId
+	});
+	$.ajaxSetup({
+		"async" : true
+	});
+	return $.parseJSON(data["responseText"])["result"];
+}
+
+function updateCartTotal(){
+	var storeId = getStoreId();
+	requestUpdateCartTotal(storeId);
+}
+
+function requestUpdateCartTotal(storeId){
+	$.getJSON("../../ajax/store/getCartTotal.php?",{storeId : storeId}).done(function(data){
+		var total = data.total;
+		$("#cartTotal").attr("class", "label");
+		$("#cartTotal").html(total);
+	});
 }
