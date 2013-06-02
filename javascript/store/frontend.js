@@ -617,8 +617,14 @@ function handleRemoveFavorite() {
 function handleSubscribe() {
 	var productId = getProductId();
 	var userId = getUserId();
-	requestSubscribe(productId, userId);
-	document.location.reload(true);
+	if(isLoggedIn()){
+		requestSubscribe(productId, userId);
+		document.location.reload(true);
+	} else {
+		$('#userNotification')
+		.html(
+				'<div class="alert alert-error">You need to login first </div>');
+	}
 }
 
 /* Request subscribe */
