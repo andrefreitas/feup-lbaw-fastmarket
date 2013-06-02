@@ -14,7 +14,7 @@ $(document).ready(function() {
 		storeCart.class="";
 	}else if(linkPage.match(/index.php/) != null)
 	{
-		alert("active home");
+		
 		storeHome.class="active";
 		storeFavorites.class="";
 		storeCart.class="";

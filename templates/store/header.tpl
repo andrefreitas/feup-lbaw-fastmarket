@@ -48,9 +48,9 @@
 			<div class="navbar-inner">
 				<ul class="nav">
 
-				    <li id="storeHome"><a href="index.php?store={$storeDomain}"><i class="icon-home"></i> Home</a></li>
-				    <li id="storeFavorites"><a href="favorites.php?store={$storeDomain}"><i class="icon-star"></i> Favorites</a></li>
-				    <li id="storeCart"><a href="cart.php?store={$storeDomain}"><i class="icon-shopping-cart"></i> Cart <span  id="cartTotal"></span></a></li>
+				    <li class="" id="storeHome"><a href="index.php?store={$storeDomain}"><i class="icon-home"></i> Home</a></li>
+				    <li class="" id="storeFavorites"><a href="favorites.php?store={$storeDomain}"><i class="icon-star"></i> Favorites</a></li>
+				    <li class="" id="storeCart"><a href="cart.php?store={$storeDomain}"><i class="icon-shopping-cart"></i> Cart <span  id="cartTotal"></span></a></li>
 
 				</ul>
 			</div>
