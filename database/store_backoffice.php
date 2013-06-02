@@ -189,6 +189,17 @@ chdir('../database');
 	}
 	
 	/*
+		get file by name
+	*/
+	function getFileByName($file_name)
+	{
+		$sql="SELECT * 
+				FROM files
+				WHERE name=?";
+		return query($sql,array($file_name));
+	}
+	
+	/*
 		get order
 	*/
 	function getOrder($order_id)

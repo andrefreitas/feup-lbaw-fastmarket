@@ -8,7 +8,7 @@
 				<ul class="nav nav-list">
 					<li class="nav-header">Categories</li>
 					{foreach from=$categories item=category}
-					    <li><a href="#">{$category.name}</a></li>
+					    <li><a href="category.php?store={$storeDomain}&categoryid={$category.id}">{$category.name}</a></li>
                     {/foreach}
 				</ul>
 			</div>

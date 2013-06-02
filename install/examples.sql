@@ -36,6 +36,7 @@ INSERT INTO files(name,path) VALUES('BMW Serie 1','luxcars_bmwserie1.png');
 INSERT INTO files(name,path) VALUES('BMW Serie 3','luxcars_bmwserie3.png');
 INSERT INTO files(name,path) VALUES('458 Italia','luxcars_ferrari458.png');
 INSERT INTO files(name,path) VALUES('458 Italia','luxcars_ferrari458_back.png');
+INSERT INTO files(name,path) VALUES('no image','generic_no_image.png');
 INSERT INTO files(name,path) VALUES('Contacts','luxcars_contacts.html');
 INSERT INTO files(name,path) VALUES('Luxcars About','luxcars_about.html');
 INSERT INTO files(name,path) VALUES('About','plataform_about.html');
