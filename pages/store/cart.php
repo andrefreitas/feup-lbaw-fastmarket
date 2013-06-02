@@ -33,7 +33,7 @@ $vat=$vat_oux[0]["vat"];
 
 //logged in user
 
-
+$smarty->assign('userPermission', 'guest');
 if(isset($_SESSION['storesLogin'][$storeId]['userId'])){
     $userInfo = $_SESSION['storesLogin'][$storeId]['userId'];
     

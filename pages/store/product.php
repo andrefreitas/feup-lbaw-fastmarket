@@ -36,6 +36,7 @@ $comments=getCommentsOfProduct($id);
 $isLoggedIn = false;
 $isFavorite = false;
 $isSubscribed = false;
+$smarty->assign('userPermission', 'guest');
 if(isset($_SESSION['storesLogin'][$storeId]['userId'])){
     $isLoggedIn = true;
     $userInfo = $_SESSION['storesLogin'][$storeId]['userId'];
