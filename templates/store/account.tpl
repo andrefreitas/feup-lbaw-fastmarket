@@ -43,8 +43,8 @@
 					    	Base Cost: <input type="text" id="newProductCost" value=""><br>
 					    	Stock: <input type="text" id="newProductStock" value=""><br>
 					    	Category name: <input type="text" id="newProductCategory" value=""><br>
-					    	<button class="btn" id="addProduct">Add Product</button><br>
-					    	TODO...
+					    	<button class="btn" id="addProduct">Add Product</button>
+					    	
 				    	</form>
 				    </div>
 			    {/if}
