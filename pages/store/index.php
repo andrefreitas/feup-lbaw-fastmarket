@@ -29,7 +29,7 @@ $categories = getCategories($storeId);
 
 // Products
 $products = getStoreProductsOnStock($storeId, 10);
-print_r($products);
+//print_r($products);
 $products = array_map("updatePath", $products);
 
 // Vat
