@@ -39,6 +39,10 @@
 		        {else}
 		         <button class="btn" id="unsubscribe"><i class="icon-bookmark"></i> Unsubscribe</button>
 		        {/if}
+		        
+		        {if $userPermission == "merchant"}
+		        <button class="btn" id="removeProduct"> Remove </button>
+		        {/if}
 		    </div>
 		    <!--  -->
 		    <div id="productNotifications"></div>
