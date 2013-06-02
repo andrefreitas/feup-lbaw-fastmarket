@@ -7,17 +7,17 @@ $(document).ready(function() {
 	var storeFavorites= $("#storeFavorites");
 	var storeCart= $("#storeCart");
 	alert("page: "+linkPage);
-	if(linkPage.match(/favorites.php/g) != null)
+	if(linkPage.match(/favorites.php/) != null)
 	{
 		storeHome.class="";
 		storeFavorites.class="active";
 		storeCart.class="";
-	}else if(linkPage.match(/index.php/g) != null)
+	}else if(linkPage.match(/index.php/) != null)
 	{
 		storeHome.class="active";
 		storeFavorites.class="";
 		storeCart.class="";
-	}else if(linkPage.match(/cart.php/g) != null)
+	}else if(linkPage.match(/cart.php/) != null)
 	{
 		storeHome.class="";
 		storeFavorites.class="";
