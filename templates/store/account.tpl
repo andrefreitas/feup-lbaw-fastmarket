@@ -12,7 +12,7 @@
                     {/foreach}
                     
                     {if $userPermission == "merchant"}
-                    	<li><a href="outstock.php?store={$storeDomain}">Out of stock/removed</a></li>
+                    	<li><a href="outstock.php?store={$storeDomain}">Out of stock / removed</a></li>
                     {/if}
 				</ul>
 			</div>
