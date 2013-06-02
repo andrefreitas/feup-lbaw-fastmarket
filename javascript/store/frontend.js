@@ -56,11 +56,46 @@ $(document).ready(function() {
 		handleAddToCart();
 	});
 	
+	/* Update Account info*/
 	$("#updateAccount").click(function() {
 		updateAccount();
 	});
 
+	/* Add category to store*/
+	$("#addCategory").click(function(){
+		addCategory();
+	});
 });
+
+/*
+ * Add category to store
+ */
+function addCategory(){
+	var storeId = getStoreId();
+	var category = $("#categoryName").val();
+	$.ajaxSetup({
+		"async" : false
+	});
+	var data = $.getJSON("../../ajax/store/addCategory.php?", {
+		category: category,
+		storeId: storeId
+	});
+	$.ajaxSetup({
+		"async" : true
+	});
+
+	
+
+	var ret = $.parseJSON(data["responseText"])["result"];
+	if(ret=="ok")
+	{
+		var storeDomain = $("#registerForm #storeDomain").val();
+		window.location.href= "account.php?store=" + storeDomain;
+		
+	}else{
+		alert("erro: "+ret);
+	}
+}
 
 /*
  * Update Account info
