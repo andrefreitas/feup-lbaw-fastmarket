@@ -50,7 +50,6 @@
 				    <li><a href="index.php?store={$storeDomain}"><i class="icon-home"></i> Home</a></li>
 				    <li><a href="favorites.php?store={$storeDomain}"><i class="icon-star"></i> Favorites</a></li>
 				    <li><a href="cart.php?store={$storeDomain}"><i class="icon-shopping-cart"></i> Cart <span  id="cartTotal"></span></a></li>
-
 				</ul>
 			</div>
 		</div>

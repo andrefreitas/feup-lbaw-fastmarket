@@ -1,5 +1,27 @@
 $(document).ready(function() {
 
+	/* Check active page*/
+	var linkPage = window.location;
+	var storeHome= $("#storeHome");
+	var storeFavorites= $("#storeFavorites");
+	var storeCart= $("#storeCart");
+	if(linkPage.match(\favorites.php\))
+	{
+		storeHome.class="";
+		storeFavorites.class="active";
+		storeCart.class="";
+	}else if(linkPage.match(\index.php\))
+	{
+		storeHome.class="active";
+		storeFavorites.class="";
+		storeCart.class="";
+	}else if(linkPage.match(\cart.php\))
+	{
+		storeHome.class="";
+		storeFavorites.class="";
+		storeCart.class="active";
+	}
+
 	/***************************************************************************
 	 * *********** Handle Events ************
 	 **************************************************************************/
