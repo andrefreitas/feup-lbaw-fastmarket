@@ -194,6 +194,20 @@ function getProductsOfCategory($categoryId)
 }
 
 /*
+ * Get products out of stock / removed
+*/
+
+function getProductsOutOfStock($storeId)
+{
+	$sql = "SELECT products.id, products.name, products.description, products.base_cost AS price, 
+			products.stock, products.score, categories.name AS category, files.path AS file
+			FROM products,categories,files
+			WHERE products.category_id=categories.id AND categories.store_id=? 
+			files.id=products.image_id AND stock <= 0 ";
+	return query($sql,array($storeId));
+}
+
+/*
  * Evaluate product / user score a product
 */
 
