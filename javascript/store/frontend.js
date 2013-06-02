@@ -6,7 +6,7 @@ $(document).ready(function() {
 	var storeHome= $("#storeHome");
 	var storeFavorites= $("#storeFavorites");
 	var storeCart= $("#storeCart");
-	alert("page: "+linkPage);
+	
 	if(linkPage.match(/favorites.php/) != null)
 	{
 		storeHome.class="";
@@ -14,6 +14,7 @@ $(document).ready(function() {
 		storeCart.class="";
 	}else if(linkPage.match(/index.php/) != null)
 	{
+		alert("active home");
 		storeHome.class="active";
 		storeFavorites.class="";
 		storeCart.class="";
