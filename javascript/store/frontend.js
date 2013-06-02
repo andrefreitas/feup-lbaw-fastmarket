@@ -70,7 +70,51 @@ $(document).ready(function() {
 	$("#removeCategory").click(function(){
 		removeCategory();
 	});
+	
+	/* Add product to store*/
+	$("#addProduct").click(function(){
+		addProduct();
+	});
+	
 });
+
+/*
+ * Add product to store
+ */
+function addProduct(){
+	var storeId = getStoreId();
+	var name = $("#newProductName").val();
+	var description = $("#newProductDescription").val();
+	var cost = $("#newProductCost").val();
+	var stock = $("#newProductStock").val();
+	var category = $("#newProductCategory").val();
+	$.ajaxSetup({
+		"async" : false
+	});
+	var data = $.getJSON("../../ajax/store/addProduct.php?", {
+		name: name,
+		description: description,
+		base_cost: cost,
+		stock: stock,
+		category: category,
+		storeId: storeId
+	});
+	$.ajaxSetup({
+		"async" : true
+	});
+
+	
+
+	var ret = $.parseJSON(data["responseText"])["result"];
+	if(ret=="ok")
+	{
+		var storeDomain = $("#registerForm #storeDomain").val();
+		window.location.href= "account.php?store=" + storeDomain;
+		
+	}else{
+		alert("erro: "+ret);
+	}
+}
 
 /*
  * Remove category from store
