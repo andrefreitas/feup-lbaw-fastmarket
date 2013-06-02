@@ -231,6 +231,16 @@ chdir('../database');
 	}
 	
 	/*
+		force delete product (!!! só em casos extremos)
+	*/
+	function forceRemoveProduct($product_id)
+	{
+		$sql="DELETE FROM products 
+           		 WHERE id = ?";
+		return query($sql,array($product_id));
+	}
+	
+	/*
 		search
 	*/
 	function serchUsers($store_id,$filter)
