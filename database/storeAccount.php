@@ -277,4 +277,15 @@ function getOrderItens($orderId){
          . "orders.id = ? ";
     return query($sql, array($orderId));
 }
+
+/** Get invoice from order **/
+function getOrderInvoice($orderId){
+    $sql = "SELECT * "
+            . "FROM invoice "
+                    . "WHERE invoice.order_id = ? ";
+    $invoice  = query($sql, array($orderId));
+    if(isset($invoice[0])){
+        return $invoice[0];
+    }
+}
 ?>

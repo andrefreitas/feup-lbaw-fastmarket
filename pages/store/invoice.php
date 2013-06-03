@@ -8,6 +8,8 @@ if(isset($_GET["orderId"])){
     $orderId = intval($_GET["orderId"]);
     $items = getOrderItens($orderId);
     $smarty->assign("items", $items);
+    $invoice = getOrderInvoice($orderId);
+    $smarty->assign("invoice", $invoice);
     $smarty->display('store/invoice.tpl');
 }
 ?>

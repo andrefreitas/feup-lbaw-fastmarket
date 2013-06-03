@@ -16,9 +16,12 @@
 </head>
 <body id="invoice">
     <div id="paper">
-             <div class="title">Invoice</div> 
-             <span class="number"><b>Number</b>  #fJ89g983g</span><br/>
-             <span class="date"><b>Date</b>  22/20/1992</span>
+             <div class="head">
+                 <div class="title">Invoice</div> 
+                 <span class="sub"><b>Number</b>  #fJ89g983g</span><br/>
+                 <span class="sub"><b>Date</b>  22/20/1992</span><br/>
+                 <span class="sub"><b>Vat</b>  {$invoice.vat*100} %</span>
+             </div>
              <!-- Items -->
              <table class="table table-striped cart" id="invoiceItems">
     			 <tr>
@@ -28,6 +31,7 @@
     			     <th>Quantity</th>
     			     <th>Total</th>
     			 </tr>
+    			 {$total = 0}
     		     {foreach from=$items item=product}
     			     <tr>
     			     <td>{$product.id}</td>
@@ -35,9 +39,16 @@
     			     <td>{$product.price} &euro;</td>
     			     <td>{$product.quantity}</td>
     			     <td>{$product.quantity * $product.price } &euro;</td>
+    			     {$total = $total + ($product.quantity * $product.price)}
     			     </tr>
     		     {/foreach}
             </table>
+             <div class="total">
+            Total : {$total} &euro;
+            </div>
+            <div class="total">
+            Total (VAT) : {$invoice.total} &euro;
+            </div>
     </div>
  </body>
  </html>
