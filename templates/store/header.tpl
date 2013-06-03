@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<?php 
- header('Content-type: text/html; charset=utf-8'); 
-?>
 <title>{$title}</title>
 <!--  CSS -->
     <link rel="stylesheet" type="text/css" media="screen" href="../../lib/bootstrap/css/bootstrap.min.css">
