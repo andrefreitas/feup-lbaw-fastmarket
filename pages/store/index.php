@@ -25,7 +25,7 @@ $storeId = getStoreId($domain);
 // Logo
 
 $logoPath = getStoreLogo($domain);
-echo $logoPath;
+
 // Categories
 $categories = getCategories($storeId);
 
