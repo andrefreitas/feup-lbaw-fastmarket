@@ -103,7 +103,7 @@ function getLastStores(){
  * Get logos from the stores
 */
 function getStoresLogos(){
-    $sql = "SELECT stores.id, stores.name, files.path as file, files.name as filename stores.domain "
+    $sql = "SELECT stores.id, stores.name, files.path as file, files.name as filename, stores.domain "
          . "FROM stores, files "
          . "WHERE stores.logo_id = files.id "
          . "ORDER BY stores.creation_date DESC ";
