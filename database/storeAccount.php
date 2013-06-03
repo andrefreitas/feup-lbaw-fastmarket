@@ -263,4 +263,18 @@ function costumerExists($storeId, $email){
     $result = query($sql, array($storeId, $email));
     return isset($result[0]);
 }
+
+/**
+ * Get order items
+ * 
+ */
+
+function getOrderItens($orderId){
+    $sql = "SELECT products.id, products.name, products.description, orders_products.base_cost AS price, orders_products.quantity "
+         . "FROM products, orders, orders_products "
+         . "WHERE products.id = orders_products.product_id AND "
+         . "orders_products.order_id = orders.id AND "
+         . "orders.id = ? ";
+    return query($sql, array($orderId));
+}
 ?>

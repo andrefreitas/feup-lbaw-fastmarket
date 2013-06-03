@@ -16,7 +16,28 @@
 </head>
 <body id="invoice">
     <div id="paper">
-             <h1>Invoice #213122</h1>
+             <div class="title">Invoice</div> 
+             <span class="number"><b>Number</b>  #fJ89g983g</span><br/>
+             <span class="date"><b>Date</b>  22/20/1992</span>
+             <!-- Items -->
+             <table class="table table-striped cart" id="invoiceItems">
+    			 <tr>
+    			     <th>#</th>
+    			     <th>Name</th>
+    			     <th>Unit Price</th>
+    			     <th>Quantity</th>
+    			     <th>Total</th>
+    			 </tr>
+    		     {foreach from=$items item=product}
+    			     <tr>
+    			     <td>{$product.id}</td>
+    			     <td>{$product.name}</td>
+    			     <td>{$product.price} &euro;</td>
+    			     <td>{$product.quantity}</td>
+    			     <td>{$product.quantity * $product.price } &euro;</td>
+    			     </tr>
+    		     {/foreach}
+            </table>
     </div>
  </body>
  </html>
