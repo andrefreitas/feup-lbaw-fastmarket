@@ -166,6 +166,7 @@ function editProduct(){
 	var cost=$("#editProductCost").val();
 	var stock=$("#editProductStock").val();
 	var category=$("#editProductCategory").val();
+	var image=$("#editProductImage").val();
 	var storeId = getStoreId();
 	$.ajaxSetup({
 		"async" : false
@@ -177,6 +178,7 @@ function editProduct(){
 		cost: cost,
 		stock: stock,
 		category: category,
+		image: image,
 		storeId: storeId
 	});
 	$.ajaxSetup({

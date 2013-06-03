@@ -99,15 +99,8 @@
 				Description: <input type="text" value="{$product.description}" id="editProductDescription"><br>
 				Base cost: <input type="text" value="{$product.price}" id="editProductCost"><br>
 				Stock: <input type="text" value="{$product.stock}" id="editProductStock"><br>
-				Category: <input type="text" value="{$product.category}" id="editProductCategory">
-				
-				<div class="fileupload fileupload-new" data-provides="fileupload">
-			    <span class="btn btn-file">
-			    	<span class="fileupload-new">Select image</span>
-			    	<span class="fileupload-exists">Change</span>
-			    	<input type="file" />
-			    </span>
-				</div>
+				Category: <input type="text" value="{$product.category}" id="editProductCategory"><br>
+				New Image: <input type="text" value="" id="editProductImage">
 				
 	        </form>
 		</div>

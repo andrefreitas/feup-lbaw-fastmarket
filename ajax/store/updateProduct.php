@@ -16,6 +16,12 @@ if(isset($_GET["storeId"]) and isset($_GET["name"]) and strlen($_GET["name"])>0 
 		
 		updateProduct($_GET["productId"], $_GET["name"], $_GET["description"], 
 								$_GET["cost"], $_GET["stock"], $categoryId);
+								
+		if(isset($_GET['image']) and strlen($_GET['image'])>0)
+		{
+			$imageId = addProductImage($_GET['image']);
+			updateProductImage($_GET["productId"], $imageId);
+		}
 		
 		echo json_encode(array("result" => "ok"));	
 	}else{
