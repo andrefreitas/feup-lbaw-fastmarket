@@ -20,7 +20,7 @@
 	<div class="bodyContainer">
 	   
 		<header>
-			<img src="{$logoPath}" alt="Logo" class="logo" />
+			<img src="{$logoPath}" alt="Logo" class="logo fixedSize" />
 			{if $userPermission != "guest"}
 			<div class="search form-search">
                   <div class="input-append">

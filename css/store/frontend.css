@@ -4,6 +4,11 @@
 	overflow: hidden;
 }
 
+.fixedSize{
+	width: 300px;
+    height: 64px;
+}
+
 /* Header */
 
 header{
