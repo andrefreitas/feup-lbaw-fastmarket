@@ -29,7 +29,8 @@ $categories = getCategories($storeId);
 // Product
 $id = intval($_GET["id"]);
 $product = getProduct($id);
-$product["file"] = "../../files/".$product["file"];
+if($product["filename"] != 'imageurl')
+	$product["file"] = "../../files/".$product["file"];
 $price=$product["price"]*(1+$vat);
 
 $comments=getCommentsOfProduct($id);
