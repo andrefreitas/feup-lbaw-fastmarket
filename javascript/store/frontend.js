@@ -314,7 +314,7 @@ function addCategory(){
 	{
 		var storeDomain = $("#registerForm #storeDomain").val();
 		
-		window.location.href= "gnomo.fe.up.pt/~lbaw12503/fm/pages/store/account.php?store=" + storeDomain;
+		window.location.href= "./store/account.php?store=" + storeDomain;
 		
 		//document.location.reload(true);
 	}else{
