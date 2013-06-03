@@ -264,7 +264,7 @@ function getStoreLogo($domain){
     $logo = query($sql, array($domain));
     if(isset($logo[0])){
     	
-    	if($logo[0]["name"]=="url")
+    	if($logo[0]["name"]=="imageurl")
     	{
     		return $logo[0]["path"];
     	}else{
