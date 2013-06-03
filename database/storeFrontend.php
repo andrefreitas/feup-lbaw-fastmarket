@@ -263,7 +263,13 @@ function getStoreLogo($domain){
          . "WHERE stores.logo_id = files.id AND stores.domain = ?";
     $logo = query($sql, array($domain));
     if(isset($logo[0])){
-        return $logo[0]["path"];
+    	
+    	if($logo[0]["name"]=="url")
+    	{
+    		return $logo[0]["path"];
+    	}else{
+        	return "../../files/" . $logo[0]["path"];
+        }
     }
 }
 

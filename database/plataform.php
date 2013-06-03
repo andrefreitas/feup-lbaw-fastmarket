@@ -200,6 +200,18 @@ function createStore($name, $slogan, $domain, $vat,$logoId){
 }
 
 /*
+ * Save link image (store logo)
+ */
+function addLogoImage($url)
+{
+	$sql = 'INSERT INTO files(name, path) 
+			VALUES("imageurl",?) 
+			RETURNING id ';
+	$ret = query($sql, array($url));
+	return $ret[0]['id'];
+}
+
+/*
  * Add merchant owner to store
  */
 

@@ -328,6 +328,7 @@ function initStoresEvents(){
 			var slogan = $(this).parent().parent().children(".slogan").text();
 			var vat = $(this).parent().parent().children(".vat").text();
 			var domain = $(this).parent().parent().children(".domain").text();
+			
 			//status = status.trim();
 			$('#editStoreDialog').reveal();
 			$('.editStore input[name="id"]').val(id);
@@ -353,6 +354,7 @@ function initStoresEvents(){
 		vals["slogan"] = data[2]["value"].trim(),
 		vals["vat"] = data[3]["value"].trim(),
 		vals["domain"] = data[4]["value"].trim();
+		vals["logo"] = data[5]["value"].trim();
 		
 		if (vals["name"] == "") {
 			$(".editStore .notifications").html('<div class="error"> Name cannot be empty!</div>');
