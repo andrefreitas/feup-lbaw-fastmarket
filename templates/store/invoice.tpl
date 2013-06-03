@@ -17,7 +17,7 @@
 <body id="invoice">
     <div id="paper">
              <div class="head">
-                 <div class="title">Invoice</div> 
+                 <div class="title">Invoice {if $paid} <span class="label label-success">Paid</span> {else} <span class="label label-warning">Unpaid</span> {/if}</div> 
                  <span class="sub"><b>Number</b>  #fJ89g983g</span><br/>
                  <span class="sub"><b>Date</b>  22/20/1992</span><br/>
                  <span class="sub"><b>Vat</b>  {$invoice.vat*100} %</span>

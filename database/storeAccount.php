@@ -288,4 +288,18 @@ function getOrderInvoice($orderId){
         return $invoice[0];
     }
 }
+/*
+ * Get order 
+ * 
+ */
+
+function getOrder($orderId){
+    $sql = "SELECT * "
+         . "FROM orders "
+         . "WHERE orders.id = ? ";
+    $result = query($sql, array($orderId));
+    if(isset($result[0])){
+        return $result[0];
+    }
+}
 ?>
