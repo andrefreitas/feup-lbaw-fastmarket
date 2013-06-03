@@ -235,9 +235,17 @@ header .logout{
 
 #paper .head{
 	margin-bottom: 10px;
-	height: 110px;
+	height: 130px;
+	width: 300px;
+	float: left;
 }
 
 #invoiceItems{
 	padding-top: 20px;
+}
+
+.payment{
+	float: right;
+	margin-top: 30px;
+	margin-right: 10px;
 }

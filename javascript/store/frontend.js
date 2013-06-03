@@ -81,78 +81,83 @@ $(document).ready(function() {
 		handleAddToCart();
 	});
 	
-	/* Update Account info*/
+	/* E11 - Update Account info*/
 	$("#updateAccount").click(function() {
 		updateAccount();
 	});
 	
-	/* E11 - Cart item remove */
+	/* E12 - Cart item remove */
 	$(".cart .remove").click(function(){
 		handleCartRemove(this);
 	});
 	
-	/* E12 - Cart item change*/
+	/* E13 - Cart item change*/
 	$(".cart .change").click(function(){
 		handleCartChange(this);
 	});
 	
-	/* E13 - Clear cart */
+	/* E14 - Clear cart */
 	$("#clearCart").click(function(){
 		handleClearCart();
 	});
 	
-	/* E14 - Checkout */
+	/* E15 - Checkout */
 	$("#checkout").click(function(){
 		handleCheckout();
 	});
 	
-	/* E15 - Add Item */
+	/* E16 - Add Item */
 	$(".addItem").click(function(){
 		handleAddItem(this);
 	});
 
-	/* Add category to store*/
+	/* E17 - Add category to store*/
 	$("#addCategory").click(function(){
 		addCategory();
 	});
 	
-	/* Remove category from store*/
+	/* E18 - Remove category from store*/
 	$("#removeCategory").click(function(){
 		removeCategory();
 	});
 	
-	/* Add product to store*/
+	/* E19 - Add product to store*/
 	$("#addProduct").click(function(){
 		addProduct();
 	});
 	
-	/* Remove product from store*/
+	/* E20 - Remove product from store*/
 	$("#removeProduct").click(function(){
 		removeProduct();
 	});
 	
-	/* Show Product modal*/
+	/* E21 - Show Product modal*/
 	$("#editProduct").click(function(){
 		$("#editModal").modal("show");
 	});
 	
-	/* Edit Product info*/
+	/* E22 - Edit Product info*/
 	$("#editButton").click(function(){
 		editProduct();
 	});
 	
-	/* Search button */
+	/* E23 - Search button */
 	$(".search button").click(function(){
 		handleSearch(this);
 	});
 	
-	/* Update Cart total */
+	/* E24 - Update Cart total */
 	updateCartTotal();
 	
-	/* View Invoice */
+	/* E25 - View Invoice */
 	$(".viewInvoice").click(function(){
 		handleViewInvoice(this);
 	});
+	
+	$("#payInvoice").click(function(){
+		handlePayInvoice();
+	});
+	
 	
 });
 
@@ -887,4 +892,26 @@ function handleSearch(bt){
 function handleViewInvoice(bt){
 	var orderId = $(bt).parent().parent().children().eq(0).html();
 	window.location = "invoice.php?orderId=" + orderId;
+}
+
+function getInvoiceCode(){
+	return $("#invoiceCode").html();
+}
+function handlePayInvoice(){
+	var invoiceCode = getInvoiceCode();
+	requestPayInvoice(invoiceCode);
+	document.location.reload(true);
+}
+
+function requestPayInvoice(invoiceCode){
+	$.ajaxSetup({
+		"async" : false
+	});
+	var data = $.getJSON("../../ajax/store/payInvoice.php?", {
+		invoiceCode: invoiceCode
+	});
+	$.ajaxSetup({
+		"async" : true
+	});
+	return $.parseJSON(data["responseText"])["total"];
 }

@@ -12,6 +12,7 @@ if(isset($_GET["orderId"])){
     $order = getOrder($orderId);
     $paid = $order["paid"];
     $smarty->assign("invoice", $invoice);
+    $smarty->assign("order", $order);
     $smarty->assign("paid", $paid);
     $smarty->display('store/invoice.tpl');
 }

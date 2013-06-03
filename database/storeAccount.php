@@ -302,4 +302,28 @@ function getOrder($orderId){
         return $result[0];
     }
 }
+
+/** 
+ * Get invoice order
+ */
+function getInvoiceOrderId($invoiceCode){
+    $sql = "SELECT * "
+         . "FROM invoice "
+         . "WHERE code = ? ";
+    $result = query($sql, array($invoiceCode));
+    if(isset($result[0])){
+        return $result[0]["order_id"];
+    }
+}
+/**
+ * Pay Invoice
+ */
+
+function payInvoice($invoiceCode){
+    $orderId = getInvoiceOrderId($invoiceCode);
+    $sql = "UPDATE orders "
+         . "SET paid = 'true' "
+         . "WHERE id = ? ";
+    query($sql, array($orderId));
+}
 ?>
