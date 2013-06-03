@@ -314,7 +314,7 @@ function addCategory(){
 	{
 		var storeDomain = $("#registerForm #storeDomain").val();
 		
-		window.location.assign= "account.php?store=" + storeDomain;
+		window.location.pathname= "fm/pages/store/account.php?store=" + storeDomain;
 		
 		//document.location.reload(true);
 	}else{
