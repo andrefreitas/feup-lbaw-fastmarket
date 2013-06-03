@@ -22,7 +22,7 @@
 		    <input type="hidden" id="productId" value="{$productId}">
 		    <h1>{$product.name} {if $isFavorite}<span class="label label-warning"> Favorite </span>{/if} {if $isSubscribed} <span class="label label-info"> Subscribed </span>{/if}</h1>   
 		    <!--  -->
-		    <img src="{$product.file}" class="img-polaroid">
+		    <img src="{$product.file}" class="img-polaroid fixedProductImage">
 		    <div class="productInfo">
     		    <div class="description"> {$product.description}</div>
     		    <input type="hidden" id="productId" value="{$product.id}"/>

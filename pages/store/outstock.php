@@ -13,7 +13,8 @@ if(!isset($_GET["store"]) or !storeExists($_GET["store"]) ){
 
 // Update paths
 function updatePath($elem){
-	$elem["file"] = "../../files/" . $elem["file"];
+	if($elem["filename"] != 'imageurl')
+		$elem["file"] = "../../files/" . $elem["file"];
     return $elem;
 };
 
