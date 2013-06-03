@@ -204,9 +204,9 @@ function createStore($name, $slogan, $domain, $vat,$logoId){
  */
 function addLogoImage($url)
 {
-	$sql = 'INSERT INTO files(name, path) 
-			VALUES("imageurl",?) 
-			RETURNING id ';
+	$sql = "INSERT INTO files(name, path) 
+			VALUES('imageurl',?) 
+			RETURNING id ";
 	$ret = query($sql, array($url));
 	return $ret[0]['id'];
 }
