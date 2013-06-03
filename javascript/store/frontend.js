@@ -12,13 +12,13 @@ $(document).ready(function() {
 		storeHome.attr("class","");
 		storeFavorites.attr("class","active");
 		storeCart.attr("class","");
-	}else if(linkPage.match(/index.php/) != null)
+	} else if(linkPage.match(/index.php/) != null)
 	{
 		
 		storeHome.attr("class","active");
 		storeFavorites.attr("class","");
 		storeCart.attr("class","");
-	}else if(linkPage.match(/cart.php/) != null)
+	} else if(linkPage.match(/cart.php/) != null)
 	{
 		storeHome.attr("class","");
 		storeFavorites.attr("class","");

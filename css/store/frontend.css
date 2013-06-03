@@ -207,16 +207,15 @@ header .logout{
 	margin-bottom: 20px;
 }
 
-#invoice .number{
+
+
+#invoice .sub{
 	float: left;
 	font-size: 12px;
 }
 
-#invoice .date{
-	float: left;
-	font-size: 12px;
-	margin-bottom: 20px;
-}
+
+
 #paper {
 	width: 500px;
 	min-height: 400px;
@@ -225,6 +224,16 @@ header .logout{
 	background-color: #fff;
 	margin-top: 50px;
 	padding: 20px;
+}
+
+
+#paper table{
+	padding-top: 20px;
+}
+
+#paper .head{
+	margin-bottom: 10px;
+	height: 110px;
 }
 
 #invoiceItems{
