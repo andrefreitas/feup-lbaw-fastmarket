@@ -47,7 +47,7 @@
             <div class="content">
             {foreach from=$storesLogos item=logo}
                     <div class="store">
-                      <img src="{$logo.file}"/>
+                      <img class="fixedSize" src="{$logo.file}"/>
                       <span class="domain">
                           {$logo.domain}
                       </span>
