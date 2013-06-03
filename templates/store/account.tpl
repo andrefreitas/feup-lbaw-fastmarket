@@ -31,7 +31,7 @@
 			    {if $userPermission == "merchant"}
 				    <div id="merchantTools">
 				    	<h1>Merchant Tools</h1><br>
-				    	<form>
+				    	<div>
 				    		Category: <input type="text" id="categoryName" value="">
 				    		<button class="btn" id="addCategory">Add Category</button>
 				    		<button class="btn" id="removeCategory">Remove Category</button><br>
@@ -45,7 +45,7 @@
 					    	Category name: <input type="text" id="newProductCategory" value=""><br>
 					    	<button class="btn" id="addProduct">Add Product</button>
 					    	
-				    	</form>
+				    	</div>
 				    </div>
 			    {/if}
 			</div>
