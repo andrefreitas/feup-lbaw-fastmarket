@@ -27,7 +27,10 @@ $storesLogos = array_slice($storesLogos, 0, 3);
 
 // Update paths
 function updatePath($elem){
-    $elem["file"] = "../files/" . $elem["file"];
+	if($elem["filename"] != 'imageurl')
+    {	
+    	$elem["file"] = "../files/" . $elem["file"];
+    }
     return $elem;
 };
 $storesLogos = array_map("updatePath", $storesLogos);

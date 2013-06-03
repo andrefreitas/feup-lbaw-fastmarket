@@ -102,8 +102,11 @@
 				Category: <input type="text" value="{$product.category}" id="editProductCategory">
 				
 				<div class="fileupload fileupload-new" data-provides="fileupload">
-			    <span class="btn btn-file"><span class="fileupload-new">Select image</span>
-			    <span class="fileupload-exists">Change</span><input type="file" /></span>
+			    <span class="btn btn-file">
+			    	<span class="fileupload-new">Select image</span>
+			    	<span class="fileupload-exists">Change</span>
+			    	<input type="file" />
+			    </span>
 				</div>
 				
 	        </form>

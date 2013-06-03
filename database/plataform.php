@@ -103,7 +103,7 @@ function getLastStores(){
  * Get logos from the stores
 */
 function getStoresLogos(){
-    $sql = "SELECT stores.id, stores.name, files.path as file, stores.domain "
+    $sql = "SELECT stores.id, stores.name, files.path as file, files.name as filename, stores.domain "
          . "FROM stores, files "
          . "WHERE stores.logo_id = files.id "
          . "ORDER BY stores.creation_date DESC ";
@@ -197,6 +197,18 @@ function createStore($name, $slogan, $domain, $vat,$logoId){
     $sql = "INSERT INTO stores(name, slogan, domain, vat, creation_date,logo_id) "
          . "VALUES(?, ?, ?, ?, CURRENT_TIMESTAMP,?)";
     query($sql, array($name, $slogan, $domain, $vat,$logoId));
+}
+
+/*
+ * Save link image (store logo)
+ */
+function addLogoImage($url)
+{
+	$sql = "INSERT INTO files(name, path) 
+			VALUES('imageurl',?) 
+			RETURNING id ";
+	$ret = query($sql, array($url));
+	return $ret[0]['id'];
 }
 
 /*

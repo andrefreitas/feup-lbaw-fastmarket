@@ -258,12 +258,18 @@ function getAboutFile($storeId)
  */
 
 function getStoreLogo($domain){
-    $sql = "SELECT files.path "
+    $sql = "SELECT files.name, files.path "
          . "FROM stores, files "
          . "WHERE stores.logo_id = files.id AND stores.domain = ?";
     $logo = query($sql, array($domain));
     if(isset($logo[0])){
-        return $logo[0]["path"];
+    	
+    	if($logo[0]['name'] == 'imageurl')
+    	{
+    		return $logo[0]["path"];
+    	}else{
+        	return "../../files/" . $logo[0]["path"];
+        }
     }
 }
 
