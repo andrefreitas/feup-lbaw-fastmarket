@@ -21,7 +21,7 @@ $vat_oux = getStoreById($storeId);
 $vat=$vat_oux[0]["vat"];
 
 // Logo
-$logoPath = "../../files/" . getStoreLogo($domain);
+$logoPath = getStoreLogo($domain);
 
 // Categories
 $categories = getCategories($storeId);

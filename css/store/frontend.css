@@ -4,6 +4,11 @@
 	overflow: hidden;
 }
 
+.fixedSize{
+	width: 300px;
+    height: 64px;
+}
+
 /* Header */
 
 header{
@@ -15,6 +20,8 @@ header{
 header .logo{
 	margin-top: 30px;
 	margin-bottom: 30px;
+	width: 300px;
+    height: 64px;
 }
 
 .span10{

@@ -23,7 +23,7 @@ $domain = $_GET["store"];
 $storeId = getStoreId($domain);
 
 // Logo
-$logoPath = "../../files/" . getStoreLogo($domain);
+$logoPath = getStoreLogo($domain);
 
 // Categories
 $categories = getCategories($storeId);
