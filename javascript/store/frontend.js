@@ -313,8 +313,9 @@ function addCategory(){
 	if(ret=="ok")
 	{
 		var storeDomain = $("#registerForm #storeDomain").val();
-		alert("account.php?store=" + storeDomain);
-		window.location.href= "account.php?store=" + storeDomain;
+		
+		window.location.assign= "account.php?store=" + storeDomain;
+		
 		//document.location.reload(true);
 	}else{
 		alert("erro: "+ret);
