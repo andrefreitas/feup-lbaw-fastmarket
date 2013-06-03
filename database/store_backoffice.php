@@ -283,6 +283,20 @@ chdir('../database');
 	}
 	
 	/*
+		add product image (url)
+	*/
+	function addProductImage($url)
+	{
+	
+		$sql = "INSERT INTO files(name, path) 
+				VALUES('imageurl',?) 
+				RETURNING id ";
+		$ret = query($sql, array($url));
+		return $ret[0]['id'];
+
+	}
+	
+	/*
 		remove category
 	*/
 	function removeCategory($category_id)

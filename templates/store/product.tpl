@@ -22,7 +22,7 @@
 		    <input type="hidden" id="productId" value="{$productId}">
 		    <h1>{$product.name} {if $isFavorite}<span class="label label-warning"> Favorite </span>{/if} {if $isSubscribed} <span class="label label-info"> Subscribed </span>{/if}</h1>   
 		    <!--  -->
-		    <img src="{$product.file}" class="img-polaroid">
+		    <img src="{$product.file}" class="img-polaroid fixedProductImage">
 		    <div class="productInfo">
     		    <div class="description"> {$product.description}</div>
     		    <input type="hidden" id="productId" value="{$product.id}"/>
@@ -99,15 +99,8 @@
 				Description: <input type="text" value="{$product.description}" id="editProductDescription"><br>
 				Base cost: <input type="text" value="{$product.price}" id="editProductCost"><br>
 				Stock: <input type="text" value="{$product.stock}" id="editProductStock"><br>
-				Category: <input type="text" value="{$product.category}" id="editProductCategory">
-				
-				<div class="fileupload fileupload-new" data-provides="fileupload">
-			    <span class="btn btn-file">
-			    	<span class="fileupload-new">Select image</span>
-			    	<span class="fileupload-exists">Change</span>
-			    	<input type="file" />
-			    </span>
-				</div>
+				Category: <input type="text" value="{$product.category}" id="editProductCategory"><br>
+				New Image: <input type="text" value="" id="editProductImage">
 				
 	        </form>
 		</div>

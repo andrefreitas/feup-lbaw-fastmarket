@@ -23,7 +23,7 @@
 				{foreach from=$products item=product}
 				        <div class="productItem">
 				            <input type="hidden" class="productId" value="{$product.id}">
-					        <img src="{$product.file}" >
+					        <img src="{$product.file}" class="fixedProductImage" >
 					        <div class="name"> {$product.name}</div>
 					        <div class="description">{$product.description}</div> 
 					        <div class="price">{($product.price * (1 + $vat))}  &euro;</div>

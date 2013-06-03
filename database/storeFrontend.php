@@ -8,7 +8,7 @@ chdir('../database');
 */
 function getStoreProducts($storeId, $limit){
     $sql = "SELECT products.id, products.name, products.description, products.base_cost AS price, "
-         . "categories.name AS category, files.path AS file "
+         . "categories.name AS category, files.path AS file, files.name as filename "
          . "FROM products,categories,files "
          . "WHERE products.category_id = categories.id AND categories.store_id = ? "
          . "AND files.id = products.image_id "
@@ -23,7 +23,7 @@ function getStoreProducts($storeId, $limit){
 
 function getStoreProductsOnStock($storeId, $limit){
     $sql = "SELECT products.id, products.name, products.description, products.base_cost AS price, "
-         . "categories.name AS category, files.path AS file "
+         . "categories.name AS category, files.path AS file, files.name as filename "
          . "FROM products,categories,files "
          . "WHERE products.category_id = categories.id AND categories.store_id = ? "
          . "AND files.id = products.image_id AND products.stock > 0"
@@ -38,7 +38,7 @@ function getStoreProductsOnStock($storeId, $limit){
 
 function getFavoriteProductsOfUser($userId){
     $sql = "SELECT products.id, products.name, products.description, products.base_cost AS price, "
-         . "categories.name AS category, files.path AS file "
+         . "categories.name AS category, files.path AS file, files.name as filename "
          . "FROM products,categories,files,favorites "
          . "WHERE products.category_id = categories.id "
          . "AND files.id = products.image_id AND products.stock > 0 "
@@ -83,7 +83,8 @@ function searchOnStore($storeId, $searchTerm, $limit)
 function getProduct($productId)
 {
 	$sql = "SELECT products.id, products.name, products.description, products.base_cost AS price, 
-			products.stock, products.score, categories.name AS category, files.path AS file
+			products.stock, products.score, categories.name AS category, files.path AS file, 
+			files.name as filename
 			FROM products,categories,files
 			WHERE products.id=? AND products.category_id=categories.id AND files.id=products.image_id";
 	$product = query($sql, array($productId));
@@ -186,7 +187,8 @@ function getContactsFile($storeId)
 function getProductsOfCategory($categoryId)
 {
 	$sql = "SELECT products.id, products.name, products.description, products.base_cost AS price, 
-			products.stock, products.score, categories.name AS category, files.path AS file
+			products.stock, products.score, categories.name AS category, files.path AS file, 
+			files.name as filename
 			FROM products,categories,files
 			WHERE categories.id=? AND products.category_id=categories.id AND 
 			files.id=products.image_id AND stock > 0 ";
@@ -200,7 +202,8 @@ function getProductsOfCategory($categoryId)
 function getProductsOutOfStock($storeId)
 {
 	$sql = "SELECT products.id, products.name, products.description, products.base_cost AS price, 
-			products.stock, products.score, categories.name AS category, files.path AS file
+			products.stock, products.score, categories.name AS category, files.path AS file, 
+			files.name as filename
 			FROM products,categories,files
 			WHERE products.category_id=categories.id AND categories.store_id=? AND 
 			files.id=products.image_id AND stock <= 0 ";
