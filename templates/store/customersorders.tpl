@@ -32,7 +32,7 @@
     			     <td>{$orderInfo.name}</td>
     			     <td>{$orderInfo.order_date}</td>
     			     <td>{$orderInfo.total} &euro;</td>
-    			     <td>{$orderInfo.paid}</td>
+    			     <td>{if $orderInfo.paid} Paid {else} Pending {/if}</td>
     			     </tr>
 			     {/foreach}
                  </table>
