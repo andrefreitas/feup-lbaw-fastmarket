@@ -67,7 +67,8 @@
 		    	<div class="comment">
 		    	   <div class="tab">
     		    	   <span class="author"> {$comment.name} </span>
-    		    	   <span class="date"> {$comment.comment_date} </span>
+    		    	   <span class="date"> {$comment.comment_date|date_format:'%Y-%m-%d %H:%M:%S'} 
+    		    	   </span>
 		    	   </div>
 		   
 		    	   <span class="body"> {$comment.body} </span><br>

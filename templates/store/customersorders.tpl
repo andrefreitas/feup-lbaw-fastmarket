@@ -27,7 +27,7 @@
 				    		<span class="itemTotal">Total</span> <br>
 				    	{foreach from=$ordersInfo item=orderInfo}
 				    		<span class="itemName">{$orderInfo.name}</span> 
-				    		<span class="itemDate">{$orderInfo.order_date}</span>
+				    		<span class="itemDate">{$orderInfo.order_date|date_format:'%Y-%m-%d %H:%M:%S' }</span>
 				    		<span class="itemPaid">{$orderInfo.paid}</span>  
 				    		<span class="itemTotal">{$orderInfo.total}</span> <br>
 				    	{/foreach}
