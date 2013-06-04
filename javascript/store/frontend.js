@@ -38,7 +38,7 @@ $(document).ready(function() {
 		storeCart.attr("class","");
 		storeSubscriptions.attr("class","active");
 		storeOrders.attr("class","");
-	} else if(linkPage.match(/orders.php/) != null)
+	} else if(linkPage.match(/orders.php/) != null && linkPage.match(/customersorders.php/) == null)
 	{
 		storeHome.attr("class","");
 		storeFavorites.attr("class","");
