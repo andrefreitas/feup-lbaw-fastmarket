@@ -17,6 +17,8 @@
 				</ul>
 			</div>
 			<div class="span_account span10">
+			<table>
+			<tr><td>
 			    <!-- Account -->
 			    <h1>{$userInfo.name}</h1><br>
 			    <input type="hidden" value="{$userInfo.id}" id="AccountId">
@@ -37,6 +39,8 @@
 			    	<button class="btn" id="updateAccount">Update Account</button>
 			    
 			    <br>
+			    </td>
+			    <td>
 			    {if $userPermission == "merchant"}
 				    <div id="merchantTools">
 				    <br>
@@ -69,6 +73,8 @@
 				    	</div>
 				    </div>
 			    {/if}
+			    </td></tr>
+			    </table>
 			</div>
 		</div>
 		
