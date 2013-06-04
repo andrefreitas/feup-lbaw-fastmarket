@@ -41,7 +41,7 @@ $vat=$vat_oux[0]["vat"];
 $smarty->assign('userPermission', 'guest');
 if(isset($_SESSION['storesLogin'][$storeId]['userId'])){
     $userInfo = $_SESSION['storesLogin'][$storeId]['userId'];
-    $orders = getOrders($userInfo);
+    $orders = getOrdersOfUser($userInfo);
     if(isset($userInfo))
     {
     	$userInfo = getAccount($userInfo);
