@@ -27,16 +27,19 @@
     			     <th>Status</th>
     			     
     			 </tr>
+    			 {$totalPaid=0}
 			     {foreach from=$ordersInfo item=orderInfo}
     			     <tr>
     			     <td>{$orderInfo.name}</td>
     			     <td>{$orderInfo.order_date}</td>
     			     <td>{$orderInfo.total} &euro;</td>
-    			     <td>{if $orderInfo.paid}<span class="label label-success">Paid</span> 
+    			     <td>{if $orderInfo.paid}{$totalPaid = $totalPaid + $orderInfo.total}<span class="label label-success">Paid</span> 
     			         {else} <span class="label label-warning">Pending</span> {/if}</td>
     			     </tr>
 			     {/foreach}
                  </table>
+                 <br>
+                 <h1>Total paid: {$totalPaid}</h1>
 			    
 			</div>
 			 {/if}
