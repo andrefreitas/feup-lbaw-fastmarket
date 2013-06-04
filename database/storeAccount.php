@@ -354,5 +354,23 @@ function payInvoice($invoiceCode){
     query($sql, array($orderId));
 }
 
+function getOrderUserId($orderId){
+    $sql = "SELECT costumer_id "
+         . "FROM orders "
+         . "WHERE id = ? ";
+    $result = query($sql, array($orderId));
+    if(isset($result[0])){
+        return $result[0]["costumer_id"];
+    }
+}
 
+function getUserStoreID($userId){
+    $sql = "SELECT stores_users.store_id "
+         . "FROM users, stores_users "
+         . "WHERE users.id = stores_users.user_id AND users.id = ? ";
+    $result = query($sql, array($userId));
+    if(isset($result[0])){
+        return $result[0]["store_id"];
+    }
+}
 ?>
