@@ -253,3 +253,8 @@ header .logout{
 	margin-top: 30px;
 	margin-right: 10px;
 }
+
+.plus, 
+.minus{
+	cursor: pointer;
+}

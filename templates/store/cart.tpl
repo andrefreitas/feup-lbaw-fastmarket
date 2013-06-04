@@ -36,13 +36,13 @@
 			     <td>{$product.price} &euro;</td>
 			     <td>{$product.quantity}</td>
 			     <td>{$product.subtotal} &euro;</td>
-			     <td><i class="icon-remove-sign remove"></i> <i class="icon-plus change"></i></td>
+			     <td><i class="icon-remove-sign remove"></i> <i class="icon-plus plus"></i> <i class="icon-minus minus"></i></td>
 			 </tr>
 			 {/foreach}
 
             </table>
             <div class="total">
-            <b>Total</b>  {$totalVat} &euro; <button class="btn btn-inverse" id="checkout"><i class="icon-shopping-cart icon-white"></i> Checkout</button> <button class="btn btn-danger" id="clearCart"><i class="icon-trash icon-white"></i> Clear Cart</button>
+            <b>Total with VAT</b>  {$totalVat} &euro; <button class="btn btn-inverse" id="checkout"><i class="icon-shopping-cart icon-white"></i> Checkout</button> <button class="btn btn-danger" id="clearCart"><i class="icon-trash icon-white"></i> Clear Cart</button>
 			
 			</div>
 			

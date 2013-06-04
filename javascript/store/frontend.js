@@ -114,8 +114,12 @@ $(document).ready(function() {
 	});
 	
 	/* E13 - Cart item change*/
-	$(".cart .change").click(function(){
-		handleCartChange(this);
+	$(".cart .plus").click(function(){
+		handleCartIncrement(this, 1);
+	});
+	
+	$(".cart .minus").click(function(){
+		handleCartIncrement(this, -1);
 	});
 	
 	/* E14 - Clear cart */
@@ -824,6 +828,13 @@ function handleCartChange(line){
 	document.location.reload(true);
 }
 
+function handleCartIncrement(line, inc){
+	var productId = getCartItemId(line);
+	var storeId = getStoreId();
+	requestCartChangeQuantity(storeId, productId, inc);
+	document.location.reload(true);
+}
+
 
 /** Request cart change quantity **/
 function requestCartChangeQuantity(storeId, productId, newQuantity){
@@ -838,6 +849,7 @@ function requestCartChangeQuantity(storeId, productId, newQuantity){
 	$.ajaxSetup({
 		"async" : true
 	});
+	console.log(data["responseText"]);
 	return $.parseJSON(data["responseText"])["result"];
 }
 
