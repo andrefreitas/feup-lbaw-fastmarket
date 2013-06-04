@@ -321,10 +321,10 @@ function getInvoiceOrderId($invoiceCode){
  */
 function getProductsAndQuantity($orderId)
 {
-	sql ="SELECT orders_products.product_id, orders_products.quantity 
+	$sql = "SELECT orders_products.product_id, orders_products.quantity 
 		  FROM orders_products 
 		  WHERE orders_products.order_id=? ";
-	return query(sql, array($orderId));
+	return query($sql, array($orderId));
 }
 
 /*
@@ -332,9 +332,9 @@ function getProductsAndQuantity($orderId)
  */
 function decreaseStock($productId,$quantity)
 {
-	sql="UPDATE products SET stock = ((SELECT stock FROM products WHERE id=?)-?) 
+	$sql = "UPDATE products SET stock = ((SELECT stock FROM products WHERE id=?)-?) 
 	     WHERE id=? ";
-	query(sql,array($productId,$quantity,$productId));
+	query($sql,array($productId,$quantity,$productId));
 }
 
 /**
