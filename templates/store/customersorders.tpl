@@ -31,7 +31,7 @@
                              {foreach from=$ordersInfo item=orderInfo}
                              <tr>
                              <td>{$orderInfo.name}</td>
-                             <td>{$orderInfo.order_date |date_format:'%Y-%m-%d %H:%M:%S'}</td>
+                             <td>{$orderInfo.order_date|date_format:'%Y-%m-%d %H:%M:%S'}</td>
                              <td>{$orderInfo.total} &euro;</td>
                              <td>{if $orderInfo.paid}{$totalPaid = $totalPaid + $orderInfo.total}<span class="label label-success">Paid</span> 
                                  {else} <span class="label label-warning">Pending</span> {/if}</td>
