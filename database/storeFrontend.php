@@ -67,7 +67,7 @@ function getCategories($storeId)
 function searchOnStore($storeId, $searchTerm, $limit)
 {
 	$sql = "SELECT products.id, products.name, products.description, products.base_cost AS price, 
-			categories.name AS category, files.path AS file
+			categories.name AS category, files.path AS file, files.name as filename
 			FROM products,categories,files
 			WHERE products.category_id=categories.id AND categories.store_id=? AND files.id=products.image_id
 			AND (products.description ~* ? OR products.name ~* ? OR categories.name ~* ?)

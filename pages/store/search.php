@@ -13,7 +13,7 @@ if(!isset($_GET["store"]) or !storeExists($_GET["store"])){
 
 // Update paths
 function updatePath($elem){
-	if($elem["filename"] != 'imageurl')
+	if(($elem["filename"]) != 'imageurl')
 		$elem["file"] = "../../files/" . $elem["file"];
     return $elem;
 };
@@ -32,7 +32,6 @@ $categories = getCategories($storeId);
 // Products
 $searchTerm = $_GET["terms"];
 $products = searchOnStore($storeId, $searchTerm, 30);
-//print_r($products);
 $products = array_map("updatePath", $products);
 
 // Vat
