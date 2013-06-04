@@ -39,23 +39,32 @@
 			    <br>
 			    {if $userPermission == "merchant"}
 				    <div id="merchantTools">
+				    <br>
 				    	<h1>Merchant Tools</h1><br>
 				    	<div>
 				    		<button class="btn" onclick="location.href='customersorders.php?store={$storeDomain}'">Customers Orders</button><br>
 				    		<br>
-				    		New Category <br>
-				    		Category: <input type="text" id="categoryName" value="">
+				    		<h4>New Category </h4><br>
+				    		Category: <input type="text" id="categoryName" value=""><br>
 				    		<button class="btn" id="addCategory">Add Category</button>
 				    		<button class="btn" id="removeCategory">Remove Category</button><br>
 					    	<br>
-					    	New Product
+					    	<h4>New Product</h4>
 					    	<br>
-					    	Name: <input type="text" id="newProductName" value=""><br>
-					    	Description: <input type="text" id="newProductDescription" value=""><br>
-					    	Base Cost: <input type="text" id="newProductCost" value=""><br>
-					    	Stock: <input type="text" id="newProductStock" value=""><br>
-					    	Category name: <input type="text" id="newProductCategory" value=""><br>
+					    	<table>
+						    	<tr><td>Name: </td>
+						    		<td><input type="text" id="newProductName" value=""></td></tr>
+						    	<tr><td>Description: </td>
+						    		<td><input type="text" id="newProductDescription" value=""></td></tr>
+						    	<tr><td>Base Cost: </td>
+						    		<td><input type="text" id="newProductCost" value=""></td></tr>
+						    	<tr><td>Stock: </td>
+						    		<td><input type="text" id="newProductStock" value=""></td></tr>
+						    	<tr><td>Category name: </td>
+						    		<td><input type="text" id="newProductCategory" value=""></td></tr>
+					    	</table>
 					    	<button class="btn" id="addProduct">Add Product</button>
+					    	<br><br>
 					    	
 				    	</div>
 				    </div>
