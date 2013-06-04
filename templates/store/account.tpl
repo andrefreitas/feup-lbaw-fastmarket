@@ -42,6 +42,8 @@
 				    	<h1>Merchant Tools</h1><br>
 				    	<div>
 				    		<button class="btn" onclick="location.href='customersorders.php?store={$storeDomain}'">Customers Orders</button><br>
+				    		<br>
+				    		New Category
 				    		Category: <input type="text" id="categoryName" value="">
 				    		<button class="btn" id="addCategory">Add Category</button>
 				    		<button class="btn" id="removeCategory">Remove Category</button><br>
