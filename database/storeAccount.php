@@ -315,12 +315,39 @@ function getInvoiceOrderId($invoiceCode){
         return $result[0]["order_id"];
     }
 }
+
+/*
+ * Get products id and quantity of some order
+ */
+function getProductsAndQuantity($orderId)
+{
+	sql ="SELECT orders_products.product_id, orders_products.quantity 
+		  FROM orders_products 
+		  WHERE orders_products.order_id=? ";
+	return query(sql, array($orderId));
+}
+
+/*
+ * Update stock while paying invoice
+ */
+function decreaseStock($productId,$quantity)
+{
+	sql="UPDATE products SET stock = ((SELECT stock FROM products WHERE id=?)-?) 
+	     WHERE id=? ";
+	query(sql,array($productId,$quantity,$productId));
+}
+
 /**
  * Pay Invoice
  */
 
 function payInvoice($invoiceCode){
     $orderId = getInvoiceOrderId($invoiceCode);
+    $products = getProductsAndQuantity($orderId);
+    foreach($products as $product)
+    {
+    	decreaseStock($product['product_id'],$product['quantity']);
+    }
     $sql = "UPDATE orders "
          . "SET paid = 'true' "
          . "WHERE id = ? ";
