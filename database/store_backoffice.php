@@ -156,7 +156,7 @@ chdir('../database');
 	/*
 		get orders
 	*/
-	function getOrders($store_id)
+	function getOrders2($store_id)
 	{
 		$sql="SELECT *
 				FROM orders, stores_users, users
