@@ -43,12 +43,12 @@
 				    	<div>
 				    		<button class="btn" onclick="location.href='customersorders.php?store={$storeDomain}'">Customers Orders</button><br>
 				    		<br>
-				    		<h2>New Category </h2><br>
+				    		<h4>New Category </h4><br>
 				    		Category: <input type="text" id="categoryName" value=""><br>
 				    		<button class="btn" id="addCategory">Add Category</button>
 				    		<button class="btn" id="removeCategory">Remove Category</button><br>
 					    	<br>
-					    	<h2>New Product</h2>
+					    	<h4>New Product</h4>
 					    	<br>
 					    	Name: <input type="text" id="newProductName" value=""><br>
 					    	Description: <input type="text" id="newProductDescription" value=""><br>
