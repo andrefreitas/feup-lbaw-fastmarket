@@ -64,6 +64,7 @@
 						    		<td><input type="text" id="newProductCategory" value=""></td></tr>
 					    	</table>
 					    	<button class="btn" id="addProduct">Add Product</button>
+					    	<br><br>
 					    	
 				    	</div>
 				    </div>
