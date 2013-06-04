@@ -61,7 +61,7 @@ $(document).ready(function() {
 		handleUserLogin();
 	});
 
-	/* E03 -Rating */
+	/* E03 - Rating */
 	$('#star').raty({
 		score : function() { return $(this).attr('data-score'); },
 		click : function() { handleRating() }
@@ -176,6 +176,11 @@ $(document).ready(function() {
 		handleViewInvoice(this);
 	});
 	
+	/* E26 - Go Back */
+	$("#goBack").click(function(){
+		javascript:history.go(-1);
+	})
+	/* E27 - Pay Invoice */
 	$("#payInvoice").click(function(){
 		handlePayInvoice();
 	});
