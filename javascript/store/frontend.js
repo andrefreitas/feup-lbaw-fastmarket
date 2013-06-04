@@ -6,6 +6,8 @@ $(document).ready(function() {
 	var storeHome= $("#storeHome");
 	var storeFavorites= $("#storeFavorites");
 	var storeCart= $("#storeCart");
+	var storeSubscriptions= $("#storeSubscriptions");
+	var storeOrders= $("#storeOrders");
 	
 	if(linkPage.match(/favorites.php/) != null)
 	{
@@ -36,7 +38,7 @@ $(document).ready(function() {
 		storeCart.attr("class","");
 		storeSubscriptions.attr("class","active");
 		storeOrders.attr("class","");
-	} else if(linkPage.match(/orders.php/) != null)
+	} else if(linkPage.match(/orders.php/) != null && linkPage.match(/customersorders.php/) == null)
 	{
 		storeHome.attr("class","");
 		storeFavorites.attr("class","");

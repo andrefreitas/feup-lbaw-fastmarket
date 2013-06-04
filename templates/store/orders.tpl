@@ -31,7 +31,7 @@
 			     {foreach from=$orders item=order}
     			     <tr>
     			     <td>{$order.id}</td>
-    			     <td>{$order.date}</td>
+    			     <td>{$order.date|date_format:'%Y-%m-%d %H:%M:%S'}</td>
     			     <td>{$order.total} &euro;</td>
     			     <td>{if $order.paid} <span class="label label-success">Paid</span> {else} <span class="label label-warning">Pending</span> {/if}</td>
     			     <td><button class="btn viewInvoice btn-small"><i class="icon-list-alt"></i> Invoice </button></td>
