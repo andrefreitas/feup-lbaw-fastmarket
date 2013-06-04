@@ -21,8 +21,15 @@
 			    
 			    {if $userPermission == "merchant"}
 				    <div id="customersOrders">
+				    	<span class="itemName">Customer</span> 
+				    		<span class="itemDate">Date</span>
+				    		<span class="itemPaid">State</span>  
+				    		<span class="itemTotal">Total</span> <br>
 				    	{foreach from=$ordersInfo item=orderInfo}
-				    		{$orderInfo.name} {$orderInfo.total} <br>
+				    		<span class="itemName">{$orderInfo.name}</span> 
+				    		<span class="itemDate">{$orderInfo.order_date}</span>
+				    		<span class="itemPaid">{$orderInfo.paid}</span>  
+				    		<span class="itemTotal">{$orderInfo.total}</span> <br>
 				    	{/foreach}
 				    </div>
 			    {/if}
