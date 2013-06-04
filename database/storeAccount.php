@@ -218,7 +218,7 @@ function setAccountPass($userId, $pass)
  * Get orders of user
 */
 
-function getOrders($userId)
+function getOrdersOfUser($userId)
 {
 	$sql = "SELECT orders.id, order_date as date, invoice.total, orders.paid
 			FROM orders,invoice
