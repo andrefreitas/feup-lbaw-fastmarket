@@ -6,6 +6,8 @@ $(document).ready(function() {
 	var storeHome= $("#storeHome");
 	var storeFavorites= $("#storeFavorites");
 	var storeCart= $("#storeCart");
+	var storeSubscriptions= $("#storeSubscriptions");
+	var storeOrders= $("#storeOrders");
 	
 	if(linkPage.match(/favorites.php/) != null)
 	{
