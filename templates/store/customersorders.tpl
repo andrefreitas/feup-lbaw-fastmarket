@@ -39,7 +39,7 @@
 			     {/foreach}
                  </table>
                  <br>
-                 <h>Total paid: {$totalPaid} &euro;</h>
+                 <h2>Total paid: {$totalPaid} &euro;</h2>
 			    
 			</div>
 			 {/if}
