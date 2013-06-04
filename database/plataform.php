@@ -209,8 +209,8 @@ function addNoCategory($store_id)
 	$name='no category';
 	$image='null';
 	$sql="INSERT INTO categories(name,store_id,image_id) 
-			VALUES(?,?,?)";
-	return query($sql,array($name,$store_id,$image));
+			VALUES(?,?,null)";
+	return query($sql,array($name,$store_id));
 }
 
 /*
