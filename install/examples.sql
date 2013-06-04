@@ -4,17 +4,17 @@ INSERT INTO users(name,email,password,registration_date,privilege_id, active)
 VALUES('admin','admin@fastmarket.com','d35aa290d06ae9cb981c71250356ce6d415a4e9299500dd2742cdbac5ef78b12',
 '2013-02-01',1,'true');
 /* MERCHANT - Password: Kl6jfuig */
-INSERT INTO users(name,email,password,registration_date,privilege_id, active) 
+INSERT INTO users(name,email,password,registration_date,privilege_id, active, address) 
 VALUES('Peter Griffin','peter@gmail.com','7fe0eb49c3719f1b97142c1e7bb9f91706d3e2a9167e271fda8b3d7545389cfe',
-'2013-02-01',2,'true');
+'2013-02-01',2,'true', 'Pearl, MS(Mississippi) 39208-6653');
 /* COSTUMER - Password: k8h3ugfs */
-INSERT INTO users(name,email,password,registration_date,privilege_id, active) 
+INSERT INTO users(name,email,password,registration_date,privilege_id, active, address) 
 VALUES('Sophie Adams','sophie@yahoo.com','a8c3210a0bb31d22b8bb0964ce4a9b3a556d98783b21bd2e787c355efbbad05c',
-'2013-02-01',3,'true');
+'2013-02-01',3,'true', 'Hapeville, GA(Georgia) 30354-1703');
 /* COSTUMER - Password: sdtg73oig3 */
-INSERT INTO users(name,email,password,registration_date,privilege_id, active) 
+INSERT INTO users(name,email,password,registration_date,privilege_id, active, address) 
 VALUES('Tony Perry','tony@yahoo.com','bc9d5178b8686a89052bc0b5f5af6a461ed034140e08bf07c4b8ff43477cfa46',
-'2013-02-01',3, 'true');
+'2013-02-01',3, 'true', 'Gladstone, MI(Michigan) 49837-9025');
 /* ADMIN - Password: 1234 */
 INSERT INTO users(name,email,password,registration_date,privilege_id, active) 
 VALUES('Andre Freitas','p.andrefreitas@gmail.com','03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4',
