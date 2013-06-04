@@ -63,8 +63,8 @@ if(isset($_SESSION['storesLogin'][$storeId]["cart"])){
 $totalVat = (1 + $vat) * $total;
 /* END -- Get store data */
 
-
-$smarty->assign('title', "Cart");
+$storeName = getStoreName($domain);
+$smarty->assign('title', $storeName . " Cart");
 $smarty->assign('logoPath', $logoPath);
 $smarty->assign('categories', $categories);
 $smarty->assign('storeDomain', $domain);

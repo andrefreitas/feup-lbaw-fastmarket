@@ -57,7 +57,8 @@ $smarty->assign('isLoggedIn', $isLoggedIn);
 /* END -- Get store data */
  
  
-$smarty->assign('title', "Product");
+$storeName = getStoreName($domain);
+$smarty->assign('title', $storeName . " View product");
 $smarty->assign('logoPath', $logoPath);
 $smarty->assign('categories', $categories);
 $smarty->assign('product', $product);

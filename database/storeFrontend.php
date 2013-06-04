@@ -276,6 +276,17 @@ function getStoreLogo($domain){
     }
 }
 
+function getStoreName($domain){
+    $sql = "SELECT name "
+         . "FROM stores "
+         . "WHERE domain = ?";
+    $result = query($sql, array($domain));
+    if(isset($result[0])){
+        return $result[0]["name"];
+    }
+    
+}
+
 /**
  * Check if store exists
  */

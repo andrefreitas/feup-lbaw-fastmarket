@@ -57,7 +57,8 @@ if(isset($_SESSION['storesLogin'][$storeId]['userId'])){
 /* END -- Get store data */
 
 
-$smarty->assign('title', "Welcome");
+$storeName = getStoreName($domain);
+$smarty->assign('title', $storeName);
 $smarty->assign('logoPath', $logoPath);
 $smarty->assign('categories', $categories);
 $smarty->assign('products', $products);
