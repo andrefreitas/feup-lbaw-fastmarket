@@ -12,17 +12,37 @@ $(document).ready(function() {
 		storeHome.attr("class","");
 		storeFavorites.attr("class","active");
 		storeCart.attr("class","");
+		storeSubscriptions.attr("class","");
+		storeOrders.attr("class","");
 	} else if(linkPage.match(/index.php/) != null)
 	{
 		
 		storeHome.attr("class","active");
 		storeFavorites.attr("class","");
 		storeCart.attr("class","");
+		storeSubscriptions.attr("class","");
+		storeOrders.attr("class","");
 	} else if(linkPage.match(/cart.php/) != null)
 	{
 		storeHome.attr("class","");
 		storeFavorites.attr("class","");
 		storeCart.attr("class","active");
+		storeSubscriptions.attr("class","");
+		storeOrders.attr("class","");
+	} else if(linkPage.match(/subscriptions.php/) != null)
+	{
+		storeHome.attr("class","");
+		storeFavorites.attr("class","");
+		storeCart.attr("class","");
+		storeSubscriptions.attr("class","active");
+		storeOrders.attr("class","");
+	} else if(linkPage.match(/orders.php/) != null)
+	{
+		storeHome.attr("class","");
+		storeFavorites.attr("class","");
+		storeCart.attr("class","");
+		storeSubscriptions.attr("class","");
+		storeOrders.attr("class","active");
 	}
 
 	/***************************************************************************
