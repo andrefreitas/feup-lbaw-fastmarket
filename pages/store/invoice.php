@@ -8,6 +8,8 @@ if(isset($_GET["orderId"])){
    
     $orderId = intval($_GET["orderId"]);
     $userId = getOrderUserId($orderId);
+    $user = get_UserById($userId);
+    $address = $user["address"];
     $storeId = getUserStoreID($userId);
     
     
@@ -24,6 +26,7 @@ if(isset($_GET["orderId"])){
             $smarty->assign("invoice", $invoice);
             $smarty->assign("order", $order);
             $smarty->assign("paid", $paid);
+            $smarty->assign("address", $address);
             $smarty->display('store/invoice.tpl');
         }
     }

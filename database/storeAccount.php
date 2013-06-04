@@ -373,4 +373,10 @@ function getUserStoreID($userId){
         return $result[0]["store_id"];
     }
 }
+
+function get_UserById($userId){
+    $sql = "SELECT * FROM users WHERE id = ?";
+    $result = query($sql, array($userId));
+    return $result ? $result[0] : false;
+}
 ?>
