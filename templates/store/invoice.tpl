@@ -23,7 +23,7 @@
                  <span class="sub"><b>Vat</b>  {$invoice.vat*100} %</span>
              </div>
              <div class="payment">
-             <button class="btn btn-inverse" id="payInvoice"> Pay Invoice </button>
+             {if $paid == 'false'}<button class="btn btn-inverse" id="payInvoice"> Pay Invoice </button>{/if}
              </div>
              <!-- Items -->
              <table class="table table-striped cart" id="invoiceItems">
