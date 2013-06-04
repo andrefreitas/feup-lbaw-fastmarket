@@ -33,5 +33,5 @@ $id = createInvoice($code, $total, $vat, $orderId);
 // Clear cart
 $_SESSION['storesLogin'][$storeId]['cart'] = array();
 
-header("Location: ../../pages/store/invoice.php?orderId=".$id);
+header("Location: ../../pages/store/invoice.php?orderId=" . $orderId);
 ?>
