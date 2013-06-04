@@ -20,7 +20,7 @@
 	<div class="bodyContainer">
 	   
 		<header>
-			<img src="{$logoPath}" alt="Logo" class="logo fixedSize" />
+			<a href="index.php?store={$storeDomain}"><img src="{$logoPath}" alt="Logo" class="logo fixedSize" /></a>
 			{if $userPermission != "guest"}
 			<div class="search form-search">
                   <div class="input-append">
