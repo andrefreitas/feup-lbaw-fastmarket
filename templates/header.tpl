@@ -23,7 +23,7 @@
         <header>
             <div class="container">
                 <div class="logo">
-                    <img src="../images/logo_white.png" alt="fastmarket"/>
+                    <a href="administration.php"><img src="../images/logo_white.png" alt="fastmarket"/></a>
                 </div>
                 <nav>
                     <ul>
