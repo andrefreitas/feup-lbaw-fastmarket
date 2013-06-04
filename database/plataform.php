@@ -206,9 +206,11 @@ function createStore($name, $slogan, $domain, $vat,$logoId){
 */
 function addNoCategory($store_id)
 {
+	$name="no category";
+	$image="null";
 	$sql="INSERT INTO categories(name,store_id,image_id) 
-			VALUES(no category,?,null)";
-	return query($sql,array($store_id));
+			VALUES(?,?,?)";
+	return query($sql,array($name,$store_id,$image));
 }
 
 /*
