@@ -170,7 +170,7 @@ chdir('../database');
 	*/
 	function getCustomersOrders($store_id)
 	{
-		$sql="SELECT users.name, orders.order_date, invoice.total, orders.paid 
+		$sql="SELECT users.name, orders.order_date, invoice.total, orders.paid, orders.id 
 				FROM orders, stores_users, users, invoice
 				WHERE orders.costumer_id=stores_users.user_id AND stores_users.store_id=? AND
 						users.id=stores_users.user_id AND invoice.order_id=orders.id";

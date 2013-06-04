@@ -180,6 +180,7 @@ $(document).ready(function() {
 		handleViewInvoice(this);
 	});
 	
+	
 	/* E26 - Go Back */
 	$("#goBack").click(function(){
 		javascript:history.go(-1);

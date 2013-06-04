@@ -21,21 +21,26 @@
                             <!-- Orders -->
                             <table class="table table-striped ">
                          <tr>
+                             <th>#</th>
                              <th>Customer</th>
                              <th>Date</th>
                              <th>Total</th>
                              <th>Status</th>
+                             <th>Actions</th>
                              
                          </tr>
                          {$totalPaid=0}
                              {foreach from=$ordersInfo item=orderInfo}
                              <tr>
+                             <td>{$orderInfo.id}</td>
                              <td>{$orderInfo.name}</td>
                              <td>{$orderInfo.order_date|date_format:'%Y-%m-%d %H:%M:%S'}</td>
                              <td>{$orderInfo.total} &euro;</td>
                              <td>{if $orderInfo.paid}{$totalPaid = $totalPaid + $orderInfo.total}<span class="label label-success">Paid</span> 
                                  {else} <span class="label label-warning">Pending</span> {/if}</td>
+                             <td><button class="btn viewInvoice btn-small"><i class="icon-list-alt"></i> View Invoice </button></td>
                              </tr>
+                             
                              {/foreach}
                  </table>
                  <br>
