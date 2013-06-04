@@ -195,8 +195,20 @@ function updateUser($userId, $name, $email, $password, $privilegeId){
 */
 function createStore($name, $slogan, $domain, $vat,$logoId){
     $sql = "INSERT INTO stores(name, slogan, domain, vat, creation_date,logo_id) "
-         . "VALUES(?, ?, ?, ?, CURRENT_TIMESTAMP,?)";
-    query($sql, array($name, $slogan, $domain, $vat,$logoId));
+         . "VALUES(?, ?, ?, ?, CURRENT_TIMESTAMP,?)
+         	RETURNING id ";
+    $ret = query($sql, array($name, $slogan, $domain, $vat,$logoId));
+    return $ret[0]['id'];
+}
+
+/*
+	add no category to store
+*/
+function addNoCategory($store_id)
+{
+	$sql="INSERT INTO categories(name,store_id,image_id) 
+			VALUES(no category,?,null)";
+	return query($sql,array($store_id));
 }
 
 /*
