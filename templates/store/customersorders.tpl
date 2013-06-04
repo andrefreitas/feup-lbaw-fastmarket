@@ -16,24 +16,29 @@
                     {/if}
 				</ul>
 			</div>
+			{if $userPermission == "merchant"}
 			<div class="span_account span10">
 			    <!-- Orders -->
+			    <table class="table table-striped ">
+    			 <tr>
+    			     <th>Customer</th>
+    			     <th>Date</th>
+    			     <th>Total</th>
+    			     <th>Status</th>
+    			     
+    			 </tr>
+			     {foreach from=$ordersInfo item=orderInfo}
+    			     <tr>
+    			     <td>{$orderInfo.name}</td>
+    			     <td>{$orderInfo.order_date}</td>
+    			     <td>{$orderInfo.total} &euro;</td>
+    			     <td>{$orderInfo.paid}</td>
+    			     </tr>
+			     {/foreach}
+                 </table>
 			    
-			    {if $userPermission == "merchant"}
-				    <div id="customersOrders">
-				    	<span class="itemName">Customer</span> 
-				    		<span class="itemDate">Date</span>
-				    		<span class="itemPaid">State</span>  
-				    		<span class="itemTotal">Total</span> <br>
-				    	{foreach from=$ordersInfo item=orderInfo}
-				    		<span class="itemName">{$orderInfo.name}</span> 
-				    		<span class="itemDate">{$orderInfo.order_date}</span>
-				    		<span class="itemPaid">{$orderInfo.paid}</span>  
-				    		<span class="itemTotal">{$orderInfo.total}</span> <br>
-				    	{/foreach}
-				    </div>
-			    {/if}
 			</div>
+			 {/if}
 		</div>
 		
 	</div>
