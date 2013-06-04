@@ -334,7 +334,16 @@ function createInvoice($code, $total, $vat, $orderId){
     return $result[0]["id"];
 }
 
+/**
+ * Set user address
+ */
 
+function setUserAddress($userId, $address){
+    $sql = "UPDATE users "
+            . "SET address = ? "
+                    . "WHERE id = ? ";
+    query($sql, array($address, $userId));
+}
 
 
 ?>

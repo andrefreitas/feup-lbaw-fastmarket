@@ -901,12 +901,15 @@ function getCartTotal(storeId){
 	return $.parseJSON(data["responseText"])["total"];
 }
 
+function getAddress(){
+	return $(".address textarea").val();
+}
 function handleCheckout(){
 	if(isLoggedIn()){
 		var storeId = getStoreId();
 		var cartTotal = getCartTotal(storeId);
 		if(cartTotal>0 && confirm("Are you sure you want to checkout?")){
-				window.location = "../../actions/store/checkout.php?storeId="+ storeId;
+				window.location = "../../actions/store/checkout.php?storeId="+ storeId + "&address= " + getAddress();
 		} else if(cartTotal == 0){
 			alert("Your cart is empty!");
 		}

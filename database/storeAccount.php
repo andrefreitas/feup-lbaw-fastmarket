@@ -353,4 +353,6 @@ function payInvoice($invoiceCode){
          . "WHERE id = ? ";
     query($sql, array($orderId));
 }
+
+
 ?>

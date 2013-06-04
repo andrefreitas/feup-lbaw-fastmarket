@@ -258,3 +258,7 @@ header .logout{
 .minus{
 	cursor: pointer;
 }
+
+.address textarea{
+	width: 700px;
+}

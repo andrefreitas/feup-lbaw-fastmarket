@@ -27,6 +27,7 @@ CREATE TABLE users(
      email TEXT NOT NULL,
      password TEXT NOT NULL,
      registration_date DATE NOT NULL,
+     address TEXT,
      active BOOLEAN NOT NULL DEFAULT 'false',
      privilege_id INTEGER REFERENCES privileges(id) NOT NULL
 );

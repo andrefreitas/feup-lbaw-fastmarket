@@ -7,6 +7,8 @@ require_once("storeFrontend.php");
 // Get data
 $storeId = intval($_GET["storeId"]);
 $userId = $_SESSION['storesLogin'][$storeId]['userId'];
+$address = $_GET["address"];
+setUserAddress($userId, $address);
 $cart = $_SESSION['storesLogin'][$storeId]['cart'];
 
 // Create order

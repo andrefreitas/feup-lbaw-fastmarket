@@ -41,6 +41,12 @@
 			 {/foreach}
 
             </table>
+            {if $loggedIn}
+            <div class="address">
+            <h5>Shipping Address</h5>
+            <textarea rows="3">{$address}</textarea>
+            </div>
+            {/if}
             <div class="total">
             <b>Total with VAT</b>  {$totalVat} &euro; <button class="btn btn-inverse" id="checkout"><i class="icon-shopping-cart icon-white"></i> Checkout</button> <button class="btn btn-danger" id="clearCart"><i class="icon-trash icon-white"></i> Clear Cart</button>
 			

@@ -32,14 +32,17 @@ $vat_oux = getStoreById($storeId);
 $vat=$vat_oux[0]["vat"];
 
 //logged in user
-
+$loggedIn = false;
+$address = "";
 $smarty->assign('userPermission', 'guest');
 if(isset($_SESSION['storesLogin'][$storeId]['userId'])){
     $userInfo = $_SESSION['storesLogin'][$storeId]['userId'];
-    
+   
     if(isset($userInfo))
     {
+        $loggedIn = true;
     	$userInfo = getuserById($userInfo);
+    	$address = $userInfo["address"];
     }
     $smarty->assign('userInfo', $userInfo);
 }
@@ -71,6 +74,8 @@ $smarty->assign('storeDomain', $domain);
 $smarty->assign('storeId', $storeId);
 $smarty->assign('total', $total);
 $smarty->assign('totalVat', $totalVat);
+$smarty->assign('loggedIn', $loggedIn);
+$smarty->assign('address', $address);
 $smarty->assign('vat', $vat);
 $smarty->assign('cartProducts', $cartProducts);
 $smarty->display('store/cart.tpl');
