@@ -20,19 +20,30 @@
 			    <!-- Account -->
 			    <h1>{$userInfo.name}</h1><br>
 			    <input type="hidden" value="{$userInfo.id}" id="AccountId">
-			    <div>
-			    	Account name: <input type="text" id="newName" value="{$userInfo.name}"><br>
-			    	Email: <input type="text" id="newEmail" value="{$userInfo.email}"><br>
-			    	New password: <input type="password" value="" id="newPass"><br>
-			    	
+			    <table>
+			    	<tr>
+			    		<td>Account name: </td>
+			    		<td><input type="text" id="newName" value="{$userInfo.name}"></td>
+			    	</tr>
+			    	<tr>
+			    		<td>Email: </td>
+			    		<td><input type="text" id="newEmail" value="{$userInfo.email}"></td>
+			    	</tr>
+			    	<tr>
+			    		<td>New password: </td>
+			    		<td><input type="password" value="" id="newPass"></td>
+			    	</tr>
+			    </table>	
 			    	<button class="btn" id="updateAccount">Update Account</button>
-			    </div>
+			    
 			    <br>
 			    {if $userPermission == "merchant"}
 				    <div id="merchantTools">
 				    	<h1>Merchant Tools</h1><br>
 				    	<div>
 				    		<button class="btn" onclick="location.href='customersorders.php?store={$storeDomain}'">Customers Orders</button><br>
+				    		<br>
+				    		New Category <br>
 				    		Category: <input type="text" id="categoryName" value="">
 				    		<button class="btn" id="addCategory">Add Category</button>
 				    		<button class="btn" id="removeCategory">Remove Category</button><br>
