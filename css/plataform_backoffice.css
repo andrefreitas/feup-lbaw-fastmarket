@@ -464,6 +464,14 @@ header .userInfo .permission{
       background-position: 12px 13px;
 }
 
+.registrationStore input[name="logo"],
+.editStore input[name="logo"]{
+	  background-image: url('../images/icon-logo.png');
+      background-repeat: no-repeat;
+      background-position: 12px 13px;
+}
+
+
 /* Add Store */
 
 

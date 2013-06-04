@@ -34,7 +34,7 @@
                 <input type="text" name="slogan" placeholder="slogan..."/><br/>
                 <input type="text" name="vat" placeholder="vat..."/><br/>
                 <input type="text" name="domain" placeholder="domain..."/><br/>
-                <input type="text" name="logo" placeholder="Change logo image..."/><br/>
+                <input type="text" name="logo" placeholder="Logo URL"/><br/>
                 <button type="button" name="save">Save changes</button>
             </form>
         </div>
