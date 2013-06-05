@@ -73,8 +73,9 @@
 		   
 		    	   <span class="body"> {$comment.body} </span><br>
 		    		{if $userPermission =='merchant'}
+		    		<br>
 		    		<input type="hidden" value="{$comment.id}"/>
-		    		<button class="btn btn-mini removeComment" type="button" >Remove Comment</button>
+		    		<button class="btn btn-mini removeComment" style="float:right" type="button" >Remove Comment</button>
 		    		{/if}
 		    	</div>
 		    {/foreach}

@@ -150,6 +150,15 @@ function insertComment($productId, $userId, $comment)
 }
 
 /*
+ * Remove comment
+ */
+function removeComment($commentId)
+{
+	$sql="DELETE FROM comments WHERE id=?";
+	query($sql,array($commentId));
+}
+
+/*
  * Add new subscription user->product
 */
 
