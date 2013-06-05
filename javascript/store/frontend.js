@@ -204,7 +204,7 @@ $(document).ready(function() {
 function handleRemoveComment(buttonR)
 {
 	var storeId = getStoreId();
-	var commentId = buttonR.parent().children("input").first().val();
+	var commentId = $(buttonR).parent().children("input").first().val();
 	$.ajaxSetup({
 		"async" : false
 	});
