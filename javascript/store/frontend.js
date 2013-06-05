@@ -87,6 +87,11 @@ $(document).ready(function() {
 	$("#addComment").click(function() {
 		handleAddComment();
 	});
+	
+	/* Remove comment*/
+	$(".removeComment").click(function(){
+		handleRemoveComment();
+	});
 
 	/* E08 - Subscribe */
 	$("#subscribe").click(function() {
@@ -192,6 +197,33 @@ $(document).ready(function() {
 	
 	
 });
+
+/*
+ * Remove Comment 
+ */
+function handleRemoveComment()
+{
+	var storeId = getStoreId();
+	var commentId = $(".removeComment").parent().children("input").first().val();
+	$.ajaxSetup({
+		"async" : false
+	});
+	var data = $.getJSON("../../ajax/store/removeComment.php?", {
+		commentId: commentId,
+		storeId: storeId
+	});
+	$.ajaxSetup({
+		"async" : true
+	});
+
+	var ret = $.parseJSON(data["responseText"])["result"];
+	if(ret=="ok")
+	{
+		var storeDomain = $("#registerForm #storeDomain").val();
+		window.location.href= "index.php?store=" + storeDomain;
+		
+	}
+}
 
 /*
  * Edit product
