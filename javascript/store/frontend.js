@@ -90,7 +90,7 @@ $(document).ready(function() {
 	
 	/* Remove comment*/
 	$(".removeComment").click(function(){
-		handleRemoveComment();
+		handleRemoveComment(this);
 	});
 
 	/* E08 - Subscribe */
@@ -201,10 +201,10 @@ $(document).ready(function() {
 /*
  * Remove Comment 
  */
-function handleRemoveComment()
+function handleRemoveComment(buttonR)
 {
 	var storeId = getStoreId();
-	var commentId = $(".removeComment").parent("div").children("input").first().val();
+	var commentId = buttonR.parent().children("input").first().val();
 	$.ajaxSetup({
 		"async" : false
 	});
